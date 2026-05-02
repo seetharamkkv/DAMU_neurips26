@@ -1,0 +1,65 @@
+============================================================
+BATCH GENERATION STATISTICS
+============================================================
+
+Total Clips Generated: 31
+
+Vehicle Distribution:
+  Peugeot3008: 31 clips (100.0%)
+
+Path Type Distribution:
+  straight: 31 clips (100.0%)
+
+Speed Statistics:
+  Min: 11.1 m/s
+  Max: 27.8 m/s
+  Mean: 19.3 m/s
+  Median: 18.9 m/s
+
+Distance Statistics:
+  Min: 0.5 m
+  Max: 0.5 m
+  Mean: 0.5 m
+  Median: 0.5 m
+
+Duration Statistics:
+  Min: 10.0 s
+  Max: 10.0 s
+  Mean: 10.0 s
+  Median: 10.0 s
+
+Per-Clip Speeds:
+----------------------------------------
+  Clip    1:   11.1 m/s  (Peugeot3008)
+  Clip    2:   11.9 m/s  (Peugeot3008)
+  Clip    3:   12.5 m/s  (Peugeot3008)
+  Clip    4:   13.1 m/s  (Peugeot3008)
+  Clip    5:   13.9 m/s  (Peugeot3008)
+  Clip    6:   14.4 m/s  (Peugeot3008)
+  Clip    7:   15.0 m/s  (Peugeot3008)
+  Clip    8:   15.3 m/s  (Peugeot3008)
+  Clip    9:   15.6 m/s  (Peugeot3008)
+  Clip   10:   16.1 m/s  (Peugeot3008)
+  Clip   11:   16.7 m/s  (Peugeot3008)
+  Clip   12:   16.9 m/s  (Peugeot3008)
+  Clip   13:   17.5 m/s  (Peugeot3008)
+  Clip   14:   18.1 m/s  (Peugeot3008)
+  Clip   15:   18.6 m/s  (Peugeot3008)
+  Clip   16:   18.9 m/s  (Peugeot3008)
+  Clip   17:   19.4 m/s  (Peugeot3008)
+  Clip   18:   20.0 m/s  (Peugeot3008)
+  Clip   19:   20.6 m/s  (Peugeot3008)
+  Clip   20:   20.8 m/s  (Peugeot3008)
+  Clip   21:   21.7 m/s  (Peugeot3008)
+  Clip   22:   22.2 m/s  (Peugeot3008)
+  Clip   23:   23.1 m/s  (Peugeot3008)
+  Clip   24:   23.6 m/s  (Peugeot3008)
+  Clip   25:   24.2 m/s  (Peugeot3008)
+  Clip   26:   24.7 m/s  (Peugeot3008)
+  Clip   27:   25.0 m/s  (Peugeot3008)
+  Clip   28:   25.6 m/s  (Peugeot3008)
+  Clip   29:   26.4 m/s  (Peugeot3008)
+  Clip   30:   26.9 m/s  (Peugeot3008)
+  Clip   31:   27.8 m/s  (Peugeot3008)
+
+============================================================

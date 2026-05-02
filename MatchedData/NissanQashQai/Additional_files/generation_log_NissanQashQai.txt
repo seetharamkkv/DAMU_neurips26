@@ -1,0 +1,4 @@
+DopplerNet Mixed Batch Log: NissanQashQai
+============================================================
+Total Clips: 29
+Output Format: VS13-Compatible

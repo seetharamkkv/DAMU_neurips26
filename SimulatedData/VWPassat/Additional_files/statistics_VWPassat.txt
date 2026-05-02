@@ -1,0 +1,111 @@
+============================================================
+BATCH GENERATION STATISTICS
+============================================================
+
+Total Clips Generated: 77
+
+Vehicle Distribution:
+  VWPassat: 77 clips (100.0%)
+
+Path Type Distribution:
+  straight: 77 clips (100.0%)
+
+Speed Statistics:
+  Min: 8.3 m/s
+  Max: 29.4 m/s
+  Mean: 18.9 m/s
+  Median: 18.9 m/s
+
+Distance Statistics:
+  Min: 0.5 m
+  Max: 0.5 m
+  Mean: 0.5 m
+  Median: 0.5 m
+
+Duration Statistics:
+  Min: 10.0 s
+  Max: 10.0 s
+  Mean: 10.0 s
+  Median: 10.0 s
+
+Per-Clip Speeds:
+----------------------------------------
+  Clip    1:    8.3 m/s  (VWPassat)
+  Clip    2:    8.6 m/s  (VWPassat)
+  Clip    3:    8.9 m/s  (VWPassat)
+  Clip    4:    9.2 m/s  (VWPassat)
+  Clip    5:    9.4 m/s  (VWPassat)
+  Clip    6:    9.7 m/s  (VWPassat)
+  Clip    7:   10.0 m/s  (VWPassat)
+  Clip    8:   10.3 m/s  (VWPassat)
+  Clip    9:   10.6 m/s  (VWPassat)
+  Clip   10:   10.8 m/s  (VWPassat)
+  Clip   11:   11.1 m/s  (VWPassat)
+  Clip   12:   11.4 m/s  (VWPassat)
+  Clip   13:   11.7 m/s  (VWPassat)
+  Clip   14:   11.9 m/s  (VWPassat)
+  Clip   15:   12.2 m/s  (VWPassat)
+  Clip   16:   12.5 m/s  (VWPassat)
+  Clip   17:   12.8 m/s  (VWPassat)
+  Clip   18:   13.1 m/s  (VWPassat)
+  Clip   19:   13.3 m/s  (VWPassat)
+  Clip   20:   13.6 m/s  (VWPassat)
+  Clip   21:   13.9 m/s  (VWPassat)
+  Clip   22:   14.2 m/s  (VWPassat)
+  Clip   23:   14.4 m/s  (VWPassat)
+  Clip   24:   14.7 m/s  (VWPassat)
+  Clip   25:   15.0 m/s  (VWPassat)
+  Clip   26:   15.3 m/s  (VWPassat)
+  Clip   27:   15.6 m/s  (VWPassat)
+  Clip   28:   15.8 m/s  (VWPassat)
+  Clip   29:   16.1 m/s  (VWPassat)
+  Clip   30:   16.4 m/s  (VWPassat)
+  Clip   31:   16.7 m/s  (VWPassat)
+  Clip   32:   16.9 m/s  (VWPassat)
+  Clip   33:   17.2 m/s  (VWPassat)
+  Clip   34:   17.5 m/s  (VWPassat)
+  Clip   35:   17.8 m/s  (VWPassat)
+  Clip   36:   18.1 m/s  (VWPassat)
+  Clip   37:   18.3 m/s  (VWPassat)
+  Clip   38:   18.6 m/s  (VWPassat)
+  Clip   39:   18.9 m/s  (VWPassat)
+  Clip   40:   19.2 m/s  (VWPassat)
+  Clip   41:   19.4 m/s  (VWPassat)
+  Clip   42:   19.7 m/s  (VWPassat)
+  Clip   43:   20.0 m/s  (VWPassat)
+  Clip   44:   20.3 m/s  (VWPassat)
+  Clip   45:   20.6 m/s  (VWPassat)
+  Clip   46:   20.8 m/s  (VWPassat)
+  Clip   47:   21.1 m/s  (VWPassat)
+  Clip   48:   21.4 m/s  (VWPassat)
+  Clip   49:   21.7 m/s  (VWPassat)
+  Clip   50:   21.9 m/s  (VWPassat)
+  Clip   51:   22.2 m/s  (VWPassat)
+  Clip   52:   22.5 m/s  (VWPassat)
+  Clip   53:   22.8 m/s  (VWPassat)
+  Clip   54:   23.1 m/s  (VWPassat)
+  Clip   55:   23.3 m/s  (VWPassat)
+  Clip   56:   23.6 m/s  (VWPassat)
+  Clip   57:   23.9 m/s  (VWPassat)
+  Clip   58:   24.2 m/s  (VWPassat)
+  Clip   59:   24.4 m/s  (VWPassat)
+  Clip   60:   24.7 m/s  (VWPassat)
+  Clip   61:   25.0 m/s  (VWPassat)
+  Clip   62:   25.3 m/s  (VWPassat)
+  Clip   63:   25.6 m/s  (VWPassat)
+  Clip   64:   25.8 m/s  (VWPassat)
+  Clip   65:   26.1 m/s  (VWPassat)
+  Clip   66:   26.4 m/s  (VWPassat)
+  Clip   67:   26.7 m/s  (VWPassat)
+  Clip   68:   26.9 m/s  (VWPassat)
+  Clip   69:   27.2 m/s  (VWPassat)
+  Clip   70:   27.5 m/s  (VWPassat)
+  Clip   71:   27.8 m/s  (VWPassat)
+  Clip   72:   28.1 m/s  (VWPassat)
+  Clip   73:   28.3 m/s  (VWPassat)
+  Clip   74:   28.6 m/s  (VWPassat)
+  Clip   75:   28.9 m/s  (VWPassat)
+  Clip   76:   29.2 m/s  (VWPassat)
+  Clip   77:   29.4 m/s  (VWPassat)
+
+============================================================

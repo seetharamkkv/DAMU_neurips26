@@ -1,0 +1,1061 @@
+{
+  "car": "KiaSportage",
+  "clips": [
+    {
+      "filename": "(test_31.0_)KiaSportage_straight_8.61111111111111mps_0.5m_0000001.wav",
+      "index": 1,
+      "vehicle": "KiaSportage",
+      "path_type": "straight",
+      "parameters": {
+        "speed": 8.61111111111111,
+        "distance": 0.5,
+        "angle": 0.0,
+        "duration": 10.0,
+        "acceleration": 0.0,
+        "temperature": 20,
+        "humidity": 50
+      },
+      "labels": {
+        "speed_mps": 8.61111111111111,
+        "acceleration_mps2": 0.0,
+        "direction_label": 0,
+        "cpa_distance_m": 0.5,
+        "trajectory_type": "straight",
+        "cpa_time_sec": 5.0,
+        "num_sources": 1,
+        "is_crossing": false,
+        "vehicle_class": "KiaSportage"
+      },
+      "freq_ratio_range": {
+        "min": 1.0,
+        "max": 1.0
+      },
+      "path_plot": "(test_31.0_)KiaSportage_straight_8.61111111111111mps_0.5m_0000001.png",
+      "sample_dir": "sample_0000001"
+    },
+    {
+      "filename": "(test_33.0_)KiaSportage_straight_9.166666666666666mps_0.5m_0000002.wav",
+      "index": 2,
+      "vehicle": "KiaSportage",
+      "path_type": "straight",
+      "parameters": {
+        "speed": 9.166666666666666,
+        "distance": 0.5,
+        "angle": 0.0,
+        "duration": 10.0,
+        "acceleration": 0.0,
+        "temperature": 20,
+        "humidity": 50
+      },
+      "labels": {
+        "speed_mps": 9.166666666666666,
+        "acceleration_mps2": 0.0,
+        "direction_label": 0,
+        "cpa_distance_m": 0.5,
+        "trajectory_type": "straight",
+        "cpa_time_sec": 5.0,
+        "num_sources": 1,
+        "is_crossing": false,
+        "vehicle_class": "KiaSportage"
+      },
+      "freq_ratio_range": {
+        "min": 1.0,
+        "max": 1.0
+      },
+      "path_plot": "(test_33.0_)KiaSportage_straight_9.166666666666666mps_0.5m_0000002.png",
+      "sample_dir": "sample_0000002"
+    },
+    {
+      "filename": "(test_35.0_)KiaSportage_straight_9.722222222222221mps_0.5m_0000003.wav",
+      "index": 3,
+      "vehicle": "KiaSportage",
+      "path_type": "straight",
+      "parameters": {
+        "speed": 9.722222222222221,
+        "distance": 0.5,
+        "angle": 0.0,
+        "duration": 10.0,
+        "acceleration": 0.0,
+        "temperature": 20,
+        "humidity": 50
+      },
+      "labels": {
+        "speed_mps": 9.722222222222221,
+        "acceleration_mps2": 0.0,
+        "direction_label": 0,
+        "cpa_distance_m": 0.5,
+        "trajectory_type": "straight",
+        "cpa_time_sec": 5.0,
+        "num_sources": 1,
+        "is_crossing": false,
+        "vehicle_class": "KiaSportage"
+      },
+      "freq_ratio_range": {
+        "min": 1.0,
+        "max": 1.0
+      },
+      "path_plot": "(test_35.0_)KiaSportage_straight_9.722222222222221mps_0.5m_0000003.png",
+      "sample_dir": "sample_0000003"
+    },
+    {
+      "filename": "(test_38.0_)KiaSportage_straight_10.555555555555555mps_0.5m_0000004.wav",
+      "index": 4,
+      "vehicle": "KiaSportage",
+      "path_type": "straight",
+      "parameters": {
+        "speed": 10.555555555555555,
+        "distance": 0.5,
+        "angle": 0.0,
+        "duration": 10.0,
+        "acceleration": 0.0,
+        "temperature": 20,
+        "humidity": 50
+      },
+      "labels": {
+        "speed_mps": 10.555555555555555,
+        "acceleration_mps2": 0.0,
+        "direction_label": 0,
+        "cpa_distance_m": 0.5,
+        "trajectory_type": "straight",
+        "cpa_time_sec": 5.0,
+        "num_sources": 1,
+        "is_crossing": false,
+        "vehicle_class": "KiaSportage"
+      },
+      "freq_ratio_range": {
+        "min": 1.0,
+        "max": 1.0
+      },
+      "path_plot": "(test_38.0_)KiaSportage_straight_10.555555555555555mps_0.5m_0000004.png",
+      "sample_dir": "sample_0000004"
+    },
+    {
+      "filename": "(test_41.0_)KiaSportage_straight_11.38888888888889mps_0.5m_0000005.wav",
+      "index": 5,
+      "vehicle": "KiaSportage",
+      "path_type": "straight",
+      "parameters": {
+        "speed": 11.38888888888889,
+        "distance": 0.5,
+        "angle": 0.0,
+        "duration": 10.0,
+        "acceleration": 0.0,
+        "temperature": 20,
+        "humidity": 50
+      },
+      "labels": {
+        "speed_mps": 11.38888888888889,
+        "acceleration_mps2": 0.0,
+        "direction_label": 0,
+        "cpa_distance_m": 0.5,
+        "trajectory_type": "straight",
+        "cpa_time_sec": 5.0,
+        "num_sources": 1,
+        "is_crossing": false,
+        "vehicle_class": "KiaSportage"
+      },
+      "freq_ratio_range": {
+        "min": 1.0,
+        "max": 1.0
+      },
+      "path_plot": "(test_41.0_)KiaSportage_straight_11.38888888888889mps_0.5m_0000005.png",
+      "sample_dir": "sample_0000005"
+    },
+    {
+      "filename": "(test_44.0_)KiaSportage_straight_12.222222222222221mps_0.5m_0000006.wav",
+      "index": 6,
+      "vehicle": "KiaSportage",
+      "path_type": "straight",
+      "parameters": {
+        "speed": 12.222222222222221,
+        "distance": 0.5,
+        "angle": 0.0,
+        "duration": 10.0,
+        "acceleration": 0.0,
+        "temperature": 20,
+        "humidity": 50
+      },
+      "labels": {
+        "speed_mps": 12.222222222222221,
+        "acceleration_mps2": 0.0,
+        "direction_label": 0,
+        "cpa_distance_m": 0.5,
+        "trajectory_type": "straight",
+        "cpa_time_sec": 5.0,
+        "num_sources": 1,
+        "is_crossing": false,
+        "vehicle_class": "KiaSportage"
+      },
+      "freq_ratio_range": {
+        "min": 1.0,
+        "max": 1.0
+      },
+      "path_plot": "(test_44.0_)KiaSportage_straight_12.222222222222221mps_0.5m_0000006.png",
+      "sample_dir": "sample_0000006"
+    },
+    {
+      "filename": "(test_46.0_)KiaSportage_straight_12.777777777777777mps_0.5m_0000007.wav",
+      "index": 7,
+      "vehicle": "KiaSportage",
+      "path_type": "straight",
+      "parameters": {
+        "speed": 12.777777777777777,
+        "distance": 0.5,
+        "angle": 0.0,
+        "duration": 10.0,
+        "acceleration": 0.0,
+        "temperature": 20,
+        "humidity": 50
+      },
+      "labels": {
+        "speed_mps": 12.777777777777777,
+        "acceleration_mps2": 0.0,
+        "direction_label": 0,
+        "cpa_distance_m": 0.5,
+        "trajectory_type": "straight",
+        "cpa_time_sec": 5.0,
+        "num_sources": 1,
+        "is_crossing": false,
+        "vehicle_class": "KiaSportage"
+      },
+      "freq_ratio_range": {
+        "min": 1.0,
+        "max": 1.0
+      },
+      "path_plot": "(test_46.0_)KiaSportage_straight_12.777777777777777mps_0.5m_0000007.png",
+      "sample_dir": "sample_0000007"
+    },
+    {
+      "filename": "(test_48.0_)KiaSportage_straight_13.333333333333332mps_0.5m_0000008.wav",
+      "index": 8,
+      "vehicle": "KiaSportage",
+      "path_type": "straight",
+      "parameters": {
+        "speed": 13.333333333333332,
+        "distance": 0.5,
+        "angle": 0.0,
+        "duration": 10.0,
+        "acceleration": 0.0,
+        "temperature": 20,
+        "humidity": 50
+      },
+      "labels": {
+        "speed_mps": 13.333333333333332,
+        "acceleration_mps2": 0.0,
+        "direction_label": 0,
+        "cpa_distance_m": 0.5,
+        "trajectory_type": "straight",
+        "cpa_time_sec": 5.0,
+        "num_sources": 1,
+        "is_crossing": false,
+        "vehicle_class": "KiaSportage"
+      },
+      "freq_ratio_range": {
+        "min": 1.0,
+        "max": 1.0
+      },
+      "path_plot": "(test_48.0_)KiaSportage_straight_13.333333333333332mps_0.5m_0000008.png",
+      "sample_dir": "sample_0000008"
+    },
+    {
+      "filename": "(test_51.0_)KiaSportage_straight_14.166666666666666mps_0.5m_0000009.wav",
+      "index": 9,
+      "vehicle": "KiaSportage",
+      "path_type": "straight",
+      "parameters": {
+        "speed": 14.166666666666666,
+        "distance": 0.5,
+        "angle": 0.0,
+        "duration": 10.0,
+        "acceleration": 0.0,
+        "temperature": 20,
+        "humidity": 50
+      },
+      "labels": {
+        "speed_mps": 14.166666666666666,
+        "acceleration_mps2": 0.0,
+        "direction_label": 0,
+        "cpa_distance_m": 0.5,
+        "trajectory_type": "straight",
+        "cpa_time_sec": 5.0,
+        "num_sources": 1,
+        "is_crossing": false,
+        "vehicle_class": "KiaSportage"
+      },
+      "freq_ratio_range": {
+        "min": 1.0,
+        "max": 1.0
+      },
+      "path_plot": "(test_51.0_)KiaSportage_straight_14.166666666666666mps_0.5m_0000009.png",
+      "sample_dir": "sample_0000009"
+    },
+    {
+      "filename": "(test_53.0_)KiaSportage_straight_14.722222222222221mps_0.5m_0000010.wav",
+      "index": 10,
+      "vehicle": "KiaSportage",
+      "path_type": "straight",
+      "parameters": {
+        "speed": 14.722222222222221,
+        "distance": 0.5,
+        "angle": 0.0,
+        "duration": 10.0,
+        "acceleration": 0.0,
+        "temperature": 20,
+        "humidity": 50
+      },
+      "labels": {
+        "speed_mps": 14.722222222222221,
+        "acceleration_mps2": 0.0,
+        "direction_label": 0,
+        "cpa_distance_m": 0.5,
+        "trajectory_type": "straight",
+        "cpa_time_sec": 5.0,
+        "num_sources": 1,
+        "is_crossing": false,
+        "vehicle_class": "KiaSportage"
+      },
+      "freq_ratio_range": {
+        "min": 1.0,
+        "max": 1.0
+      },
+      "path_plot": "(test_53.0_)KiaSportage_straight_14.722222222222221mps_0.5m_0000010.png",
+      "sample_dir": "sample_0000010"
+    },
+    {
+      "filename": "(test_55.0_)KiaSportage_straight_15.277777777777777mps_0.5m_0000011.wav",
+      "index": 11,
+      "vehicle": "KiaSportage",
+      "path_type": "straight",
+      "parameters": {
+        "speed": 15.277777777777777,
+        "distance": 0.5,
+        "angle": 0.0,
+        "duration": 10.0,
+        "acceleration": 0.0,
+        "temperature": 20,
+        "humidity": 50
+      },
+      "labels": {
+        "speed_mps": 15.277777777777777,
+        "acceleration_mps2": 0.0,
+        "direction_label": 0,
+        "cpa_distance_m": 0.5,
+        "trajectory_type": "straight",
+        "cpa_time_sec": 5.0,
+        "num_sources": 1,
+        "is_crossing": false,
+        "vehicle_class": "KiaSportage"
+      },
+      "freq_ratio_range": {
+        "min": 1.0,
+        "max": 1.0
+      },
+      "path_plot": "(test_55.0_)KiaSportage_straight_15.277777777777777mps_0.5m_0000011.png",
+      "sample_dir": "sample_0000011"
+    },
+    {
+      "filename": "(test_58.0_)KiaSportage_straight_16.11111111111111mps_0.5m_0000012.wav",
+      "index": 12,
+      "vehicle": "KiaSportage",
+      "path_type": "straight",
+      "parameters": {
+        "speed": 16.11111111111111,
+        "distance": 0.5,
+        "angle": 0.0,
+        "duration": 10.0,
+        "acceleration": 0.0,
+        "temperature": 20,
+        "humidity": 50
+      },
+      "labels": {
+        "speed_mps": 16.11111111111111,
+        "acceleration_mps2": 0.0,
+        "direction_label": 0,
+        "cpa_distance_m": 0.5,
+        "trajectory_type": "straight",
+        "cpa_time_sec": 5.0,
+        "num_sources": 1,
+        "is_crossing": false,
+        "vehicle_class": "KiaSportage"
+      },
+      "freq_ratio_range": {
+        "min": 1.0,
+        "max": 1.0
+      },
+      "path_plot": "(test_58.0_)KiaSportage_straight_16.11111111111111mps_0.5m_0000012.png",
+      "sample_dir": "sample_0000012"
+    },
+    {
+      "filename": "(test_61.0_)KiaSportage_straight_16.944444444444443mps_0.5m_0000013.wav",
+      "index": 13,
+      "vehicle": "KiaSportage",
+      "path_type": "straight",
+      "parameters": {
+        "speed": 16.944444444444443,
+        "distance": 0.5,
+        "angle": 0.0,
+        "duration": 10.0,
+        "acceleration": 0.0,
+        "temperature": 20,
+        "humidity": 50
+      },
+      "labels": {
+        "speed_mps": 16.944444444444443,
+        "acceleration_mps2": 0.0,
+        "direction_label": 0,
+        "cpa_distance_m": 0.5,
+        "trajectory_type": "straight",
+        "cpa_time_sec": 5.0,
+        "num_sources": 1,
+        "is_crossing": false,
+        "vehicle_class": "KiaSportage"
+      },
+      "freq_ratio_range": {
+        "min": 1.0,
+        "max": 1.0
+      },
+      "path_plot": "(test_61.0_)KiaSportage_straight_16.944444444444443mps_0.5m_0000013.png",
+      "sample_dir": "sample_0000013"
+    },
+    {
+      "filename": "(test_63.0_)KiaSportage_straight_17.5mps_0.5m_0000014.wav",
+      "index": 14,
+      "vehicle": "KiaSportage",
+      "path_type": "straight",
+      "parameters": {
+        "speed": 17.5,
+        "distance": 0.5,
+        "angle": 0.0,
+        "duration": 10.0,
+        "acceleration": 0.0,
+        "temperature": 20,
+        "humidity": 50
+      },
+      "labels": {
+        "speed_mps": 17.5,
+        "acceleration_mps2": 0.0,
+        "direction_label": 0,
+        "cpa_distance_m": 0.5,
+        "trajectory_type": "straight",
+        "cpa_time_sec": 5.0,
+        "num_sources": 1,
+        "is_crossing": false,
+        "vehicle_class": "KiaSportage"
+      },
+      "freq_ratio_range": {
+        "min": 1.0,
+        "max": 1.0
+      },
+      "path_plot": "(test_63.0_)KiaSportage_straight_17.5mps_0.5m_0000014.png",
+      "sample_dir": "sample_0000014"
+    },
+    {
+      "filename": "(test_65.0_)KiaSportage_straight_18.055555555555554mps_0.5m_0000015.wav",
+      "index": 15,
+      "vehicle": "KiaSportage",
+      "path_type": "straight",
+      "parameters": {
+        "speed": 18.055555555555554,
+        "distance": 0.5,
+        "angle": 0.0,
+        "duration": 10.0,
+        "acceleration": 0.0,
+        "temperature": 20,
+        "humidity": 50
+      },
+      "labels": {
+        "speed_mps": 18.055555555555554,
+        "acceleration_mps2": 0.0,
+        "direction_label": 0,
+        "cpa_distance_m": 0.5,
+        "trajectory_type": "straight",
+        "cpa_time_sec": 5.0,
+        "num_sources": 1,
+        "is_crossing": false,
+        "vehicle_class": "KiaSportage"
+      },
+      "freq_ratio_range": {
+        "min": 1.0,
+        "max": 1.0
+      },
+      "path_plot": "(test_65.0_)KiaSportage_straight_18.055555555555554mps_0.5m_0000015.png",
+      "sample_dir": "sample_0000015"
+    },
+    {
+      "filename": "(test_68.0_)KiaSportage_straight_18.88888888888889mps_0.5m_0000016.wav",
+      "index": 16,
+      "vehicle": "KiaSportage",
+      "path_type": "straight",
+      "parameters": {
+        "speed": 18.88888888888889,
+        "distance": 0.5,
+        "angle": 0.0,
+        "duration": 10.0,
+        "acceleration": 0.0,
+        "temperature": 20,
+        "humidity": 50
+      },
+      "labels": {
+        "speed_mps": 18.88888888888889,
+        "acceleration_mps2": 0.0,
+        "direction_label": 0,
+        "cpa_distance_m": 0.5,
+        "trajectory_type": "straight",
+        "cpa_time_sec": 5.0,
+        "num_sources": 1,
+        "is_crossing": false,
+        "vehicle_class": "KiaSportage"
+      },
+      "freq_ratio_range": {
+        "min": 1.0,
+        "max": 1.0
+      },
+      "path_plot": "(test_68.0_)KiaSportage_straight_18.88888888888889mps_0.5m_0000016.png",
+      "sample_dir": "sample_0000016"
+    },
+    {
+      "filename": "(test_69.0_)KiaSportage_straight_19.166666666666668mps_0.5m_0000017.wav",
+      "index": 17,
+      "vehicle": "KiaSportage",
+      "path_type": "straight",
+      "parameters": {
+        "speed": 19.166666666666668,
+        "distance": 0.5,
+        "angle": 0.0,
+        "duration": 10.0,
+        "acceleration": 0.0,
+        "temperature": 20,
+        "humidity": 50
+      },
+      "labels": {
+        "speed_mps": 19.166666666666668,
+        "acceleration_mps2": 0.0,
+        "direction_label": 0,
+        "cpa_distance_m": 0.5,
+        "trajectory_type": "straight",
+        "cpa_time_sec": 5.0,
+        "num_sources": 1,
+        "is_crossing": false,
+        "vehicle_class": "KiaSportage"
+      },
+      "freq_ratio_range": {
+        "min": 1.0,
+        "max": 1.0
+      },
+      "path_plot": "(test_69.0_)KiaSportage_straight_19.166666666666668mps_0.5m_0000017.png",
+      "sample_dir": "sample_0000017"
+    },
+    {
+      "filename": "(test_72.0_)KiaSportage_straight_20.0mps_0.5m_0000018.wav",
+      "index": 18,
+      "vehicle": "KiaSportage",
+      "path_type": "straight",
+      "parameters": {
+        "speed": 20.0,
+        "distance": 0.5,
+        "angle": 0.0,
+        "duration": 10.0,
+        "acceleration": 0.0,
+        "temperature": 20,
+        "humidity": 50
+      },
+      "labels": {
+        "speed_mps": 20.0,
+        "acceleration_mps2": 0.0,
+        "direction_label": 0,
+        "cpa_distance_m": 0.5,
+        "trajectory_type": "straight",
+        "cpa_time_sec": 5.0,
+        "num_sources": 1,
+        "is_crossing": false,
+        "vehicle_class": "KiaSportage"
+      },
+      "freq_ratio_range": {
+        "min": 1.0,
+        "max": 1.0
+      },
+      "path_plot": "(test_72.0_)KiaSportage_straight_20.0mps_0.5m_0000018.png",
+      "sample_dir": "sample_0000018"
+    },
+    {
+      "filename": "(test_74.0_)KiaSportage_straight_20.555555555555554mps_0.5m_0000019.wav",
+      "index": 19,
+      "vehicle": "KiaSportage",
+      "path_type": "straight",
+      "parameters": {
+        "speed": 20.555555555555554,
+        "distance": 0.5,
+        "angle": 0.0,
+        "duration": 10.0,
+        "acceleration": 0.0,
+        "temperature": 20,
+        "humidity": 50
+      },
+      "labels": {
+        "speed_mps": 20.555555555555554,
+        "acceleration_mps2": 0.0,
+        "direction_label": 0,
+        "cpa_distance_m": 0.5,
+        "trajectory_type": "straight",
+        "cpa_time_sec": 5.0,
+        "num_sources": 1,
+        "is_crossing": false,
+        "vehicle_class": "KiaSportage"
+      },
+      "freq_ratio_range": {
+        "min": 1.0,
+        "max": 1.0
+      },
+      "path_plot": "(test_74.0_)KiaSportage_straight_20.555555555555554mps_0.5m_0000019.png",
+      "sample_dir": "sample_0000019"
+    },
+    {
+      "filename": "(test_77.0_)KiaSportage_straight_21.38888888888889mps_0.5m_0000020.wav",
+      "index": 20,
+      "vehicle": "KiaSportage",
+      "path_type": "straight",
+      "parameters": {
+        "speed": 21.38888888888889,
+        "distance": 0.5,
+        "angle": 0.0,
+        "duration": 10.0,
+        "acceleration": 0.0,
+        "temperature": 20,
+        "humidity": 50
+      },
+      "labels": {
+        "speed_mps": 21.38888888888889,
+        "acceleration_mps2": 0.0,
+        "direction_label": 0,
+        "cpa_distance_m": 0.5,
+        "trajectory_type": "straight",
+        "cpa_time_sec": 5.0,
+        "num_sources": 1,
+        "is_crossing": false,
+        "vehicle_class": "KiaSportage"
+      },
+      "freq_ratio_range": {
+        "min": 1.0,
+        "max": 1.0
+      },
+      "path_plot": "(test_77.0_)KiaSportage_straight_21.38888888888889mps_0.5m_0000020.png",
+      "sample_dir": "sample_0000020"
+    },
+    {
+      "filename": "(test_78.0_)KiaSportage_straight_21.666666666666668mps_0.5m_0000021.wav",
+      "index": 21,
+      "vehicle": "KiaSportage",
+      "path_type": "straight",
+      "parameters": {
+        "speed": 21.666666666666668,
+        "distance": 0.5,
+        "angle": 0.0,
+        "duration": 10.0,
+        "acceleration": 0.0,
+        "temperature": 20,
+        "humidity": 50
+      },
+      "labels": {
+        "speed_mps": 21.666666666666668,
+        "acceleration_mps2": 0.0,
+        "direction_label": 0,
+        "cpa_distance_m": 0.5,
+        "trajectory_type": "straight",
+        "cpa_time_sec": 5.0,
+        "num_sources": 1,
+        "is_crossing": false,
+        "vehicle_class": "KiaSportage"
+      },
+      "freq_ratio_range": {
+        "min": 1.0,
+        "max": 1.0
+      },
+      "path_plot": "(test_78.0_)KiaSportage_straight_21.666666666666668mps_0.5m_0000021.png",
+      "sample_dir": "sample_0000021"
+    },
+    {
+      "filename": "(test_80.0_)KiaSportage_straight_22.22222222222222mps_0.5m_0000022.wav",
+      "index": 22,
+      "vehicle": "KiaSportage",
+      "path_type": "straight",
+      "parameters": {
+        "speed": 22.22222222222222,
+        "distance": 0.5,
+        "angle": 0.0,
+        "duration": 10.0,
+        "acceleration": 0.0,
+        "temperature": 20,
+        "humidity": 50
+      },
+      "labels": {
+        "speed_mps": 22.22222222222222,
+        "acceleration_mps2": 0.0,
+        "direction_label": 0,
+        "cpa_distance_m": 0.5,
+        "trajectory_type": "straight",
+        "cpa_time_sec": 5.0,
+        "num_sources": 1,
+        "is_crossing": false,
+        "vehicle_class": "KiaSportage"
+      },
+      "freq_ratio_range": {
+        "min": 1.0,
+        "max": 1.0
+      },
+      "path_plot": "(test_80.0_)KiaSportage_straight_22.22222222222222mps_0.5m_0000022.png",
+      "sample_dir": "sample_0000022"
+    },
+    {
+      "filename": "(test_83.0_)KiaSportage_straight_23.055555555555554mps_0.5m_0000023.wav",
+      "index": 23,
+      "vehicle": "KiaSportage",
+      "path_type": "straight",
+      "parameters": {
+        "speed": 23.055555555555554,
+        "distance": 0.5,
+        "angle": 0.0,
+        "duration": 10.0,
+        "acceleration": 0.0,
+        "temperature": 20,
+        "humidity": 50
+      },
+      "labels": {
+        "speed_mps": 23.055555555555554,
+        "acceleration_mps2": 0.0,
+        "direction_label": 0,
+        "cpa_distance_m": 0.5,
+        "trajectory_type": "straight",
+        "cpa_time_sec": 5.0,
+        "num_sources": 1,
+        "is_crossing": false,
+        "vehicle_class": "KiaSportage"
+      },
+      "freq_ratio_range": {
+        "min": 1.0,
+        "max": 1.0
+      },
+      "path_plot": "(test_83.0_)KiaSportage_straight_23.055555555555554mps_0.5m_0000023.png",
+      "sample_dir": "sample_0000023"
+    },
+    {
+      "filename": "(test_85.0_)KiaSportage_straight_23.61111111111111mps_0.5m_0000024.wav",
+      "index": 24,
+      "vehicle": "KiaSportage",
+      "path_type": "straight",
+      "parameters": {
+        "speed": 23.61111111111111,
+        "distance": 0.5,
+        "angle": 0.0,
+        "duration": 10.0,
+        "acceleration": 0.0,
+        "temperature": 20,
+        "humidity": 50
+      },
+      "labels": {
+        "speed_mps": 23.61111111111111,
+        "acceleration_mps2": 0.0,
+        "direction_label": 0,
+        "cpa_distance_m": 0.5,
+        "trajectory_type": "straight",
+        "cpa_time_sec": 5.0,
+        "num_sources": 1,
+        "is_crossing": false,
+        "vehicle_class": "KiaSportage"
+      },
+      "freq_ratio_range": {
+        "min": 1.0,
+        "max": 1.0
+      },
+      "path_plot": "(test_85.0_)KiaSportage_straight_23.61111111111111mps_0.5m_0000024.png",
+      "sample_dir": "sample_0000024"
+    },
+    {
+      "filename": "(test_86.0_)KiaSportage_straight_23.88888888888889mps_0.5m_0000025.wav",
+      "index": 25,
+      "vehicle": "KiaSportage",
+      "path_type": "straight",
+      "parameters": {
+        "speed": 23.88888888888889,
+        "distance": 0.5,
+        "angle": 0.0,
+        "duration": 10.0,
+        "acceleration": 0.0,
+        "temperature": 20,
+        "humidity": 50
+      },
+      "labels": {
+        "speed_mps": 23.88888888888889,
+        "acceleration_mps2": 0.0,
+        "direction_label": 0,
+        "cpa_distance_m": 0.5,
+        "trajectory_type": "straight",
+        "cpa_time_sec": 5.0,
+        "num_sources": 1,
+        "is_crossing": false,
+        "vehicle_class": "KiaSportage"
+      },
+      "freq_ratio_range": {
+        "min": 1.0,
+        "max": 1.0
+      },
+      "path_plot": "(test_86.0_)KiaSportage_straight_23.88888888888889mps_0.5m_0000025.png",
+      "sample_dir": "sample_0000025"
+    },
+    {
+      "filename": "(test_89.0_)KiaSportage_straight_24.72222222222222mps_0.5m_0000026.wav",
+      "index": 26,
+      "vehicle": "KiaSportage",
+      "path_type": "straight",
+      "parameters": {
+        "speed": 24.72222222222222,
+        "distance": 0.5,
+        "angle": 0.0,
+        "duration": 10.0,
+        "acceleration": 0.0,
+        "temperature": 20,
+        "humidity": 50
+      },
+      "labels": {
+        "speed_mps": 24.72222222222222,
+        "acceleration_mps2": 0.0,
+        "direction_label": 0,
+        "cpa_distance_m": 0.5,
+        "trajectory_type": "straight",
+        "cpa_time_sec": 5.0,
+        "num_sources": 1,
+        "is_crossing": false,
+        "vehicle_class": "KiaSportage"
+      },
+      "freq_ratio_range": {
+        "min": 1.0,
+        "max": 1.0
+      },
+      "path_plot": "(test_89.0_)KiaSportage_straight_24.72222222222222mps_0.5m_0000026.png",
+      "sample_dir": "sample_0000026"
+    },
+    {
+      "filename": "(test_91.0_)KiaSportage_straight_25.27777777777778mps_0.5m_0000027.wav",
+      "index": 27,
+      "vehicle": "KiaSportage",
+      "path_type": "straight",
+      "parameters": {
+        "speed": 25.27777777777778,
+        "distance": 0.5,
+        "angle": 0.0,
+        "duration": 10.0,
+        "acceleration": 0.0,
+        "temperature": 20,
+        "humidity": 50
+      },
+      "labels": {
+        "speed_mps": 25.27777777777778,
+        "acceleration_mps2": 0.0,
+        "direction_label": 0,
+        "cpa_distance_m": 0.5,
+        "trajectory_type": "straight",
+        "cpa_time_sec": 5.0,
+        "num_sources": 1,
+        "is_crossing": false,
+        "vehicle_class": "KiaSportage"
+      },
+      "freq_ratio_range": {
+        "min": 1.0,
+        "max": 1.0
+      },
+      "path_plot": "(test_91.0_)KiaSportage_straight_25.27777777777778mps_0.5m_0000027.png",
+      "sample_dir": "sample_0000027"
+    },
+    {
+      "filename": "(test_93.0_)KiaSportage_straight_25.833333333333332mps_0.5m_0000028.wav",
+      "index": 28,
+      "vehicle": "KiaSportage",
+      "path_type": "straight",
+      "parameters": {
+        "speed": 25.833333333333332,
+        "distance": 0.5,
+        "angle": 0.0,
+        "duration": 10.0,
+        "acceleration": 0.0,
+        "temperature": 20,
+        "humidity": 50
+      },
+      "labels": {
+        "speed_mps": 25.833333333333332,
+        "acceleration_mps2": 0.0,
+        "direction_label": 0,
+        "cpa_distance_m": 0.5,
+        "trajectory_type": "straight",
+        "cpa_time_sec": 5.0,
+        "num_sources": 1,
+        "is_crossing": false,
+        "vehicle_class": "KiaSportage"
+      },
+      "freq_ratio_range": {
+        "min": 1.0,
+        "max": 1.0
+      },
+      "path_plot": "(test_93.0_)KiaSportage_straight_25.833333333333332mps_0.5m_0000028.png",
+      "sample_dir": "sample_0000028"
+    },
+    {
+      "filename": "(test_96.0_)KiaSportage_straight_26.666666666666664mps_0.5m_0000029.wav",
+      "index": 29,
+      "vehicle": "KiaSportage",
+      "path_type": "straight",
+      "parameters": {
+        "speed": 26.666666666666664,
+        "distance": 0.5,
+        "angle": 0.0,
+        "duration": 10.0,
+        "acceleration": 0.0,
+        "temperature": 20,
+        "humidity": 50
+      },
+      "labels": {
+        "speed_mps": 26.666666666666664,
+        "acceleration_mps2": 0.0,
+        "direction_label": 0,
+        "cpa_distance_m": 0.5,
+        "trajectory_type": "straight",
+        "cpa_time_sec": 5.0,
+        "num_sources": 1,
+        "is_crossing": false,
+        "vehicle_class": "KiaSportage"
+      },
+      "freq_ratio_range": {
+        "min": 1.0,
+        "max": 1.0
+      },
+      "path_plot": "(test_96.0_)KiaSportage_straight_26.666666666666664mps_0.5m_0000029.png",
+      "sample_dir": "sample_0000029"
+    },
+    {
+      "filename": "(test_98.0_)KiaSportage_straight_27.22222222222222mps_0.5m_0000030.wav",
+      "index": 30,
+      "vehicle": "KiaSportage",
+      "path_type": "straight",
+      "parameters": {
+        "speed": 27.22222222222222,
+        "distance": 0.5,
+        "angle": 0.0,
+        "duration": 10.0,
+        "acceleration": 0.0,
+        "temperature": 20,
+        "humidity": 50
+      },
+      "labels": {
+        "speed_mps": 27.22222222222222,
+        "acceleration_mps2": 0.0,
+        "direction_label": 0,
+        "cpa_distance_m": 0.5,
+        "trajectory_type": "straight",
+        "cpa_time_sec": 5.0,
+        "num_sources": 1,
+        "is_crossing": false,
+        "vehicle_class": "KiaSportage"
+      },
+      "freq_ratio_range": {
+        "min": 1.0,
+        "max": 1.0
+      },
+      "path_plot": "(test_98.0_)KiaSportage_straight_27.22222222222222mps_0.5m_0000030.png",
+      "sample_dir": "sample_0000030"
+    },
+    {
+      "filename": "(test_100.0_)KiaSportage_straight_27.77777777777778mps_0.5m_0000031.wav",
+      "index": 31,
+      "vehicle": "KiaSportage",
+      "path_type": "straight",
+      "parameters": {
+        "speed": 27.77777777777778,
+        "distance": 0.5,
+        "angle": 0.0,
+        "duration": 10.0,
+        "acceleration": 0.0,
+        "temperature": 20,
+        "humidity": 50
+      },
+      "labels": {
+        "speed_mps": 27.77777777777778,
+        "acceleration_mps2": 0.0,
+        "direction_label": 0,
+        "cpa_distance_m": 0.5,
+        "trajectory_type": "straight",
+        "cpa_time_sec": 5.0,
+        "num_sources": 1,
+        "is_crossing": false,
+        "vehicle_class": "KiaSportage"
+      },
+      "freq_ratio_range": {
+        "min": 1.0,
+        "max": 1.0
+      },
+      "path_plot": "(test_100.0_)KiaSportage_straight_27.77777777777778mps_0.5m_0000031.png",
+      "sample_dir": "sample_0000031"
+    },
+    {
+      "filename": "(test_103.0_)KiaSportage_straight_28.61111111111111mps_0.5m_0000032.wav",
+      "index": 32,
+      "vehicle": "KiaSportage",
+      "path_type": "straight",
+      "parameters": {
+        "speed": 28.61111111111111,
+        "distance": 0.5,
+        "angle": 0.0,
+        "duration": 10.0,
+        "acceleration": 0.0,
+        "temperature": 20,
+        "humidity": 50
+      },
+      "labels": {
+        "speed_mps": 28.61111111111111,
+        "acceleration_mps2": 0.0,
+        "direction_label": 0,
+        "cpa_distance_m": 0.5,
+        "trajectory_type": "straight",
+        "cpa_time_sec": 5.0,
+        "num_sources": 1,
+        "is_crossing": false,
+        "vehicle_class": "KiaSportage"
+      },
+      "freq_ratio_range": {
+        "min": 1.0,
+        "max": 1.0
+      },
+      "path_plot": "(test_103.0_)KiaSportage_straight_28.61111111111111mps_0.5m_0000032.png",
+      "sample_dir": "sample_0000032"
+    },
+    {
+      "filename": "(test_105.0_)KiaSportage_straight_29.166666666666664mps_0.5m_0000033.wav",
+      "index": 33,
+      "vehicle": "KiaSportage",
+      "path_type": "straight",
+      "parameters": {
+        "speed": 29.166666666666664,
+        "distance": 0.5,
+        "angle": 0.0,
+        "duration": 10.0,
+        "acceleration": 0.0,
+        "temperature": 20,
+        "humidity": 50
+      },
+      "labels": {
+        "speed_mps": 29.166666666666664,
+        "acceleration_mps2": 0.0,
+        "direction_label": 0,
+        "cpa_distance_m": 0.5,
+        "trajectory_type": "straight",
+        "cpa_time_sec": 5.0,
+        "num_sources": 1,
+        "is_crossing": false,
+        "vehicle_class": "KiaSportage"
+      },
+      "freq_ratio_range": {
+        "min": 1.0,
+        "max": 1.0
+      },
+      "path_plot": "(test_105.0_)KiaSportage_straight_29.166666666666664mps_0.5m_0000033.png",
+      "sample_dir": "sample_0000033"
+    }
+  ]
+}

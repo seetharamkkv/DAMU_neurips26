@@ -1,0 +1,4 @@
+DopplerNet Mixed Batch Log: Peuguot3008
+============================================================
+Total Clips: 31
+Output Format: VS13-Compatible

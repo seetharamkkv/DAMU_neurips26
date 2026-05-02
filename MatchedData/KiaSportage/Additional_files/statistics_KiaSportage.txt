@@ -1,0 +1,67 @@
+============================================================
+BATCH GENERATION STATISTICS
+============================================================
+
+Total Clips Generated: 33
+
+Vehicle Distribution:
+  KiaSportage: 33 clips (100.0%)
+
+Path Type Distribution:
+  straight: 33 clips (100.0%)
+
+Speed Statistics:
+  Min: 8.6 m/s
+  Max: 29.2 m/s
+  Mean: 19.1 m/s
+  Median: 19.2 m/s
+
+Distance Statistics:
+  Min: 0.5 m
+  Max: 0.5 m
+  Mean: 0.5 m
+  Median: 0.5 m
+
+Duration Statistics:
+  Min: 10.0 s
+  Max: 10.0 s
+  Mean: 10.0 s
+  Median: 10.0 s
+
+Per-Clip Speeds:
+----------------------------------------
+  Clip    1:    8.6 m/s  (KiaSportage)
+  Clip    2:    9.2 m/s  (KiaSportage)
+  Clip    3:    9.7 m/s  (KiaSportage)
+  Clip    4:   10.6 m/s  (KiaSportage)
+  Clip    5:   11.4 m/s  (KiaSportage)
+  Clip    6:   12.2 m/s  (KiaSportage)
+  Clip    7:   12.8 m/s  (KiaSportage)
+  Clip    8:   13.3 m/s  (KiaSportage)
+  Clip    9:   14.2 m/s  (KiaSportage)
+  Clip   10:   14.7 m/s  (KiaSportage)
+  Clip   11:   15.3 m/s  (KiaSportage)
+  Clip   12:   16.1 m/s  (KiaSportage)
+  Clip   13:   16.9 m/s  (KiaSportage)
+  Clip   14:   17.5 m/s  (KiaSportage)
+  Clip   15:   18.1 m/s  (KiaSportage)
+  Clip   16:   18.9 m/s  (KiaSportage)
+  Clip   17:   19.2 m/s  (KiaSportage)
+  Clip   18:   20.0 m/s  (KiaSportage)
+  Clip   19:   20.6 m/s  (KiaSportage)
+  Clip   20:   21.4 m/s  (KiaSportage)
+  Clip   21:   21.7 m/s  (KiaSportage)
+  Clip   22:   22.2 m/s  (KiaSportage)
+  Clip   23:   23.1 m/s  (KiaSportage)
+  Clip   24:   23.6 m/s  (KiaSportage)
+  Clip   25:   23.9 m/s  (KiaSportage)
+  Clip   26:   24.7 m/s  (KiaSportage)
+  Clip   27:   25.3 m/s  (KiaSportage)
+  Clip   28:   25.8 m/s  (KiaSportage)
+  Clip   29:   26.7 m/s  (KiaSportage)
+  Clip   30:   27.2 m/s  (KiaSportage)
+  Clip   31:   27.8 m/s  (KiaSportage)
+  Clip   32:   28.6 m/s  (KiaSportage)
+  Clip   33:   29.2 m/s  (KiaSportage)
+
+============================================================

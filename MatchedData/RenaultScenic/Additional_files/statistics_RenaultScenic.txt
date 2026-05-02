@@ -1,0 +1,69 @@
+============================================================
+BATCH GENERATION STATISTICS
+============================================================
+
+Total Clips Generated: 35
+
+Vehicle Distribution:
+  RenaultScenic: 35 clips (100.0%)
+
+Path Type Distribution:
+  straight: 35 clips (100.0%)
+
+Speed Statistics:
+  Min: 8.3 m/s
+  Max: 28.1 m/s
+  Mean: 18.4 m/s
+  Median: 18.9 m/s
+
+Distance Statistics:
+  Min: 0.5 m
+  Max: 0.5 m
+  Mean: 0.5 m
+  Median: 0.5 m
+
+Duration Statistics:
+  Min: 10.0 s
+  Max: 10.0 s
+  Mean: 10.0 s
+  Median: 10.0 s
+
+Per-Clip Speeds:
+----------------------------------------
+  Clip    1:    8.3 m/s  (RenaultScenic)
+  Clip    2:    9.7 m/s  (RenaultScenic)
+  Clip    3:   10.0 m/s  (RenaultScenic)
+  Clip    4:   10.6 m/s  (RenaultScenic)
+  Clip    5:   11.1 m/s  (RenaultScenic)
+  Clip    6:   11.7 m/s  (RenaultScenic)
+  Clip    7:   12.2 m/s  (RenaultScenic)
+  Clip    8:   12.8 m/s  (RenaultScenic)
+  Clip    9:   13.3 m/s  (RenaultScenic)
+  Clip   10:   13.9 m/s  (RenaultScenic)
+  Clip   11:   14.4 m/s  (RenaultScenic)
+  Clip   12:   15.0 m/s  (RenaultScenic)
+  Clip   13:   15.8 m/s  (RenaultScenic)
+  Clip   14:   16.7 m/s  (RenaultScenic)
+  Clip   15:   17.2 m/s  (RenaultScenic)
+  Clip   16:   17.8 m/s  (RenaultScenic)
+  Clip   17:   18.3 m/s  (RenaultScenic)
+  Clip   18:   18.9 m/s  (RenaultScenic)
+  Clip   19:   19.4 m/s  (RenaultScenic)
+  Clip   20:   19.7 m/s  (RenaultScenic)
+  Clip   21:   20.0 m/s  (RenaultScenic)
+  Clip   22:   20.6 m/s  (RenaultScenic)
+  Clip   23:   20.8 m/s  (RenaultScenic)
+  Clip   24:   21.4 m/s  (RenaultScenic)
+  Clip   25:   22.2 m/s  (RenaultScenic)
+  Clip   26:   22.8 m/s  (RenaultScenic)
+  Clip   27:   23.3 m/s  (RenaultScenic)
+  Clip   28:   23.9 m/s  (RenaultScenic)
+  Clip   29:   24.2 m/s  (RenaultScenic)
+  Clip   30:   25.0 m/s  (RenaultScenic)
+  Clip   31:   25.3 m/s  (RenaultScenic)
+  Clip   32:   26.1 m/s  (RenaultScenic)
+  Clip   33:   26.4 m/s  (RenaultScenic)
+  Clip   34:   27.2 m/s  (RenaultScenic)
+  Clip   35:   28.1 m/s  (RenaultScenic)
+
+============================================================

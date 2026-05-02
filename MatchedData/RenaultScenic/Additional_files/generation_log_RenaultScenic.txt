@@ -1,0 +1,4 @@
+DopplerNet Mixed Batch Log: RenaultScenic
+============================================================
+Total Clips: 35
+Output Format: VS13-Compatible

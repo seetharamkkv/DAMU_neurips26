@@ -1,0 +1,63 @@
+============================================================
+BATCH GENERATION STATISTICS
+============================================================
+
+Total Clips Generated: 29
+
+Vehicle Distribution:
+  Peugeot307: 29 clips (100.0%)
+
+Path Type Distribution:
+  straight: 29 clips (100.0%)
+
+Speed Statistics:
+  Min: 8.3 m/s
+  Max: 28.6 m/s
+  Mean: 18.0 m/s
+  Median: 17.5 m/s
+
+Distance Statistics:
+  Min: 0.5 m
+  Max: 0.5 m
+  Mean: 0.5 m
+  Median: 0.5 m
+
+Duration Statistics:
+  Min: 10.0 s
+  Max: 10.0 s
+  Mean: 10.0 s
+  Median: 10.0 s
+
+Per-Clip Speeds:
+----------------------------------------
+  Clip    1:    8.3 m/s  (Peugeot307)
+  Clip    2:    9.2 m/s  (Peugeot307)
+  Clip    3:    9.7 m/s  (Peugeot307)
+  Clip    4:   10.6 m/s  (Peugeot307)
+  Clip    5:   11.1 m/s  (Peugeot307)
+  Clip    6:   11.9 m/s  (Peugeot307)
+  Clip    7:   12.5 m/s  (Peugeot307)
+  Clip    8:   13.1 m/s  (Peugeot307)
+  Clip    9:   13.3 m/s  (Peugeot307)
+  Clip   10:   13.9 m/s  (Peugeot307)
+  Clip   11:   14.7 m/s  (Peugeot307)
+  Clip   12:   15.6 m/s  (Peugeot307)
+  Clip   13:   16.4 m/s  (Peugeot307)
+  Clip   14:   16.7 m/s  (Peugeot307)
+  Clip   15:   17.5 m/s  (Peugeot307)
+  Clip   16:   18.3 m/s  (Peugeot307)
+  Clip   17:   19.2 m/s  (Peugeot307)
+  Clip   18:   20.0 m/s  (Peugeot307)
+  Clip   19:   20.3 m/s  (Peugeot307)
+  Clip   20:   21.1 m/s  (Peugeot307)
+  Clip   21:   21.9 m/s  (Peugeot307)
+  Clip   22:   22.8 m/s  (Peugeot307)
+  Clip   23:   23.6 m/s  (Peugeot307)
+  Clip   24:   24.4 m/s  (Peugeot307)
+  Clip   25:   25.3 m/s  (Peugeot307)
+  Clip   26:   26.1 m/s  (Peugeot307)
+  Clip   27:   26.9 m/s  (Peugeot307)
+  Clip   28:   28.1 m/s  (Peugeot307)
+  Clip   29:   28.6 m/s  (Peugeot307)
+
+============================================================

@@ -1,0 +1,63 @@
+============================================================
+BATCH GENERATION STATISTICS
+============================================================
+
+Total Clips Generated: 29
+
+Vehicle Distribution:
+  NissanQashqai: 29 clips (100.0%)
+
+Path Type Distribution:
+  straight: 29 clips (100.0%)
+
+Speed Statistics:
+  Min: 9.7 m/s
+  Max: 28.3 m/s
+  Mean: 19.0 m/s
+  Median: 18.9 m/s
+
+Distance Statistics:
+  Min: 0.5 m
+  Max: 0.5 m
+  Mean: 0.5 m
+  Median: 0.5 m
+
+Duration Statistics:
+  Min: 10.0 s
+  Max: 10.0 s
+  Mean: 10.0 s
+  Median: 10.0 s
+
+Per-Clip Speeds:
+----------------------------------------
+  Clip    1:    9.7 m/s  (NissanQashqai)
+  Clip    2:   10.6 m/s  (NissanQashqai)
+  Clip    3:   11.1 m/s  (NissanQashqai)
+  Clip    4:   11.7 m/s  (NissanQashqai)
+  Clip    5:   12.5 m/s  (NissanQashqai)
+  Clip    6:   13.3 m/s  (NissanQashqai)
+  Clip    7:   13.9 m/s  (NissanQashqai)
+  Clip    8:   14.7 m/s  (NissanQashqai)
+  Clip    9:   15.3 m/s  (NissanQashqai)
+  Clip   10:   16.1 m/s  (NissanQashqai)
+  Clip   11:   16.7 m/s  (NissanQashqai)
+  Clip   12:   16.9 m/s  (NissanQashqai)
+  Clip   13:   17.8 m/s  (NissanQashqai)
+  Clip   14:   18.1 m/s  (NissanQashqai)
+  Clip   15:   18.9 m/s  (NissanQashqai)
+  Clip   16:   19.4 m/s  (NissanQashqai)
+  Clip   17:   20.3 m/s  (NissanQashqai)
+  Clip   18:   20.8 m/s  (NissanQashqai)
+  Clip   19:   21.7 m/s  (NissanQashqai)
+  Clip   20:   22.2 m/s  (NissanQashqai)
+  Clip   21:   22.8 m/s  (NissanQashqai)
+  Clip   22:   23.6 m/s  (NissanQashqai)
+  Clip   23:   24.4 m/s  (NissanQashqai)
+  Clip   24:   25.0 m/s  (NissanQashqai)
+  Clip   25:   25.8 m/s  (NissanQashqai)
+  Clip   26:   26.1 m/s  (NissanQashqai)
+  Clip   27:   26.7 m/s  (NissanQashqai)
+  Clip   28:   27.2 m/s  (NissanQashqai)
+  Clip   29:   28.3 m/s  (NissanQashqai)
+
+============================================================
