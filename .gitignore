@@ -30,11 +30,11 @@ venv/
 
 # Logs and debug
 *.log
-additional/test_results/
-# ref_docs/
+# additional/test_results/
+ref_docs/
 *.pdf
 *.wav
-# *.txt
+*.txt
 
 # Dataset
 AdditionalSimulatedData/
