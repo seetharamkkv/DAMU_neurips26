@@ -1,0 +1,20 @@
+=============================================
+ENSEMBLE EVALUATION REPORT
+Timestamp:        2026-05-01 22:43:06
+Dataset Path:     D:\Antigravity\vs13-model\MatchedData
+Weights Path:     D:\Antigravity\vs13-model\Vehicle-Speed-from-Audio-SE-ResNet\checkpoints
+---------------------------------------------
+Total Samples:    192
+Avg Latency/File: 37.58 ms (CPU)
+Final RMSE:       26.8242 km/h
+Final MAE:        21.4423 km/h
+---------------------------------------------
+Vehicle Class        | Samples  | RMSE (km/h)
+---------------------------------------------
+KiaSportage          | 33       | 25.3166
+NissanQashQai        | 29       | 28.8611
+Peuguot3008          | 31       | 16.3670
+Peuguot307           | 29       | 26.3867
+RenaultScenic        | 35       | 38.4859
+VWPassat             | 35       | 18.9046
+=============================================

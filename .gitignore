@@ -23,18 +23,18 @@ wheels/
 venv/
 
 # TensorFlow
-*.keras
+# *.keras
 *.h5
 *.ckpt
 *.pb
 
 # Logs and debug
 *.log
-# additional/test_results/
+additional/test_results/
 ref_docs/
 *.pdf
 *.wav
-*.txt
+# *.txt
 
 # Dataset
 AdditionalSimulatedData/

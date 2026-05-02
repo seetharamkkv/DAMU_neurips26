@@ -1,0 +1,21 @@
+=============================================
+ENSEMBLE EVALUATION REPORT
+Timestamp:        2026-05-01 22:54:30
+Dataset Path:     D:\Antigravity\vs13-model\AdditionalSimulatedData
+Weights Path:     D:\Antigravity\vs13-model\Vehicle-Speed-from-Audio-SE-ResNet\checkpoints
+---------------------------------------------
+Total Samples:    539
+Avg Latency/File: 47.34 ms (CPU)
+Final RMSE:       40.6827 km/h
+Final MAE:        34.2214 km/h
+---------------------------------------------
+Vehicle Class        | Samples  | RMSE (km/h)
+---------------------------------------------
+car_1                | 77       | 36.1324
+car_2                | 77       | 39.5293
+car_3                | 77       | 41.4437
+car_4                | 77       | 26.8386
+car_5                | 77       | 47.1954
+car_6                | 77       | 46.1034
+car_7                | 77       | 43.8933
+=============================================

@@ -39,26 +39,38 @@ def run_ensemble_inference(data_dir, weights_dir, args):
     fold_times = []
     found_weights = False
 
-    # Dynamic Weight Selection Logic
-    trained_dir = Config.get_dataset_checkpoint_dir(dataset_name)
+    # Interactive Model Selection
+    print("\n" + "="*45)
+    print("MODEL SELECTION")
+    print("="*45)
+    print("Select the model to run inference with:")
+    print("1. Pretrained Model")
+    print("2. MatchedData Model")
+    print("3. SimulatedData Model (Work In Progress)")
     
-    # Priority: 1. Dataset-specific dir, 2. User-provided weights_dir, 3. Pretrained fallback
-    if os.path.exists(trained_dir) and any(f.endswith('.keras') for f in os.listdir(trained_dir)):
-        current_weights_dir = trained_dir
-        ext = ".keras"
-        print(f"[INFO] Using custom trained model found at: {trained_dir}")
-    else:
-        # Check if the user-provided weights_dir is just the default 'checkpoints'
-        # If so, and no custom model exists, fallback to pretrained
-        if weights_dir == 'checkpoints' or not os.path.exists(weights_dir):
+    while True:
+        try:
+            choice = input("\nEnter your choice (1-3) [default: 1]: ").strip()
+        except EOFError:
+            choice = '1'
+            
+        if not choice or choice == '1':
             current_weights_dir = Config.PRETRAINED_DIR
-            ext = "_weights.weights.h5" # Pattern for pretrained
-            print(f"[INFO] Custom trained model for '{dataset_name}' not found.")
-            print(f"[INFO] Falling back to pretrained weights at: {Config.PRETRAINED_DIR}")
+            ext = "_weights.weights.h5"
+            print(f"[INFO] Using Pretrained Model at: {current_weights_dir}")
+            break
+        elif choice == '2':
+            current_weights_dir = os.path.join("checkpoints", "MatchedData_model")
+            ext = ".keras"
+            print(f"[INFO] Using MatchedData Model at: {current_weights_dir}")
+            break
+        elif choice == '3':
+            current_weights_dir = os.path.join("checkpoints", "SimulatedData_model")
+            ext = ".keras"
+            print(f"[INFO] Using SimulatedData Model at: {current_weights_dir}")
+            break
         else:
-            current_weights_dir = weights_dir
-            ext = ".keras" # Assume user provided dir has .keras files
-            print(f"[INFO] Using weights from specified directory: {weights_dir}")
+            print("[ERROR] Invalid choice. Please enter 1, 2, or 3.")
 
     for fold in range(1, Config.N_FOLDS + 1):
         # Match filenames: fold_1_best.keras OR fold_1_best_weights.weights.h5
