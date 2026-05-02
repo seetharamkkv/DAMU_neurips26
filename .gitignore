@@ -33,6 +33,14 @@ venv/
 additional/test_results/
 # ref_docs/
 *.pdf
+*.wav
+# *.txt
+
+# Dataset
+AdditionalSimulatedData/
+SimulatedData/
+MatchedData/
+RealData/
 
 # OS
 .DS_Store
