@@ -14,70 +14,86 @@ from src.models import build_se_resnet
 from src.utils import get_all_audio_paths_and_labels, calculate_global_stats
 
 def run_ensemble_inference(data_dir, weights_dir, args):
-    # 1. data ingestion
+    # 1. Scan dataset
     print(f"[INFO] Scanning dataset at {data_dir}...")
-    dataset_name = os.path.basename(os.path.normpath(data_dir))
-    Config.update_for_dataset(dataset_name)
-    
     paths, speeds = get_all_audio_paths_and_labels(data_dir)
     
     if len(paths) == 0:
         raise ValueError("Dataset empty or path incorrect.")
 
-    print(f"[INFO] Processing {len(paths)} files...")
-    stats = calculate_global_stats(paths)
-    
-    # create optimized dataset (parallel prefetch)
-    ds = get_tf_dataset(paths, speeds, stats, is_training=False)
-    
-    # 2. architecture setup
-    n_frames = int(np.ceil(Config.AUDIO_LENGTH_SAMPLES / Config.HOP_LENGTH))
-    input_shape = (Config.N_MELS, n_frames, 1)
-    
-    # 3. ensemble loop
-    fold_predictions = []
-    fold_times = []
-    found_weights = False
-
-    # Interactive Model Selection
+    # 2. Interactive Model Selection
     print("\n" + "="*45)
     print("MODEL SELECTION")
     print("="*45)
     print("Select the model to run inference with:")
-    print("1. Pretrained Model")
-    print("2. MatchedData Model")
-    print("3. SimulatedData Model (Work In Progress)")
     
+    available_models = []
+    if os.path.exists(weights_dir):
+        for item in sorted(os.listdir(weights_dir)):
+            item_path = os.path.join(weights_dir, item)
+            if os.path.isdir(item_path):
+                available_models.append(item)
+                
+    if not available_models:
+        raise FileNotFoundError(f"No models found in '{weights_dir}' directory.")
+
+    default_idx = 0
+    for i, model_name in enumerate(available_models):
+        if "pre-trained_weights" in model_name:
+            default_idx = i
+            break
+
+    for i, model_name in enumerate(available_models):
+        print(f"{i + 1}. {model_name}")
+        
     while True:
         try:
-            choice = input("\nEnter your choice (1-3) [default: 1]: ").strip()
+            choice = input(f"\nEnter your choice (1-{len(available_models)}) [default: {default_idx + 1}]: ").strip()
         except EOFError:
-            choice = '1'
+            choice = str(default_idx + 1)
             
-        if not choice or choice == '1':
-            current_weights_dir = Config.PRETRAINED_DIR
-            ext = "_weights.weights.h5"
-            print(f"[INFO] Using Pretrained Model at: {current_weights_dir}")
-            break
-        elif choice == '2':
-            current_weights_dir = os.path.join("checkpoints", "MatchedData_model")
-            ext = ".keras"
-            print(f"[INFO] Using MatchedData Model at: {current_weights_dir}")
-            break
-        elif choice == '3':
-            current_weights_dir = os.path.join("checkpoints", "SimulatedData_model")
-            ext = ".keras"
-            print(f"[INFO] Using SimulatedData Model at: {current_weights_dir}")
-            break
-        else:
-            print("[ERROR] Invalid choice. Please enter 1, 2, or 3.")
+        if not choice:
+            choice = str(default_idx + 1)
+            
+        try:
+            choice_idx = int(choice) - 1
+            if 0 <= choice_idx < len(available_models):
+                selected_model = available_models[choice_idx]
+                current_weights_dir = os.path.join(weights_dir, selected_model)
+                if selected_model == "pre-trained_weights" or selected_model == os.path.basename(Config.PRETRAINED_DIR):
+                    ext = "_weights.weights.h5"
+                    model_source = "RealData"
+                else:
+                    ext = ".keras"
+                    model_source = selected_model.replace("_model", "")
+                
+                # CRITICAL: Update Config based on the model's expected parameters
+                Config.update_for_dataset(model_source)
+                print(f"[INFO] Using {selected_model} at: {current_weights_dir}")
+                break
+            else:
+                print(f"[ERROR] Invalid choice. Please enter a number between 1 and {len(available_models)}.")
+        except ValueError:
+            print(f"[ERROR] Invalid input. Please enter a number.")
+
+    # 3. Data Processing (Stats and Dataset creation) using updated config
+    # This ensures audio is resampled to the model's expected Sample Rate
+    print(f"[INFO] Processing {len(paths)} files with model parameters (SR={Config.SAMPLE_RATE}Hz)...")
+    stats = calculate_global_stats(paths)
+    ds = get_tf_dataset(paths, speeds, stats, is_training=False)
+    
+    # 4. Architecture setup
+    n_frames = int(np.ceil(Config.AUDIO_LENGTH_SAMPLES / Config.HOP_LENGTH))
+    input_shape = (Config.N_MELS, n_frames, 1)
+    
+    # 5. Ensemble loop
+    fold_predictions = []
+    fold_times = []
+    found_weights = False
 
     for fold in range(1, Config.N_FOLDS + 1):
         # Match filenames: fold_1_best.keras OR fold_1_best_weights.weights.h5
-        if ext == ".keras":
-            weight_path = os.path.join(current_weights_dir, f"fold_{fold}_best{ext}")
-        else:
-            weight_path = os.path.join(current_weights_dir, f"fold_{fold}_best{ext}")
+        weight_path = os.path.join(current_weights_dir, f"fold_{fold}_best{ext}")
         
         if not os.path.exists(weight_path):
             if fold == 1: # Only warn once for missing weights
