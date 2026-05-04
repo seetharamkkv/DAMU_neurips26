@@ -65,7 +65,7 @@ To reproduce the training process or train on new datasets:
 ```
 python main.py --data_dir /path/to/dataset
 ```
-For a step-by-step guide on training **RealData**, **MatchedData**, and **SimulatedData**, see [ref_docs/training_walkthrough.md](../ref_docs/training_walkthrough.md).
+For a step-by-step guide on training **RealData**, **ExtendedSimulatedData**, and **ExtendedSimulatedData**, see [ref_docs/training_walkthrough.md](../ref_docs/training_walkthrough.md).
 ## Performance Metrics
 
 | Model Architecture | Input | RMSE (km/h) | 

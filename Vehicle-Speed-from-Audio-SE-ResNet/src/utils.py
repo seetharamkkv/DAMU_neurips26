@@ -8,7 +8,7 @@ from .config import Config
 def get_all_audio_paths_and_labels(data_root):
     """
     Recursively scans the data_root for directories containing 'Train_valid_split.txt'.
-    This supports both flat (vs13) and nested (AdditionalSimulatedData) structures.
+    This supports both flat (vs13) and nested (AdditionalExtendedSimulatedData) structures.
     """
     all_paths = []
     all_speeds = []
