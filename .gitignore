@@ -23,10 +23,10 @@ wheels/
 venv/
 
 # TensorFlow
-# *.keras
-# *.h5
-# *.ckpt
-# *.pb
+*.keras
+*.h5
+*.ckpt
+*.pb
 
 # Logs and debug
 *.log
