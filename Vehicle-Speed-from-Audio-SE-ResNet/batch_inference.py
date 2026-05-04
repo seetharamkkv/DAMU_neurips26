@@ -17,15 +17,14 @@ CHECKPOINT_ROOT = os.path.join(BASE_DIR, "Vehicle-Speed-from-Audio-SE-ResNet", "
 DATASET_PATHS = {
     "RealData": os.path.join(BASE_DIR, "RealData"),
     "SimulatedData": os.path.join(BASE_DIR, "SimulatedData"),
-    "ExtendedSimulatedData": os.path.join(BASE_DIR, "ExtendedSimulatedData"),
-    "MixedData": [os.path.join(BASE_DIR, "RealData"), os.path.join(BASE_DIR, "ExtendedSimulatedData")]
+    "MixedData": [os.path.join(BASE_DIR, "RealData"), os.path.join(BASE_DIR, "SimulatedData")]
 }
 
 # Models to evaluate
 MODEL_DIRS = {
-    "SimulatedData_Model": os.path.join(CHECKPOINT_ROOT, "SimulatedData_model"),
-    "ExtendedSimulatedData_Model": os.path.join(CHECKPOINT_ROOT, "ExtendedSimulatedData_model"),
-    "MixedData_Model": os.path.join(CHECKPOINT_ROOT, "Mixed_model")
+    "Mixed_model": os.path.join(CHECKPOINT_ROOT, "Mixed_model"),
+    "SimulatedData_model": os.path.join(CHECKPOINT_ROOT, "SimulatedData_model"),
+    "RealData_model": os.path.join(CHECKPOINT_ROOT, "RealData_model")
 }
 
 # Output Directory
@@ -127,8 +126,11 @@ def format_grid(data_dict, models, datasets, metric_key='rmse'):
         row_vals = []
         for m in models:
             val = data_dict[m][d]
-            if isinstance(val, dict):
-                row_vals.append(f"{val[metric_key]:<20.4f}")
+            if val is None:
+                row_vals.append(f"{'N/A':<20}")
+            elif isinstance(val, dict):
+                v = val.get(metric_key)
+                row_vals.append(f"{v:<20.4f}" if v is not None else f"{'N/A':<20}")
             else:
                 row_vals.append(f"{val:<20.4f}")
         row += " | ".join(row_vals)
@@ -141,11 +143,20 @@ def format_grid(data_dict, models, datasets, metric_key='rmse'):
         col_vals = []
         for d in datasets:
             val = data_dict[m][d]
+            if val is None:
+                continue
             if isinstance(val, dict):
-                col_vals.append(val[metric_key])
+                v = val.get(metric_key)
+                if v is not None:
+                    col_vals.append(v)
             else:
                 col_vals.append(val)
-        avg_vals.append(f"{np.mean(col_vals):<20.4f}")
+        
+        if col_vals:
+            avg_vals.append(f"{np.mean(col_vals):<20.4f}")
+        else:
+            avg_vals.append(f"{'N/A':<20}")
+            
     avg_row += " | ".join(avg_vals)
     lines.append("-" * len(header))
     lines.append(avg_row)
