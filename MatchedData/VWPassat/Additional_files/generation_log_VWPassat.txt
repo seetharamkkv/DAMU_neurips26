@@ -1,4 +1,0 @@
-DopplerNet Mixed Batch Log: VWPassat
-============================================================
-Total Clips: 35
-Output Format: VS13-Compatible

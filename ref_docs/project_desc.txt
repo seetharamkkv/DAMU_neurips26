@@ -21,13 +21,13 @@ To perform a rigorous comparison, we have structured the data into three distinc
 - **Purpose**: Establishes the baseline performance of the pre-trained model on real-world recordings.
 - **Samples**: 192 total samples across the 6 vehicles.
 
-### B. SimulatedData (Broad Range Validation)
+### B. ExtendedSimulatedData (Broad Range Validation)
 - **Methodology**: Created using the base audio of the 6 vehicles mentioned above, processed through the DopplerNet simulator's physics.
 - **Speed Range**: 30 km/h to 105 km/h (this range reflects the minimum and maximum speeds recorded in the VS13 dataset per vehicle).
 - **Purpose**: To test the model's performance on a larger, synthetically generated dataset that covers the entire operational envelope of the real-world data.
 - **Samples**: 462 samples (77 samples per vehicle).
 
-### C. MatchedData (Direct Comparison)
+### C. SimulatedData (Direct Comparison)
 - **Methodology**: Simulated using the same 6 base clips, but the speeds are specifically set to **match the exact entries** found in the VS13 dataset.
 - **Purpose**: Enables a one-to-one comparison between a real recording and a simulated recording of the same vehicle at the same speed. This is the ultimate test of the simulator's ability to produce "comparable" sounds.
 - **Samples**: 192 samples (matching the RealData count).
@@ -51,11 +51,11 @@ Below are the results obtained from running the ensemble inference on our three 
 | Dataset       | Total Samples | Final RMSE (km/h) | Final MAE (km/h) |
 |---------------|---------------|-------------------|-------------------|
 | **RealData**  | 192           | 4.82              | 3.51              |
-| **MatchedData**| 192           | 26.82             | 21.44             |
-| **SimulatedData**| 462         | 29.13             | 23.80             |
+| **SimulatedData**| 192           | 26.82             | 21.44             |
+| **ExtendedSimulatedData**| 462         | 29.13             | 23.80             |
 
 ### Detailed Breakdown (Per Vehicle RMSE):
-| Vehicle Class  | RealData (km/h) | MatchedData (km/h) | SimulatedData (km/h) |
+| Vehicle Class  | RealData (km/h) | SimulatedData (km/h) | ExtendedSimulatedData (km/h) |
 |----------------|-----------------|--------------------|----------------------|
 | Kia Sportage   | 4.44            | 25.31              | 25.87                |
 | Nissan Qashqai | 3.69            | 28.86              | 29.65                |
@@ -74,12 +74,12 @@ A summary of the key directories for report generation:
    - `checkpoints/`: Holds the `.h5` weight files for the 10 folds of the ensemble.
 
 2. **`Vehicle-Speed-from-Audio-SE-ResNet/additional/test_results/`**:
-   - Contains the raw `.txt` evaluation reports (`eval_RealData.txt`, `eval_MatchedData.txt`, etc.). These files contain timestamps and granular metrics used in the table above.
+   - Contains the raw `.txt` evaluation reports (`eval_RealData.txt`, `eval_ExtendedSimulatedData.txt`, etc.). These files contain timestamps and granular metrics used in the table above.
 
 3. **`ref_docs/`**:
    - `vs13_evaluation_walkthrough.md`: A technical guide on how the evaluation pipeline was set up and how to interpret the metrics.
 
-4. **Data Folders (`RealData/`, `SimulatedData/`, `MatchedData/`)**:
+4. **Data Folders (`RealData/`, `SimulatedData/`, `ExtendedSimulatedData/`)**:
    - Contain the actual .wav files and metadata used in the study.
 
 ---
@@ -96,7 +96,7 @@ This allows us to identify exactly where the simulator needs refinement (e.g., a
 ---
 
 ## 7. FUTURE WORK & ALTERNATIVES: Retraining with Simulated Data
-A key question for the next phase is whether we should retrain the pre-trained SE-ResNet model using the **SimulatedData** we have generated.
+A key question for the next phase is whether we should retrain the pre-trained SE-ResNet model using the **ExtendedSimulatedData** we have generated.
 
 ### Would it be better to retrain?
 **Yes**, but primarily as part of a **Hybrid Training Strategy**.

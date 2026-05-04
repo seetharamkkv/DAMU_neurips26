@@ -2,18 +2,18 @@
 BATCH GENERATION STATISTICS
 ============================================================
 
-Total Clips Generated: 77
+Total Clips Generated: 29
 
 Vehicle Distribution:
-  NissanQashQai: 77 clips (100.0%)
+  NissanQashqai: 29 clips (100.0%)
 
 Path Type Distribution:
-  straight: 77 clips (100.0%)
+  straight: 29 clips (100.0%)
 
 Speed Statistics:
-  Min: 8.3 m/s
-  Max: 29.4 m/s
-  Mean: 18.9 m/s
+  Min: 9.7 m/s
+  Max: 28.3 m/s
+  Mean: 19.0 m/s
   Median: 18.9 m/s
 
 Distance Statistics:
@@ -30,82 +30,34 @@ Duration Statistics:
 
 Per-Clip Speeds:
 ----------------------------------------
-  Clip    1:    8.3 m/s  (NissanQashQai)
-  Clip    2:    8.6 m/s  (NissanQashQai)
-  Clip    3:    8.9 m/s  (NissanQashQai)
-  Clip    4:    9.2 m/s  (NissanQashQai)
-  Clip    5:    9.4 m/s  (NissanQashQai)
-  Clip    6:    9.7 m/s  (NissanQashQai)
-  Clip    7:   10.0 m/s  (NissanQashQai)
-  Clip    8:   10.3 m/s  (NissanQashQai)
-  Clip    9:   10.6 m/s  (NissanQashQai)
-  Clip   10:   10.8 m/s  (NissanQashQai)
-  Clip   11:   11.1 m/s  (NissanQashQai)
-  Clip   12:   11.4 m/s  (NissanQashQai)
-  Clip   13:   11.7 m/s  (NissanQashQai)
-  Clip   14:   11.9 m/s  (NissanQashQai)
-  Clip   15:   12.2 m/s  (NissanQashQai)
-  Clip   16:   12.5 m/s  (NissanQashQai)
-  Clip   17:   12.8 m/s  (NissanQashQai)
-  Clip   18:   13.1 m/s  (NissanQashQai)
-  Clip   19:   13.3 m/s  (NissanQashQai)
-  Clip   20:   13.6 m/s  (NissanQashQai)
-  Clip   21:   13.9 m/s  (NissanQashQai)
-  Clip   22:   14.2 m/s  (NissanQashQai)
-  Clip   23:   14.4 m/s  (NissanQashQai)
-  Clip   24:   14.7 m/s  (NissanQashQai)
-  Clip   25:   15.0 m/s  (NissanQashQai)
-  Clip   26:   15.3 m/s  (NissanQashQai)
-  Clip   27:   15.6 m/s  (NissanQashQai)
-  Clip   28:   15.8 m/s  (NissanQashQai)
-  Clip   29:   16.1 m/s  (NissanQashQai)
-  Clip   30:   16.4 m/s  (NissanQashQai)
-  Clip   31:   16.7 m/s  (NissanQashQai)
-  Clip   32:   16.9 m/s  (NissanQashQai)
-  Clip   33:   17.2 m/s  (NissanQashQai)
-  Clip   34:   17.5 m/s  (NissanQashQai)
-  Clip   35:   17.8 m/s  (NissanQashQai)
-  Clip   36:   18.1 m/s  (NissanQashQai)
-  Clip   37:   18.3 m/s  (NissanQashQai)
-  Clip   38:   18.6 m/s  (NissanQashQai)
-  Clip   39:   18.9 m/s  (NissanQashQai)
-  Clip   40:   19.2 m/s  (NissanQashQai)
-  Clip   41:   19.4 m/s  (NissanQashQai)
-  Clip   42:   19.7 m/s  (NissanQashQai)
-  Clip   43:   20.0 m/s  (NissanQashQai)
-  Clip   44:   20.3 m/s  (NissanQashQai)
-  Clip   45:   20.6 m/s  (NissanQashQai)
-  Clip   46:   20.8 m/s  (NissanQashQai)
-  Clip   47:   21.1 m/s  (NissanQashQai)
-  Clip   48:   21.4 m/s  (NissanQashQai)
-  Clip   49:   21.7 m/s  (NissanQashQai)
-  Clip   50:   21.9 m/s  (NissanQashQai)
-  Clip   51:   22.2 m/s  (NissanQashQai)
-  Clip   52:   22.5 m/s  (NissanQashQai)
-  Clip   53:   22.8 m/s  (NissanQashQai)
-  Clip   54:   23.1 m/s  (NissanQashQai)
-  Clip   55:   23.3 m/s  (NissanQashQai)
-  Clip   56:   23.6 m/s  (NissanQashQai)
-  Clip   57:   23.9 m/s  (NissanQashQai)
-  Clip   58:   24.2 m/s  (NissanQashQai)
-  Clip   59:   24.4 m/s  (NissanQashQai)
-  Clip   60:   24.7 m/s  (NissanQashQai)
-  Clip   61:   25.0 m/s  (NissanQashQai)
-  Clip   62:   25.3 m/s  (NissanQashQai)
-  Clip   63:   25.6 m/s  (NissanQashQai)
-  Clip   64:   25.8 m/s  (NissanQashQai)
-  Clip   65:   26.1 m/s  (NissanQashQai)
-  Clip   66:   26.4 m/s  (NissanQashQai)
-  Clip   67:   26.7 m/s  (NissanQashQai)
-  Clip   68:   26.9 m/s  (NissanQashQai)
-  Clip   69:   27.2 m/s  (NissanQashQai)
-  Clip   70:   27.5 m/s  (NissanQashQai)
-  Clip   71:   27.8 m/s  (NissanQashQai)
-  Clip   72:   28.1 m/s  (NissanQashQai)
-  Clip   73:   28.3 m/s  (NissanQashQai)
-  Clip   74:   28.6 m/s  (NissanQashQai)
-  Clip   75:   28.9 m/s  (NissanQashQai)
-  Clip   76:   29.2 m/s  (NissanQashQai)
-  Clip   77:   29.4 m/s  (NissanQashQai)
+  Clip    1:    9.7 m/s  (NissanQashqai)
+  Clip    2:   10.6 m/s  (NissanQashqai)
+  Clip    3:   11.1 m/s  (NissanQashqai)
+  Clip    4:   11.7 m/s  (NissanQashqai)
+  Clip    5:   12.5 m/s  (NissanQashqai)
+  Clip    6:   13.3 m/s  (NissanQashqai)
+  Clip    7:   13.9 m/s  (NissanQashqai)
+  Clip    8:   14.7 m/s  (NissanQashqai)
+  Clip    9:   15.3 m/s  (NissanQashqai)
+  Clip   10:   16.1 m/s  (NissanQashqai)
+  Clip   11:   16.7 m/s  (NissanQashqai)
+  Clip   12:   16.9 m/s  (NissanQashqai)
+  Clip   13:   17.8 m/s  (NissanQashqai)
+  Clip   14:   18.1 m/s  (NissanQashqai)
+  Clip   15:   18.9 m/s  (NissanQashqai)
+  Clip   16:   19.4 m/s  (NissanQashqai)
+  Clip   17:   20.3 m/s  (NissanQashqai)
+  Clip   18:   20.8 m/s  (NissanQashqai)
+  Clip   19:   21.7 m/s  (NissanQashqai)
+  Clip   20:   22.2 m/s  (NissanQashqai)
+  Clip   21:   22.8 m/s  (NissanQashqai)
+  Clip   22:   23.6 m/s  (NissanQashqai)
+  Clip   23:   24.4 m/s  (NissanQashqai)
+  Clip   24:   25.0 m/s  (NissanQashqai)
+  Clip   25:   25.8 m/s  (NissanQashqai)
+  Clip   26:   26.1 m/s  (NissanQashqai)
+  Clip   27:   26.7 m/s  (NissanQashqai)
+  Clip   28:   27.2 m/s  (NissanQashqai)
+  Clip   29:   28.3 m/s  (NissanQashqai)
 
 ============================================================

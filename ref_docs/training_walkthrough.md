@@ -1,6 +1,6 @@
 # SE-ResNet Training Walkthrough
 
-This guide provides step-by-step instructions for retraining the SE-ResNet model on **RealData**, **MatchedData**, and **SimulatedData**. The pipeline is designed to be fully automated, handling sample rate adjustments and checkpoint organization based on the dataset name.
+This guide provides step-by-step instructions for retraining the SE-ResNet model on **RealData**, **ExtendedSimulatedData**, and **SimulatedData**. The pipeline is designed to be fully automated, handling sample rate adjustments and checkpoint organization based on the dataset name.
 
 ---
 
@@ -24,7 +24,7 @@ Each dataset must follow the standard repository format:
 
 The system automatically detects and applies the correct sample rate (SR) during training:
 - **RealData:** 16,000 Hz
-- **MatchedData:** 22,050 Hz
+- **ExtendedSimulatedData:** 22,050 Hz
 - **SimulatedData:** 22,050 Hz
 - **Any Other Dataset:** 22,050 Hz (Default)
 
@@ -44,11 +44,11 @@ python main.py --data_dir "D:/Antigravity/vs13-model/RealData"
 - **Target:** `checkpoints/RealData_model/`
 - **SR:** 16,000 Hz
 
-### B. Training on MatchedData
+### B. Training on ExtendedSimulatedData
 ```bash
-python main.py --data_dir "D:/Antigravity/vs13-model/MatchedData"
+python main.py --data_dir "D:/Antigravity/vs13-model/ExtendedSimulatedData"
 ```
-- **Target:** `checkpoints/MatchedData_model/`
+- **Target:** `checkpoints/ExtendedSimulatedData_model/`
 - **SR:** 22,050 Hz
 
 ### C. Training on SimulatedData
@@ -65,7 +65,7 @@ python main.py --data_dir "D:/Antigravity/vs13-model/SimulatedData"
 ### Folders
 After training starts, the system creates dataset-specific subfolders inside `checkpoints/`:
 - `checkpoints/RealData_model/`
-- `checkpoints/MatchedData_model/`
+- `checkpoints/ExtendedSimulatedData_model/`
 - `checkpoints/SimulatedData_model/`
 
 ### File Format
@@ -92,12 +92,12 @@ During training, the console will provide real-time feedback:
 
 To evaluate your newly trained models, use `inference.py`. The system will automatically prioritize your custom model over the pretrained weights.
 
-**Example for MatchedData:**
+**Example for ExtendedSimulatedData:**
 ```bash
-python inference.py --data_dir "D:/Antigravity/vs13-model/MatchedData"
+python inference.py --data_dir "D:/Antigravity/vs13-model/ExtendedSimulatedData"
 ```
 The console will report:
-`[INFO] Using custom trained model found at: checkpoints/MatchedData_model/`
+`[INFO] Using custom trained model found at: checkpoints/ExtendedSimulatedData_model/`
 
 ---
 

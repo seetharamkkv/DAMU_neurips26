@@ -1,4 +1,0 @@
-DopplerNet Mixed Batch Log: KiaSportage
-============================================================
-Total Clips: 33
-Output Format: VS13-Compatible

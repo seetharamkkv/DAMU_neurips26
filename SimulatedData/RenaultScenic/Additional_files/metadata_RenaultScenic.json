@@ -2,18 +2,18 @@
   "car": "RenaultScenic",
   "clips": [
     {
-      "filename": "(test_30_)RenaultScenic_straight_8.333333333333334mps_0.5m_0000000.wav",
-      "index": 0,
+      "filename": "(test_30.0_)RenaultScenic_straight_8.333333333333334mps_0.5m_0000001.wav",
+      "index": 1,
       "vehicle": "RenaultScenic",
       "path_type": "straight",
       "parameters": {
         "speed": 8.333333333333334,
         "distance": 0.5,
-        "duration": 10.0,
         "angle": 0.0,
+        "duration": 10.0,
         "acceleration": 0.0,
-        "temperature": 26,
-        "humidity": 32
+        "temperature": 20,
+        "humidity": 50
       },
       "labels": {
         "speed_mps": 8.333333333333334,
@@ -30,150 +30,22 @@
         "min": 1.0,
         "max": 1.0
       },
-      "path_plot": "(test_30_)RenaultScenic_straight_8.333333333333334mps_0.5m_0000000.png",
-      "sample_dir": "sample_0000000"
-    },
-    {
-      "filename": "(test_31_)RenaultScenic_straight_8.61111111111111mps_0.5m_0000001.wav",
-      "index": 1,
-      "vehicle": "RenaultScenic",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 8.61111111111111,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 24,
-        "humidity": 66
-      },
-      "labels": {
-        "speed_mps": 8.61111111111111,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "RenaultScenic"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_31_)RenaultScenic_straight_8.61111111111111mps_0.5m_0000001.png",
+      "path_plot": "(test_30.0_)RenaultScenic_straight_8.333333333333334mps_0.5m_0000001.png",
       "sample_dir": "sample_0000001"
     },
     {
-      "filename": "(test_32_)RenaultScenic_straight_8.88888888888889mps_0.5m_0000002.wav",
+      "filename": "(test_35.0_)RenaultScenic_straight_9.722222222222221mps_0.5m_0000002.wav",
       "index": 2,
-      "vehicle": "RenaultScenic",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 8.88888888888889,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 22,
-        "humidity": 59
-      },
-      "labels": {
-        "speed_mps": 8.88888888888889,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "RenaultScenic"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_32_)RenaultScenic_straight_8.88888888888889mps_0.5m_0000002.png",
-      "sample_dir": "sample_0000002"
-    },
-    {
-      "filename": "(test_33_)RenaultScenic_straight_9.166666666666666mps_0.5m_0000003.wav",
-      "index": 3,
-      "vehicle": "RenaultScenic",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 9.166666666666666,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 20,
-        "humidity": 52
-      },
-      "labels": {
-        "speed_mps": 9.166666666666666,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "RenaultScenic"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_33_)RenaultScenic_straight_9.166666666666666mps_0.5m_0000003.png",
-      "sample_dir": "sample_0000003"
-    },
-    {
-      "filename": "(test_34_)RenaultScenic_straight_9.444444444444445mps_0.5m_0000004.wav",
-      "index": 4,
-      "vehicle": "RenaultScenic",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 9.444444444444445,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 18,
-        "humidity": 45
-      },
-      "labels": {
-        "speed_mps": 9.444444444444445,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "RenaultScenic"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_34_)RenaultScenic_straight_9.444444444444445mps_0.5m_0000004.png",
-      "sample_dir": "sample_0000004"
-    },
-    {
-      "filename": "(test_35_)RenaultScenic_straight_9.722222222222221mps_0.5m_0000005.wav",
-      "index": 5,
       "vehicle": "RenaultScenic",
       "path_type": "straight",
       "parameters": {
         "speed": 9.722222222222221,
         "distance": 0.5,
-        "duration": 10.0,
         "angle": 0.0,
+        "duration": 10.0,
         "acceleration": 0.0,
-        "temperature": 16,
-        "humidity": 38
+        "temperature": 20,
+        "humidity": 50
       },
       "labels": {
         "speed_mps": 9.722222222222221,
@@ -190,22 +62,22 @@
         "min": 1.0,
         "max": 1.0
       },
-      "path_plot": "(test_35_)RenaultScenic_straight_9.722222222222221mps_0.5m_0000005.png",
-      "sample_dir": "sample_0000005"
+      "path_plot": "(test_35.0_)RenaultScenic_straight_9.722222222222221mps_0.5m_0000002.png",
+      "sample_dir": "sample_0000002"
     },
     {
-      "filename": "(test_36_)RenaultScenic_straight_10.0mps_0.5m_0000006.wav",
-      "index": 6,
+      "filename": "(test_36.0_)RenaultScenic_straight_10.0mps_0.5m_0000003.wav",
+      "index": 3,
       "vehicle": "RenaultScenic",
       "path_type": "straight",
       "parameters": {
         "speed": 10.0,
         "distance": 0.5,
-        "duration": 10.0,
         "angle": 0.0,
+        "duration": 10.0,
         "acceleration": 0.0,
-        "temperature": 35,
-        "humidity": 31
+        "temperature": 20,
+        "humidity": 50
       },
       "labels": {
         "speed_mps": 10.0,
@@ -222,54 +94,22 @@
         "min": 1.0,
         "max": 1.0
       },
-      "path_plot": "(test_36_)RenaultScenic_straight_10.0mps_0.5m_0000006.png",
-      "sample_dir": "sample_0000006"
+      "path_plot": "(test_36.0_)RenaultScenic_straight_10.0mps_0.5m_0000003.png",
+      "sample_dir": "sample_0000003"
     },
     {
-      "filename": "(test_37_)RenaultScenic_straight_10.277777777777777mps_0.5m_0000007.wav",
-      "index": 7,
-      "vehicle": "RenaultScenic",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 10.277777777777777,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 33,
-        "humidity": 65
-      },
-      "labels": {
-        "speed_mps": 10.277777777777777,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "RenaultScenic"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_37_)RenaultScenic_straight_10.277777777777777mps_0.5m_0000007.png",
-      "sample_dir": "sample_0000007"
-    },
-    {
-      "filename": "(test_38_)RenaultScenic_straight_10.555555555555555mps_0.5m_0000008.wav",
-      "index": 8,
+      "filename": "(test_38.0_)RenaultScenic_straight_10.555555555555555mps_0.5m_0000004.wav",
+      "index": 4,
       "vehicle": "RenaultScenic",
       "path_type": "straight",
       "parameters": {
         "speed": 10.555555555555555,
         "distance": 0.5,
-        "duration": 10.0,
         "angle": 0.0,
+        "duration": 10.0,
         "acceleration": 0.0,
-        "temperature": 31,
-        "humidity": 58
+        "temperature": 20,
+        "humidity": 50
       },
       "labels": {
         "speed_mps": 10.555555555555555,
@@ -286,54 +126,22 @@
         "min": 1.0,
         "max": 1.0
       },
-      "path_plot": "(test_38_)RenaultScenic_straight_10.555555555555555mps_0.5m_0000008.png",
-      "sample_dir": "sample_0000008"
+      "path_plot": "(test_38.0_)RenaultScenic_straight_10.555555555555555mps_0.5m_0000004.png",
+      "sample_dir": "sample_0000004"
     },
     {
-      "filename": "(test_39_)RenaultScenic_straight_10.833333333333334mps_0.5m_0000009.wav",
-      "index": 9,
-      "vehicle": "RenaultScenic",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 10.833333333333334,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 29,
-        "humidity": 51
-      },
-      "labels": {
-        "speed_mps": 10.833333333333334,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "RenaultScenic"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_39_)RenaultScenic_straight_10.833333333333334mps_0.5m_0000009.png",
-      "sample_dir": "sample_0000009"
-    },
-    {
-      "filename": "(test_40_)RenaultScenic_straight_11.11111111111111mps_0.5m_0000010.wav",
-      "index": 10,
+      "filename": "(test_40.0_)RenaultScenic_straight_11.11111111111111mps_0.5m_0000005.wav",
+      "index": 5,
       "vehicle": "RenaultScenic",
       "path_type": "straight",
       "parameters": {
         "speed": 11.11111111111111,
         "distance": 0.5,
-        "duration": 10.0,
         "angle": 0.0,
+        "duration": 10.0,
         "acceleration": 0.0,
-        "temperature": 27,
-        "humidity": 44
+        "temperature": 20,
+        "humidity": 50
       },
       "labels": {
         "speed_mps": 11.11111111111111,
@@ -350,54 +158,22 @@
         "min": 1.0,
         "max": 1.0
       },
-      "path_plot": "(test_40_)RenaultScenic_straight_11.11111111111111mps_0.5m_0000010.png",
-      "sample_dir": "sample_0000010"
+      "path_plot": "(test_40.0_)RenaultScenic_straight_11.11111111111111mps_0.5m_0000005.png",
+      "sample_dir": "sample_0000005"
     },
     {
-      "filename": "(test_41_)RenaultScenic_straight_11.38888888888889mps_0.5m_0000011.wav",
-      "index": 11,
-      "vehicle": "RenaultScenic",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 11.38888888888889,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 25,
-        "humidity": 37
-      },
-      "labels": {
-        "speed_mps": 11.38888888888889,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "RenaultScenic"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_41_)RenaultScenic_straight_11.38888888888889mps_0.5m_0000011.png",
-      "sample_dir": "sample_0000011"
-    },
-    {
-      "filename": "(test_42_)RenaultScenic_straight_11.666666666666666mps_0.5m_0000012.wav",
-      "index": 12,
+      "filename": "(test_42.0_)RenaultScenic_straight_11.666666666666666mps_0.5m_0000006.wav",
+      "index": 6,
       "vehicle": "RenaultScenic",
       "path_type": "straight",
       "parameters": {
         "speed": 11.666666666666666,
         "distance": 0.5,
-        "duration": 10.0,
         "angle": 0.0,
+        "duration": 10.0,
         "acceleration": 0.0,
-        "temperature": 23,
-        "humidity": 30
+        "temperature": 20,
+        "humidity": 50
       },
       "labels": {
         "speed_mps": 11.666666666666666,
@@ -414,54 +190,22 @@
         "min": 1.0,
         "max": 1.0
       },
-      "path_plot": "(test_42_)RenaultScenic_straight_11.666666666666666mps_0.5m_0000012.png",
-      "sample_dir": "sample_0000012"
+      "path_plot": "(test_42.0_)RenaultScenic_straight_11.666666666666666mps_0.5m_0000006.png",
+      "sample_dir": "sample_0000006"
     },
     {
-      "filename": "(test_43_)RenaultScenic_straight_11.944444444444445mps_0.5m_0000013.wav",
-      "index": 13,
-      "vehicle": "RenaultScenic",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 11.944444444444445,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 21,
-        "humidity": 64
-      },
-      "labels": {
-        "speed_mps": 11.944444444444445,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "RenaultScenic"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_43_)RenaultScenic_straight_11.944444444444445mps_0.5m_0000013.png",
-      "sample_dir": "sample_0000013"
-    },
-    {
-      "filename": "(test_44_)RenaultScenic_straight_12.222222222222221mps_0.5m_0000014.wav",
-      "index": 14,
+      "filename": "(test_44.0_)RenaultScenic_straight_12.222222222222221mps_0.5m_0000007.wav",
+      "index": 7,
       "vehicle": "RenaultScenic",
       "path_type": "straight",
       "parameters": {
         "speed": 12.222222222222221,
         "distance": 0.5,
-        "duration": 10.0,
         "angle": 0.0,
+        "duration": 10.0,
         "acceleration": 0.0,
-        "temperature": 19,
-        "humidity": 57
+        "temperature": 20,
+        "humidity": 50
       },
       "labels": {
         "speed_mps": 12.222222222222221,
@@ -478,54 +222,22 @@
         "min": 1.0,
         "max": 1.0
       },
-      "path_plot": "(test_44_)RenaultScenic_straight_12.222222222222221mps_0.5m_0000014.png",
-      "sample_dir": "sample_0000014"
+      "path_plot": "(test_44.0_)RenaultScenic_straight_12.222222222222221mps_0.5m_0000007.png",
+      "sample_dir": "sample_0000007"
     },
     {
-      "filename": "(test_45_)RenaultScenic_straight_12.5mps_0.5m_0000015.wav",
-      "index": 15,
-      "vehicle": "RenaultScenic",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 12.5,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 17,
-        "humidity": 50
-      },
-      "labels": {
-        "speed_mps": 12.5,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "RenaultScenic"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_45_)RenaultScenic_straight_12.5mps_0.5m_0000015.png",
-      "sample_dir": "sample_0000015"
-    },
-    {
-      "filename": "(test_46_)RenaultScenic_straight_12.777777777777777mps_0.5m_0000016.wav",
-      "index": 16,
+      "filename": "(test_46.0_)RenaultScenic_straight_12.777777777777777mps_0.5m_0000008.wav",
+      "index": 8,
       "vehicle": "RenaultScenic",
       "path_type": "straight",
       "parameters": {
         "speed": 12.777777777777777,
         "distance": 0.5,
-        "duration": 10.0,
         "angle": 0.0,
+        "duration": 10.0,
         "acceleration": 0.0,
-        "temperature": 15,
-        "humidity": 43
+        "temperature": 20,
+        "humidity": 50
       },
       "labels": {
         "speed_mps": 12.777777777777777,
@@ -542,54 +254,22 @@
         "min": 1.0,
         "max": 1.0
       },
-      "path_plot": "(test_46_)RenaultScenic_straight_12.777777777777777mps_0.5m_0000016.png",
-      "sample_dir": "sample_0000016"
+      "path_plot": "(test_46.0_)RenaultScenic_straight_12.777777777777777mps_0.5m_0000008.png",
+      "sample_dir": "sample_0000008"
     },
     {
-      "filename": "(test_47_)RenaultScenic_straight_13.055555555555555mps_0.5m_0000017.wav",
-      "index": 17,
-      "vehicle": "RenaultScenic",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 13.055555555555555,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 34,
-        "humidity": 36
-      },
-      "labels": {
-        "speed_mps": 13.055555555555555,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "RenaultScenic"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_47_)RenaultScenic_straight_13.055555555555555mps_0.5m_0000017.png",
-      "sample_dir": "sample_0000017"
-    },
-    {
-      "filename": "(test_48_)RenaultScenic_straight_13.333333333333332mps_0.5m_0000018.wav",
-      "index": 18,
+      "filename": "(test_48.0_)RenaultScenic_straight_13.333333333333332mps_0.5m_0000009.wav",
+      "index": 9,
       "vehicle": "RenaultScenic",
       "path_type": "straight",
       "parameters": {
         "speed": 13.333333333333332,
         "distance": 0.5,
-        "duration": 10.0,
         "angle": 0.0,
+        "duration": 10.0,
         "acceleration": 0.0,
-        "temperature": 32,
-        "humidity": 70
+        "temperature": 20,
+        "humidity": 50
       },
       "labels": {
         "speed_mps": 13.333333333333332,
@@ -606,54 +286,22 @@
         "min": 1.0,
         "max": 1.0
       },
-      "path_plot": "(test_48_)RenaultScenic_straight_13.333333333333332mps_0.5m_0000018.png",
-      "sample_dir": "sample_0000018"
+      "path_plot": "(test_48.0_)RenaultScenic_straight_13.333333333333332mps_0.5m_0000009.png",
+      "sample_dir": "sample_0000009"
     },
     {
-      "filename": "(test_49_)RenaultScenic_straight_13.61111111111111mps_0.5m_0000019.wav",
-      "index": 19,
-      "vehicle": "RenaultScenic",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 13.61111111111111,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 30,
-        "humidity": 63
-      },
-      "labels": {
-        "speed_mps": 13.61111111111111,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "RenaultScenic"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_49_)RenaultScenic_straight_13.61111111111111mps_0.5m_0000019.png",
-      "sample_dir": "sample_0000019"
-    },
-    {
-      "filename": "(test_50_)RenaultScenic_straight_13.88888888888889mps_0.5m_0000020.wav",
-      "index": 20,
+      "filename": "(test_50.0_)RenaultScenic_straight_13.88888888888889mps_0.5m_0000010.wav",
+      "index": 10,
       "vehicle": "RenaultScenic",
       "path_type": "straight",
       "parameters": {
         "speed": 13.88888888888889,
         "distance": 0.5,
-        "duration": 10.0,
         "angle": 0.0,
+        "duration": 10.0,
         "acceleration": 0.0,
-        "temperature": 28,
-        "humidity": 56
+        "temperature": 20,
+        "humidity": 50
       },
       "labels": {
         "speed_mps": 13.88888888888889,
@@ -670,54 +318,22 @@
         "min": 1.0,
         "max": 1.0
       },
-      "path_plot": "(test_50_)RenaultScenic_straight_13.88888888888889mps_0.5m_0000020.png",
-      "sample_dir": "sample_0000020"
+      "path_plot": "(test_50.0_)RenaultScenic_straight_13.88888888888889mps_0.5m_0000010.png",
+      "sample_dir": "sample_0000010"
     },
     {
-      "filename": "(test_51_)RenaultScenic_straight_14.166666666666666mps_0.5m_0000021.wav",
-      "index": 21,
-      "vehicle": "RenaultScenic",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 14.166666666666666,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 26,
-        "humidity": 49
-      },
-      "labels": {
-        "speed_mps": 14.166666666666666,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "RenaultScenic"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_51_)RenaultScenic_straight_14.166666666666666mps_0.5m_0000021.png",
-      "sample_dir": "sample_0000021"
-    },
-    {
-      "filename": "(test_52_)RenaultScenic_straight_14.444444444444445mps_0.5m_0000022.wav",
-      "index": 22,
+      "filename": "(test_52.0_)RenaultScenic_straight_14.444444444444445mps_0.5m_0000011.wav",
+      "index": 11,
       "vehicle": "RenaultScenic",
       "path_type": "straight",
       "parameters": {
         "speed": 14.444444444444445,
         "distance": 0.5,
-        "duration": 10.0,
         "angle": 0.0,
+        "duration": 10.0,
         "acceleration": 0.0,
-        "temperature": 24,
-        "humidity": 42
+        "temperature": 20,
+        "humidity": 50
       },
       "labels": {
         "speed_mps": 14.444444444444445,
@@ -734,54 +350,22 @@
         "min": 1.0,
         "max": 1.0
       },
-      "path_plot": "(test_52_)RenaultScenic_straight_14.444444444444445mps_0.5m_0000022.png",
-      "sample_dir": "sample_0000022"
+      "path_plot": "(test_52.0_)RenaultScenic_straight_14.444444444444445mps_0.5m_0000011.png",
+      "sample_dir": "sample_0000011"
     },
     {
-      "filename": "(test_53_)RenaultScenic_straight_14.722222222222221mps_0.5m_0000023.wav",
-      "index": 23,
-      "vehicle": "RenaultScenic",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 14.722222222222221,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 22,
-        "humidity": 35
-      },
-      "labels": {
-        "speed_mps": 14.722222222222221,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "RenaultScenic"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_53_)RenaultScenic_straight_14.722222222222221mps_0.5m_0000023.png",
-      "sample_dir": "sample_0000023"
-    },
-    {
-      "filename": "(test_54_)RenaultScenic_straight_15.0mps_0.5m_0000024.wav",
-      "index": 24,
+      "filename": "(test_54.0_)RenaultScenic_straight_15.0mps_0.5m_0000012.wav",
+      "index": 12,
       "vehicle": "RenaultScenic",
       "path_type": "straight",
       "parameters": {
         "speed": 15.0,
         "distance": 0.5,
-        "duration": 10.0,
         "angle": 0.0,
+        "duration": 10.0,
         "acceleration": 0.0,
         "temperature": 20,
-        "humidity": 69
+        "humidity": 50
       },
       "labels": {
         "speed_mps": 15.0,
@@ -798,86 +382,22 @@
         "min": 1.0,
         "max": 1.0
       },
-      "path_plot": "(test_54_)RenaultScenic_straight_15.0mps_0.5m_0000024.png",
-      "sample_dir": "sample_0000024"
+      "path_plot": "(test_54.0_)RenaultScenic_straight_15.0mps_0.5m_0000012.png",
+      "sample_dir": "sample_0000012"
     },
     {
-      "filename": "(test_55_)RenaultScenic_straight_15.277777777777777mps_0.5m_0000025.wav",
-      "index": 25,
-      "vehicle": "RenaultScenic",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 15.277777777777777,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 18,
-        "humidity": 62
-      },
-      "labels": {
-        "speed_mps": 15.277777777777777,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "RenaultScenic"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_55_)RenaultScenic_straight_15.277777777777777mps_0.5m_0000025.png",
-      "sample_dir": "sample_0000025"
-    },
-    {
-      "filename": "(test_56_)RenaultScenic_straight_15.555555555555555mps_0.5m_0000026.wav",
-      "index": 26,
-      "vehicle": "RenaultScenic",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 15.555555555555555,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 16,
-        "humidity": 55
-      },
-      "labels": {
-        "speed_mps": 15.555555555555555,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "RenaultScenic"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_56_)RenaultScenic_straight_15.555555555555555mps_0.5m_0000026.png",
-      "sample_dir": "sample_0000026"
-    },
-    {
-      "filename": "(test_57_)RenaultScenic_straight_15.833333333333332mps_0.5m_0000027.wav",
-      "index": 27,
+      "filename": "(test_57.0_)RenaultScenic_straight_15.833333333333332mps_0.5m_0000013.wav",
+      "index": 13,
       "vehicle": "RenaultScenic",
       "path_type": "straight",
       "parameters": {
         "speed": 15.833333333333332,
         "distance": 0.5,
-        "duration": 10.0,
         "angle": 0.0,
+        "duration": 10.0,
         "acceleration": 0.0,
-        "temperature": 35,
-        "humidity": 48
+        "temperature": 20,
+        "humidity": 50
       },
       "labels": {
         "speed_mps": 15.833333333333332,
@@ -894,86 +414,22 @@
         "min": 1.0,
         "max": 1.0
       },
-      "path_plot": "(test_57_)RenaultScenic_straight_15.833333333333332mps_0.5m_0000027.png",
-      "sample_dir": "sample_0000027"
+      "path_plot": "(test_57.0_)RenaultScenic_straight_15.833333333333332mps_0.5m_0000013.png",
+      "sample_dir": "sample_0000013"
     },
     {
-      "filename": "(test_58_)RenaultScenic_straight_16.11111111111111mps_0.5m_0000028.wav",
-      "index": 28,
-      "vehicle": "RenaultScenic",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 16.11111111111111,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 33,
-        "humidity": 41
-      },
-      "labels": {
-        "speed_mps": 16.11111111111111,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "RenaultScenic"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_58_)RenaultScenic_straight_16.11111111111111mps_0.5m_0000028.png",
-      "sample_dir": "sample_0000028"
-    },
-    {
-      "filename": "(test_59_)RenaultScenic_straight_16.38888888888889mps_0.5m_0000029.wav",
-      "index": 29,
-      "vehicle": "RenaultScenic",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 16.38888888888889,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 31,
-        "humidity": 34
-      },
-      "labels": {
-        "speed_mps": 16.38888888888889,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "RenaultScenic"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_59_)RenaultScenic_straight_16.38888888888889mps_0.5m_0000029.png",
-      "sample_dir": "sample_0000029"
-    },
-    {
-      "filename": "(test_60_)RenaultScenic_straight_16.666666666666668mps_0.5m_0000030.wav",
-      "index": 30,
+      "filename": "(test_60.0_)RenaultScenic_straight_16.666666666666668mps_0.5m_0000014.wav",
+      "index": 14,
       "vehicle": "RenaultScenic",
       "path_type": "straight",
       "parameters": {
         "speed": 16.666666666666668,
         "distance": 0.5,
-        "duration": 10.0,
         "angle": 0.0,
+        "duration": 10.0,
         "acceleration": 0.0,
-        "temperature": 29,
-        "humidity": 68
+        "temperature": 20,
+        "humidity": 50
       },
       "labels": {
         "speed_mps": 16.666666666666668,
@@ -990,54 +446,22 @@
         "min": 1.0,
         "max": 1.0
       },
-      "path_plot": "(test_60_)RenaultScenic_straight_16.666666666666668mps_0.5m_0000030.png",
-      "sample_dir": "sample_0000030"
+      "path_plot": "(test_60.0_)RenaultScenic_straight_16.666666666666668mps_0.5m_0000014.png",
+      "sample_dir": "sample_0000014"
     },
     {
-      "filename": "(test_61_)RenaultScenic_straight_16.944444444444443mps_0.5m_0000031.wav",
-      "index": 31,
-      "vehicle": "RenaultScenic",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 16.944444444444443,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 27,
-        "humidity": 61
-      },
-      "labels": {
-        "speed_mps": 16.944444444444443,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "RenaultScenic"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_61_)RenaultScenic_straight_16.944444444444443mps_0.5m_0000031.png",
-      "sample_dir": "sample_0000031"
-    },
-    {
-      "filename": "(test_62_)RenaultScenic_straight_17.22222222222222mps_0.5m_0000032.wav",
-      "index": 32,
+      "filename": "(test_62.0_)RenaultScenic_straight_17.22222222222222mps_0.5m_0000015.wav",
+      "index": 15,
       "vehicle": "RenaultScenic",
       "path_type": "straight",
       "parameters": {
         "speed": 17.22222222222222,
         "distance": 0.5,
-        "duration": 10.0,
         "angle": 0.0,
+        "duration": 10.0,
         "acceleration": 0.0,
-        "temperature": 25,
-        "humidity": 54
+        "temperature": 20,
+        "humidity": 50
       },
       "labels": {
         "speed_mps": 17.22222222222222,
@@ -1054,54 +478,22 @@
         "min": 1.0,
         "max": 1.0
       },
-      "path_plot": "(test_62_)RenaultScenic_straight_17.22222222222222mps_0.5m_0000032.png",
-      "sample_dir": "sample_0000032"
+      "path_plot": "(test_62.0_)RenaultScenic_straight_17.22222222222222mps_0.5m_0000015.png",
+      "sample_dir": "sample_0000015"
     },
     {
-      "filename": "(test_63_)RenaultScenic_straight_17.5mps_0.5m_0000033.wav",
-      "index": 33,
-      "vehicle": "RenaultScenic",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 17.5,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 23,
-        "humidity": 47
-      },
-      "labels": {
-        "speed_mps": 17.5,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "RenaultScenic"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_63_)RenaultScenic_straight_17.5mps_0.5m_0000033.png",
-      "sample_dir": "sample_0000033"
-    },
-    {
-      "filename": "(test_64_)RenaultScenic_straight_17.77777777777778mps_0.5m_0000034.wav",
-      "index": 34,
+      "filename": "(test_64.0_)RenaultScenic_straight_17.77777777777778mps_0.5m_0000016.wav",
+      "index": 16,
       "vehicle": "RenaultScenic",
       "path_type": "straight",
       "parameters": {
         "speed": 17.77777777777778,
         "distance": 0.5,
-        "duration": 10.0,
         "angle": 0.0,
+        "duration": 10.0,
         "acceleration": 0.0,
-        "temperature": 21,
-        "humidity": 40
+        "temperature": 20,
+        "humidity": 50
       },
       "labels": {
         "speed_mps": 17.77777777777778,
@@ -1118,54 +510,22 @@
         "min": 1.0,
         "max": 1.0
       },
-      "path_plot": "(test_64_)RenaultScenic_straight_17.77777777777778mps_0.5m_0000034.png",
-      "sample_dir": "sample_0000034"
+      "path_plot": "(test_64.0_)RenaultScenic_straight_17.77777777777778mps_0.5m_0000016.png",
+      "sample_dir": "sample_0000016"
     },
     {
-      "filename": "(test_65_)RenaultScenic_straight_18.055555555555554mps_0.5m_0000035.wav",
-      "index": 35,
-      "vehicle": "RenaultScenic",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 18.055555555555554,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 19,
-        "humidity": 33
-      },
-      "labels": {
-        "speed_mps": 18.055555555555554,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "RenaultScenic"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_65_)RenaultScenic_straight_18.055555555555554mps_0.5m_0000035.png",
-      "sample_dir": "sample_0000035"
-    },
-    {
-      "filename": "(test_66_)RenaultScenic_straight_18.333333333333332mps_0.5m_0000036.wav",
-      "index": 36,
+      "filename": "(test_66.0_)RenaultScenic_straight_18.333333333333332mps_0.5m_0000017.wav",
+      "index": 17,
       "vehicle": "RenaultScenic",
       "path_type": "straight",
       "parameters": {
         "speed": 18.333333333333332,
         "distance": 0.5,
-        "duration": 10.0,
         "angle": 0.0,
+        "duration": 10.0,
         "acceleration": 0.0,
-        "temperature": 17,
-        "humidity": 67
+        "temperature": 20,
+        "humidity": 50
       },
       "labels": {
         "speed_mps": 18.333333333333332,
@@ -1182,54 +542,22 @@
         "min": 1.0,
         "max": 1.0
       },
-      "path_plot": "(test_66_)RenaultScenic_straight_18.333333333333332mps_0.5m_0000036.png",
-      "sample_dir": "sample_0000036"
+      "path_plot": "(test_66.0_)RenaultScenic_straight_18.333333333333332mps_0.5m_0000017.png",
+      "sample_dir": "sample_0000017"
     },
     {
-      "filename": "(test_67_)RenaultScenic_straight_18.61111111111111mps_0.5m_0000037.wav",
-      "index": 37,
-      "vehicle": "RenaultScenic",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 18.61111111111111,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 15,
-        "humidity": 60
-      },
-      "labels": {
-        "speed_mps": 18.61111111111111,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "RenaultScenic"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_67_)RenaultScenic_straight_18.61111111111111mps_0.5m_0000037.png",
-      "sample_dir": "sample_0000037"
-    },
-    {
-      "filename": "(test_68_)RenaultScenic_straight_18.88888888888889mps_0.5m_0000038.wav",
-      "index": 38,
+      "filename": "(test_68.0_)RenaultScenic_straight_18.88888888888889mps_0.5m_0000018.wav",
+      "index": 18,
       "vehicle": "RenaultScenic",
       "path_type": "straight",
       "parameters": {
         "speed": 18.88888888888889,
         "distance": 0.5,
-        "duration": 10.0,
         "angle": 0.0,
+        "duration": 10.0,
         "acceleration": 0.0,
-        "temperature": 34,
-        "humidity": 53
+        "temperature": 20,
+        "humidity": 50
       },
       "labels": {
         "speed_mps": 18.88888888888889,
@@ -1246,54 +574,22 @@
         "min": 1.0,
         "max": 1.0
       },
-      "path_plot": "(test_68_)RenaultScenic_straight_18.88888888888889mps_0.5m_0000038.png",
-      "sample_dir": "sample_0000038"
+      "path_plot": "(test_68.0_)RenaultScenic_straight_18.88888888888889mps_0.5m_0000018.png",
+      "sample_dir": "sample_0000018"
     },
     {
-      "filename": "(test_69_)RenaultScenic_straight_19.166666666666668mps_0.5m_0000039.wav",
-      "index": 39,
-      "vehicle": "RenaultScenic",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 19.166666666666668,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 32,
-        "humidity": 46
-      },
-      "labels": {
-        "speed_mps": 19.166666666666668,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "RenaultScenic"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_69_)RenaultScenic_straight_19.166666666666668mps_0.5m_0000039.png",
-      "sample_dir": "sample_0000039"
-    },
-    {
-      "filename": "(test_70_)RenaultScenic_straight_19.444444444444443mps_0.5m_0000040.wav",
-      "index": 40,
+      "filename": "(test_70.0_)RenaultScenic_straight_19.444444444444443mps_0.5m_0000019.wav",
+      "index": 19,
       "vehicle": "RenaultScenic",
       "path_type": "straight",
       "parameters": {
         "speed": 19.444444444444443,
         "distance": 0.5,
-        "duration": 10.0,
         "angle": 0.0,
+        "duration": 10.0,
         "acceleration": 0.0,
-        "temperature": 30,
-        "humidity": 39
+        "temperature": 20,
+        "humidity": 50
       },
       "labels": {
         "speed_mps": 19.444444444444443,
@@ -1310,22 +606,22 @@
         "min": 1.0,
         "max": 1.0
       },
-      "path_plot": "(test_70_)RenaultScenic_straight_19.444444444444443mps_0.5m_0000040.png",
-      "sample_dir": "sample_0000040"
+      "path_plot": "(test_70.0_)RenaultScenic_straight_19.444444444444443mps_0.5m_0000019.png",
+      "sample_dir": "sample_0000019"
     },
     {
-      "filename": "(test_71_)RenaultScenic_straight_19.72222222222222mps_0.5m_0000041.wav",
-      "index": 41,
+      "filename": "(test_71.0_)RenaultScenic_straight_19.72222222222222mps_0.5m_0000020.wav",
+      "index": 20,
       "vehicle": "RenaultScenic",
       "path_type": "straight",
       "parameters": {
         "speed": 19.72222222222222,
         "distance": 0.5,
-        "duration": 10.0,
         "angle": 0.0,
+        "duration": 10.0,
         "acceleration": 0.0,
-        "temperature": 28,
-        "humidity": 32
+        "temperature": 20,
+        "humidity": 50
       },
       "labels": {
         "speed_mps": 19.72222222222222,
@@ -1342,22 +638,22 @@
         "min": 1.0,
         "max": 1.0
       },
-      "path_plot": "(test_71_)RenaultScenic_straight_19.72222222222222mps_0.5m_0000041.png",
-      "sample_dir": "sample_0000041"
+      "path_plot": "(test_71.0_)RenaultScenic_straight_19.72222222222222mps_0.5m_0000020.png",
+      "sample_dir": "sample_0000020"
     },
     {
-      "filename": "(test_72_)RenaultScenic_straight_20.0mps_0.5m_0000042.wav",
-      "index": 42,
+      "filename": "(test_72.0_)RenaultScenic_straight_20.0mps_0.5m_0000021.wav",
+      "index": 21,
       "vehicle": "RenaultScenic",
       "path_type": "straight",
       "parameters": {
         "speed": 20.0,
         "distance": 0.5,
-        "duration": 10.0,
         "angle": 0.0,
+        "duration": 10.0,
         "acceleration": 0.0,
-        "temperature": 26,
-        "humidity": 66
+        "temperature": 20,
+        "humidity": 50
       },
       "labels": {
         "speed_mps": 20.0,
@@ -1374,54 +670,22 @@
         "min": 1.0,
         "max": 1.0
       },
-      "path_plot": "(test_72_)RenaultScenic_straight_20.0mps_0.5m_0000042.png",
-      "sample_dir": "sample_0000042"
+      "path_plot": "(test_72.0_)RenaultScenic_straight_20.0mps_0.5m_0000021.png",
+      "sample_dir": "sample_0000021"
     },
     {
-      "filename": "(test_73_)RenaultScenic_straight_20.27777777777778mps_0.5m_0000043.wav",
-      "index": 43,
-      "vehicle": "RenaultScenic",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 20.27777777777778,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 24,
-        "humidity": 59
-      },
-      "labels": {
-        "speed_mps": 20.27777777777778,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "RenaultScenic"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_73_)RenaultScenic_straight_20.27777777777778mps_0.5m_0000043.png",
-      "sample_dir": "sample_0000043"
-    },
-    {
-      "filename": "(test_74_)RenaultScenic_straight_20.555555555555554mps_0.5m_0000044.wav",
-      "index": 44,
+      "filename": "(test_74.0_)RenaultScenic_straight_20.555555555555554mps_0.5m_0000022.wav",
+      "index": 22,
       "vehicle": "RenaultScenic",
       "path_type": "straight",
       "parameters": {
         "speed": 20.555555555555554,
         "distance": 0.5,
-        "duration": 10.0,
         "angle": 0.0,
+        "duration": 10.0,
         "acceleration": 0.0,
-        "temperature": 22,
-        "humidity": 52
+        "temperature": 20,
+        "humidity": 50
       },
       "labels": {
         "speed_mps": 20.555555555555554,
@@ -1438,22 +702,22 @@
         "min": 1.0,
         "max": 1.0
       },
-      "path_plot": "(test_74_)RenaultScenic_straight_20.555555555555554mps_0.5m_0000044.png",
-      "sample_dir": "sample_0000044"
+      "path_plot": "(test_74.0_)RenaultScenic_straight_20.555555555555554mps_0.5m_0000022.png",
+      "sample_dir": "sample_0000022"
     },
     {
-      "filename": "(test_75_)RenaultScenic_straight_20.833333333333332mps_0.5m_0000045.wav",
-      "index": 45,
+      "filename": "(test_75.0_)RenaultScenic_straight_20.833333333333332mps_0.5m_0000023.wav",
+      "index": 23,
       "vehicle": "RenaultScenic",
       "path_type": "straight",
       "parameters": {
         "speed": 20.833333333333332,
         "distance": 0.5,
-        "duration": 10.0,
         "angle": 0.0,
+        "duration": 10.0,
         "acceleration": 0.0,
         "temperature": 20,
-        "humidity": 45
+        "humidity": 50
       },
       "labels": {
         "speed_mps": 20.833333333333332,
@@ -1470,54 +734,22 @@
         "min": 1.0,
         "max": 1.0
       },
-      "path_plot": "(test_75_)RenaultScenic_straight_20.833333333333332mps_0.5m_0000045.png",
-      "sample_dir": "sample_0000045"
+      "path_plot": "(test_75.0_)RenaultScenic_straight_20.833333333333332mps_0.5m_0000023.png",
+      "sample_dir": "sample_0000023"
     },
     {
-      "filename": "(test_76_)RenaultScenic_straight_21.11111111111111mps_0.5m_0000046.wav",
-      "index": 46,
-      "vehicle": "RenaultScenic",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 21.11111111111111,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 18,
-        "humidity": 38
-      },
-      "labels": {
-        "speed_mps": 21.11111111111111,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "RenaultScenic"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_76_)RenaultScenic_straight_21.11111111111111mps_0.5m_0000046.png",
-      "sample_dir": "sample_0000046"
-    },
-    {
-      "filename": "(test_77_)RenaultScenic_straight_21.38888888888889mps_0.5m_0000047.wav",
-      "index": 47,
+      "filename": "(test_77.0_)RenaultScenic_straight_21.38888888888889mps_0.5m_0000024.wav",
+      "index": 24,
       "vehicle": "RenaultScenic",
       "path_type": "straight",
       "parameters": {
         "speed": 21.38888888888889,
         "distance": 0.5,
-        "duration": 10.0,
         "angle": 0.0,
+        "duration": 10.0,
         "acceleration": 0.0,
-        "temperature": 16,
-        "humidity": 31
+        "temperature": 20,
+        "humidity": 50
       },
       "labels": {
         "speed_mps": 21.38888888888889,
@@ -1534,86 +766,22 @@
         "min": 1.0,
         "max": 1.0
       },
-      "path_plot": "(test_77_)RenaultScenic_straight_21.38888888888889mps_0.5m_0000047.png",
-      "sample_dir": "sample_0000047"
+      "path_plot": "(test_77.0_)RenaultScenic_straight_21.38888888888889mps_0.5m_0000024.png",
+      "sample_dir": "sample_0000024"
     },
     {
-      "filename": "(test_78_)RenaultScenic_straight_21.666666666666668mps_0.5m_0000048.wav",
-      "index": 48,
-      "vehicle": "RenaultScenic",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 21.666666666666668,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 35,
-        "humidity": 65
-      },
-      "labels": {
-        "speed_mps": 21.666666666666668,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "RenaultScenic"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_78_)RenaultScenic_straight_21.666666666666668mps_0.5m_0000048.png",
-      "sample_dir": "sample_0000048"
-    },
-    {
-      "filename": "(test_79_)RenaultScenic_straight_21.944444444444443mps_0.5m_0000049.wav",
-      "index": 49,
-      "vehicle": "RenaultScenic",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 21.944444444444443,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 33,
-        "humidity": 58
-      },
-      "labels": {
-        "speed_mps": 21.944444444444443,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "RenaultScenic"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_79_)RenaultScenic_straight_21.944444444444443mps_0.5m_0000049.png",
-      "sample_dir": "sample_0000049"
-    },
-    {
-      "filename": "(test_80_)RenaultScenic_straight_22.22222222222222mps_0.5m_0000050.wav",
-      "index": 50,
+      "filename": "(test_80.0_)RenaultScenic_straight_22.22222222222222mps_0.5m_0000025.wav",
+      "index": 25,
       "vehicle": "RenaultScenic",
       "path_type": "straight",
       "parameters": {
         "speed": 22.22222222222222,
         "distance": 0.5,
-        "duration": 10.0,
         "angle": 0.0,
+        "duration": 10.0,
         "acceleration": 0.0,
-        "temperature": 31,
-        "humidity": 51
+        "temperature": 20,
+        "humidity": 50
       },
       "labels": {
         "speed_mps": 22.22222222222222,
@@ -1630,54 +798,22 @@
         "min": 1.0,
         "max": 1.0
       },
-      "path_plot": "(test_80_)RenaultScenic_straight_22.22222222222222mps_0.5m_0000050.png",
-      "sample_dir": "sample_0000050"
+      "path_plot": "(test_80.0_)RenaultScenic_straight_22.22222222222222mps_0.5m_0000025.png",
+      "sample_dir": "sample_0000025"
     },
     {
-      "filename": "(test_81_)RenaultScenic_straight_22.5mps_0.5m_0000051.wav",
-      "index": 51,
-      "vehicle": "RenaultScenic",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 22.5,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 29,
-        "humidity": 44
-      },
-      "labels": {
-        "speed_mps": 22.5,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "RenaultScenic"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_81_)RenaultScenic_straight_22.5mps_0.5m_0000051.png",
-      "sample_dir": "sample_0000051"
-    },
-    {
-      "filename": "(test_82_)RenaultScenic_straight_22.77777777777778mps_0.5m_0000052.wav",
-      "index": 52,
+      "filename": "(test_82.0_)RenaultScenic_straight_22.77777777777778mps_0.5m_0000026.wav",
+      "index": 26,
       "vehicle": "RenaultScenic",
       "path_type": "straight",
       "parameters": {
         "speed": 22.77777777777778,
         "distance": 0.5,
-        "duration": 10.0,
         "angle": 0.0,
+        "duration": 10.0,
         "acceleration": 0.0,
-        "temperature": 27,
-        "humidity": 37
+        "temperature": 20,
+        "humidity": 50
       },
       "labels": {
         "speed_mps": 22.77777777777778,
@@ -1694,54 +830,22 @@
         "min": 1.0,
         "max": 1.0
       },
-      "path_plot": "(test_82_)RenaultScenic_straight_22.77777777777778mps_0.5m_0000052.png",
-      "sample_dir": "sample_0000052"
+      "path_plot": "(test_82.0_)RenaultScenic_straight_22.77777777777778mps_0.5m_0000026.png",
+      "sample_dir": "sample_0000026"
     },
     {
-      "filename": "(test_83_)RenaultScenic_straight_23.055555555555554mps_0.5m_0000053.wav",
-      "index": 53,
-      "vehicle": "RenaultScenic",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 23.055555555555554,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 25,
-        "humidity": 30
-      },
-      "labels": {
-        "speed_mps": 23.055555555555554,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "RenaultScenic"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_83_)RenaultScenic_straight_23.055555555555554mps_0.5m_0000053.png",
-      "sample_dir": "sample_0000053"
-    },
-    {
-      "filename": "(test_84_)RenaultScenic_straight_23.333333333333332mps_0.5m_0000054.wav",
-      "index": 54,
+      "filename": "(test_84.0_)RenaultScenic_straight_23.333333333333332mps_0.5m_0000027.wav",
+      "index": 27,
       "vehicle": "RenaultScenic",
       "path_type": "straight",
       "parameters": {
         "speed": 23.333333333333332,
         "distance": 0.5,
-        "duration": 10.0,
         "angle": 0.0,
+        "duration": 10.0,
         "acceleration": 0.0,
-        "temperature": 23,
-        "humidity": 64
+        "temperature": 20,
+        "humidity": 50
       },
       "labels": {
         "speed_mps": 23.333333333333332,
@@ -1758,53 +862,21 @@
         "min": 1.0,
         "max": 1.0
       },
-      "path_plot": "(test_84_)RenaultScenic_straight_23.333333333333332mps_0.5m_0000054.png",
-      "sample_dir": "sample_0000054"
+      "path_plot": "(test_84.0_)RenaultScenic_straight_23.333333333333332mps_0.5m_0000027.png",
+      "sample_dir": "sample_0000027"
     },
     {
-      "filename": "(test_85_)RenaultScenic_straight_23.61111111111111mps_0.5m_0000055.wav",
-      "index": 55,
-      "vehicle": "RenaultScenic",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 23.61111111111111,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 21,
-        "humidity": 57
-      },
-      "labels": {
-        "speed_mps": 23.61111111111111,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "RenaultScenic"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_85_)RenaultScenic_straight_23.61111111111111mps_0.5m_0000055.png",
-      "sample_dir": "sample_0000055"
-    },
-    {
-      "filename": "(test_86_)RenaultScenic_straight_23.88888888888889mps_0.5m_0000056.wav",
-      "index": 56,
+      "filename": "(test_86.0_)RenaultScenic_straight_23.88888888888889mps_0.5m_0000028.wav",
+      "index": 28,
       "vehicle": "RenaultScenic",
       "path_type": "straight",
       "parameters": {
         "speed": 23.88888888888889,
         "distance": 0.5,
-        "duration": 10.0,
         "angle": 0.0,
+        "duration": 10.0,
         "acceleration": 0.0,
-        "temperature": 19,
+        "temperature": 20,
         "humidity": 50
       },
       "labels": {
@@ -1822,22 +894,22 @@
         "min": 1.0,
         "max": 1.0
       },
-      "path_plot": "(test_86_)RenaultScenic_straight_23.88888888888889mps_0.5m_0000056.png",
-      "sample_dir": "sample_0000056"
+      "path_plot": "(test_86.0_)RenaultScenic_straight_23.88888888888889mps_0.5m_0000028.png",
+      "sample_dir": "sample_0000028"
     },
     {
-      "filename": "(test_87_)RenaultScenic_straight_24.166666666666664mps_0.5m_0000057.wav",
-      "index": 57,
+      "filename": "(test_87.0_)RenaultScenic_straight_24.166666666666664mps_0.5m_0000029.wav",
+      "index": 29,
       "vehicle": "RenaultScenic",
       "path_type": "straight",
       "parameters": {
         "speed": 24.166666666666664,
         "distance": 0.5,
-        "duration": 10.0,
         "angle": 0.0,
+        "duration": 10.0,
         "acceleration": 0.0,
-        "temperature": 17,
-        "humidity": 43
+        "temperature": 20,
+        "humidity": 50
       },
       "labels": {
         "speed_mps": 24.166666666666664,
@@ -1854,86 +926,22 @@
         "min": 1.0,
         "max": 1.0
       },
-      "path_plot": "(test_87_)RenaultScenic_straight_24.166666666666664mps_0.5m_0000057.png",
-      "sample_dir": "sample_0000057"
+      "path_plot": "(test_87.0_)RenaultScenic_straight_24.166666666666664mps_0.5m_0000029.png",
+      "sample_dir": "sample_0000029"
     },
     {
-      "filename": "(test_88_)RenaultScenic_straight_24.444444444444443mps_0.5m_0000058.wav",
-      "index": 58,
-      "vehicle": "RenaultScenic",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 24.444444444444443,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 15,
-        "humidity": 36
-      },
-      "labels": {
-        "speed_mps": 24.444444444444443,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "RenaultScenic"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_88_)RenaultScenic_straight_24.444444444444443mps_0.5m_0000058.png",
-      "sample_dir": "sample_0000058"
-    },
-    {
-      "filename": "(test_89_)RenaultScenic_straight_24.72222222222222mps_0.5m_0000059.wav",
-      "index": 59,
-      "vehicle": "RenaultScenic",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 24.72222222222222,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 34,
-        "humidity": 70
-      },
-      "labels": {
-        "speed_mps": 24.72222222222222,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "RenaultScenic"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_89_)RenaultScenic_straight_24.72222222222222mps_0.5m_0000059.png",
-      "sample_dir": "sample_0000059"
-    },
-    {
-      "filename": "(test_90_)RenaultScenic_straight_25.0mps_0.5m_0000060.wav",
-      "index": 60,
+      "filename": "(test_90.0_)RenaultScenic_straight_25.0mps_0.5m_0000030.wav",
+      "index": 30,
       "vehicle": "RenaultScenic",
       "path_type": "straight",
       "parameters": {
         "speed": 25.0,
         "distance": 0.5,
-        "duration": 10.0,
         "angle": 0.0,
+        "duration": 10.0,
         "acceleration": 0.0,
-        "temperature": 32,
-        "humidity": 63
+        "temperature": 20,
+        "humidity": 50
       },
       "labels": {
         "speed_mps": 25.0,
@@ -1950,22 +958,22 @@
         "min": 1.0,
         "max": 1.0
       },
-      "path_plot": "(test_90_)RenaultScenic_straight_25.0mps_0.5m_0000060.png",
-      "sample_dir": "sample_0000060"
+      "path_plot": "(test_90.0_)RenaultScenic_straight_25.0mps_0.5m_0000030.png",
+      "sample_dir": "sample_0000030"
     },
     {
-      "filename": "(test_91_)RenaultScenic_straight_25.27777777777778mps_0.5m_0000061.wav",
-      "index": 61,
+      "filename": "(test_91.0_)RenaultScenic_straight_25.27777777777778mps_0.5m_0000031.wav",
+      "index": 31,
       "vehicle": "RenaultScenic",
       "path_type": "straight",
       "parameters": {
         "speed": 25.27777777777778,
         "distance": 0.5,
-        "duration": 10.0,
         "angle": 0.0,
+        "duration": 10.0,
         "acceleration": 0.0,
-        "temperature": 30,
-        "humidity": 56
+        "temperature": 20,
+        "humidity": 50
       },
       "labels": {
         "speed_mps": 25.27777777777778,
@@ -1982,86 +990,22 @@
         "min": 1.0,
         "max": 1.0
       },
-      "path_plot": "(test_91_)RenaultScenic_straight_25.27777777777778mps_0.5m_0000061.png",
-      "sample_dir": "sample_0000061"
+      "path_plot": "(test_91.0_)RenaultScenic_straight_25.27777777777778mps_0.5m_0000031.png",
+      "sample_dir": "sample_0000031"
     },
     {
-      "filename": "(test_92_)RenaultScenic_straight_25.555555555555554mps_0.5m_0000062.wav",
-      "index": 62,
-      "vehicle": "RenaultScenic",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 25.555555555555554,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 28,
-        "humidity": 49
-      },
-      "labels": {
-        "speed_mps": 25.555555555555554,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "RenaultScenic"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_92_)RenaultScenic_straight_25.555555555555554mps_0.5m_0000062.png",
-      "sample_dir": "sample_0000062"
-    },
-    {
-      "filename": "(test_93_)RenaultScenic_straight_25.833333333333332mps_0.5m_0000063.wav",
-      "index": 63,
-      "vehicle": "RenaultScenic",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 25.833333333333332,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 26,
-        "humidity": 42
-      },
-      "labels": {
-        "speed_mps": 25.833333333333332,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "RenaultScenic"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_93_)RenaultScenic_straight_25.833333333333332mps_0.5m_0000063.png",
-      "sample_dir": "sample_0000063"
-    },
-    {
-      "filename": "(test_94_)RenaultScenic_straight_26.11111111111111mps_0.5m_0000064.wav",
-      "index": 64,
+      "filename": "(test_94.0_)RenaultScenic_straight_26.11111111111111mps_0.5m_0000032.wav",
+      "index": 32,
       "vehicle": "RenaultScenic",
       "path_type": "straight",
       "parameters": {
         "speed": 26.11111111111111,
         "distance": 0.5,
-        "duration": 10.0,
         "angle": 0.0,
+        "duration": 10.0,
         "acceleration": 0.0,
-        "temperature": 24,
-        "humidity": 35
+        "temperature": 20,
+        "humidity": 50
       },
       "labels": {
         "speed_mps": 26.11111111111111,
@@ -2078,22 +1022,22 @@
         "min": 1.0,
         "max": 1.0
       },
-      "path_plot": "(test_94_)RenaultScenic_straight_26.11111111111111mps_0.5m_0000064.png",
-      "sample_dir": "sample_0000064"
+      "path_plot": "(test_94.0_)RenaultScenic_straight_26.11111111111111mps_0.5m_0000032.png",
+      "sample_dir": "sample_0000032"
     },
     {
-      "filename": "(test_95_)RenaultScenic_straight_26.38888888888889mps_0.5m_0000065.wav",
-      "index": 65,
+      "filename": "(test_95.0_)RenaultScenic_straight_26.38888888888889mps_0.5m_0000033.wav",
+      "index": 33,
       "vehicle": "RenaultScenic",
       "path_type": "straight",
       "parameters": {
         "speed": 26.38888888888889,
         "distance": 0.5,
-        "duration": 10.0,
         "angle": 0.0,
+        "duration": 10.0,
         "acceleration": 0.0,
-        "temperature": 22,
-        "humidity": 69
+        "temperature": 20,
+        "humidity": 50
       },
       "labels": {
         "speed_mps": 26.38888888888889,
@@ -2110,86 +1054,22 @@
         "min": 1.0,
         "max": 1.0
       },
-      "path_plot": "(test_95_)RenaultScenic_straight_26.38888888888889mps_0.5m_0000065.png",
-      "sample_dir": "sample_0000065"
+      "path_plot": "(test_95.0_)RenaultScenic_straight_26.38888888888889mps_0.5m_0000033.png",
+      "sample_dir": "sample_0000033"
     },
     {
-      "filename": "(test_96_)RenaultScenic_straight_26.666666666666664mps_0.5m_0000066.wav",
-      "index": 66,
-      "vehicle": "RenaultScenic",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 26.666666666666664,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 20,
-        "humidity": 62
-      },
-      "labels": {
-        "speed_mps": 26.666666666666664,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "RenaultScenic"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_96_)RenaultScenic_straight_26.666666666666664mps_0.5m_0000066.png",
-      "sample_dir": "sample_0000066"
-    },
-    {
-      "filename": "(test_97_)RenaultScenic_straight_26.944444444444443mps_0.5m_0000067.wav",
-      "index": 67,
-      "vehicle": "RenaultScenic",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 26.944444444444443,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 18,
-        "humidity": 55
-      },
-      "labels": {
-        "speed_mps": 26.944444444444443,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "RenaultScenic"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_97_)RenaultScenic_straight_26.944444444444443mps_0.5m_0000067.png",
-      "sample_dir": "sample_0000067"
-    },
-    {
-      "filename": "(test_98_)RenaultScenic_straight_27.22222222222222mps_0.5m_0000068.wav",
-      "index": 68,
+      "filename": "(test_98.0_)RenaultScenic_straight_27.22222222222222mps_0.5m_0000034.wav",
+      "index": 34,
       "vehicle": "RenaultScenic",
       "path_type": "straight",
       "parameters": {
         "speed": 27.22222222222222,
         "distance": 0.5,
-        "duration": 10.0,
         "angle": 0.0,
+        "duration": 10.0,
         "acceleration": 0.0,
-        "temperature": 16,
-        "humidity": 48
+        "temperature": 20,
+        "humidity": 50
       },
       "labels": {
         "speed_mps": 27.22222222222222,
@@ -2206,86 +1086,22 @@
         "min": 1.0,
         "max": 1.0
       },
-      "path_plot": "(test_98_)RenaultScenic_straight_27.22222222222222mps_0.5m_0000068.png",
-      "sample_dir": "sample_0000068"
+      "path_plot": "(test_98.0_)RenaultScenic_straight_27.22222222222222mps_0.5m_0000034.png",
+      "sample_dir": "sample_0000034"
     },
     {
-      "filename": "(test_99_)RenaultScenic_straight_27.5mps_0.5m_0000069.wav",
-      "index": 69,
-      "vehicle": "RenaultScenic",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 27.5,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 35,
-        "humidity": 41
-      },
-      "labels": {
-        "speed_mps": 27.5,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "RenaultScenic"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_99_)RenaultScenic_straight_27.5mps_0.5m_0000069.png",
-      "sample_dir": "sample_0000069"
-    },
-    {
-      "filename": "(test_100_)RenaultScenic_straight_27.77777777777778mps_0.5m_0000070.wav",
-      "index": 70,
-      "vehicle": "RenaultScenic",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 27.77777777777778,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 33,
-        "humidity": 34
-      },
-      "labels": {
-        "speed_mps": 27.77777777777778,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "RenaultScenic"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_100_)RenaultScenic_straight_27.77777777777778mps_0.5m_0000070.png",
-      "sample_dir": "sample_0000070"
-    },
-    {
-      "filename": "(test_101_)RenaultScenic_straight_28.055555555555554mps_0.5m_0000071.wav",
-      "index": 71,
+      "filename": "(test_101.0_)RenaultScenic_straight_28.055555555555554mps_0.5m_0000035.wav",
+      "index": 35,
       "vehicle": "RenaultScenic",
       "path_type": "straight",
       "parameters": {
         "speed": 28.055555555555554,
         "distance": 0.5,
-        "duration": 10.0,
         "angle": 0.0,
+        "duration": 10.0,
         "acceleration": 0.0,
-        "temperature": 31,
-        "humidity": 68
+        "temperature": 20,
+        "humidity": 50
       },
       "labels": {
         "speed_mps": 28.055555555555554,
@@ -2302,168 +1118,8 @@
         "min": 1.0,
         "max": 1.0
       },
-      "path_plot": "(test_101_)RenaultScenic_straight_28.055555555555554mps_0.5m_0000071.png",
-      "sample_dir": "sample_0000071"
-    },
-    {
-      "filename": "(test_102_)RenaultScenic_straight_28.333333333333332mps_0.5m_0000072.wav",
-      "index": 72,
-      "vehicle": "RenaultScenic",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 28.333333333333332,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 29,
-        "humidity": 61
-      },
-      "labels": {
-        "speed_mps": 28.333333333333332,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "RenaultScenic"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_102_)RenaultScenic_straight_28.333333333333332mps_0.5m_0000072.png",
-      "sample_dir": "sample_0000072"
-    },
-    {
-      "filename": "(test_103_)RenaultScenic_straight_28.61111111111111mps_0.5m_0000073.wav",
-      "index": 73,
-      "vehicle": "RenaultScenic",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 28.61111111111111,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 27,
-        "humidity": 54
-      },
-      "labels": {
-        "speed_mps": 28.61111111111111,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "RenaultScenic"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_103_)RenaultScenic_straight_28.61111111111111mps_0.5m_0000073.png",
-      "sample_dir": "sample_0000073"
-    },
-    {
-      "filename": "(test_104_)RenaultScenic_straight_28.88888888888889mps_0.5m_0000074.wav",
-      "index": 74,
-      "vehicle": "RenaultScenic",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 28.88888888888889,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 25,
-        "humidity": 47
-      },
-      "labels": {
-        "speed_mps": 28.88888888888889,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "RenaultScenic"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_104_)RenaultScenic_straight_28.88888888888889mps_0.5m_0000074.png",
-      "sample_dir": "sample_0000074"
-    },
-    {
-      "filename": "(test_105_)RenaultScenic_straight_29.166666666666664mps_0.5m_0000075.wav",
-      "index": 75,
-      "vehicle": "RenaultScenic",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 29.166666666666664,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 23,
-        "humidity": 40
-      },
-      "labels": {
-        "speed_mps": 29.166666666666664,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "RenaultScenic"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_105_)RenaultScenic_straight_29.166666666666664mps_0.5m_0000075.png",
-      "sample_dir": "sample_0000075"
-    },
-    {
-      "filename": "(test_106_)RenaultScenic_straight_29.444444444444443mps_0.5m_0000076.wav",
-      "index": 76,
-      "vehicle": "RenaultScenic",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 29.444444444444443,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 21,
-        "humidity": 33
-      },
-      "labels": {
-        "speed_mps": 29.444444444444443,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "RenaultScenic"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_106_)RenaultScenic_straight_29.444444444444443mps_0.5m_0000076.png",
-      "sample_dir": "sample_0000076"
+      "path_plot": "(test_101.0_)RenaultScenic_straight_28.055555555555554mps_0.5m_0000035.png",
+      "sample_dir": "sample_0000035"
     }
   ]
 }

@@ -24,23 +24,32 @@ venv/
 
 # TensorFlow
 # *.keras
-*.h5
-*.ckpt
-*.pb
+# *.h5
+# *.ckpt
+# *.pb
 
 # Logs and debug
 *.log
-additional/test_results/
-ref_docs/
+*.csv
+*.xlsx
+*.tmp
+
+# additional/test_results/
+# ref_docs/
 *.pdf
 *.wav
+# *.md
 # *.txt
+ref_docs/neurips_sections.md
+ref_docs/system_status_report.md
+
 
 # Dataset
-AdditionalSimulatedData/
-SimulatedData/
-MatchedData/
+AdditionalExtendedSimulatedData/
+ExtendedSimulatedData/
+MixedData/
 RealData/
+SimulatedData/
 
 # OS
 .DS_Store

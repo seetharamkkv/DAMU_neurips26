@@ -8,7 +8,7 @@ The `vs13` dataset has been integrated into the evaluation pipeline with minimal
 
 ### Dataset Structure
 The dataset follows the expected format:
-- **Root Directory**: `vs13/`
+- **Root Directory**: `RealData/`
 - **Hierarchy**: Each subfolder (e.g., `KiaSportage`, `VWPassat`) contains audio clips for that specific vehicle.
 - **Labeling**: Labels are extracted from the filename format `{Class}_{Speed}.wav`.
 - **Discovery**: The `Train_valid_split.txt` file in each folder serves as the manifest for identifying valid audio clips.
@@ -32,7 +32,7 @@ source venv/Scripts/activate
 ### Run Full Evaluation
 Once the environment is active, run the following command from the `Vehicle-Speed-from-Audio-SE-ResNet` directory:
 ```bash
-python inference.py --data_dir ../vs13 --weights_dir checkpoints/
+python inference.py --data_dir "../RealData" --weights_dir checkpoints/
 ```
 
 ### Run Small Verification Test
@@ -44,7 +44,7 @@ python inference.py --data_dir additional/data/test_data --weights_dir checkpoin
 > [!TIP]
 > If you prefer not to activate the environment, you can run the script directly using the venv's python executable:
 > ```bash
-> ./venv/Scripts/python inference.py --data_dir ../vs13 --weights_dir checkpoints/
+> ./venv/Scripts/python inference.py --data_dir "../RealData" --weights_dir checkpoints/
 > ```
 
 ## 4. Additional Utilities

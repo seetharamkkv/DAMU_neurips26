@@ -26,7 +26,7 @@ def check_amplitude(directory, n_samples=5):
 
 print("--- RealData Amplitude ---")
 check_amplitude('d:/Antigravity/vs13-model/RealData')
-print("\n--- SimulatedData Amplitude ---")
-check_amplitude('d:/Antigravity/vs13-model/SimulatedData')
-print("\n--- MatchedData Amplitude ---")
-check_amplitude('d:/Antigravity/vs13-model/MatchedData')
+print("\n--- ExtendedSimulatedData Amplitude ---")
+check_amplitude('d:/Antigravity/vs13-model/ExtendedSimulatedData')
+print("\n--- ExtendedSimulatedData Amplitude ---")
+check_amplitude('d:/Antigravity/vs13-model/ExtendedSimulatedData')

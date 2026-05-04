@@ -1,179 +1,19 @@
 {
-  "car": "NissanQashQai",
+  "car": "NissanQashqai",
   "clips": [
     {
-      "filename": "(test_30_)NissanQashQai_straight_8.333333333333334mps_0.5m_0000000.wav",
-      "index": 0,
-      "vehicle": "NissanQashQai",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 8.333333333333334,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 29,
-        "humidity": 34
-      },
-      "labels": {
-        "speed_mps": 8.333333333333334,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "NissanQashQai"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_30_)NissanQashQai_straight_8.333333333333334mps_0.5m_0000000.png",
-      "sample_dir": "sample_0000000"
-    },
-    {
-      "filename": "(test_31_)NissanQashQai_straight_8.61111111111111mps_0.5m_0000001.wav",
+      "filename": "(test_35.0_)NissanQashQai_straight_9.722222222222221mps_0.5m_0000001.wav",
       "index": 1,
-      "vehicle": "NissanQashQai",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 8.61111111111111,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 16,
-        "humidity": 64
-      },
-      "labels": {
-        "speed_mps": 8.61111111111111,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "NissanQashQai"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_31_)NissanQashQai_straight_8.61111111111111mps_0.5m_0000001.png",
-      "sample_dir": "sample_0000001"
-    },
-    {
-      "filename": "(test_32_)NissanQashQai_straight_8.88888888888889mps_0.5m_0000002.wav",
-      "index": 2,
-      "vehicle": "NissanQashQai",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 8.88888888888889,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 24,
-        "humidity": 53
-      },
-      "labels": {
-        "speed_mps": 8.88888888888889,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "NissanQashQai"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_32_)NissanQashQai_straight_8.88888888888889mps_0.5m_0000002.png",
-      "sample_dir": "sample_0000002"
-    },
-    {
-      "filename": "(test_33_)NissanQashQai_straight_9.166666666666666mps_0.5m_0000003.wav",
-      "index": 3,
-      "vehicle": "NissanQashQai",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 9.166666666666666,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 32,
-        "humidity": 42
-      },
-      "labels": {
-        "speed_mps": 9.166666666666666,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "NissanQashQai"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_33_)NissanQashQai_straight_9.166666666666666mps_0.5m_0000003.png",
-      "sample_dir": "sample_0000003"
-    },
-    {
-      "filename": "(test_34_)NissanQashQai_straight_9.444444444444445mps_0.5m_0000004.wav",
-      "index": 4,
-      "vehicle": "NissanQashQai",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 9.444444444444445,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 19,
-        "humidity": 31
-      },
-      "labels": {
-        "speed_mps": 9.444444444444445,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "NissanQashQai"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_34_)NissanQashQai_straight_9.444444444444445mps_0.5m_0000004.png",
-      "sample_dir": "sample_0000004"
-    },
-    {
-      "filename": "(test_35_)NissanQashQai_straight_9.722222222222221mps_0.5m_0000005.wav",
-      "index": 5,
-      "vehicle": "NissanQashQai",
+      "vehicle": "NissanQashqai",
       "path_type": "straight",
       "parameters": {
         "speed": 9.722222222222221,
         "distance": 0.5,
-        "duration": 10.0,
         "angle": 0.0,
+        "duration": 10.0,
         "acceleration": 0.0,
-        "temperature": 27,
-        "humidity": 61
+        "temperature": 20,
+        "humidity": 50
       },
       "labels": {
         "speed_mps": 9.722222222222221,
@@ -190,86 +30,22 @@
         "min": 1.0,
         "max": 1.0
       },
-      "path_plot": "(test_35_)NissanQashQai_straight_9.722222222222221mps_0.5m_0000005.png",
-      "sample_dir": "sample_0000005"
+      "path_plot": "(test_35.0_)NissanQashQai_straight_9.722222222222221mps_0.5m_0000001.png",
+      "sample_dir": "sample_0000001"
     },
     {
-      "filename": "(test_36_)NissanQashQai_straight_10.0mps_0.5m_0000006.wav",
-      "index": 6,
-      "vehicle": "NissanQashQai",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 10.0,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 35,
-        "humidity": 50
-      },
-      "labels": {
-        "speed_mps": 10.0,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "NissanQashQai"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_36_)NissanQashQai_straight_10.0mps_0.5m_0000006.png",
-      "sample_dir": "sample_0000006"
-    },
-    {
-      "filename": "(test_37_)NissanQashQai_straight_10.277777777777777mps_0.5m_0000007.wav",
-      "index": 7,
-      "vehicle": "NissanQashQai",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 10.277777777777777,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 22,
-        "humidity": 39
-      },
-      "labels": {
-        "speed_mps": 10.277777777777777,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "NissanQashQai"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_37_)NissanQashQai_straight_10.277777777777777mps_0.5m_0000007.png",
-      "sample_dir": "sample_0000007"
-    },
-    {
-      "filename": "(test_38_)NissanQashQai_straight_10.555555555555555mps_0.5m_0000008.wav",
-      "index": 8,
-      "vehicle": "NissanQashQai",
+      "filename": "(test_38.0_)NissanQashQai_straight_10.555555555555555mps_0.5m_0000002.wav",
+      "index": 2,
+      "vehicle": "NissanQashqai",
       "path_type": "straight",
       "parameters": {
         "speed": 10.555555555555555,
         "distance": 0.5,
-        "duration": 10.0,
         "angle": 0.0,
+        "duration": 10.0,
         "acceleration": 0.0,
-        "temperature": 30,
-        "humidity": 69
+        "temperature": 20,
+        "humidity": 50
       },
       "labels": {
         "speed_mps": 10.555555555555555,
@@ -286,54 +62,22 @@
         "min": 1.0,
         "max": 1.0
       },
-      "path_plot": "(test_38_)NissanQashQai_straight_10.555555555555555mps_0.5m_0000008.png",
-      "sample_dir": "sample_0000008"
+      "path_plot": "(test_38.0_)NissanQashQai_straight_10.555555555555555mps_0.5m_0000002.png",
+      "sample_dir": "sample_0000002"
     },
     {
-      "filename": "(test_39_)NissanQashQai_straight_10.833333333333334mps_0.5m_0000009.wav",
-      "index": 9,
-      "vehicle": "NissanQashQai",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 10.833333333333334,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 17,
-        "humidity": 58
-      },
-      "labels": {
-        "speed_mps": 10.833333333333334,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "NissanQashQai"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_39_)NissanQashQai_straight_10.833333333333334mps_0.5m_0000009.png",
-      "sample_dir": "sample_0000009"
-    },
-    {
-      "filename": "(test_40_)NissanQashQai_straight_11.11111111111111mps_0.5m_0000010.wav",
-      "index": 10,
-      "vehicle": "NissanQashQai",
+      "filename": "(test_40.0_)NissanQashQai_straight_11.11111111111111mps_0.5m_0000003.wav",
+      "index": 3,
+      "vehicle": "NissanQashqai",
       "path_type": "straight",
       "parameters": {
         "speed": 11.11111111111111,
         "distance": 0.5,
-        "duration": 10.0,
         "angle": 0.0,
+        "duration": 10.0,
         "acceleration": 0.0,
-        "temperature": 25,
-        "humidity": 47
+        "temperature": 20,
+        "humidity": 50
       },
       "labels": {
         "speed_mps": 11.11111111111111,
@@ -350,54 +94,22 @@
         "min": 1.0,
         "max": 1.0
       },
-      "path_plot": "(test_40_)NissanQashQai_straight_11.11111111111111mps_0.5m_0000010.png",
-      "sample_dir": "sample_0000010"
+      "path_plot": "(test_40.0_)NissanQashQai_straight_11.11111111111111mps_0.5m_0000003.png",
+      "sample_dir": "sample_0000003"
     },
     {
-      "filename": "(test_41_)NissanQashQai_straight_11.38888888888889mps_0.5m_0000011.wav",
-      "index": 11,
-      "vehicle": "NissanQashQai",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 11.38888888888889,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 33,
-        "humidity": 36
-      },
-      "labels": {
-        "speed_mps": 11.38888888888889,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "NissanQashQai"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_41_)NissanQashQai_straight_11.38888888888889mps_0.5m_0000011.png",
-      "sample_dir": "sample_0000011"
-    },
-    {
-      "filename": "(test_42_)NissanQashQai_straight_11.666666666666666mps_0.5m_0000012.wav",
-      "index": 12,
-      "vehicle": "NissanQashQai",
+      "filename": "(test_42.0_)NissanQashQai_straight_11.666666666666666mps_0.5m_0000004.wav",
+      "index": 4,
+      "vehicle": "NissanQashqai",
       "path_type": "straight",
       "parameters": {
         "speed": 11.666666666666666,
         "distance": 0.5,
-        "duration": 10.0,
         "angle": 0.0,
+        "duration": 10.0,
         "acceleration": 0.0,
         "temperature": 20,
-        "humidity": 66
+        "humidity": 50
       },
       "labels": {
         "speed_mps": 11.666666666666666,
@@ -414,86 +126,22 @@
         "min": 1.0,
         "max": 1.0
       },
-      "path_plot": "(test_42_)NissanQashQai_straight_11.666666666666666mps_0.5m_0000012.png",
-      "sample_dir": "sample_0000012"
+      "path_plot": "(test_42.0_)NissanQashQai_straight_11.666666666666666mps_0.5m_0000004.png",
+      "sample_dir": "sample_0000004"
     },
     {
-      "filename": "(test_43_)NissanQashQai_straight_11.944444444444445mps_0.5m_0000013.wav",
-      "index": 13,
-      "vehicle": "NissanQashQai",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 11.944444444444445,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 28,
-        "humidity": 55
-      },
-      "labels": {
-        "speed_mps": 11.944444444444445,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "NissanQashQai"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_43_)NissanQashQai_straight_11.944444444444445mps_0.5m_0000013.png",
-      "sample_dir": "sample_0000013"
-    },
-    {
-      "filename": "(test_44_)NissanQashQai_straight_12.222222222222221mps_0.5m_0000014.wav",
-      "index": 14,
-      "vehicle": "NissanQashQai",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 12.222222222222221,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 15,
-        "humidity": 44
-      },
-      "labels": {
-        "speed_mps": 12.222222222222221,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "NissanQashQai"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_44_)NissanQashQai_straight_12.222222222222221mps_0.5m_0000014.png",
-      "sample_dir": "sample_0000014"
-    },
-    {
-      "filename": "(test_45_)NissanQashQai_straight_12.5mps_0.5m_0000015.wav",
-      "index": 15,
-      "vehicle": "NissanQashQai",
+      "filename": "(test_45.0_)NissanQashQai_straight_12.5mps_0.5m_0000005.wav",
+      "index": 5,
+      "vehicle": "NissanQashqai",
       "path_type": "straight",
       "parameters": {
         "speed": 12.5,
         "distance": 0.5,
-        "duration": 10.0,
         "angle": 0.0,
+        "duration": 10.0,
         "acceleration": 0.0,
-        "temperature": 23,
-        "humidity": 33
+        "temperature": 20,
+        "humidity": 50
       },
       "labels": {
         "speed_mps": 12.5,
@@ -510,86 +158,22 @@
         "min": 1.0,
         "max": 1.0
       },
-      "path_plot": "(test_45_)NissanQashQai_straight_12.5mps_0.5m_0000015.png",
-      "sample_dir": "sample_0000015"
+      "path_plot": "(test_45.0_)NissanQashQai_straight_12.5mps_0.5m_0000005.png",
+      "sample_dir": "sample_0000005"
     },
     {
-      "filename": "(test_46_)NissanQashQai_straight_12.777777777777777mps_0.5m_0000016.wav",
-      "index": 16,
-      "vehicle": "NissanQashQai",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 12.777777777777777,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 31,
-        "humidity": 63
-      },
-      "labels": {
-        "speed_mps": 12.777777777777777,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "NissanQashQai"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_46_)NissanQashQai_straight_12.777777777777777mps_0.5m_0000016.png",
-      "sample_dir": "sample_0000016"
-    },
-    {
-      "filename": "(test_47_)NissanQashQai_straight_13.055555555555555mps_0.5m_0000017.wav",
-      "index": 17,
-      "vehicle": "NissanQashQai",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 13.055555555555555,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 18,
-        "humidity": 52
-      },
-      "labels": {
-        "speed_mps": 13.055555555555555,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "NissanQashQai"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_47_)NissanQashQai_straight_13.055555555555555mps_0.5m_0000017.png",
-      "sample_dir": "sample_0000017"
-    },
-    {
-      "filename": "(test_48_)NissanQashQai_straight_13.333333333333332mps_0.5m_0000018.wav",
-      "index": 18,
-      "vehicle": "NissanQashQai",
+      "filename": "(test_48.0_)NissanQashQai_straight_13.333333333333332mps_0.5m_0000006.wav",
+      "index": 6,
+      "vehicle": "NissanQashqai",
       "path_type": "straight",
       "parameters": {
         "speed": 13.333333333333332,
         "distance": 0.5,
-        "duration": 10.0,
         "angle": 0.0,
+        "duration": 10.0,
         "acceleration": 0.0,
-        "temperature": 26,
-        "humidity": 41
+        "temperature": 20,
+        "humidity": 50
       },
       "labels": {
         "speed_mps": 13.333333333333332,
@@ -606,54 +190,22 @@
         "min": 1.0,
         "max": 1.0
       },
-      "path_plot": "(test_48_)NissanQashQai_straight_13.333333333333332mps_0.5m_0000018.png",
-      "sample_dir": "sample_0000018"
+      "path_plot": "(test_48.0_)NissanQashQai_straight_13.333333333333332mps_0.5m_0000006.png",
+      "sample_dir": "sample_0000006"
     },
     {
-      "filename": "(test_49_)NissanQashQai_straight_13.61111111111111mps_0.5m_0000019.wav",
-      "index": 19,
-      "vehicle": "NissanQashQai",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 13.61111111111111,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 34,
-        "humidity": 30
-      },
-      "labels": {
-        "speed_mps": 13.61111111111111,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "NissanQashQai"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_49_)NissanQashQai_straight_13.61111111111111mps_0.5m_0000019.png",
-      "sample_dir": "sample_0000019"
-    },
-    {
-      "filename": "(test_50_)NissanQashQai_straight_13.88888888888889mps_0.5m_0000020.wav",
-      "index": 20,
-      "vehicle": "NissanQashQai",
+      "filename": "(test_50.0_)NissanQashQai_straight_13.88888888888889mps_0.5m_0000007.wav",
+      "index": 7,
+      "vehicle": "NissanQashqai",
       "path_type": "straight",
       "parameters": {
         "speed": 13.88888888888889,
         "distance": 0.5,
-        "duration": 10.0,
         "angle": 0.0,
+        "duration": 10.0,
         "acceleration": 0.0,
-        "temperature": 21,
-        "humidity": 60
+        "temperature": 20,
+        "humidity": 50
       },
       "labels": {
         "speed_mps": 13.88888888888889,
@@ -670,86 +222,22 @@
         "min": 1.0,
         "max": 1.0
       },
-      "path_plot": "(test_50_)NissanQashQai_straight_13.88888888888889mps_0.5m_0000020.png",
-      "sample_dir": "sample_0000020"
+      "path_plot": "(test_50.0_)NissanQashQai_straight_13.88888888888889mps_0.5m_0000007.png",
+      "sample_dir": "sample_0000007"
     },
     {
-      "filename": "(test_51_)NissanQashQai_straight_14.166666666666666mps_0.5m_0000021.wav",
-      "index": 21,
-      "vehicle": "NissanQashQai",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 14.166666666666666,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 29,
-        "humidity": 49
-      },
-      "labels": {
-        "speed_mps": 14.166666666666666,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "NissanQashQai"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_51_)NissanQashQai_straight_14.166666666666666mps_0.5m_0000021.png",
-      "sample_dir": "sample_0000021"
-    },
-    {
-      "filename": "(test_52_)NissanQashQai_straight_14.444444444444445mps_0.5m_0000022.wav",
-      "index": 22,
-      "vehicle": "NissanQashQai",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 14.444444444444445,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 16,
-        "humidity": 38
-      },
-      "labels": {
-        "speed_mps": 14.444444444444445,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "NissanQashQai"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_52_)NissanQashQai_straight_14.444444444444445mps_0.5m_0000022.png",
-      "sample_dir": "sample_0000022"
-    },
-    {
-      "filename": "(test_53_)NissanQashQai_straight_14.722222222222221mps_0.5m_0000023.wav",
-      "index": 23,
-      "vehicle": "NissanQashQai",
+      "filename": "(test_53.0_)NissanQashQai_straight_14.722222222222221mps_0.5m_0000008.wav",
+      "index": 8,
+      "vehicle": "NissanQashqai",
       "path_type": "straight",
       "parameters": {
         "speed": 14.722222222222221,
         "distance": 0.5,
-        "duration": 10.0,
         "angle": 0.0,
+        "duration": 10.0,
         "acceleration": 0.0,
-        "temperature": 24,
-        "humidity": 68
+        "temperature": 20,
+        "humidity": 50
       },
       "labels": {
         "speed_mps": 14.722222222222221,
@@ -766,54 +254,22 @@
         "min": 1.0,
         "max": 1.0
       },
-      "path_plot": "(test_53_)NissanQashQai_straight_14.722222222222221mps_0.5m_0000023.png",
-      "sample_dir": "sample_0000023"
+      "path_plot": "(test_53.0_)NissanQashQai_straight_14.722222222222221mps_0.5m_0000008.png",
+      "sample_dir": "sample_0000008"
     },
     {
-      "filename": "(test_54_)NissanQashQai_straight_15.0mps_0.5m_0000024.wav",
-      "index": 24,
-      "vehicle": "NissanQashQai",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 15.0,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 32,
-        "humidity": 57
-      },
-      "labels": {
-        "speed_mps": 15.0,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "NissanQashQai"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_54_)NissanQashQai_straight_15.0mps_0.5m_0000024.png",
-      "sample_dir": "sample_0000024"
-    },
-    {
-      "filename": "(test_55_)NissanQashQai_straight_15.277777777777777mps_0.5m_0000025.wav",
-      "index": 25,
-      "vehicle": "NissanQashQai",
+      "filename": "(test_55.0_)NissanQashQai_straight_15.277777777777777mps_0.5m_0000009.wav",
+      "index": 9,
+      "vehicle": "NissanQashqai",
       "path_type": "straight",
       "parameters": {
         "speed": 15.277777777777777,
         "distance": 0.5,
-        "duration": 10.0,
         "angle": 0.0,
+        "duration": 10.0,
         "acceleration": 0.0,
-        "temperature": 19,
-        "humidity": 46
+        "temperature": 20,
+        "humidity": 50
       },
       "labels": {
         "speed_mps": 15.277777777777777,
@@ -830,86 +286,22 @@
         "min": 1.0,
         "max": 1.0
       },
-      "path_plot": "(test_55_)NissanQashQai_straight_15.277777777777777mps_0.5m_0000025.png",
-      "sample_dir": "sample_0000025"
+      "path_plot": "(test_55.0_)NissanQashQai_straight_15.277777777777777mps_0.5m_0000009.png",
+      "sample_dir": "sample_0000009"
     },
     {
-      "filename": "(test_56_)NissanQashQai_straight_15.555555555555555mps_0.5m_0000026.wav",
-      "index": 26,
-      "vehicle": "NissanQashQai",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 15.555555555555555,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 27,
-        "humidity": 35
-      },
-      "labels": {
-        "speed_mps": 15.555555555555555,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "NissanQashQai"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_56_)NissanQashQai_straight_15.555555555555555mps_0.5m_0000026.png",
-      "sample_dir": "sample_0000026"
-    },
-    {
-      "filename": "(test_57_)NissanQashQai_straight_15.833333333333332mps_0.5m_0000027.wav",
-      "index": 27,
-      "vehicle": "NissanQashQai",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 15.833333333333332,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 35,
-        "humidity": 65
-      },
-      "labels": {
-        "speed_mps": 15.833333333333332,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "NissanQashQai"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_57_)NissanQashQai_straight_15.833333333333332mps_0.5m_0000027.png",
-      "sample_dir": "sample_0000027"
-    },
-    {
-      "filename": "(test_58_)NissanQashQai_straight_16.11111111111111mps_0.5m_0000028.wav",
-      "index": 28,
-      "vehicle": "NissanQashQai",
+      "filename": "(test_58.0_)NissanQashQai_straight_16.11111111111111mps_0.5m_0000010.wav",
+      "index": 10,
+      "vehicle": "NissanQashqai",
       "path_type": "straight",
       "parameters": {
         "speed": 16.11111111111111,
         "distance": 0.5,
-        "duration": 10.0,
         "angle": 0.0,
+        "duration": 10.0,
         "acceleration": 0.0,
-        "temperature": 22,
-        "humidity": 54
+        "temperature": 20,
+        "humidity": 50
       },
       "labels": {
         "speed_mps": 16.11111111111111,
@@ -926,54 +318,22 @@
         "min": 1.0,
         "max": 1.0
       },
-      "path_plot": "(test_58_)NissanQashQai_straight_16.11111111111111mps_0.5m_0000028.png",
-      "sample_dir": "sample_0000028"
+      "path_plot": "(test_58.0_)NissanQashQai_straight_16.11111111111111mps_0.5m_0000010.png",
+      "sample_dir": "sample_0000010"
     },
     {
-      "filename": "(test_59_)NissanQashQai_straight_16.38888888888889mps_0.5m_0000029.wav",
-      "index": 29,
-      "vehicle": "NissanQashQai",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 16.38888888888889,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 30,
-        "humidity": 43
-      },
-      "labels": {
-        "speed_mps": 16.38888888888889,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "NissanQashQai"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_59_)NissanQashQai_straight_16.38888888888889mps_0.5m_0000029.png",
-      "sample_dir": "sample_0000029"
-    },
-    {
-      "filename": "(test_60_)NissanQashQai_straight_16.666666666666668mps_0.5m_0000030.wav",
-      "index": 30,
-      "vehicle": "NissanQashQai",
+      "filename": "(test_60.0_)NissanQashQai_straight_16.666666666666668mps_0.5m_0000011.wav",
+      "index": 11,
+      "vehicle": "NissanQashqai",
       "path_type": "straight",
       "parameters": {
         "speed": 16.666666666666668,
         "distance": 0.5,
-        "duration": 10.0,
         "angle": 0.0,
+        "duration": 10.0,
         "acceleration": 0.0,
-        "temperature": 17,
-        "humidity": 32
+        "temperature": 20,
+        "humidity": 50
       },
       "labels": {
         "speed_mps": 16.666666666666668,
@@ -990,22 +350,22 @@
         "min": 1.0,
         "max": 1.0
       },
-      "path_plot": "(test_60_)NissanQashQai_straight_16.666666666666668mps_0.5m_0000030.png",
-      "sample_dir": "sample_0000030"
+      "path_plot": "(test_60.0_)NissanQashQai_straight_16.666666666666668mps_0.5m_0000011.png",
+      "sample_dir": "sample_0000011"
     },
     {
-      "filename": "(test_61_)NissanQashQai_straight_16.944444444444443mps_0.5m_0000031.wav",
-      "index": 31,
-      "vehicle": "NissanQashQai",
+      "filename": "(test_61.0_)NissanQashQai_straight_16.944444444444443mps_0.5m_0000012.wav",
+      "index": 12,
+      "vehicle": "NissanQashqai",
       "path_type": "straight",
       "parameters": {
         "speed": 16.944444444444443,
         "distance": 0.5,
-        "duration": 10.0,
         "angle": 0.0,
+        "duration": 10.0,
         "acceleration": 0.0,
-        "temperature": 25,
-        "humidity": 62
+        "temperature": 20,
+        "humidity": 50
       },
       "labels": {
         "speed_mps": 16.944444444444443,
@@ -1022,86 +382,22 @@
         "min": 1.0,
         "max": 1.0
       },
-      "path_plot": "(test_61_)NissanQashQai_straight_16.944444444444443mps_0.5m_0000031.png",
-      "sample_dir": "sample_0000031"
+      "path_plot": "(test_61.0_)NissanQashQai_straight_16.944444444444443mps_0.5m_0000012.png",
+      "sample_dir": "sample_0000012"
     },
     {
-      "filename": "(test_62_)NissanQashQai_straight_17.22222222222222mps_0.5m_0000032.wav",
-      "index": 32,
-      "vehicle": "NissanQashQai",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 17.22222222222222,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 33,
-        "humidity": 51
-      },
-      "labels": {
-        "speed_mps": 17.22222222222222,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "NissanQashQai"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_62_)NissanQashQai_straight_17.22222222222222mps_0.5m_0000032.png",
-      "sample_dir": "sample_0000032"
-    },
-    {
-      "filename": "(test_63_)NissanQashQai_straight_17.5mps_0.5m_0000033.wav",
-      "index": 33,
-      "vehicle": "NissanQashQai",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 17.5,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 20,
-        "humidity": 40
-      },
-      "labels": {
-        "speed_mps": 17.5,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "NissanQashQai"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_63_)NissanQashQai_straight_17.5mps_0.5m_0000033.png",
-      "sample_dir": "sample_0000033"
-    },
-    {
-      "filename": "(test_64_)NissanQashQai_straight_17.77777777777778mps_0.5m_0000034.wav",
-      "index": 34,
-      "vehicle": "NissanQashQai",
+      "filename": "(test_64.0_)NissanQashQai_straight_17.77777777777778mps_0.5m_0000013.wav",
+      "index": 13,
+      "vehicle": "NissanQashqai",
       "path_type": "straight",
       "parameters": {
         "speed": 17.77777777777778,
         "distance": 0.5,
-        "duration": 10.0,
         "angle": 0.0,
+        "duration": 10.0,
         "acceleration": 0.0,
-        "temperature": 28,
-        "humidity": 70
+        "temperature": 20,
+        "humidity": 50
       },
       "labels": {
         "speed_mps": 17.77777777777778,
@@ -1118,22 +414,22 @@
         "min": 1.0,
         "max": 1.0
       },
-      "path_plot": "(test_64_)NissanQashQai_straight_17.77777777777778mps_0.5m_0000034.png",
-      "sample_dir": "sample_0000034"
+      "path_plot": "(test_64.0_)NissanQashQai_straight_17.77777777777778mps_0.5m_0000013.png",
+      "sample_dir": "sample_0000013"
     },
     {
-      "filename": "(test_65_)NissanQashQai_straight_18.055555555555554mps_0.5m_0000035.wav",
-      "index": 35,
-      "vehicle": "NissanQashQai",
+      "filename": "(test_65.0_)NissanQashQai_straight_18.055555555555554mps_0.5m_0000014.wav",
+      "index": 14,
+      "vehicle": "NissanQashqai",
       "path_type": "straight",
       "parameters": {
         "speed": 18.055555555555554,
         "distance": 0.5,
-        "duration": 10.0,
         "angle": 0.0,
+        "duration": 10.0,
         "acceleration": 0.0,
-        "temperature": 15,
-        "humidity": 59
+        "temperature": 20,
+        "humidity": 50
       },
       "labels": {
         "speed_mps": 18.055555555555554,
@@ -1150,86 +446,22 @@
         "min": 1.0,
         "max": 1.0
       },
-      "path_plot": "(test_65_)NissanQashQai_straight_18.055555555555554mps_0.5m_0000035.png",
-      "sample_dir": "sample_0000035"
+      "path_plot": "(test_65.0_)NissanQashQai_straight_18.055555555555554mps_0.5m_0000014.png",
+      "sample_dir": "sample_0000014"
     },
     {
-      "filename": "(test_66_)NissanQashQai_straight_18.333333333333332mps_0.5m_0000036.wav",
-      "index": 36,
-      "vehicle": "NissanQashQai",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 18.333333333333332,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 23,
-        "humidity": 48
-      },
-      "labels": {
-        "speed_mps": 18.333333333333332,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "NissanQashQai"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_66_)NissanQashQai_straight_18.333333333333332mps_0.5m_0000036.png",
-      "sample_dir": "sample_0000036"
-    },
-    {
-      "filename": "(test_67_)NissanQashQai_straight_18.61111111111111mps_0.5m_0000037.wav",
-      "index": 37,
-      "vehicle": "NissanQashQai",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 18.61111111111111,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 31,
-        "humidity": 37
-      },
-      "labels": {
-        "speed_mps": 18.61111111111111,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "NissanQashQai"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_67_)NissanQashQai_straight_18.61111111111111mps_0.5m_0000037.png",
-      "sample_dir": "sample_0000037"
-    },
-    {
-      "filename": "(test_68_)NissanQashQai_straight_18.88888888888889mps_0.5m_0000038.wav",
-      "index": 38,
-      "vehicle": "NissanQashQai",
+      "filename": "(test_68.0_)NissanQashQai_straight_18.88888888888889mps_0.5m_0000015.wav",
+      "index": 15,
+      "vehicle": "NissanQashqai",
       "path_type": "straight",
       "parameters": {
         "speed": 18.88888888888889,
         "distance": 0.5,
-        "duration": 10.0,
         "angle": 0.0,
+        "duration": 10.0,
         "acceleration": 0.0,
-        "temperature": 18,
-        "humidity": 67
+        "temperature": 20,
+        "humidity": 50
       },
       "labels": {
         "speed_mps": 18.88888888888889,
@@ -1246,54 +478,22 @@
         "min": 1.0,
         "max": 1.0
       },
-      "path_plot": "(test_68_)NissanQashQai_straight_18.88888888888889mps_0.5m_0000038.png",
-      "sample_dir": "sample_0000038"
+      "path_plot": "(test_68.0_)NissanQashQai_straight_18.88888888888889mps_0.5m_0000015.png",
+      "sample_dir": "sample_0000015"
     },
     {
-      "filename": "(test_69_)NissanQashQai_straight_19.166666666666668mps_0.5m_0000039.wav",
-      "index": 39,
-      "vehicle": "NissanQashQai",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 19.166666666666668,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 26,
-        "humidity": 56
-      },
-      "labels": {
-        "speed_mps": 19.166666666666668,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "NissanQashQai"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_69_)NissanQashQai_straight_19.166666666666668mps_0.5m_0000039.png",
-      "sample_dir": "sample_0000039"
-    },
-    {
-      "filename": "(test_70_)NissanQashQai_straight_19.444444444444443mps_0.5m_0000040.wav",
-      "index": 40,
-      "vehicle": "NissanQashQai",
+      "filename": "(test_70.0_)NissanQashQai_straight_19.444444444444443mps_0.5m_0000016.wav",
+      "index": 16,
+      "vehicle": "NissanQashqai",
       "path_type": "straight",
       "parameters": {
         "speed": 19.444444444444443,
         "distance": 0.5,
-        "duration": 10.0,
         "angle": 0.0,
+        "duration": 10.0,
         "acceleration": 0.0,
-        "temperature": 34,
-        "humidity": 45
+        "temperature": 20,
+        "humidity": 50
       },
       "labels": {
         "speed_mps": 19.444444444444443,
@@ -1310,86 +510,22 @@
         "min": 1.0,
         "max": 1.0
       },
-      "path_plot": "(test_70_)NissanQashQai_straight_19.444444444444443mps_0.5m_0000040.png",
-      "sample_dir": "sample_0000040"
+      "path_plot": "(test_70.0_)NissanQashQai_straight_19.444444444444443mps_0.5m_0000016.png",
+      "sample_dir": "sample_0000016"
     },
     {
-      "filename": "(test_71_)NissanQashQai_straight_19.72222222222222mps_0.5m_0000041.wav",
-      "index": 41,
-      "vehicle": "NissanQashQai",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 19.72222222222222,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 21,
-        "humidity": 34
-      },
-      "labels": {
-        "speed_mps": 19.72222222222222,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "NissanQashQai"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_71_)NissanQashQai_straight_19.72222222222222mps_0.5m_0000041.png",
-      "sample_dir": "sample_0000041"
-    },
-    {
-      "filename": "(test_72_)NissanQashQai_straight_20.0mps_0.5m_0000042.wav",
-      "index": 42,
-      "vehicle": "NissanQashQai",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 20.0,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 29,
-        "humidity": 64
-      },
-      "labels": {
-        "speed_mps": 20.0,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "NissanQashQai"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_72_)NissanQashQai_straight_20.0mps_0.5m_0000042.png",
-      "sample_dir": "sample_0000042"
-    },
-    {
-      "filename": "(test_73_)NissanQashQai_straight_20.27777777777778mps_0.5m_0000043.wav",
-      "index": 43,
-      "vehicle": "NissanQashQai",
+      "filename": "(test_73.0_)NissanQashQai_straight_20.27777777777778mps_0.5m_0000017.wav",
+      "index": 17,
+      "vehicle": "NissanQashqai",
       "path_type": "straight",
       "parameters": {
         "speed": 20.27777777777778,
         "distance": 0.5,
-        "duration": 10.0,
         "angle": 0.0,
+        "duration": 10.0,
         "acceleration": 0.0,
-        "temperature": 16,
-        "humidity": 53
+        "temperature": 20,
+        "humidity": 50
       },
       "labels": {
         "speed_mps": 20.27777777777778,
@@ -1406,54 +542,22 @@
         "min": 1.0,
         "max": 1.0
       },
-      "path_plot": "(test_73_)NissanQashQai_straight_20.27777777777778mps_0.5m_0000043.png",
-      "sample_dir": "sample_0000043"
+      "path_plot": "(test_73.0_)NissanQashQai_straight_20.27777777777778mps_0.5m_0000017.png",
+      "sample_dir": "sample_0000017"
     },
     {
-      "filename": "(test_74_)NissanQashQai_straight_20.555555555555554mps_0.5m_0000044.wav",
-      "index": 44,
-      "vehicle": "NissanQashQai",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 20.555555555555554,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 24,
-        "humidity": 42
-      },
-      "labels": {
-        "speed_mps": 20.555555555555554,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "NissanQashQai"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_74_)NissanQashQai_straight_20.555555555555554mps_0.5m_0000044.png",
-      "sample_dir": "sample_0000044"
-    },
-    {
-      "filename": "(test_75_)NissanQashQai_straight_20.833333333333332mps_0.5m_0000045.wav",
-      "index": 45,
-      "vehicle": "NissanQashQai",
+      "filename": "(test_75.0_)NissanQashQai_straight_20.833333333333332mps_0.5m_0000018.wav",
+      "index": 18,
+      "vehicle": "NissanQashqai",
       "path_type": "straight",
       "parameters": {
         "speed": 20.833333333333332,
         "distance": 0.5,
-        "duration": 10.0,
         "angle": 0.0,
+        "duration": 10.0,
         "acceleration": 0.0,
-        "temperature": 32,
-        "humidity": 31
+        "temperature": 20,
+        "humidity": 50
       },
       "labels": {
         "speed_mps": 20.833333333333332,
@@ -1470,86 +574,22 @@
         "min": 1.0,
         "max": 1.0
       },
-      "path_plot": "(test_75_)NissanQashQai_straight_20.833333333333332mps_0.5m_0000045.png",
-      "sample_dir": "sample_0000045"
+      "path_plot": "(test_75.0_)NissanQashQai_straight_20.833333333333332mps_0.5m_0000018.png",
+      "sample_dir": "sample_0000018"
     },
     {
-      "filename": "(test_76_)NissanQashQai_straight_21.11111111111111mps_0.5m_0000046.wav",
-      "index": 46,
-      "vehicle": "NissanQashQai",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 21.11111111111111,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 19,
-        "humidity": 61
-      },
-      "labels": {
-        "speed_mps": 21.11111111111111,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "NissanQashQai"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_76_)NissanQashQai_straight_21.11111111111111mps_0.5m_0000046.png",
-      "sample_dir": "sample_0000046"
-    },
-    {
-      "filename": "(test_77_)NissanQashQai_straight_21.38888888888889mps_0.5m_0000047.wav",
-      "index": 47,
-      "vehicle": "NissanQashQai",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 21.38888888888889,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 27,
-        "humidity": 50
-      },
-      "labels": {
-        "speed_mps": 21.38888888888889,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "NissanQashQai"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_77_)NissanQashQai_straight_21.38888888888889mps_0.5m_0000047.png",
-      "sample_dir": "sample_0000047"
-    },
-    {
-      "filename": "(test_78_)NissanQashQai_straight_21.666666666666668mps_0.5m_0000048.wav",
-      "index": 48,
-      "vehicle": "NissanQashQai",
+      "filename": "(test_78.0_)NissanQashQai_straight_21.666666666666668mps_0.5m_0000019.wav",
+      "index": 19,
+      "vehicle": "NissanQashqai",
       "path_type": "straight",
       "parameters": {
         "speed": 21.666666666666668,
         "distance": 0.5,
-        "duration": 10.0,
         "angle": 0.0,
+        "duration": 10.0,
         "acceleration": 0.0,
-        "temperature": 35,
-        "humidity": 39
+        "temperature": 20,
+        "humidity": 50
       },
       "labels": {
         "speed_mps": 21.666666666666668,
@@ -1566,54 +606,22 @@
         "min": 1.0,
         "max": 1.0
       },
-      "path_plot": "(test_78_)NissanQashQai_straight_21.666666666666668mps_0.5m_0000048.png",
-      "sample_dir": "sample_0000048"
+      "path_plot": "(test_78.0_)NissanQashQai_straight_21.666666666666668mps_0.5m_0000019.png",
+      "sample_dir": "sample_0000019"
     },
     {
-      "filename": "(test_79_)NissanQashQai_straight_21.944444444444443mps_0.5m_0000049.wav",
-      "index": 49,
-      "vehicle": "NissanQashQai",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 21.944444444444443,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 22,
-        "humidity": 69
-      },
-      "labels": {
-        "speed_mps": 21.944444444444443,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "NissanQashQai"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_79_)NissanQashQai_straight_21.944444444444443mps_0.5m_0000049.png",
-      "sample_dir": "sample_0000049"
-    },
-    {
-      "filename": "(test_80_)NissanQashQai_straight_22.22222222222222mps_0.5m_0000050.wav",
-      "index": 50,
-      "vehicle": "NissanQashQai",
+      "filename": "(test_80.0_)NissanQashQai_straight_22.22222222222222mps_0.5m_0000020.wav",
+      "index": 20,
+      "vehicle": "NissanQashqai",
       "path_type": "straight",
       "parameters": {
         "speed": 22.22222222222222,
         "distance": 0.5,
-        "duration": 10.0,
         "angle": 0.0,
+        "duration": 10.0,
         "acceleration": 0.0,
-        "temperature": 30,
-        "humidity": 58
+        "temperature": 20,
+        "humidity": 50
       },
       "labels": {
         "speed_mps": 22.22222222222222,
@@ -1630,54 +638,22 @@
         "min": 1.0,
         "max": 1.0
       },
-      "path_plot": "(test_80_)NissanQashQai_straight_22.22222222222222mps_0.5m_0000050.png",
-      "sample_dir": "sample_0000050"
+      "path_plot": "(test_80.0_)NissanQashQai_straight_22.22222222222222mps_0.5m_0000020.png",
+      "sample_dir": "sample_0000020"
     },
     {
-      "filename": "(test_81_)NissanQashQai_straight_22.5mps_0.5m_0000051.wav",
-      "index": 51,
-      "vehicle": "NissanQashQai",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 22.5,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 17,
-        "humidity": 47
-      },
-      "labels": {
-        "speed_mps": 22.5,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "NissanQashQai"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_81_)NissanQashQai_straight_22.5mps_0.5m_0000051.png",
-      "sample_dir": "sample_0000051"
-    },
-    {
-      "filename": "(test_82_)NissanQashQai_straight_22.77777777777778mps_0.5m_0000052.wav",
-      "index": 52,
-      "vehicle": "NissanQashQai",
+      "filename": "(test_82.0_)NissanQashQai_straight_22.77777777777778mps_0.5m_0000021.wav",
+      "index": 21,
+      "vehicle": "NissanQashqai",
       "path_type": "straight",
       "parameters": {
         "speed": 22.77777777777778,
         "distance": 0.5,
-        "duration": 10.0,
         "angle": 0.0,
+        "duration": 10.0,
         "acceleration": 0.0,
-        "temperature": 25,
-        "humidity": 36
+        "temperature": 20,
+        "humidity": 50
       },
       "labels": {
         "speed_mps": 22.77777777777778,
@@ -1694,86 +670,22 @@
         "min": 1.0,
         "max": 1.0
       },
-      "path_plot": "(test_82_)NissanQashQai_straight_22.77777777777778mps_0.5m_0000052.png",
-      "sample_dir": "sample_0000052"
+      "path_plot": "(test_82.0_)NissanQashQai_straight_22.77777777777778mps_0.5m_0000021.png",
+      "sample_dir": "sample_0000021"
     },
     {
-      "filename": "(test_83_)NissanQashQai_straight_23.055555555555554mps_0.5m_0000053.wav",
-      "index": 53,
-      "vehicle": "NissanQashQai",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 23.055555555555554,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 33,
-        "humidity": 66
-      },
-      "labels": {
-        "speed_mps": 23.055555555555554,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "NissanQashQai"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_83_)NissanQashQai_straight_23.055555555555554mps_0.5m_0000053.png",
-      "sample_dir": "sample_0000053"
-    },
-    {
-      "filename": "(test_84_)NissanQashQai_straight_23.333333333333332mps_0.5m_0000054.wav",
-      "index": 54,
-      "vehicle": "NissanQashQai",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 23.333333333333332,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 20,
-        "humidity": 55
-      },
-      "labels": {
-        "speed_mps": 23.333333333333332,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "NissanQashQai"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_84_)NissanQashQai_straight_23.333333333333332mps_0.5m_0000054.png",
-      "sample_dir": "sample_0000054"
-    },
-    {
-      "filename": "(test_85_)NissanQashQai_straight_23.61111111111111mps_0.5m_0000055.wav",
-      "index": 55,
-      "vehicle": "NissanQashQai",
+      "filename": "(test_85.0_)NissanQashQai_straight_23.61111111111111mps_0.5m_0000022.wav",
+      "index": 22,
+      "vehicle": "NissanQashqai",
       "path_type": "straight",
       "parameters": {
         "speed": 23.61111111111111,
         "distance": 0.5,
-        "duration": 10.0,
         "angle": 0.0,
+        "duration": 10.0,
         "acceleration": 0.0,
-        "temperature": 28,
-        "humidity": 44
+        "temperature": 20,
+        "humidity": 50
       },
       "labels": {
         "speed_mps": 23.61111111111111,
@@ -1790,86 +702,22 @@
         "min": 1.0,
         "max": 1.0
       },
-      "path_plot": "(test_85_)NissanQashQai_straight_23.61111111111111mps_0.5m_0000055.png",
-      "sample_dir": "sample_0000055"
+      "path_plot": "(test_85.0_)NissanQashQai_straight_23.61111111111111mps_0.5m_0000022.png",
+      "sample_dir": "sample_0000022"
     },
     {
-      "filename": "(test_86_)NissanQashQai_straight_23.88888888888889mps_0.5m_0000056.wav",
-      "index": 56,
-      "vehicle": "NissanQashQai",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 23.88888888888889,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 15,
-        "humidity": 33
-      },
-      "labels": {
-        "speed_mps": 23.88888888888889,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "NissanQashQai"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_86_)NissanQashQai_straight_23.88888888888889mps_0.5m_0000056.png",
-      "sample_dir": "sample_0000056"
-    },
-    {
-      "filename": "(test_87_)NissanQashQai_straight_24.166666666666664mps_0.5m_0000057.wav",
-      "index": 57,
-      "vehicle": "NissanQashQai",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 24.166666666666664,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 23,
-        "humidity": 63
-      },
-      "labels": {
-        "speed_mps": 24.166666666666664,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "NissanQashQai"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_87_)NissanQashQai_straight_24.166666666666664mps_0.5m_0000057.png",
-      "sample_dir": "sample_0000057"
-    },
-    {
-      "filename": "(test_88_)NissanQashQai_straight_24.444444444444443mps_0.5m_0000058.wav",
-      "index": 58,
-      "vehicle": "NissanQashQai",
+      "filename": "(test_88.0_)NissanQashQai_straight_24.444444444444443mps_0.5m_0000023.wav",
+      "index": 23,
+      "vehicle": "NissanQashqai",
       "path_type": "straight",
       "parameters": {
         "speed": 24.444444444444443,
         "distance": 0.5,
-        "duration": 10.0,
         "angle": 0.0,
+        "duration": 10.0,
         "acceleration": 0.0,
-        "temperature": 31,
-        "humidity": 52
+        "temperature": 20,
+        "humidity": 50
       },
       "labels": {
         "speed_mps": 24.444444444444443,
@@ -1886,54 +734,22 @@
         "min": 1.0,
         "max": 1.0
       },
-      "path_plot": "(test_88_)NissanQashQai_straight_24.444444444444443mps_0.5m_0000058.png",
-      "sample_dir": "sample_0000058"
+      "path_plot": "(test_88.0_)NissanQashQai_straight_24.444444444444443mps_0.5m_0000023.png",
+      "sample_dir": "sample_0000023"
     },
     {
-      "filename": "(test_89_)NissanQashQai_straight_24.72222222222222mps_0.5m_0000059.wav",
-      "index": 59,
-      "vehicle": "NissanQashQai",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 24.72222222222222,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 18,
-        "humidity": 41
-      },
-      "labels": {
-        "speed_mps": 24.72222222222222,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "NissanQashQai"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_89_)NissanQashQai_straight_24.72222222222222mps_0.5m_0000059.png",
-      "sample_dir": "sample_0000059"
-    },
-    {
-      "filename": "(test_90_)NissanQashQai_straight_25.0mps_0.5m_0000060.wav",
-      "index": 60,
-      "vehicle": "NissanQashQai",
+      "filename": "(test_90.0_)NissanQashQai_straight_25.0mps_0.5m_0000024.wav",
+      "index": 24,
+      "vehicle": "NissanQashqai",
       "path_type": "straight",
       "parameters": {
         "speed": 25.0,
         "distance": 0.5,
-        "duration": 10.0,
         "angle": 0.0,
+        "duration": 10.0,
         "acceleration": 0.0,
-        "temperature": 26,
-        "humidity": 30
+        "temperature": 20,
+        "humidity": 50
       },
       "labels": {
         "speed_mps": 25.0,
@@ -1950,86 +766,22 @@
         "min": 1.0,
         "max": 1.0
       },
-      "path_plot": "(test_90_)NissanQashQai_straight_25.0mps_0.5m_0000060.png",
-      "sample_dir": "sample_0000060"
+      "path_plot": "(test_90.0_)NissanQashQai_straight_25.0mps_0.5m_0000024.png",
+      "sample_dir": "sample_0000024"
     },
     {
-      "filename": "(test_91_)NissanQashQai_straight_25.27777777777778mps_0.5m_0000061.wav",
-      "index": 61,
-      "vehicle": "NissanQashQai",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 25.27777777777778,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 34,
-        "humidity": 60
-      },
-      "labels": {
-        "speed_mps": 25.27777777777778,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "NissanQashQai"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_91_)NissanQashQai_straight_25.27777777777778mps_0.5m_0000061.png",
-      "sample_dir": "sample_0000061"
-    },
-    {
-      "filename": "(test_92_)NissanQashQai_straight_25.555555555555554mps_0.5m_0000062.wav",
-      "index": 62,
-      "vehicle": "NissanQashQai",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 25.555555555555554,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 21,
-        "humidity": 49
-      },
-      "labels": {
-        "speed_mps": 25.555555555555554,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "NissanQashQai"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_92_)NissanQashQai_straight_25.555555555555554mps_0.5m_0000062.png",
-      "sample_dir": "sample_0000062"
-    },
-    {
-      "filename": "(test_93_)NissanQashQai_straight_25.833333333333332mps_0.5m_0000063.wav",
-      "index": 63,
-      "vehicle": "NissanQashQai",
+      "filename": "(test_93.0_)NissanQashQai_straight_25.833333333333332mps_0.5m_0000025.wav",
+      "index": 25,
+      "vehicle": "NissanQashqai",
       "path_type": "straight",
       "parameters": {
         "speed": 25.833333333333332,
         "distance": 0.5,
-        "duration": 10.0,
         "angle": 0.0,
+        "duration": 10.0,
         "acceleration": 0.0,
-        "temperature": 29,
-        "humidity": 38
+        "temperature": 20,
+        "humidity": 50
       },
       "labels": {
         "speed_mps": 25.833333333333332,
@@ -2046,22 +798,22 @@
         "min": 1.0,
         "max": 1.0
       },
-      "path_plot": "(test_93_)NissanQashQai_straight_25.833333333333332mps_0.5m_0000063.png",
-      "sample_dir": "sample_0000063"
+      "path_plot": "(test_93.0_)NissanQashQai_straight_25.833333333333332mps_0.5m_0000025.png",
+      "sample_dir": "sample_0000025"
     },
     {
-      "filename": "(test_94_)NissanQashQai_straight_26.11111111111111mps_0.5m_0000064.wav",
-      "index": 64,
-      "vehicle": "NissanQashQai",
+      "filename": "(test_94.0_)NissanQashQai_straight_26.11111111111111mps_0.5m_0000026.wav",
+      "index": 26,
+      "vehicle": "NissanQashqai",
       "path_type": "straight",
       "parameters": {
         "speed": 26.11111111111111,
         "distance": 0.5,
-        "duration": 10.0,
         "angle": 0.0,
+        "duration": 10.0,
         "acceleration": 0.0,
-        "temperature": 16,
-        "humidity": 68
+        "temperature": 20,
+        "humidity": 50
       },
       "labels": {
         "speed_mps": 26.11111111111111,
@@ -2078,54 +830,22 @@
         "min": 1.0,
         "max": 1.0
       },
-      "path_plot": "(test_94_)NissanQashQai_straight_26.11111111111111mps_0.5m_0000064.png",
-      "sample_dir": "sample_0000064"
+      "path_plot": "(test_94.0_)NissanQashQai_straight_26.11111111111111mps_0.5m_0000026.png",
+      "sample_dir": "sample_0000026"
     },
     {
-      "filename": "(test_95_)NissanQashQai_straight_26.38888888888889mps_0.5m_0000065.wav",
-      "index": 65,
-      "vehicle": "NissanQashQai",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 26.38888888888889,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 24,
-        "humidity": 57
-      },
-      "labels": {
-        "speed_mps": 26.38888888888889,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "NissanQashQai"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_95_)NissanQashQai_straight_26.38888888888889mps_0.5m_0000065.png",
-      "sample_dir": "sample_0000065"
-    },
-    {
-      "filename": "(test_96_)NissanQashQai_straight_26.666666666666664mps_0.5m_0000066.wav",
-      "index": 66,
-      "vehicle": "NissanQashQai",
+      "filename": "(test_96.0_)NissanQashQai_straight_26.666666666666664mps_0.5m_0000027.wav",
+      "index": 27,
+      "vehicle": "NissanQashqai",
       "path_type": "straight",
       "parameters": {
         "speed": 26.666666666666664,
         "distance": 0.5,
-        "duration": 10.0,
         "angle": 0.0,
+        "duration": 10.0,
         "acceleration": 0.0,
-        "temperature": 32,
-        "humidity": 46
+        "temperature": 20,
+        "humidity": 50
       },
       "labels": {
         "speed_mps": 26.666666666666664,
@@ -2142,54 +862,22 @@
         "min": 1.0,
         "max": 1.0
       },
-      "path_plot": "(test_96_)NissanQashQai_straight_26.666666666666664mps_0.5m_0000066.png",
-      "sample_dir": "sample_0000066"
+      "path_plot": "(test_96.0_)NissanQashQai_straight_26.666666666666664mps_0.5m_0000027.png",
+      "sample_dir": "sample_0000027"
     },
     {
-      "filename": "(test_97_)NissanQashQai_straight_26.944444444444443mps_0.5m_0000067.wav",
-      "index": 67,
-      "vehicle": "NissanQashQai",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 26.944444444444443,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 19,
-        "humidity": 35
-      },
-      "labels": {
-        "speed_mps": 26.944444444444443,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "NissanQashQai"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_97_)NissanQashQai_straight_26.944444444444443mps_0.5m_0000067.png",
-      "sample_dir": "sample_0000067"
-    },
-    {
-      "filename": "(test_98_)NissanQashQai_straight_27.22222222222222mps_0.5m_0000068.wav",
-      "index": 68,
-      "vehicle": "NissanQashQai",
+      "filename": "(test_98.0_)NissanQashQai_straight_27.22222222222222mps_0.5m_0000028.wav",
+      "index": 28,
+      "vehicle": "NissanQashqai",
       "path_type": "straight",
       "parameters": {
         "speed": 27.22222222222222,
         "distance": 0.5,
-        "duration": 10.0,
         "angle": 0.0,
+        "duration": 10.0,
         "acceleration": 0.0,
-        "temperature": 27,
-        "humidity": 65
+        "temperature": 20,
+        "humidity": 50
       },
       "labels": {
         "speed_mps": 27.22222222222222,
@@ -2206,118 +894,22 @@
         "min": 1.0,
         "max": 1.0
       },
-      "path_plot": "(test_98_)NissanQashQai_straight_27.22222222222222mps_0.5m_0000068.png",
-      "sample_dir": "sample_0000068"
+      "path_plot": "(test_98.0_)NissanQashQai_straight_27.22222222222222mps_0.5m_0000028.png",
+      "sample_dir": "sample_0000028"
     },
     {
-      "filename": "(test_99_)NissanQashQai_straight_27.5mps_0.5m_0000069.wav",
-      "index": 69,
-      "vehicle": "NissanQashQai",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 27.5,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 35,
-        "humidity": 54
-      },
-      "labels": {
-        "speed_mps": 27.5,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "NissanQashQai"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_99_)NissanQashQai_straight_27.5mps_0.5m_0000069.png",
-      "sample_dir": "sample_0000069"
-    },
-    {
-      "filename": "(test_100_)NissanQashQai_straight_27.77777777777778mps_0.5m_0000070.wav",
-      "index": 70,
-      "vehicle": "NissanQashQai",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 27.77777777777778,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 22,
-        "humidity": 43
-      },
-      "labels": {
-        "speed_mps": 27.77777777777778,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "NissanQashQai"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_100_)NissanQashQai_straight_27.77777777777778mps_0.5m_0000070.png",
-      "sample_dir": "sample_0000070"
-    },
-    {
-      "filename": "(test_101_)NissanQashQai_straight_28.055555555555554mps_0.5m_0000071.wav",
-      "index": 71,
-      "vehicle": "NissanQashQai",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 28.055555555555554,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 30,
-        "humidity": 32
-      },
-      "labels": {
-        "speed_mps": 28.055555555555554,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "NissanQashQai"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_101_)NissanQashQai_straight_28.055555555555554mps_0.5m_0000071.png",
-      "sample_dir": "sample_0000071"
-    },
-    {
-      "filename": "(test_102_)NissanQashQai_straight_28.333333333333332mps_0.5m_0000072.wav",
-      "index": 72,
-      "vehicle": "NissanQashQai",
+      "filename": "(test_102.0_)NissanQashQai_straight_28.333333333333332mps_0.5m_0000029.wav",
+      "index": 29,
+      "vehicle": "NissanQashqai",
       "path_type": "straight",
       "parameters": {
         "speed": 28.333333333333332,
         "distance": 0.5,
-        "duration": 10.0,
         "angle": 0.0,
+        "duration": 10.0,
         "acceleration": 0.0,
-        "temperature": 17,
-        "humidity": 62
+        "temperature": 20,
+        "humidity": 50
       },
       "labels": {
         "speed_mps": 28.333333333333332,
@@ -2334,136 +926,8 @@
         "min": 1.0,
         "max": 1.0
       },
-      "path_plot": "(test_102_)NissanQashQai_straight_28.333333333333332mps_0.5m_0000072.png",
-      "sample_dir": "sample_0000072"
-    },
-    {
-      "filename": "(test_103_)NissanQashQai_straight_28.61111111111111mps_0.5m_0000073.wav",
-      "index": 73,
-      "vehicle": "NissanQashQai",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 28.61111111111111,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 25,
-        "humidity": 51
-      },
-      "labels": {
-        "speed_mps": 28.61111111111111,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "NissanQashQai"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_103_)NissanQashQai_straight_28.61111111111111mps_0.5m_0000073.png",
-      "sample_dir": "sample_0000073"
-    },
-    {
-      "filename": "(test_104_)NissanQashQai_straight_28.88888888888889mps_0.5m_0000074.wav",
-      "index": 74,
-      "vehicle": "NissanQashQai",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 28.88888888888889,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 33,
-        "humidity": 40
-      },
-      "labels": {
-        "speed_mps": 28.88888888888889,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "NissanQashQai"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_104_)NissanQashQai_straight_28.88888888888889mps_0.5m_0000074.png",
-      "sample_dir": "sample_0000074"
-    },
-    {
-      "filename": "(test_105_)NissanQashQai_straight_29.166666666666664mps_0.5m_0000075.wav",
-      "index": 75,
-      "vehicle": "NissanQashQai",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 29.166666666666664,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 20,
-        "humidity": 70
-      },
-      "labels": {
-        "speed_mps": 29.166666666666664,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "NissanQashQai"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_105_)NissanQashQai_straight_29.166666666666664mps_0.5m_0000075.png",
-      "sample_dir": "sample_0000075"
-    },
-    {
-      "filename": "(test_106_)NissanQashQai_straight_29.444444444444443mps_0.5m_0000076.wav",
-      "index": 76,
-      "vehicle": "NissanQashQai",
-      "path_type": "straight",
-      "parameters": {
-        "speed": 29.444444444444443,
-        "distance": 0.5,
-        "duration": 10.0,
-        "angle": 0.0,
-        "acceleration": 0.0,
-        "temperature": 28,
-        "humidity": 59
-      },
-      "labels": {
-        "speed_mps": 29.444444444444443,
-        "acceleration_mps2": 0.0,
-        "direction_label": 0,
-        "cpa_distance_m": 0.5,
-        "trajectory_type": "straight",
-        "cpa_time_sec": 5.0,
-        "num_sources": 1,
-        "is_crossing": false,
-        "vehicle_class": "NissanQashQai"
-      },
-      "freq_ratio_range": {
-        "min": 1.0,
-        "max": 1.0
-      },
-      "path_plot": "(test_106_)NissanQashQai_straight_29.444444444444443mps_0.5m_0000076.png",
-      "sample_dir": "sample_0000076"
+      "path_plot": "(test_102.0_)NissanQashQai_straight_28.333333333333332mps_0.5m_0000029.png",
+      "sample_dir": "sample_0000029"
     }
   ]
 }

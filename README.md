@@ -12,9 +12,9 @@ A comprehensive validation and retraining suite for acoustic vehicle speed estim
 
 - **`Vehicle-Speed-from-Audio-SE-ResNet/`**: The core deep learning codebase (SE-ResNet).
 - **`RealData/`**: The VS13 benchmark dataset (16kHz).
-- **`SimulatedData/`**: Purely synthetic audio generated via the DopplerNet physics engine (22.05kHz).
-- **`MatchedData/`**: Hybrid dataset aligning simulation parameters with real-world VS13 metadata (22.05kHz).
-- **`AdditionalSimulatedData/`**: Auxiliary datasets for stress-testing and edge-case validation.
+- **`ExtendedSimulatedData/`**: Purely synthetic audio generated via the DopplerNet physics engine (22.05kHz).
+- **`SimulatedData/`**: Hybrid dataset aligning simulation parameters with real-world VS13 metadata (22.05kHz).
+- **`AdditionalExtendedSimulatedData/`**: Auxiliary datasets for stress-testing and edge-case validation.
 - **`ref_docs/`**: Detailed technical documentation, training walkthroughs, and evaluation reports.
 
 ---
@@ -34,8 +34,8 @@ pip install -r requirements.txt
 The pipeline automatically handles dataset-specific sample rates (16kHz for RealData, 22.05kHz for others) and organizes checkpoints.
 
 ```bash
-# Train on MatchedData
-python main.py --data_dir "../MatchedData"
+# Train on ExtendedSimulatedData
+python main.py --data_dir "../ExtendedSimulatedData"
 
 # Train on RealData
 python main.py --data_dir "../RealData"
@@ -46,8 +46,8 @@ python main.py --data_dir "../RealData"
 The inference engine includes a smart fallback system: it uses custom-trained models if available, otherwise defaults to the pretrained ensemble weights.
 
 ```bash
-# Evaluate the model on SimulatedData
-python inference.py --data_dir "../SimulatedData"
+# Evaluate the model on ExtendedSimulatedData
+python inference.py --data_dir "../ExtendedSimulatedData"
 ```
 
 ---

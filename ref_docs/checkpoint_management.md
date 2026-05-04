@@ -13,6 +13,10 @@ checkpoints/
 │   ├── fold_1_best_weights.weights.h5
 │   └── ...
 │
+├── ExtendedSimulatedData_model/          # Custom models trained on ExtendedSimulatedData (.keras)
+│   ├── fold_1_best.keras
+│   └── ...
+│
 ├── SimulatedData_model/          # Custom models trained on SimulatedData (.keras)
 │   ├── fold_1_best.keras
 │   └── ...
@@ -41,12 +45,12 @@ The `inference.py` script follows a priority-based loading strategy to ensure th
 3. **Pretrained Fallback:** If no custom model is found, it automatically falls back to the official weights in `checkpoints/pre-trained_weights/`.
 
 ### Detection Example:
-If you evaluate `SimulatedData`:
-- It looks for `checkpoints/SimulatedData_model/`.
-- If found, it prints: `[INFO] Using custom trained model found at: checkpoints/SimulatedData_model/`
+If you evaluate `ExtendedSimulatedData`:
+- It looks for `checkpoints/ExtendedSimulatedData_model/`.
+- If found, it prints: `[INFO] Using custom trained model found at: checkpoints/ExtendedSimulatedData_model/`
 - If NOT found, it prints:
   ```text
-  [INFO] Custom trained model for 'SimulatedData' not found.
+  [INFO] Custom trained model for 'ExtendedSimulatedData' not found.
   [INFO] Falling back to pretrained weights at: checkpoints/pre-trained_weights/
   ```
 
