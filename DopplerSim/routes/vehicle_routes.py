@@ -137,9 +137,7 @@ def generate_spectrogram():
         config = request.get_json()
         vehicle_name = config.get('vehicle_name')
         source = config.get('source', 'all')
-        max_y_freq = float(config.get('max_y_freq', 1250))
-        if max_y_freq <= 0:
-            max_y_freq = 1250
+        max_y_freq = 1250  # Enforced upper frequency limit for all spectrograms
 
         if not vehicle_name:
             return jsonify({'error': 'No vehicle name provided'}), 400
@@ -200,12 +198,7 @@ def upload_generate_spectrogram():
         file = request.files['file']
         if file.filename == '':
             return jsonify({'error': 'No file selected'}), 400
-        try:
-            max_y_freq = float(request.form.get('max_y_freq', 1250))
-        except (TypeError, ValueError):
-            max_y_freq = 1250
-        if max_y_freq <= 0:
-            max_y_freq = 1250
+        max_y_freq = 1250  # Enforced upper frequency limit for all spectrograms
 
         # Save temporarily
         temp_filename = f"upload_{int(time.time())}_{uuid.uuid4().hex[:8]}.wav"
@@ -250,12 +243,7 @@ def compare_audio_clips():
         if file_a.filename == '' or file_b.filename == '':
             return jsonify({'error': 'Both files must be selected'}), 400
 
-        try:
-            max_y_freq = float(request.form.get('max_y_freq', 1250))
-        except (TypeError, ValueError):
-            max_y_freq = 1250
-        if max_y_freq <= 0:
-            max_y_freq = 1250
+        max_y_freq = 1250  # Enforced upper frequency limit for all spectrograms
 
         temp_a = os.path.join(SPECTROGRAM_FOLDER, f"cmp_a_{int(time.time())}_{uuid.uuid4().hex[:8]}.wav")
         temp_b = os.path.join(SPECTROGRAM_FOLDER, f"cmp_b_{int(time.time())}_{uuid.uuid4().hex[:8]}.wav")
