@@ -1,0 +1,17 @@
+{
+    "clip_id": "Peugeot3008_70",
+    "vehicle": "Peugeot3008",
+    "speed": 70,
+    "metrics": {
+        "Duration (RealData)": 10.006031746031747,
+        "Duration (SimulatedData)": 10.0,
+        "Dominant Frequency (RealData)": 53.8330078125,
+        "Dominant Frequency (SimulatedData)": 129.19921875,
+        "Envelope Correlation": 59.534868394322295,
+        "Spectral Overlap": 68.2822036743164,
+        "Overall Match Score": 62.854054950920805
+    },
+    "path_a": "../RealData/Peugeot3008/Peugeot3008_70.wav",
+    "path_b": "../SimulatedData/Peugeot3008/Peugeot3008_70.0.wav",
+    "timestamp": 1777915196
+}

@@ -1,0 +1,17 @@
+{
+    "clip_id": "NissanQashqai_80",
+    "vehicle": "NissanQashqai",
+    "speed": 80,
+    "metrics": {
+        "Duration (RealData)": 10.026802721088435,
+        "Duration (SimulatedData)": 10.0,
+        "Dominant Frequency (RealData)": 161.4990234375,
+        "Dominant Frequency (SimulatedData)": 183.0322265625,
+        "Envelope Correlation": 82.1007216909573,
+        "Spectral Overlap": 69.34376525878906,
+        "Overall Match Score": 66.53430457322368
+    },
+    "path_a": "../RealData/NissanQashqai/NissanQashqai_80.wav",
+    "path_b": "../SimulatedData/NissanQashQai/NissanQashQai_80.0.wav",
+    "timestamp": 1777915135
+}

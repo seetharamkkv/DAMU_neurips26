@@ -1,0 +1,17 @@
+{
+    "clip_id": "RenaultScenic_91",
+    "vehicle": "RenaultScenic",
+    "speed": 91,
+    "metrics": {
+        "Duration (RealData)": 10.02671201814059,
+        "Duration (SimulatedData)": 10.0,
+        "Dominant Frequency (RealData)": 53.8330078125,
+        "Dominant Frequency (SimulatedData)": 139.9658203125,
+        "Envelope Correlation": 62.61077578472906,
+        "Spectral Overlap": 61.856414794921875,
+        "Overall Match Score": 58.58625481070253
+    },
+    "path_a": "../RealData/RenaultScenic/RenaultScenic_91.wav",
+    "path_b": "../SimulatedData/RenaultScenic/RenaultScenic_91.0.wav",
+    "timestamp": 1777915370
+}

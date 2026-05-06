@@ -1,0 +1,17 @@
+{
+    "clip_id": "KiaSportage_44",
+    "vehicle": "KiaSportage",
+    "speed": 44,
+    "metrics": {
+        "Duration (RealData)": 10.006031746031747,
+        "Duration (SimulatedData)": 10.0,
+        "Dominant Frequency (RealData)": 215.33203125,
+        "Dominant Frequency (SimulatedData)": 43.06640625,
+        "Envelope Correlation": 90.93010519590436,
+        "Spectral Overlap": 59.24932861328125,
+        "Overall Match Score": 63.87577981747159
+    },
+    "path_a": "../RealData/KiaSportage/KiaSportage_44.wav",
+    "path_b": "../SimulatedData/KiaSportage/KiaSportage_44.0.wav",
+    "timestamp": 1777915022
+}

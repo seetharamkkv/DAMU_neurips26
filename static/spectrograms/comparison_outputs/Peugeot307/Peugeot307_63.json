@@ -1,0 +1,17 @@
+{
+    "clip_id": "Peugeot307_63",
+    "vehicle": "Peugeot307",
+    "speed": 63,
+    "metrics": {
+        "Duration (RealData)": 10.006213151927438,
+        "Duration (SimulatedData)": 10.0,
+        "Dominant Frequency (RealData)": 161.4990234375,
+        "Dominant Frequency (SimulatedData)": 161.4990234375,
+        "Envelope Correlation": 80.70907401467406,
+        "Spectral Overlap": 61.5877571105957,
+        "Overall Match Score": 63.115148829557064
+    },
+    "path_a": "../RealData/Peugeot307/Peugeot307_63.wav",
+    "path_b": "../SimulatedData/Peugeot307/Peugeot307_63.0.wav",
+    "timestamp": 1777915262
+}
