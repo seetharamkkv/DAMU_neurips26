@@ -1,0 +1,17 @@
+{
+    "clip_id": "VWPassat_85",
+    "vehicle": "VWPassat",
+    "speed": 85,
+    "metrics": {
+        "Duration (RealData)": 10.005895691609977,
+        "Duration (SimulatedData)": 10.0,
+        "Dominant Frequency (RealData)": 64.599609375,
+        "Dominant Frequency (SimulatedData)": 129.19921875,
+        "Envelope Correlation": 48.724947073289655,
+        "Spectral Overlap": 66.16310119628906,
+        "Overall Match Score": 56.77561713728739
+    },
+    "path_a": "../RealData/VWPassat/VWPassat_85.wav",
+    "path_b": "../SimulatedData/VWPassat/VWPassat_85.0.wav",
+    "timestamp": 1777915442
+}

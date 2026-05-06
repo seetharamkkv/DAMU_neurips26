@@ -56,13 +56,13 @@ def build_se_resnet(input_shape):
     """
     inputs = layers.Input(shape=input_shape)
     
-    # --- Entry Flow ---
+    # Entry Flow
     x = layers.Conv2D(Config.BASE_FILTERS, 7, strides=2, padding='same', use_bias=True)(inputs)
     x = layers.BatchNormalization()(x)
     x = layers.Activation('relu')(x)
     x = layers.MaxPooling2D(3, strides=2, padding='same')(x)
     
-    # --- SE-Residual Stages ---
+    # SE-Residual Stages
     # Stage 1 (Base Filters)
     x = residual_block(x, Config.BASE_FILTERS)
     x = residual_block(x, Config.BASE_FILTERS)
@@ -75,7 +75,7 @@ def build_se_resnet(input_shape):
     x = residual_block(x, Config.BASE_FILTERS * 4, downsample=True)
     x = residual_block(x, Config.BASE_FILTERS * 4)
     
-    # --- Regression Head ---
+    # Regression Head
     x = layers.GlobalAveragePooling2D()(x)
     x = layers.Dense(128, activation='relu')(x)
     x = layers.Dropout(Config.DROPOUT_RATE)(x)

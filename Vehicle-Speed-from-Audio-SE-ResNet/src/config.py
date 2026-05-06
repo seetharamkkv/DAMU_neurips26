@@ -1,7 +1,7 @@
 import os
 
 class Config:
-    # --- Audio Parameters (Defaults for RealData) ---
+    # Audio Parameters (Defaults for RealData)
     SAMPLE_RATE = 16000
     DURATION_SECONDS = 10
     AUDIO_LENGTH_SAMPLES = SAMPLE_RATE * DURATION_SECONDS
@@ -20,7 +20,7 @@ class Config:
         cls.AUDIO_LENGTH_SAMPLES = cls.SAMPLE_RATE * cls.DURATION_SECONDS
         print(f"[INFO] Config updated for '{dataset_name}': Sample Rate = {cls.SAMPLE_RATE} Hz")
     
-    # --- Training Hyperparameters ---
+    # Training Hyperparameters
     BATCH_SIZE = 32
     EPOCHS = 150
     BASE_FILTERS = 96  
@@ -29,12 +29,12 @@ class Config:
     INIT_LR = 5e-4
     PATIENCE = 30
     
-    # --- Augmentation ---
+    # Augmentation
     AUGMENT_PROB = 0.8
     NOISE_SNR_DB = (10, 25)
     GAIN_DB = (-6, 6)
     
-    # --- System ---
+    # System
     SEED = 42
     N_FOLDS = 10
     CHECKPOINT_DIR = "checkpoints"

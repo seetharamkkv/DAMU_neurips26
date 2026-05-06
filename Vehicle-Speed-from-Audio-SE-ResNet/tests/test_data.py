@@ -25,7 +25,7 @@ def test_preprocessing_shape():
     mean = np.zeros((Config.N_MELS, 1), dtype=np.float32)
     std = np.ones((Config.N_MELS, 1), dtype=np.float32)
     
-    # 2. Create Input Tensor 
+    # 2. Create Input Tensor
     # The data loader expects a TensorFlow string tensor, simulating tf.data pipeline input
     file_path_tensor = tf.constant(SAMPLE_WAV_PATH)
     

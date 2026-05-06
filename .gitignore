@@ -34,22 +34,18 @@ venv/
 *.xlsx
 *.tmp
 
-# additional/test_results/
-# ref_docs/
+additional/test_results/
+ref_docs/
 *.pdf
 *.wav
-# *.md
-# *.txt
+*.md
+!README.md
+*.txt
 ref_docs/neurips_sections.md
 ref_docs/system_status_report.md
 
-
 # Dataset
-AdditionalExtendedSimulatedData/
-ExtendedSimulatedData/
-MixedData/
-RealData/
-SimulatedData/
+Datasets/
 
 # OS
 .DS_Store
@@ -57,3 +53,23 @@ Thumbs.db
 
 # Checkpoints 
 # Vehicle-Speed-from-Audio-SE-ResNet/checkpoints/*_model/
+
+#  Version Control Rules 
+
+# 1. Allow all results from Vehicle-Speed-from-Audio-SE-ResNet
+!Vehicle-Speed-from-Audio-SE-ResNet/results/
+!Vehicle-Speed-from-Audio-SE-ResNet/results/**/*.csv
+!Vehicle-Speed-from-Audio-SE-ResNet/results/**/*.txt
+!Vehicle-Speed-from-Audio-SE-ResNet/results/**/*.md
+
+# 2. Exclude all generated results/outputs from DopplerSim
+DopplerSim/static/batch_outputs/
+DopplerSim/outputs/
+DopplerSim/graphs/
+DopplerSim/**/*.csv
+DopplerSim/**/*.png
+DopplerSim/**/*.wav
+
+# 3. Exclude metadata files for both submodules
+*metadata*.json
+metadata.json

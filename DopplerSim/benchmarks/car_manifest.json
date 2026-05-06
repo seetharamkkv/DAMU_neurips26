@@ -1,0 +1,522 @@
+[
+  {
+    "base_id": "sample_0000009",
+    "type": "speed_x2",
+    "config": {
+      "vehicle": "car_2",
+      "path_type": "straight",
+      "parameters": {
+        "speed": 38.0,
+        "distance": 468,
+        "angle": 3
+      }
+    }
+  },
+  {
+    "base_id": "sample_0000009",
+    "type": "speed_x0.5",
+    "config": {
+      "vehicle": "car_2",
+      "path_type": "straight",
+      "parameters": {
+        "speed": 9.5,
+        "distance": 468,
+        "angle": 3
+      }
+    }
+  },
+  {
+    "base_id": "sample_0000009",
+    "type": "dist_x2",
+    "config": {
+      "vehicle": "car_2",
+      "path_type": "straight",
+      "parameters": {
+        "speed": 19,
+        "distance": 936.0,
+        "angle": 3
+      }
+    }
+  },
+  {
+    "base_id": "sample_0000009",
+    "type": "dist_x0.5",
+    "config": {
+      "vehicle": "car_2",
+      "path_type": "straight",
+      "parameters": {
+        "speed": 19,
+        "distance": 234.0,
+        "angle": 3
+      }
+    }
+  },
+  {
+    "base_id": "sample_0000002",
+    "type": "speed_x2",
+    "config": {
+      "vehicle": "car_1",
+      "path_type": "parabola",
+      "parameters": {
+        "speed": 84.0,
+        "distance": 721,
+        "angle": 0
+      }
+    }
+  },
+  {
+    "base_id": "sample_0000002",
+    "type": "speed_x0.5",
+    "config": {
+      "vehicle": "car_1",
+      "path_type": "parabola",
+      "parameters": {
+        "speed": 21.0,
+        "distance": 721,
+        "angle": 0
+      }
+    }
+  },
+  {
+    "base_id": "sample_0000002",
+    "type": "dist_x2",
+    "config": {
+      "vehicle": "car_1",
+      "path_type": "parabola",
+      "parameters": {
+        "speed": 42,
+        "distance": 1442.0,
+        "angle": 0
+      }
+    }
+  },
+  {
+    "base_id": "sample_0000002",
+    "type": "dist_x0.5",
+    "config": {
+      "vehicle": "car_1",
+      "path_type": "parabola",
+      "parameters": {
+        "speed": 42,
+        "distance": 360.5,
+        "angle": 0
+      }
+    }
+  },
+  {
+    "base_id": "sample_0000006",
+    "type": "speed_x2",
+    "config": {
+      "vehicle": "car_1",
+      "path_type": "parabola",
+      "parameters": {
+        "speed": 42.0,
+        "distance": 861,
+        "angle": 0
+      }
+    }
+  },
+  {
+    "base_id": "sample_0000006",
+    "type": "speed_x0.5",
+    "config": {
+      "vehicle": "car_1",
+      "path_type": "parabola",
+      "parameters": {
+        "speed": 10.5,
+        "distance": 861,
+        "angle": 0
+      }
+    }
+  },
+  {
+    "base_id": "sample_0000006",
+    "type": "dist_x2",
+    "config": {
+      "vehicle": "car_1",
+      "path_type": "parabola",
+      "parameters": {
+        "speed": 21,
+        "distance": 1722.0,
+        "angle": 0
+      }
+    }
+  },
+  {
+    "base_id": "sample_0000006",
+    "type": "dist_x0.5",
+    "config": {
+      "vehicle": "car_1",
+      "path_type": "parabola",
+      "parameters": {
+        "speed": 21,
+        "distance": 430.5,
+        "angle": 0
+      }
+    }
+  },
+  {
+    "base_id": "sample_0000001",
+    "type": "speed_x2",
+    "config": {
+      "vehicle": "03-HF-Mi5",
+      "path_type": "parabola",
+      "parameters": {
+        "speed": 74.0,
+        "distance": 188,
+        "angle": 0
+      }
+    }
+  },
+  {
+    "base_id": "sample_0000001",
+    "type": "speed_x0.5",
+    "config": {
+      "vehicle": "03-HF-Mi5",
+      "path_type": "parabola",
+      "parameters": {
+        "speed": 18.5,
+        "distance": 188,
+        "angle": 0
+      }
+    }
+  },
+  {
+    "base_id": "sample_0000001",
+    "type": "dist_x2",
+    "config": {
+      "vehicle": "03-HF-Mi5",
+      "path_type": "parabola",
+      "parameters": {
+        "speed": 37,
+        "distance": 376.0,
+        "angle": 0
+      }
+    }
+  },
+  {
+    "base_id": "sample_0000001",
+    "type": "dist_x0.5",
+    "config": {
+      "vehicle": "03-HF-Mi5",
+      "path_type": "parabola",
+      "parameters": {
+        "speed": 37,
+        "distance": 94.0,
+        "angle": 0
+      }
+    }
+  },
+  {
+    "base_id": "sample_0000008",
+    "type": "speed_x2",
+    "config": {
+      "vehicle": "03-HF-Mi5",
+      "path_type": "bezier",
+      "parameters": {
+        "speed": 90.0,
+        "distance": 931,
+        "angle": 0
+      }
+    }
+  },
+  {
+    "base_id": "sample_0000008",
+    "type": "speed_x0.5",
+    "config": {
+      "vehicle": "03-HF-Mi5",
+      "path_type": "bezier",
+      "parameters": {
+        "speed": 22.5,
+        "distance": 931,
+        "angle": 0
+      }
+    }
+  },
+  {
+    "base_id": "sample_0000008",
+    "type": "dist_x2",
+    "config": {
+      "vehicle": "03-HF-Mi5",
+      "path_type": "bezier",
+      "parameters": {
+        "speed": 45,
+        "distance": 1862.0,
+        "angle": 0
+      }
+    }
+  },
+  {
+    "base_id": "sample_0000008",
+    "type": "dist_x0.5",
+    "config": {
+      "vehicle": "03-HF-Mi5",
+      "path_type": "bezier",
+      "parameters": {
+        "speed": 45,
+        "distance": 465.5,
+        "angle": 0
+      }
+    }
+  },
+  {
+    "base_id": "sample_0000003",
+    "type": "speed_x2",
+    "config": {
+      "vehicle": "03-HF-Mi5",
+      "path_type": "parabola",
+      "parameters": {
+        "speed": 82.0,
+        "distance": 258,
+        "angle": 0
+      }
+    }
+  },
+  {
+    "base_id": "sample_0000003",
+    "type": "speed_x0.5",
+    "config": {
+      "vehicle": "03-HF-Mi5",
+      "path_type": "parabola",
+      "parameters": {
+        "speed": 20.5,
+        "distance": 258,
+        "angle": 0
+      }
+    }
+  },
+  {
+    "base_id": "sample_0000003",
+    "type": "dist_x2",
+    "config": {
+      "vehicle": "03-HF-Mi5",
+      "path_type": "parabola",
+      "parameters": {
+        "speed": 41,
+        "distance": 516.0,
+        "angle": 0
+      }
+    }
+  },
+  {
+    "base_id": "sample_0000003",
+    "type": "dist_x0.5",
+    "config": {
+      "vehicle": "03-HF-Mi5",
+      "path_type": "parabola",
+      "parameters": {
+        "speed": 41,
+        "distance": 129.0,
+        "angle": 0
+      }
+    }
+  },
+  {
+    "base_id": "sample_0000010",
+    "type": "speed_x2",
+    "config": {
+      "vehicle": "04-H1-Mi1",
+      "path_type": "parabola",
+      "parameters": {
+        "speed": 100.0,
+        "distance": 5,
+        "angle": 0
+      }
+    }
+  },
+  {
+    "base_id": "sample_0000010",
+    "type": "speed_x0.5",
+    "config": {
+      "vehicle": "04-H1-Mi1",
+      "path_type": "parabola",
+      "parameters": {
+        "speed": 25.0,
+        "distance": 5,
+        "angle": 0
+      }
+    }
+  },
+  {
+    "base_id": "sample_0000010",
+    "type": "dist_x2",
+    "config": {
+      "vehicle": "04-H1-Mi1",
+      "path_type": "parabola",
+      "parameters": {
+        "speed": 50,
+        "distance": 10.0,
+        "angle": 0
+      }
+    }
+  },
+  {
+    "base_id": "sample_0000010",
+    "type": "dist_x0.5",
+    "config": {
+      "vehicle": "04-H1-Mi1",
+      "path_type": "parabola",
+      "parameters": {
+        "speed": 50,
+        "distance": 2.5,
+        "angle": 0
+      }
+    }
+  },
+  {
+    "base_id": "sample_0000005",
+    "type": "speed_x2",
+    "config": {
+      "vehicle": "car_2",
+      "path_type": "parabola",
+      "parameters": {
+        "speed": 56.0,
+        "distance": 328,
+        "angle": 0
+      }
+    }
+  },
+  {
+    "base_id": "sample_0000005",
+    "type": "speed_x0.5",
+    "config": {
+      "vehicle": "car_2",
+      "path_type": "parabola",
+      "parameters": {
+        "speed": 14.0,
+        "distance": 328,
+        "angle": 0
+      }
+    }
+  },
+  {
+    "base_id": "sample_0000005",
+    "type": "dist_x2",
+    "config": {
+      "vehicle": "car_2",
+      "path_type": "parabola",
+      "parameters": {
+        "speed": 28,
+        "distance": 656.0,
+        "angle": 0
+      }
+    }
+  },
+  {
+    "base_id": "sample_0000005",
+    "type": "dist_x0.5",
+    "config": {
+      "vehicle": "car_2",
+      "path_type": "parabola",
+      "parameters": {
+        "speed": 28,
+        "distance": 164.0,
+        "angle": 0
+      }
+    }
+  },
+  {
+    "base_id": "sample_0000004",
+    "type": "speed_x2",
+    "config": {
+      "vehicle": "04-H1-Mi1",
+      "path_type": "straight",
+      "parameters": {
+        "speed": 20.0,
+        "distance": 791,
+        "angle": 23
+      }
+    }
+  },
+  {
+    "base_id": "sample_0000004",
+    "type": "speed_x0.5",
+    "config": {
+      "vehicle": "04-H1-Mi1",
+      "path_type": "straight",
+      "parameters": {
+        "speed": 5.0,
+        "distance": 791,
+        "angle": 23
+      }
+    }
+  },
+  {
+    "base_id": "sample_0000004",
+    "type": "dist_x2",
+    "config": {
+      "vehicle": "04-H1-Mi1",
+      "path_type": "straight",
+      "parameters": {
+        "speed": 10,
+        "distance": 1582.0,
+        "angle": 23
+      }
+    }
+  },
+  {
+    "base_id": "sample_0000004",
+    "type": "dist_x0.5",
+    "config": {
+      "vehicle": "04-H1-Mi1",
+      "path_type": "straight",
+      "parameters": {
+        "speed": 10,
+        "distance": 395.5,
+        "angle": 23
+      }
+    }
+  },
+  {
+    "base_id": "sample_0000007",
+    "type": "speed_x2",
+    "config": {
+      "vehicle": "car_1",
+      "path_type": "parabola",
+      "parameters": {
+        "speed": 82.0,
+        "distance": 398,
+        "angle": 0
+      }
+    }
+  },
+  {
+    "base_id": "sample_0000007",
+    "type": "speed_x0.5",
+    "config": {
+      "vehicle": "car_1",
+      "path_type": "parabola",
+      "parameters": {
+        "speed": 20.5,
+        "distance": 398,
+        "angle": 0
+      }
+    }
+  },
+  {
+    "base_id": "sample_0000007",
+    "type": "dist_x2",
+    "config": {
+      "vehicle": "car_1",
+      "path_type": "parabola",
+      "parameters": {
+        "speed": 41,
+        "distance": 796.0,
+        "angle": 0
+      }
+    }
+  },
+  {
+    "base_id": "sample_0000007",
+    "type": "dist_x0.5",
+    "config": {
+      "vehicle": "car_1",
+      "path_type": "parabola",
+      "parameters": {
+        "speed": 41,
+        "distance": 199.0,
+        "angle": 0
+      }
+    }
+  }
+]

@@ -150,8 +150,8 @@ def run_ensemble_inference(data_dir, weights_dir, args):
     report_lines.append("="*45)
     report_lines.append("ENSEMBLE EVALUATION REPORT")
     report_lines.append(f"Timestamp:        {time.strftime('%Y-%m-%d %H:%M:%S')}")
-    report_lines.append(f"Dataset Path:     {os.path.abspath(data_dir)}")
-    report_lines.append(f"Weights Path:     {os.path.abspath(current_weights_dir)}")
+    report_lines.append(f"Dataset Path:     {data_dir}")
+    report_lines.append(f"Weights Path:     {current_weights_dir}")
     report_lines.append("-" * 45)
     report_lines.append(f"Total Samples:    {len(speeds)}")
     report_lines.append(f"Avg Latency/File: {avg_per_sample_ms:.2f} ms (CPU)")
@@ -171,7 +171,7 @@ def run_ensemble_inference(data_dir, weights_dir, args):
 
     # Save to file if requested or by default in additional/test_results
     if hasattr(args, 'save_results') and args.save_results:
-        results_dir = os.path.join("additional", "test_results")
+        results_dir = "results"
         os.makedirs(results_dir, exist_ok=True)
         
         # Generate filename based on dataset name
@@ -187,7 +187,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="SE-ResNet Ensemble Inference")
     parser.add_argument('--data_dir', type=str, required=True)
     parser.add_argument('--weights_dir', type=str, default='checkpoints')
-    parser.add_argument('--save_results', action='store_true', default=True, help="Save results to additional/test_results")
+    parser.add_argument('--save_results', action='store_true', default=True, help="Save results to results/ directory")
     
     args = parser.parse_args()
     run_ensemble_inference(args.data_dir, args.weights_dir, args)

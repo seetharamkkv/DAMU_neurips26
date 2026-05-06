@@ -1,0 +1,20 @@
+=============================================
+ENSEMBLE EVALUATION REPORT
+Timestamp:        
+Dataset Path:     ../Datasets/RealData
+Weights Path:     ../checkpoints/SimulatedData_model
+---------------------------------------------
+Total Samples:    192
+Avg Latency/File: 127.97 ms (CPU)
+Final RMSE:       27.8823 km/h
+Final MAE:        24.2266 km/h
+---------------------------------------------
+Vehicle Class        | Samples  | RMSE (km/h)
+---------------------------------------------
+KiaSportage          | 33       | 30.1498
+NissanQashqai        | 29       | 23.3681
+Peugeot3008          | 31       | 25.7317
+Peugeot307           | 29       | 34.8135
+RenaultScenic        | 35       | 23.6872
+VWPassat             | 35       | 29.5436
+=============================================
