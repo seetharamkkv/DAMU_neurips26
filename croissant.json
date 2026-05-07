@@ -1,0 +1,249 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "cr": "http://mlcommons.org/croissant/",
+    "dct": "http://purl.org/dc/terms/"
+  },
+  "@type": "Dataset",
+  "name": "DopplerSim DAMU Dataset Collection",
+  "description": "Vehicle acoustics and Doppler-based speed estimation dataset collection containing RealData, SimulatedData, ExtendedSimulatedData, Benchmarks, Benchmarks(Noise), and CustomWhiteboardPath subsets.",
+  "version": "1.0.0",
+  "license": "TBD - Double-blind NeurIPS 2026 Submission",
+  "creator": [
+    {
+      "@type": "Organization",
+      "name": "Anonymous Authors"
+    }
+  ],
+  "citation": "Anonymous Authors (2026). Dynamic Audio Motion Understanding: Benchmarking Physical Motion Inference from Sound. Submitted to NeurIPS 2026.",
+  "keywords": [
+    "acoustics",
+    "doppler",
+    "vehicle speed estimation",
+    "audio dataset",
+    "simulation-to-real transfer",
+    "benchmark"
+  ],
+  "distribution": [
+    {
+      "@id": "realdata-kiasportage",
+      "@type": "cr:FileObject",
+      "name": "RealData KiaSportage",
+      "description": "Real recordings for KiaSportage.",
+      "contentUrl": "",
+      "encodingFormat": "application/zip"
+    },
+    {
+      "@id": "realdata-nissanqashqai",
+      "@type": "cr:FileObject",
+      "name": "RealData NissanQashqai",
+      "description": "Real recordings for NissanQashqai.",
+      "contentUrl": "",
+      "encodingFormat": "application/zip"
+    },
+    {
+      "@id": "realdata-peugeot3008",
+      "@type": "cr:FileObject",
+      "name": "RealData Peugeot3008",
+      "description": "Real recordings for Peugeot3008.",
+      "contentUrl": "",
+      "encodingFormat": "application/zip"
+    },
+    {
+      "@id": "realdata-peugeot307",
+      "@type": "cr:FileObject",
+      "name": "RealData Peugeot307",
+      "description": "Real recordings for Peugeot307.",
+      "contentUrl": "",
+      "encodingFormat": "application/zip"
+    },
+    {
+      "@id": "realdata-renaultscenic",
+      "@type": "cr:FileObject",
+      "name": "RealData RenaultScenic",
+      "description": "Real recordings for RenaultScenic.",
+      "contentUrl": "",
+      "encodingFormat": "application/zip"
+    },
+    {
+      "@id": "realdata-vwpassat",
+      "@type": "cr:FileObject",
+      "name": "RealData VWPassat",
+      "description": "Real recordings for VWPassat.",
+      "contentUrl": "",
+      "encodingFormat": "application/zip"
+    },
+    {
+      "@id": "simulateddata-kiasportage",
+      "@type": "cr:FileObject",
+      "name": "SimulatedData KiaSportage",
+      "description": "Speed-matched synthetic recordings for KiaSportage.",
+      "contentUrl": "",
+      "encodingFormat": "application/zip"
+    },
+    {
+      "@id": "simulateddata-nissanqashqai",
+      "@type": "cr:FileObject",
+      "name": "SimulatedData NissanQashqai",
+      "description": "Speed-matched synthetic recordings for NissanQashqai.",
+      "contentUrl": "",
+      "encodingFormat": "application/zip"
+    },
+    {
+      "@id": "simulateddata-peugeot3008",
+      "@type": "cr:FileObject",
+      "name": "SimulatedData Peugeot3008",
+      "description": "Speed-matched synthetic recordings for Peugeot3008.",
+      "contentUrl": "",
+      "encodingFormat": "application/zip"
+    },
+    {
+      "@id": "simulateddata-peugeot307",
+      "@type": "cr:FileObject",
+      "name": "SimulatedData Peugeot307",
+      "description": "Speed-matched synthetic recordings for Peugeot307.",
+      "contentUrl": "",
+      "encodingFormat": "application/zip"
+    },
+    {
+      "@id": "simulateddata-renaultscenic",
+      "@type": "cr:FileObject",
+      "name": "SimulatedData RenaultScenic",
+      "description": "Speed-matched synthetic recordings for RenaultScenic.",
+      "contentUrl": "",
+      "encodingFormat": "application/zip"
+    },
+    {
+      "@id": "simulateddata-vwpassat",
+      "@type": "cr:FileObject",
+      "name": "SimulatedData VWPassat",
+      "description": "Speed-matched synthetic recordings for VWPassat.",
+      "contentUrl": "",
+      "encodingFormat": "application/zip"
+    },
+    {
+      "@id": "extendedsimulateddata-kiasportage",
+      "@type": "cr:FileObject",
+      "name": "ExtendedSimulatedData KiaSportage",
+      "description": "Extended synthetic recordings for KiaSportage.",
+      "contentUrl": "",
+      "encodingFormat": "application/zip"
+    },
+    {
+      "@id": "extendedsimulateddata-nissanqashqai",
+      "@type": "cr:FileObject",
+      "name": "ExtendedSimulatedData NissanQashqai",
+      "description": "Extended synthetic recordings for NissanQashqai.",
+      "contentUrl": "",
+      "encodingFormat": "application/zip"
+    },
+    {
+      "@id": "extendedsimulateddata-peugeot3008",
+      "@type": "cr:FileObject",
+      "name": "ExtendedSimulatedData Peugeot3008",
+      "description": "Extended synthetic recordings for Peugeot3008.",
+      "contentUrl": "",
+      "encodingFormat": "application/zip"
+    },
+    {
+      "@id": "extendedsimulateddata-peugeot307",
+      "@type": "cr:FileObject",
+      "name": "ExtendedSimulatedData Peugeot307",
+      "description": "Extended synthetic recordings for Peugeot307.",
+      "contentUrl": "",
+      "encodingFormat": "application/zip"
+    },
+    {
+      "@id": "extendedsimulateddata-renaultscenic",
+      "@type": "cr:FileObject",
+      "name": "ExtendedSimulatedData RenaultScenic",
+      "description": "Extended synthetic recordings for RenaultScenic.",
+      "contentUrl": "",
+      "encodingFormat": "application/zip"
+    },
+    {
+      "@id": "extendedsimulateddata-vwpassat",
+      "@type": "cr:FileObject",
+      "name": "ExtendedSimulatedData VWPassat",
+      "description": "Extended synthetic recordings for VWPassat.",
+      "contentUrl": "",
+      "encodingFormat": "application/zip"
+    },
+    {
+      "@id": "benchmarks",
+      "@type": "cr:FileObject",
+      "name": "Benchmarks",
+      "description": "DAMU Benchmark Suite datasets for tasks B1-B10.",
+      "contentUrl": "",
+      "encodingFormat": "application/zip"
+    },
+    {
+      "@id": "benchmarks-noise",
+      "@type": "cr:FileObject",
+      "name": "Benchmarks(Noise)",
+      "description": "DAMU Benchmark Suite datasets with added subtle ambient noise.",
+      "contentUrl": "",
+      "encodingFormat": "application/zip"
+    },
+    {
+      "@id": "custom-whiteboard-path",
+      "@type": "cr:FileObject",
+      "name": "CustomWhiteboardPath",
+      "description": "Sample outputs from the Custom Whiteboard Path mode of DopplerSim.",
+      "contentUrl": "",
+      "encodingFormat": "application/zip"
+    }
+  ],
+  "recordSet": [
+    {
+      "@id": "clip-manifest",
+      "@type": "cr:RecordSet",
+      "name": "Clip manifest",
+      "description": "Per-clip tabular metadata represented by dataset.csv files.",
+      "field": [
+        {
+          "@id": "sample-id",
+          "@type": "cr:Field",
+          "name": "sample_id",
+          "description": "Sample identifier.",
+          "dataType": "sc:Text"
+        },
+        {
+          "@id": "filename",
+          "@type": "cr:Field",
+          "name": "filename",
+          "description": "Audio clip filename.",
+          "dataType": "sc:Text"
+        },
+        {
+          "@id": "speed-kmph",
+          "@type": "cr:Field",
+          "name": "speed_kmph",
+          "description": "Vehicle speed in kilometers per hour.",
+          "dataType": "sc:Number"
+        },
+        {
+          "@id": "speed-mps",
+          "@type": "cr:Field",
+          "name": "speed_mps",
+          "description": "Vehicle speed in meters per second.",
+          "dataType": "sc:Number"
+        },
+        {
+          "@id": "distance-m",
+          "@type": "cr:Field",
+          "name": "distance_m",
+          "description": "Closest-point distance in meters.",
+          "dataType": "sc:Number"
+        },
+        {
+          "@id": "angle-deg",
+          "@type": "cr:Field",
+          "name": "angle_deg",
+          "description": "Relative angle in degrees.",
+          "dataType": "sc:Number"
+        }
+      ]
+    }
+  ]
+}
