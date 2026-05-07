@@ -74,3 +74,7 @@ DopplerSim/**/*.wav
 # 3. Exclude metadata files for both submodules
 *metadata*.json
 metadata.json
+
+# 4. Explicitly track dataset metadata
+!croissant.json
+

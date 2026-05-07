@@ -2,7 +2,10 @@
   "@context": {
     "@vocab": "https://schema.org/",
     "cr": "http://mlcommons.org/croissant/",
-    "dct": "http://purl.org/dc/terms/"
+    "dct": "http://purl.org/dc/terms/",
+    "rai": "http://mlcommons.org/croissant/RAI/",
+    "prov": "http://www.w3.org/ns/prov#",
+    "sc": "https://schema.org/"
   },
   "@type": "Dataset",
   "name": "DopplerSim DAMU Dataset Collection",
@@ -24,13 +27,40 @@
     "simulation-to-real transfer",
     "benchmark"
   ],
+  "url": "https://drive.google.com/drive/u/7/folders/1zbNvCbslQmNU0BWAEvimxQB6TMwM8mHi",
+  "rai:dataBiases": "The data exhibits a selection bias towards standard European passenger vehicles from the VS13 dataset. The simulated portions assume idealized planar propagation which underrepresents complex urban or heavily obstructed scenarios.",
+  "rai:dataLimitations": "The dataset is constrained to the acoustic profiles of 6 vehicle classes. It does not generalize to other vehicle types (e.g., heavy trucks) or non-vehicle sound sources. It is evaluated under specific synthetic physical conditions which may not capture all real-world environmental acoustic effects.",
+  "rai:dataSocialImpact": "Positive impact: Enables rigorous evaluation of physical motion understanding in audio AI systems. Risks: Potential misuse for unauthorized tracking of vehicles. Mitigation: Released for academic research purposes under controlled access.",
+  "rai:dataUseCases": "The dataset is intended to evaluate physical motion inference from sound, such as estimating continuous vehicle speed, direction of travel, distance of closest approach, trajectory shape, and time-to-event from single-channel audio. Validated use cases: Zero-shot evaluation and mixed-domain training of deep neural networks. Not validated for real-time safety-critical autonomous driving applications.",
+  "rai:personalSensitiveInformation": "None",
+  "dct:source": [
+    {
+      "@type": "Dataset",
+      "@id": "https://www.kaggle.com/datasets/vafaeii/vs13-dataset",
+      "name": "VS13 Vehicle Speed Dataset (Audio)",
+      "description": "The primary seed dataset. Real-world vehicle pass-by audio recordings used as stationary source inputs to the DopplerSim physics-based engine. Covers 6 European passenger vehicle classes: KiaSportage, NissanQashqai, Peugeot3008, Peugeot307, RenaultScenic, and VWPassat.",
+      "url": "https://www.kaggle.com/datasets/vafaeii/vs13-dataset",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Kaggle / Dataset contributor vafaeii"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+  ],
+  "prov:wasGeneratedBy": [
+    {
+      "@type": "prov:Activity",
+      "name": "Data Collection and Simulation",
+      "description": "Original real-world vehicle pass-by audio was collected in the VS13 dataset. The synthetic subsets were generated using the DopplerSim physics-based audio engine. This engine applied continuous time-domain Doppler warping, geometric spreading attenuation, and convective amplification to stationary source recordings."
+    }
+  ],
   "distribution": [
     {
       "@id": "realdata-kiasportage",
       "@type": "cr:FileObject",
       "name": "RealData KiaSportage",
       "description": "Real recordings for KiaSportage.",
-      "contentUrl": "",
+      "contentUrl": "https://drive.google.com/drive/u/0/folders/1BbXdiU_BbaaT74owRFC84y-xQYWFWJnO",
       "encodingFormat": "application/zip"
     },
     {
@@ -38,7 +68,7 @@
       "@type": "cr:FileObject",
       "name": "RealData NissanQashqai",
       "description": "Real recordings for NissanQashqai.",
-      "contentUrl": "",
+      "contentUrl": "https://drive.google.com/drive/u/0/folders/1xCZUah1ML_kFc126uqsjadzKMNzzwMZW",
       "encodingFormat": "application/zip"
     },
     {
@@ -46,7 +76,7 @@
       "@type": "cr:FileObject",
       "name": "RealData Peugeot3008",
       "description": "Real recordings for Peugeot3008.",
-      "contentUrl": "",
+      "contentUrl": "https://drive.google.com/drive/u/0/folders/1B5JTcbbaVRw02ImyYNzWyfap2HiOo9M4",
       "encodingFormat": "application/zip"
     },
     {
@@ -54,7 +84,7 @@
       "@type": "cr:FileObject",
       "name": "RealData Peugeot307",
       "description": "Real recordings for Peugeot307.",
-      "contentUrl": "",
+      "contentUrl": "https://drive.google.com/drive/u/0/folders/1diDtALkYA-cs60L8a6Ohg8uY9URzpJRU",
       "encodingFormat": "application/zip"
     },
     {
@@ -62,7 +92,7 @@
       "@type": "cr:FileObject",
       "name": "RealData RenaultScenic",
       "description": "Real recordings for RenaultScenic.",
-      "contentUrl": "",
+      "contentUrl": "https://drive.google.com/drive/u/0/folders/19IpNJ8u4uHgag3YJVk7GVWIMjYGOsxDC",
       "encodingFormat": "application/zip"
     },
     {
@@ -70,7 +100,7 @@
       "@type": "cr:FileObject",
       "name": "RealData VWPassat",
       "description": "Real recordings for VWPassat.",
-      "contentUrl": "",
+      "contentUrl": "https://drive.google.com/drive/u/0/folders/1aGDoa3QdSfRsiccY5LCq3-ttLyfwxAWA",
       "encodingFormat": "application/zip"
     },
     {
@@ -78,7 +108,7 @@
       "@type": "cr:FileObject",
       "name": "SimulatedData KiaSportage",
       "description": "Speed-matched synthetic recordings for KiaSportage.",
-      "contentUrl": "",
+      "contentUrl": "https://drive.google.com/drive/u/0/folders/1UTyrEl_R8DczLNLBZsQ0km4CyfzhAnSe",
       "encodingFormat": "application/zip"
     },
     {
@@ -86,7 +116,7 @@
       "@type": "cr:FileObject",
       "name": "SimulatedData NissanQashqai",
       "description": "Speed-matched synthetic recordings for NissanQashqai.",
-      "contentUrl": "",
+      "contentUrl": "https://drive.google.com/drive/u/0/folders/1cVhwhQ8lcT-mbGK1WMnLS-PtDARFoe4y",
       "encodingFormat": "application/zip"
     },
     {
@@ -94,7 +124,7 @@
       "@type": "cr:FileObject",
       "name": "SimulatedData Peugeot3008",
       "description": "Speed-matched synthetic recordings for Peugeot3008.",
-      "contentUrl": "",
+      "contentUrl": "https://drive.google.com/drive/u/0/folders/1x33i-yV6StF-dSXYQ3C1cN-lqhjtjAze",
       "encodingFormat": "application/zip"
     },
     {
@@ -102,7 +132,7 @@
       "@type": "cr:FileObject",
       "name": "SimulatedData Peugeot307",
       "description": "Speed-matched synthetic recordings for Peugeot307.",
-      "contentUrl": "",
+      "contentUrl": "https://drive.google.com/drive/u/0/folders/1mixHrxsqAIyyyolcg2nXGGtqeRaVezVi",
       "encodingFormat": "application/zip"
     },
     {
@@ -110,7 +140,7 @@
       "@type": "cr:FileObject",
       "name": "SimulatedData RenaultScenic",
       "description": "Speed-matched synthetic recordings for RenaultScenic.",
-      "contentUrl": "",
+      "contentUrl": "https://drive.google.com/drive/u/0/folders/1Fgq2j1V7OUZx8FogFH4dsh58tYaZZT0n",
       "encodingFormat": "application/zip"
     },
     {
@@ -118,7 +148,7 @@
       "@type": "cr:FileObject",
       "name": "SimulatedData VWPassat",
       "description": "Speed-matched synthetic recordings for VWPassat.",
-      "contentUrl": "",
+      "contentUrl": "https://drive.google.com/drive/u/0/folders/1AAY1eMzy07ZUqRBW-Ck9mKE3bBORvkra",
       "encodingFormat": "application/zip"
     },
     {
@@ -126,7 +156,7 @@
       "@type": "cr:FileObject",
       "name": "ExtendedSimulatedData KiaSportage",
       "description": "Extended synthetic recordings for KiaSportage.",
-      "contentUrl": "",
+      "contentUrl": "https://drive.google.com/drive/u/0/folders/1ZIJAfc7GoSDjuRyW0z4hLxjGzDEPGfIq",
       "encodingFormat": "application/zip"
     },
     {
@@ -134,7 +164,7 @@
       "@type": "cr:FileObject",
       "name": "ExtendedSimulatedData NissanQashqai",
       "description": "Extended synthetic recordings for NissanQashqai.",
-      "contentUrl": "",
+      "contentUrl": "https://drive.google.com/drive/u/0/folders/1IJoN1CbOw-yn6uTinnUxyzvHe6dglMcg",
       "encodingFormat": "application/zip"
     },
     {
@@ -142,7 +172,7 @@
       "@type": "cr:FileObject",
       "name": "ExtendedSimulatedData Peugeot3008",
       "description": "Extended synthetic recordings for Peugeot3008.",
-      "contentUrl": "",
+      "contentUrl": "https://drive.google.com/drive/u/0/folders/1aEvufLeG5Cu06BeutIu0feQmgk4qNp0Y",
       "encodingFormat": "application/zip"
     },
     {
@@ -150,7 +180,7 @@
       "@type": "cr:FileObject",
       "name": "ExtendedSimulatedData Peugeot307",
       "description": "Extended synthetic recordings for Peugeot307.",
-      "contentUrl": "",
+      "contentUrl": "https://drive.google.com/drive/u/0/folders/1-ISF0Dz4iuUZyXGYV04NeecVGkI2k1r2",
       "encodingFormat": "application/zip"
     },
     {
@@ -158,7 +188,7 @@
       "@type": "cr:FileObject",
       "name": "ExtendedSimulatedData RenaultScenic",
       "description": "Extended synthetic recordings for RenaultScenic.",
-      "contentUrl": "",
+      "contentUrl": "https://drive.google.com/drive/u/0/folders/10Ggom0vP8sNDTZ5b2n4N3ei7oYk4eAwG",
       "encodingFormat": "application/zip"
     },
     {
@@ -166,7 +196,7 @@
       "@type": "cr:FileObject",
       "name": "ExtendedSimulatedData VWPassat",
       "description": "Extended synthetic recordings for VWPassat.",
-      "contentUrl": "",
+      "contentUrl": "https://drive.google.com/drive/u/0/folders/1vV-6Om3-liudKBAfDhv6hVgPbkkofzli",
       "encodingFormat": "application/zip"
     },
     {
@@ -174,7 +204,7 @@
       "@type": "cr:FileObject",
       "name": "Benchmarks",
       "description": "DAMU Benchmark Suite datasets for tasks B1-B10.",
-      "contentUrl": "",
+      "contentUrl": "https://drive.google.com/drive/u/0/folders/1zkjeDdHNM4DreUXh2VgDeTS0Jek9PKva",
       "encodingFormat": "application/zip"
     },
     {
@@ -182,7 +212,7 @@
       "@type": "cr:FileObject",
       "name": "Benchmarks(Noise)",
       "description": "DAMU Benchmark Suite datasets with added subtle ambient noise.",
-      "contentUrl": "",
+      "contentUrl": "https://drive.google.com/drive/u/0/folders/1hzskVVznL8y-gFUzEB5xfm3TtfNA7A_a",
       "encodingFormat": "application/zip"
     },
     {
@@ -190,7 +220,7 @@
       "@type": "cr:FileObject",
       "name": "CustomWhiteboardPath",
       "description": "Sample outputs from the Custom Whiteboard Path mode of DopplerSim.",
-      "contentUrl": "",
+      "contentUrl": "https://drive.google.com/drive/u/0/folders/18SIj9jffNSbojyBhdkn103ziYhkijHHA",
       "encodingFormat": "application/zip"
     }
   ],
@@ -244,6 +274,14 @@
           "dataType": "sc:Number"
         }
       ]
+    }
+  ],
+  "rai:hasSyntheticData": true,
+  "prov:wasDerivedFrom": [
+    {
+      "@id": "https://www.kaggle.com/datasets/vafaeii/vs13-dataset",
+      "prov:label": "VS13 Vehicle Speed Dataset (Audio)",
+      "sc:license": "Attribution 4.0 International"
     }
   ]
 }
