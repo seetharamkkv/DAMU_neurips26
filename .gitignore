@@ -57,11 +57,8 @@ Thumbs.db
 
 #  Version Control Rules 
 
-# 1. Allow all results from Vehicle-Speed-from-Audio-SE-ResNet
-!Vehicle-Speed-from-Audio-SE-ResNet/results/
-!Vehicle-Speed-from-Audio-SE-ResNet/results/**/*.csv
-!Vehicle-Speed-from-Audio-SE-ResNet/results/**/*.txt
-!Vehicle-Speed-from-Audio-SE-ResNet/results/**/*.md
+# 1. Exclude all results from Vehicle-Speed-from-Audio-SE-ResNet
+Vehicle-Speed-from-Audio-SE-ResNet/results/
 
 # 2. Exclude all generated results/outputs from DopplerSim
 DopplerSim/static/batch_outputs/
