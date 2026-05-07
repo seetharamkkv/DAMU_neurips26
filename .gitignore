@@ -39,6 +39,7 @@ ref_docs/
 temp/
 *.pdf
 *.wav
+*.mp3
 !README.md
 *.txt
 ref_docs/neurips_sections.md
@@ -64,17 +65,27 @@ Thumbs.db
 
 # 2. Exclude all generated results/outputs from DopplerSim
 DopplerSim/static/batch_outputs/
+DopplerSim/static/spectrograms/
 DopplerSim/outputs/
 DopplerSim/graphs/
 DopplerSim/**/*.csv
 DopplerSim/**/*.png
 !DopplerSim/UI.png
 DopplerSim/**/*.wav
+DopplerSim/**/*.mp3
 
-# 3. Exclude metadata files for both submodules
+# 3. Allow sounds for simulation
+!DopplerSim/static/drone_sounds/
+!DopplerSim/static/drone_sounds/*.wav
+!DopplerSim/static/drone_sounds/*.mp3
+!DopplerSim/static/vehicle_sounds/
+!DopplerSim/static/vehicle_sounds/*.wav
+!DopplerSim/static/vehicle_sounds/*.mp3
+
+# 4. Exclude metadata files for both submodules
 *metadata*.json
 metadata.json
 
-# 4. Explicitly track dataset metadata
+# 5. Explicitly track dataset metadata
 !croissant.json
 
