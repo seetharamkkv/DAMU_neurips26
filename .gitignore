@@ -39,7 +39,6 @@ ref_docs/
 temp/
 *.pdf
 *.wav
-*.md
 !README.md
 *.txt
 ref_docs/neurips_sections.md
