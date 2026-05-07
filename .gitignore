@@ -68,6 +68,7 @@ DopplerSim/outputs/
 DopplerSim/graphs/
 DopplerSim/**/*.csv
 DopplerSim/**/*.png
+!DopplerSim/UI.png
 DopplerSim/**/*.wav
 
 # 3. Exclude metadata files for both submodules
