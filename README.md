@@ -17,7 +17,9 @@ To keep the project organized and modular, the codebase is divided into three pr
 ```text
 root/
 ├── Datasets/
-│   ├── doppler_path_simulation/
+│   ├── CustomWhiteboardPath/
+│   ├── Benchmarks(Noise)/
+│   ├── Benchmarks/
 │   ├── SimulatedData/
 │   ├── ExtendedSimulatedData/
 │   └── RealData/
@@ -25,6 +27,7 @@ root/
 ├── DopplerSim/
 ├── .gitignore
 ├── README.md
+├── croissant.json
 └── requirements.txt
 ```
 
