@@ -1,8 +1,7 @@
 # SE-ResNet Acoustic Vehicle Speed Estimation (Validation Baseline)
 
 ## Project Overview
-
-This repository hosts an adapted version of the official TensorFlow source code for the acoustic vehicle speed estimation framework originally developed by **Amirreza Vafaei Moghadam**. We leverage this well-established approach as a robust baseline to validate **DopplerSim**, our physics-based simulator for vehicle audio modeling.
+This repository reuses the official TensorFlow implementation of the VS13 acoustic vehicle speed estimation framework developed by the **original VS13 authors**. The baseline is used to evaluate **DopplerSim**, our physics-based simulator for vehicle audio modeling, under a consistent experimental setup.
 
 The project implements a deep learning pipeline that processes single-channel audio recordings to estimate vehicle speed. By keeping the model architecture and training recipe consistent with the original work, we isolate the effects of acoustic data conditions (e.g., real vs. simulated audio) during our evaluation without conflating results with a novel model design.
 
@@ -78,6 +77,13 @@ For a step-by-step guide on training on our experimental data partitions (**Real
 
 In the context of the paper **"Dynamic Audio Motion Understanding: Benchmarking Physical Motion Inference from Sound"** (submitted for the NeurIPS 2026 Evaluations and Datasets Track), this evaluation framework is used to generate the cross-dataset inference comparisons. The pipeline processes three data conditions (`RealData`, `SimulatedData`, and `MixedData`) against three model checkpoint families.
 
+### Metrics Definition
+For continuous speed regression, where the target speed is $v_i$ and the prediction is $\hat{v}_i$, we evaluate performance across all $N$ samples using Mean Absolute Error (MAE) and Root Mean Squared Error (RMSE):
+
+$$MAE_{speed} = \frac{1}{N} \sum_{i=1}^{N} |\hat{v}_i - v_i|$$
+
+$$RMSE_{speed} = \sqrt{ \frac{1}{N} \sum_{i=1}^{N} (\hat{v}_i - v_i)^2 }$$
+
 ### SE-ResNet speed regression on VS13
 This experiment evaluates the SE-ResNet model across the full 3x3 cross-dataset inference grid to measure domain shift and the benefit of synthetic data.
 
@@ -89,7 +95,7 @@ When evaluating the full grid on the 10-fold models, the aggregate **RMSE (km/h)
 | **SimulatedData** | 23.04 | 17.50 | 20.26 |
 | **MixedData** | 11.87 | 27.96 | 8.99 |
 
-*Key finding*: Training with a mixture of real and synthetic audio (`MixedData_Model`) substantially improves performance on held-out real recordings (`RealData` source) compared with real-only training, reducing RMSE from 11.25 to 6.84 km/h.
+**Cross-domain performance insights**:
+- **Sim-to-Real Transfer**: Training with a mixture of real and synthetic audio (`MixedData_Model`) substantially improves performance on held-out real recordings (`RealData` source) compared with real-only training, reducing RMSE from 11.25 to 6.84 km/h. This 39% error reduction suggests that physically grounded synthesis provides motion-consistent variation beyond what is available in the limited real-only training set.
 
 *(For a step-by-step guide on generating these exact metrics and running the batch evaluation, please refer to the [Evaluation Walkthrough](reference_docs/vs13_evaluation_walkthrough.md).)*
-

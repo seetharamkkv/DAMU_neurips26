@@ -230,12 +230,13 @@ def run_vs13_generation(config):
             # 3. dataset.csv
             with open(os.path.join(additional_dir, "dataset.csv"), 'w', newline='') as f:
                 writer = csv.writer(f)
-                writer.writerow(['sample_id', 'filename', 'speed_kmph', 'speed_mps', 'distance_m', 'angle_deg'])
+                writer.writerow(['sample_id', 'filename', 'speed_kmph', 'speed_mps', 'acceleration_mps2', 'distance_m', 'angle_deg'])
                 for clip in car_clips:
                     p = clip['parameters']
                     writer.writerow([
                         clip['sample_dir'], clip['filename'], 
                         round(p['speed']*3.6, 2), p['speed'], 
+                        p.get('acceleration', 0.0),
                         p.get('distance', p.get('h')), p.get('angle', 0)
                     ])
 
@@ -244,9 +245,9 @@ def run_vs13_generation(config):
             with open(os.path.join(additional_dir, f"statistics_{car_name}.txt"), 'w') as f:
                 f.write(stats_text)
                     
-            vs13_progress['log_line'] = f"✓ Finalized {car_name} split and metadata"
+            vs13_progress['log_line'] = f"[OK] Finalized {car_name} split and metadata"
 
-        vs13_progress['log_line'] = "✓ VS13 Generation Complete."
+        vs13_progress['log_line'] = "[OK] VS13 Generation Complete."
 
     except Exception as e:
         vs13_progress['log_line'] = f"Critical Error: {str(e)}"

@@ -456,7 +456,7 @@ def batch_generate():
             path_type = path_list[i]
 
             try:
-                # ── Benchmark B8 (Multi-source), B9 (Interaction), B10 (Recognition) ──
+                #  Benchmark B8 (Multi-source), B9 (Interaction), B10 (Recognition) 
                 bench_cfg = config.get('benchmarks', {})
                 selected_bencharks = bench_cfg.get('selected', [])
                 
@@ -512,7 +512,7 @@ def batch_generate():
                     
                     v_configs = []
 
-                    # ── B9: Plus-shaped intersection benchmark ─────────────────────
+                    #  B9: Plus-shaped intersection benchmark 
                     intersection_mode = (
                         'B9' in selected_bencharks
                         and bool(bench_params.get('intersection_benchmark', False))
@@ -779,8 +779,10 @@ def batch_generate():
                                 # Crossing pair must be Bezier so paths can intersect.
                                 p_type = 'bezier'
 
-                            # Force uniform 10s duration as requested, ignoring road limits
-                            duration = 10.0
+                            # Ensure duration respects road limit to avoid bezier scaling issues
+                            road_limit = 100.0
+                            max_dur = (2.0 * road_limit) / speed
+                            duration = min(10.0, max_dur * 0.98)
 
                             v_params = {
                                 'speed': speed,
@@ -960,7 +962,7 @@ def batch_generate():
         dataset_file = os.path.join(batch_dir, 'dataset.csv')
         csv_headers = [
             'sample_id', 'batch_id', 'filename', 'vehicle_class', 'trajectory_type',
-            'speed_mps', 'direction_label', 'cpa_distance_m', 'cpa_time_sec',
+            'speed_mps', 'acceleration_mps2', 'direction_label', 'cpa_distance_m', 'cpa_time_sec',
             'num_sources', 'is_crossing'
         ]
         
@@ -976,6 +978,7 @@ def batch_generate():
                     'vehicle_class': labels.get('vehicle_class', ''),
                     'trajectory_type': labels.get('trajectory_type', ''),
                     'speed_mps': labels.get('speed_mps', 0.0),
+                    'acceleration_mps2': labels.get('acceleration_mps2', 0.0),
                     'direction_label': labels.get('direction_label', 0),
                     'cpa_distance_m': labels.get('cpa_distance_m', 0.0),
                     'cpa_time_sec': labels.get('cpa_time_sec', 5.0),
@@ -1105,6 +1108,13 @@ def batch_overlap_generate():
 
                 # Base parameters for this vehicle
                 params = generate_random_parameters(config, vehicle_name, path_type, force_symmetric=True)
+                
+                # Ensure duration matches road limit for Bezier/Parabola to avoid scaling
+                speed = params.get('speed', 25.0)
+                road_limit = 100.0
+                max_dur = (2.0 * road_limit) / speed
+                duration = min(params.get('duration', 10.0), max_dur * 0.98)
+                params['duration'] = duration
 
                 # Dynamic Centering: Ensure nearest edge is 10m away
                 observer_pos = (0.0, 0.0)
@@ -1154,7 +1164,8 @@ def batch_overlap_generate():
                 # For reverse traffic, we need to flip the direction
                 if path_type == 'straight':
                     # Direction: Angle 180 (Right->Left) for opposite, 0 (Left->Right) for forward
-                    params['angle'] = 180 if is_opposite else 0
+                    base_angle = 180 if is_opposite else 0
+                    params['angle'] = base_angle + road_angle
 
                     # Set distance to the lane offset (this is the y-coordinate)
                     # Add a base offset to ensure minimum distance from observer
@@ -1186,6 +1197,7 @@ def batch_overlap_generate():
                     # Set center height to the lane offset with base offset
                     params['h'] = max(1.0, road_y_center + lane_offset)
                     params['distance'] = params['h']
+                    params['angle_deg'] = road_angle
 
                 elif path_type == 'bezier':
                     # force crossing logic
@@ -1245,6 +1257,18 @@ def batch_overlap_generate():
                     params['y1'] = max(y_bound_min, min(y_bound_max, params['y1']))
                     params['y2'] = max(y_bound_min, min(y_bound_max, params['y2']))
                     params['y3'] = max(y_bound_min, min(y_bound_max, params['y3']))
+                    
+                    # Align with road angle
+                    params['angle_deg'] = road_angle
+
+                    # Scale x-coordinates to match the new duration/speed exactly (ensures phys_scale=1)
+                    half_span = (speed * duration) / 2.0
+                    x_mid = (params['x0'] + params['x3']) / 2.0
+                    current_x_span = abs(params['x3'] - params['x0'])
+                    if current_x_span > 0:
+                        x_scale = (2.0 * half_span) / current_x_span
+                        for k in ['x0', 'x1', 'x2', 'x3']:
+                            params[k] = x_mid + (params[k] - x_mid) * x_scale
 
                 delay = random.uniform(0, max_stagger)
 
@@ -1280,7 +1304,9 @@ def batch_overlap_generate():
                     lane_width=lane_width,
                     include_opposite=include_opposite,
                     tolerance=validation_tolerance,
-                    y_shift=7.5
+                    y_shift=0.0, # compute_path_points already returns world coords
+                    road_y_center=road_y_center,
+                    road_angle=road_angle
                 )
 
                 # Save validation reports
@@ -1297,16 +1323,29 @@ def batch_overlap_generate():
 
                 if validation_results['scene_valid']:
                     validation_stats['valid_scenes'] += 1
-                    print(f"✓ Scene {scene_id}: All {num_vehicles} vehicle paths valid")
+                    print(f"[OK] Scene {scene_id}: All {num_vehicles} vehicle paths valid")
                 else:
                     validation_stats['invalid_scenes'] += 1
-                    print(f"✗ Scene {scene_id}: {validation_results['vehicles_with_violations']}/{num_vehicles} "
+                    print(f"[FAIL] Scene {scene_id}: {validation_results['vehicles_with_violations']}/{num_vehicles} "
                           f"vehicles have violations")
             else:
                 print(f"Generated scene {scene_idx}/{num_datasets} (validation disabled)")
 
+            # Align delays so the first vehicle always starts at t=0
+            if clips_with_delays:
+                min_delay = min(d for _, d in clips_with_delays)
+                aligned_clips = []
+                for i, (arr, d) in enumerate(clips_with_delays):
+                    aligned_delay = max(0.0, d - min_delay)
+                    aligned_clips.append((arr, aligned_delay))
+                    clips_metadata[i]['delay_s'] = aligned_delay
+                clips_with_delays = aligned_clips
+
+            # Enforce exact target duration
+            target_duration = float(config.get('batch', {}).get('duration', 10.0))
+
             # Mix and save combined audio
-            mixed_audio = mix_audio_clips(clips_with_delays)
+            mixed_audio = mix_audio_clips(clips_with_delays, target_duration_s=target_duration)
             mixed_audio_path = os.path.join(scene_dir, "mixed_audio.wav")
             save_audio(mixed_audio, mixed_audio_path)
 

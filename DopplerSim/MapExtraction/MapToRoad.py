@@ -1,12 +1,10 @@
 #!/usr/bin/env python3
 """
 Road Outline & Centreline Extractor
-------------------------------------
 Extracts clean road geometry from a top-down map screenshot
 (Snazzy Maps / Google Maps dark-green "no-labels" style).
 
 Pipeline
---------
   1. Colour segmentation  — HSV threshold isolates light grey-green road pixels
   2. Morphological clean  — close (bridge gaps) -> open (remove noise)
   3. Blob filter          — drops circular / tiny non-road artifacts by
@@ -17,13 +15,11 @@ Pipeline
   7. Render x2            — (a) outlines only  (b) outlines + dashed centreline
 
 Colour assumptions (measured from image)
------------------------------------------
   Roads      : HSV  H in [73,92]   S in [10,52]  V >= 108  (light grey-green)
   Background : HSV  H ~ 81         S ~ 50         V ~ 96   (darker green)
   Water/bldg : V < 60                                       (near-black)
 
 Usage
------
   python road_pipeline.py                   # processes all images in ./tests/
   python road_pipeline.py tests/mymap.png   # single image
 

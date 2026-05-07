@@ -100,7 +100,7 @@ def plot_speed_distribution(data, output_dir):
     plt.tight_layout()
     plt.savefig(os.path.join(output_dir, '01_speed_distribution.png'), dpi=150)
     plt.close()
-    print("✓ Generated: 01_speed_distribution.png")
+    print("[OK] Generated: 01_speed_distribution.png")
 
 # Plot 2: Distance Distribution (Histogram + Gaussian)
 def plot_distance_distribution(data, output_dir):
@@ -128,7 +128,7 @@ def plot_distance_distribution(data, output_dir):
     plt.tight_layout()
     plt.savefig(os.path.join(output_dir, '02_distance_distribution.png'), dpi=150)
     plt.close()
-    print("✓ Generated: 02_distance_distribution.png")
+    print("[OK] Generated: 02_distance_distribution.png")
 
 # Plot 3: Speed vs Distance Scatter
 def plot_speed_vs_distance_scatter(data, output_dir):
@@ -155,7 +155,7 @@ def plot_speed_vs_distance_scatter(data, output_dir):
     plt.tight_layout()
     plt.savefig(os.path.join(output_dir, '03_speed_vs_distance_scatter.png'), dpi=150)
     plt.close()
-    print("✓ Generated: 03_speed_vs_distance_scatter.png")
+    print("[OK] Generated: 03_speed_vs_distance_scatter.png")
 
 # Plot 4: Vehicle Distribution (Bar Chart)
 def plot_vehicle_distribution(data, output_dir):
@@ -182,7 +182,7 @@ def plot_vehicle_distribution(data, output_dir):
     plt.tight_layout()
     plt.savefig(os.path.join(output_dir, '04_vehicle_distribution.png'), dpi=150)
     plt.close()
-    print("✓ Generated: 04_vehicle_distribution.png")
+    print("[OK] Generated: 04_vehicle_distribution.png")
 
 # Plot 5: Path Type Distribution (Pie Chart)
 def plot_path_type_distribution(data, output_dir):
@@ -204,12 +204,12 @@ def plot_path_type_distribution(data, output_dir):
     plt.tight_layout()
     plt.savefig(os.path.join(output_dir, '05_path_type_distribution.png'), dpi=150)
     plt.close()
-    print("✓ Generated: 05_path_type_distribution.png")
+    print("[OK] Generated: 05_path_type_distribution.png")
 
 # Plot 6: Angle Distribution (for straight path only)
 def plot_angle_distribution(data, output_dir):
     if not data['angles']:
-        print("⊘ Skipped: 06_angle_distribution.png (no straight path data)")
+        print("[SKIP] Skipped: 06_angle_distribution.png (no straight path data)")
         return
     
     angles = np.array(data['angles'])
@@ -236,7 +236,7 @@ def plot_angle_distribution(data, output_dir):
     plt.tight_layout()
     plt.savefig(os.path.join(output_dir, '06_angle_distribution.png'), dpi=150)
     plt.close()
-    print("✓ Generated: 06_angle_distribution.png")
+    print("[OK] Generated: 06_angle_distribution.png")
 
 # Plot 7: Frequency Ratio Range Distribution
 def plot_freq_ratio_distribution(data, output_dir):
@@ -269,12 +269,12 @@ def plot_freq_ratio_distribution(data, output_dir):
     plt.tight_layout()
     plt.savefig(os.path.join(output_dir, '07_freq_ratio_distribution.png'), dpi=150)
     plt.close()
-    print("✓ Generated: 07_freq_ratio_distribution.png")
+    print("[OK] Generated: 07_freq_ratio_distribution.png")
 
 # Plot 8: Parabola Parameter Distribution
 def plot_parabola_parameters(data, output_dir):
     if not data['parabola_a']:
-        print("⊘ Skipped: 08_parabola_parameters.png (no parabola data)")
+        print("[SKIP] Skipped: 08_parabola_parameters.png (no parabola data)")
         return
     
     parabola_a = np.array(data['parabola_a'])
@@ -305,12 +305,12 @@ def plot_parabola_parameters(data, output_dir):
     plt.tight_layout()
     plt.savefig(os.path.join(output_dir, '08_parabola_parameters.png'), dpi=150)
     plt.close()
-    print("✓ Generated: 08_parabola_parameters.png")
+    print("[OK] Generated: 08_parabola_parameters.png")
 
 # Plot 9: Bezier Control Points Scatter
 def plot_bezier_control_points(data, output_dir):
     if not data['bezier_x0']:
-        print("⊘ Skipped: 09_bezier_control_points.png (no bezier data)")
+        print("[SKIP] Skipped: 09_bezier_control_points.png (no bezier data)")
         return
     
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(16, 8))
@@ -342,7 +342,7 @@ def plot_bezier_control_points(data, output_dir):
     plt.tight_layout()
     plt.savefig(os.path.join(output_dir, '09_bezier_control_points.png'), dpi=150)
     plt.close()
-    print("✓ Generated: 09_bezier_control_points.png")
+    print("[OK] Generated: 09_bezier_control_points.png")
 
 # Plot 10: 2D Heatmap - Speed vs Distance
 def plot_speed_distance_heatmap(data, output_dir):
@@ -362,7 +362,7 @@ def plot_speed_distance_heatmap(data, output_dir):
     plt.tight_layout()
     plt.savefig(os.path.join(output_dir, '10_speed_distance_heatmap.png'), dpi=150)
     plt.close()
-    print("✓ Generated: 10_speed_distance_heatmap.png")
+    print("[OK] Generated: 10_speed_distance_heatmap.png")
 
 # Plot 11: Correlation Matrix
 def plot_correlation_matrix(data, output_dir):
@@ -411,12 +411,12 @@ def plot_correlation_matrix(data, output_dir):
     plt.tight_layout()
     plt.savefig(os.path.join(output_dir, '11_correlation_matrix.png'), dpi=150)
     plt.close()
-    print("✓ Generated: 11_correlation_matrix.png")
+    print("[OK] Generated: 11_correlation_matrix.png")
 
 # Plot 12: Atmosphere Distribution (Temp & Humidity Histograms)
 def plot_atmosphere_distribution(data, output_dir):
     if not data['temperature']:
-        print("⊘ Skipped: 12_atmosphere_distribution.png (no atmosphere data)")
+        print("[SKIP] Skipped: 12_atmosphere_distribution.png (no atmosphere data)")
         return
         
     temp = np.array(data['temperature'])
@@ -427,8 +427,8 @@ def plot_atmosphere_distribution(data, output_dir):
     # Temperature
     ax1.hist(temp, bins=20, alpha=0.7, color='red', edgecolor='black')
     ax1.axvline(np.mean(temp), color='k', linestyle='--', linewidth=2, 
-                label=f'Mean = {np.mean(temp):.1f}°C')
-    ax1.set_xlabel('Temperature (°C)', fontsize=12)
+                label=f'Mean = {np.mean(temp):.1f} deg C')
+    ax1.set_xlabel('Temperature (deg C)', fontsize=12)
     ax1.set_ylabel('Count', fontsize=12)
     ax1.set_title('Temperature Distribution', fontsize=14, fontweight='bold')
     ax1.legend()
@@ -447,7 +447,7 @@ def plot_atmosphere_distribution(data, output_dir):
     plt.tight_layout()
     plt.savefig(os.path.join(output_dir, '12_atmosphere_distribution.png'), dpi=150)
     plt.close()
-    print("✓ Generated: 12_atmosphere_distribution.png")
+    print("[OK] Generated: 12_atmosphere_distribution.png")
 
 # Generate Summary Statistics Text File
 def generate_summary_stats(metadata, data, output_dir):
@@ -479,18 +479,18 @@ def generate_summary_stats(metadata, data, output_dir):
     
     if data['angles']:
         stats.append("ANGLE STATISTICS (Straight Path):")
-        stats.append(f"  Mean: {np.mean(data['angles']):.2f}°")
-        stats.append(f"  Std Dev: {np.std(data['angles']):.2f}°")
-        stats.append(f"  Min: {np.min(data['angles']):.2f}°")
-        stats.append(f"  Max: {np.max(data['angles']):.2f}°")
+        stats.append(f"  Mean: {np.mean(data['angles']):.2f} deg")
+        stats.append(f"  Std Dev: {np.std(data['angles']):.2f} deg")
+        stats.append(f"  Min: {np.min(data['angles']):.2f} deg")
+        stats.append(f"  Max: {np.max(data['angles']):.2f} deg")
         stats.append("")
     
     if data['temperature']:
         stats.append("ATMOSPHERE STATISTICS:")
-        stats.append(f"  Mean TEMP: {np.mean(data['temperature']):.1f}°C")
+        stats.append(f"  Mean TEMP: {np.mean(data['temperature']):.1f} deg C")
         stats.append(f"  Mean HUMIDITY: {np.mean(data['humidity']):.1f}%")
-        stats.append(f"  Min TEMP: {np.min(data['temperature']):.1f}°C")
-        stats.append(f"  Max TEMP: {np.max(data['temperature']):.1f}°C")
+        stats.append(f"  Min TEMP: {np.min(data['temperature']):.1f} deg C")
+        stats.append(f"  Max TEMP: {np.max(data['temperature']):.1f} deg C")
         stats.append("")
     
     stats.append("VEHICLE DISTRIBUTION:")
@@ -513,7 +513,7 @@ def generate_summary_stats(metadata, data, output_dir):
     with open(summary_file, 'w') as f:
         f.write('\n'.join(stats))
     
-    print("✓ Generated: summary_statistics.txt")
+    print("[OK] Generated: summary_statistics.txt")
 
 # Main execution
 def main():

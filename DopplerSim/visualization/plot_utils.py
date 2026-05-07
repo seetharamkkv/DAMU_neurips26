@@ -1,3 +1,4 @@
+import io
 import os
 import traceback
 import numpy as np
@@ -205,6 +206,96 @@ def compute_path_points(path_type, params, n_points=200, **kwargs):
         y = np.clip(y, y_min, y_max)
 
     return x, y, closest
+
+
+def polyline_length_m(x, y):
+    """Total Euclidean length along sampled polyline (meters)."""
+    x = np.asarray(x, dtype=float).ravel()
+    y = np.asarray(y, dtype=float).ravel()
+    if x.size < 2:
+        return 0.0
+    dx = np.diff(x)
+    dy = np.diff(y)
+    return float(np.sum(np.sqrt(dx * dx + dy * dy)))
+
+
+def render_simulator_path_summary_png(path_type, params, display_path_label=None):
+    """
+    Render a PNG summary of the active path for single/custom simulation mode.
+    """
+    plot_kwargs = {'observer_pos': (0.0, 0.0), 'absolute': False}
+    x, y, closest = compute_path_points(path_type, params, n_points=600, **plot_kwargs)
+
+    if path_type in ('map_path', 'map_trajectory') and 'points' in params:
+        pts = np.asarray(params['points'], dtype=float)
+        L = float(np.sum(np.linalg.norm(np.diff(pts, axis=0), axis=1)))
+    else:
+        L = polyline_length_m(x, y)
+
+    T = float(params.get('duration', 0.0))
+    v = float(params.get('speed', 0.0))
+    label = display_path_label or path_type.replace('_', ' ')
+
+    fig = plt.figure(figsize=(9.0, 6.0), dpi=120)
+    gs = fig.add_gridspec(
+        nrows=2,
+        ncols=1,
+        height_ratios=[1.0, 0.20],
+        hspace=0.08,
+        left=0.09,
+        right=0.97,
+        top=0.90,
+        bottom=0.06,
+    )
+    ax = fig.add_subplot(gs[0])
+    ax_metrics = fig.add_subplot(gs[1])
+
+    ax.plot(x, y, '-', color='#1f77b4', linewidth=2.0, label='Trajectory', zorder=3)
+    xa = np.asarray(x, dtype=float).ravel()
+    ya = np.asarray(y, dtype=float).ravel()
+    if xa.size >= 1:
+        ax.scatter([xa[0]], [ya[0]], c='#2ca02c', s=50, zorder=5, label='Start', edgecolors='white', linewidths=0.55)
+        if xa.size >= 2 and not (np.isclose(xa[0], xa[-1]) and np.isclose(ya[0], ya[-1])):
+            ax.scatter([xa[-1]], [ya[-1]], c='#ff7f0e', s=50, zorder=5, label='End', edgecolors='white', linewidths=0.55)
+    ax.scatter([0.0], [0.0], c='#d62728', s=52, zorder=6, label='Observer (mic)', edgecolors='white', linewidths=0.6)
+
+    if closest is not None:
+        cx, cy = closest
+        ax.plot([0.0, cx], [0.0, cy], linestyle='--', color='gray', alpha=0.65, linewidth=1.0, zorder=2)
+
+    ax.set_aspect('equal')
+    ax.set_xlabel(r'$x$ (m)', fontsize=10)
+    ax.set_ylabel(r'$y$ (m)', fontsize=10)
+    ax.tick_params(labelsize=9)
+    ax.grid(True, which='major', linestyle=':', alpha=0.45, color='#888888', zorder=0)
+    ax.set_facecolor('#f6f8fa')
+    ax.legend(loc='lower left', fontsize=8, framealpha=0.92, edgecolor='#dddddd')
+    fig.suptitle('DopplerSim path summary', fontsize=12, fontweight='600', y=0.97)
+
+    def _fmt_len(m):
+        return f'{m:.1f}' if m >= 100 else f'{m:.2f}'
+
+    def _fmt_time(s):
+        return f'{s:.2f}'
+
+    def _fmt_spd(s_):
+        return f'{s_:.1f}' if s_ >= 10 else f'{s_:.2f}'
+
+    metrics_text = (
+        f'·  {label}  ·\n\n'
+        rf'·  $L={_fmt_len(L)}\,\mathrm{{m}}$ · $v={_fmt_spd(v)}\,\mathrm{{m/s}}$ · duration $T=L/v={_fmt_time(T)}\,\mathrm{{s}}$  ·'
+    )
+    ax_metrics.axis('off')
+    ax_metrics.text(
+        0.5, 0.5, metrics_text, transform=ax_metrics.transAxes,
+        ha='center', va='center', fontsize=10, color='#24292f', linespacing=1.35
+    )
+
+    buf = io.BytesIO()
+    fig.savefig(buf, format='png', bbox_inches='tight', pad_inches=0.14)
+    plt.close(fig)
+    buf.seek(0)
+    return buf
 
 
 def save_path_plot(path_type, params, output_dir, base_name):

@@ -6,20 +6,9 @@ from scipy.ndimage import gaussian_filter1d
 from visualization.plot_utils import compute_path_points
 
 
-def compute_road_boundaries(all_paths, lane_width, include_opposite=False):
+def compute_road_boundaries(all_paths, lane_width, include_opposite=False, road_y_center=0.0, road_angle=0.0):
     """
     Compute road boundaries (upper, lower, and centerline) based on all vehicle paths.
-
-    Args:
-        all_paths: List of (x, y) tuples for each vehicle
-        lane_width: Total width of the road
-        include_opposite: Whether the road has opposite-direction traffic
-
-    Returns:
-        x_common: Common x-coordinates for boundaries
-        y_upper: Upper road boundary
-        y_lower: Lower road boundary
-        y_centerline: Center line (median)
     """
     if not all_paths:
         return None, None, None, None
@@ -31,6 +20,10 @@ def compute_road_boundaries(all_paths, lane_width, include_opposite=False):
     # Common x grid
     x_common = np.linspace(x_min, x_max, 300)
 
+    # If we have road_angle, the road is rotated. 
+    # For now, we compute boundaries in the road-aligned frame or infer from paths.
+    # The safest way is to use the center of mass of the paths as the baseline centerline.
+    
     # Interpolate all paths onto common x-grid
     y_interpolated = []
     for x, y in all_paths:
@@ -41,7 +34,7 @@ def compute_road_boundaries(all_paths, lane_width, include_opposite=False):
                             left=y_sorted[0], right=y_sorted[-1])
         y_interpolated.append(y_interp)
 
-    # Calculate centerline (split into two balanced groups)
+    # Calculate centerline
     avg_y_per_path = [np.mean(y) for y in y_interpolated]
 
     if len(y_interpolated) > 1:
@@ -62,21 +55,10 @@ def compute_road_boundaries(all_paths, lane_width, include_opposite=False):
     # Smooth centerline
     y_centerline_smooth = gaussian_filter1d(y_centerline, sigma=10)
 
-    # Compute adaptive lane width
-    y_min_env = np.min(y_interpolated, axis=0)
-    y_max_env = np.max(y_interpolated, axis=0)
-    actual_spread = np.max(y_max_env - y_min_env)
-    effective_lane_width = max(lane_width, actual_spread + 6.0)
-
     # Road boundaries
-    y_upper = y_centerline_smooth + effective_lane_width / 2
-    y_lower = y_centerline_smooth - effective_lane_width / 2
-
-    # Apply the y-shift transformation used in plotting (from the code)
-    y_shift = 7.5
-    y_upper += y_shift
-    y_lower += y_shift
-    y_centerline_smooth += y_shift
+    # The total road width is 2 * lane_width (fwd + opp)
+    y_upper = y_centerline_smooth + lane_width
+    y_lower = y_centerline_smooth - lane_width
 
     return x_common, y_upper, y_lower, y_centerline_smooth
 
@@ -171,7 +153,7 @@ def check_path_violations(path_x, path_y, x_common, y_upper, y_lower, y_centerli
 
 
 def validate_scene_paths(scenes_data, lane_width=4.0, include_opposite=False,
-                        tolerance=0.5, y_shift=7.5):
+                        tolerance=0.5, y_shift=0.0, road_y_center=0.0, road_angle=0.0):
     """
     Validate all vehicle paths in a scene for boundary and median violations.
 
@@ -188,14 +170,16 @@ def validate_scene_paths(scenes_data, lane_width=4.0, include_opposite=False,
     # Compute all vehicle paths
     all_paths = []
     for path_type, params, vehicle_name in scenes_data:
-        x, y, _ = compute_path_points(path_type, params, n_points=200)
-        # Apply the same y_shift transformation as in plotting
+        x, y, _ = compute_path_points(path_type, params, n_points=200, 
+                                     road_y_center=road_y_center, 
+                                     road_angle=road_angle)
+        # Apply the same y_shift transformation as in plotting (usually 0 if absolute)
         y_shifted = y + y_shift
         all_paths.append((x, y_shifted))
 
     # Compute road boundaries
     x_common, y_upper, y_lower, y_centerline = compute_road_boundaries(
-        all_paths, lane_width, include_opposite
+        all_paths, lane_width, include_opposite, road_y_center, road_angle
     )
 
     # Validate each vehicle path

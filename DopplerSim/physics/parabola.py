@@ -82,7 +82,6 @@ def calculate_parabola_doppler(speed_mps, a, h, duration_s, n_steps=None, c_soun
       - Sign convention differences vs. straight-line.
 
     Parameters
-    ----------
     speed_mps : float
         Desired average speed along the parabolic path (m/s).
     a : float
@@ -95,7 +94,6 @@ def calculate_parabola_doppler(speed_mps, a, h, duration_s, n_steps=None, c_soun
         Number of Doppler samples (interpolated later to audio length).
 
     Returns
-    -------
     freq_ratios : np.ndarray
         Length n_steps, instantaneous Doppler frequency ratio f'(t)/f0.
     amplitudes : np.ndarray

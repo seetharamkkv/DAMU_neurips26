@@ -8,7 +8,6 @@ def calculate_intersection_doppler(vehicles, observer_pos=(10, 10), duration_s=1
     Calculate Doppler shift for multiple vehicles in an intersection.
     
     Parameters
-    ----------
     vehicles : list of dict
         Each dict contains:
         - 'id': unique identifier
@@ -25,7 +24,6 @@ def calculate_intersection_doppler(vehicles, observer_pos=(10, 10), duration_s=1
         Speed of sound.
         
     Returns
-    -------
     dict: { vehicle_id: { 'freq_ratios': np.ndarray, 'amplitudes': np.ndarray, 'positions': np.ndarray } }
     """
     num_samples = int(round(SR * duration_s))

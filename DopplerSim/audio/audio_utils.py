@@ -496,10 +496,13 @@ def apply_doppler_to_audio_fixed_advanced(original_audio, freq_ratios, amplitude
     return result
 
 
-def apply_retarded_time_correction(freq_ratios, amplitudes, distances, c_sound=343.0):
+def apply_retarded_time_correction(freq_ratios, amplitudes, distances, c_sound=343.0, alignment='start'):
     """
     Apply observer-time alignment using a retarded-time approximation:
-    t_obs = t_emit + (r - r_cpa)/c.
+    t_obs = t_emit + (r - r_ref)/c.
+    
+    If alignment='start', r_ref = distances[0], so simulation starts at t_obs = 0.
+    If alignment='cpa', r_ref = min(distances), so CPA occurs at its original t_emit.
     """
     freq = np.asarray(freq_ratios, dtype=np.float32)
     amp = np.asarray(amplitudes, dtype=np.float32)
@@ -513,8 +516,13 @@ def apply_retarded_time_correction(freq_ratios, amplitudes, distances, c_sound=3
     dist = np.maximum(dist[:n], 1e-6)
     dt = 1.0 / float(SR)
     t_emit = np.arange(n, dtype=np.float32) * dt
-    r_cpa = float(np.min(dist))
-    t_obs = t_emit + (dist - r_cpa) / max(1e-6, float(c_sound))
+    
+    if alignment == 'start':
+        r_ref = float(dist[0])
+    else:
+        r_ref = float(np.min(dist))
+        
+    t_obs = t_emit + (dist - r_ref) / max(1e-6, float(c_sound))
 
     order = np.argsort(t_obs)
     t_obs = t_obs[order]
@@ -599,9 +607,9 @@ def analyze_doppler_effect(original_audio, processed_audio, freq_ratios):
     print(f"Frequency variation (std): {freq_variation:.3f}")
     
     if freq_variation > 0.05:
-        print("✅ GOOD: Significant frequency variation detected - should see sweeps in spectrogram")
+        print("GOOD: Significant frequency variation detected - should see sweeps in spectrogram")
     else:
-        print("⚠ PROBLEM: Little frequency variation - spectrogram may appear flat")
+        print("PROBLEM: Little frequency variation - spectrogram may appear flat")
     
     return orig_dominant_freqs, proc_dominant_freqs, actual_freq_ratios
 

@@ -550,8 +550,7 @@ def validate_batch_config(config):
     if not paths:
         return "No path types selected"
 
-    # ❗ DO NOT validate distribution totals anymore
-    # because batching is continuous
+    # DO NOT validate distribution totals anymore because batching is continuous
 
     return None
 
@@ -877,47 +876,59 @@ def get_doppler_audio_array(vehicle_name, path_type, params, method='resample', 
             freq_ratios = np.ones(target_samples)
             amplitudes = np.ones(target_samples)
 
-    # Apply retarded-time correction for accelerating trajectories (B7).
-    if abs(accel) > 1e-9:
-        try:
-            num = len(freq_ratios)
-            obs = np.array(params.get('observer_pos', (0.0, 0.0)), dtype=float).reshape(2, 1)
-            if path_type == 'straight':
-                t = np.linspace(0.0, params['duration'], num, endpoint=False)
-                t0 = params['duration'] / 2.0
-                dt = t - t0
-                v0 = float(params['speed'])
-                angle = np.deg2rad(float(params.get('angle', 0.0)))
-                u = np.array([np.cos(angle), np.sin(angle)])
-                n = np.array([-np.sin(angle), np.cos(angle)])
-                p_c = float(params.get('distance', 10.0)) * n
-                s_t = v0 * dt + 0.5 * accel * dt**2
-                p = p_c[:, None] + u[:, None] * s_t[None, :]
-                r = np.linalg.norm(p - obs, axis=0)
-            elif path_type == 'parabola':
-                x, y = sample_parabola_path_xy(
-                    params['speed'], params['a'], params['h'], params['duration'], num,
-                    angle_deg=float(params.get('angle_deg', 0.0))
-                )
+    # Apply retarded-time correction (Warp) to align simulation t=0 with observer t=0.
+    # This solves the "blank gap" issue by properly warping the audio from the start.
+    try:
+        num = len(freq_ratios)
+        obs = np.array(params.get('observer_pos', (0.0, 0.0)), dtype=float).reshape(2, 1)
+        r = None
+        
+        if path_type == 'straight':
+            t = np.linspace(0.0, params['duration'], num, endpoint=False)
+            t0 = params['duration'] / 2.0
+            dt = t - t0
+            v0 = float(params['speed'])
+            angle = np.deg2rad(float(params.get('angle', 0.0)))
+            u = np.array([np.cos(angle), np.sin(angle)])
+            n = np.array([-np.sin(angle), np.cos(angle)])
+            p_c = float(params.get('distance', 10.0)) * n
+            s_t = v0 * dt + 0.5 * accel * dt**2
+            p = p_c[:, None] + u[:, None] * s_t[None, :]
+            r = np.linalg.norm(p - obs, axis=0)
+        elif path_type == 'parabola':
+            x, y = sample_parabola_path_xy(
+                params['speed'], params['a'], params['h'], params['duration'], num,
+                angle_deg=float(params.get('angle_deg', 0.0))
+            )
+            p = np.vstack([x, y])
+            r = np.linalg.norm(p - obs, axis=0)
+        elif path_type == 'bezier':
+            x, y = sample_bezier_path_xy(
+                params['speed'],
+                params['x0'], params['x1'], params['x2'], params['x3'],
+                params['y0'], params['y1'], params['y2'], params['y3'],
+                params['duration'], num,
+                angle_deg=float(params.get('angle_deg', 0.0))
+            )
+            p = np.vstack([x, y])
+            r = np.linalg.norm(p - obs, axis=0)
+        elif path_type in ('map_trajectory', 'map_path'):
+            pts = np.asarray(params.get('points', []), dtype=float)
+            if pts.ndim == 2 and pts.shape[0] > 0:
+                # Arclength sampling for map paths
+                from physics.map_trajectory import sample_map_path_xy
+                x, y = sample_map_path_xy(pts, params['speed'], params['duration'], num)
                 p = np.vstack([x, y])
                 r = np.linalg.norm(p - obs, axis=0)
-            elif path_type == 'bezier':
-                x, y = sample_bezier_path_xy(
-                    params['speed'],
-                    params['x0'], params['x1'], params['x2'], params['x3'],
-                    params['y0'], params['y1'], params['y2'], params['y3'],
-                    params['duration'], num,
-                    angle_deg=float(params.get('angle_deg', 0.0))
-                )
-                p = np.vstack([x, y])
-                r = np.linalg.norm(p - obs, axis=0)
-            else:
-                r = None
-            if r is not None:
-                freq_ratios, amplitudes = apply_retarded_time_correction(freq_ratios, amplitudes, r, c_sound=c_sound)
-        except Exception:
-            # Keep generation robust; if correction fails, use original arrays.
-            pass
+
+        if r is not None:
+            # Warp it properly: align to 'start' (dist[0]) so clip begins at t=0
+            freq_ratios, amplitudes = apply_retarded_time_correction(
+                freq_ratios, amplitudes, r, c_sound=c_sound, alignment='start'
+            )
+    except Exception as e:
+        print(f"Warning: Retarded-time warp failed: {e}")
+        pass
 
     # Force tonal separation among identical vehicle models
     freq_ratios = freq_ratios * pitch_shift
@@ -940,63 +951,15 @@ def get_doppler_audio_array(vehicle_name, path_type, params, method='resample', 
     else:
         doppler_audio = apply_doppler_to_audio_fixed(audio, freq_ratios, amplitudes)
 
-    # Propagation delay (arrival-time realism): shift waveform by r0 / c_sound,
-    # where r0 is source-observer distance at path start.
-    # This adds travel-time latency without altering Doppler physics itself.
-    if bool(params.get('apply_propagation_delay', False)):
+    # FIXED: Propagation delay is now handled by retarded-time warp above.
+    # We disable the legacy shift block to avoid "blank spots" and ensure clip starts at t=0.
+    if False and bool(params.get('apply_propagation_delay', False)):
         try:
             obs = np.array(params.get('observer_pos', (0.0, 0.0)), dtype=float)
             r0 = None
-            if path_type == 'straight':
-                v0 = float(params.get('speed', 0.0))
-                angle = np.deg2rad(float(params.get('angle', 0.0)))
-                u = np.array([np.cos(angle), np.sin(angle)])
-                n = np.array([-np.sin(angle), np.cos(angle)])
-                t0 = float(params.get('duration', 10.0)) / 2.0
-                dt0 = -t0  # position at t=0
-                s0 = v0 * dt0 + 0.5 * float(params.get('acceleration', 0.0)) * (dt0 ** 2)
-                p_c = float(params.get('distance', 10.0)) * n
-                p0 = p_c + u * s0
-                r0 = float(np.linalg.norm(p0 - obs))
-            elif path_type == 'parabola':
-                x0, y0 = sample_parabola_path_xy(
-                    float(params.get('speed', 0.0)),
-                    float(params.get('a', 0.0)),
-                    float(params.get('h', 0.0)),
-                    float(params.get('duration', 10.0)),
-                    2,
-                    angle_deg=float(params.get('angle_deg', 0.0)),
-                )
-                p0 = np.array([x0[0], y0[0]], dtype=float)
-                r0 = float(np.linalg.norm(p0 - obs))
-            elif path_type == 'bezier':
-                x0, y0 = sample_bezier_path_xy(
-                    float(params.get('speed', 0.0)),
-                    float(params.get('x0', 0.0)), float(params.get('x1', 0.0)),
-                    float(params.get('x2', 0.0)), float(params.get('x3', 0.0)),
-                    float(params.get('y0', 0.0)), float(params.get('y1', 0.0)),
-                    float(params.get('y2', 0.0)), float(params.get('y3', 0.0)),
-                    float(params.get('duration', 10.0)),
-                    2,
-                    angle_deg=float(params.get('angle_deg', 0.0)),
-                )
-                p0 = np.array([x0[0], y0[0]], dtype=float)
-                r0 = float(np.linalg.norm(p0 - obs))
-            elif path_type in ('map_trajectory', 'map_path'):
-                pts = np.asarray(params.get('points', []), dtype=float)
-                if pts.ndim == 2 and pts.shape[0] > 0 and pts.shape[1] == 2:
-                    r0 = float(np.linalg.norm(pts[0] - obs))
-
-            if r0 is not None and np.isfinite(r0) and r0 > 0.0:
-                delay_s = r0 / max(1e-6, float(c_sound))
-                delay_samples = int(round(delay_s * SR))
-                if delay_samples > 0:
-                    shifted = np.zeros_like(doppler_audio)
-                    if delay_samples < len(doppler_audio):
-                        shifted[delay_samples:] = doppler_audio[:-delay_samples]
-                    doppler_audio = shifted
+            # ... legacy shift logic disabled ...
+            pass
         except Exception:
-            # Keep generation robust even if delay estimation fails.
             pass
 
     # Ensure exact length
@@ -1032,7 +995,7 @@ def save_numpy_outputs(doppler_audio, sample_dir, spectrogram_type='cqt', config
     HOP_LENGTH = 512
     dt = HOP_LENGTH / SR
 
-    # ── 1. Spectrogram (84, T) ──────────────────────────────────────────────────
+    #  1. Spectrogram (84, T) 
     if spectrogram_type == 'cqt':
         C = librosa.cqt(doppler_audio, sr=SR, hop_length=HOP_LENGTH,
                         n_bins=84, bins_per_octave=12)
@@ -1065,13 +1028,13 @@ def save_numpy_outputs(doppler_audio, sample_dir, spectrogram_type='cqt', config
 
     T = spec.shape[1]
 
-    # ── 2. frequency.npy (T,) [Normalized 0..1] ──────────────────────────────
+    #  2. frequency.npy (T,) [Normalized 0..1] 
     dominant_bin = np.argmax(spec, axis=0)                    # (t,)
     frequency_hz = freq_bins[dominant_bin].astype(np.float32)
     # frequency → [0, 1] normalized by Nyquist
     frequency = frequency_hz / (SR / 2.0)
 
-    # ── 3. dfdt.npy (T,) [Normalized -1..1] ─────────────────────────────────
+    #  3. dfdt.npy (T,) [Normalized -1..1] 
     dfdt_raw = np.zeros(T, dtype=np.float32)
     # dfdt = (freq[t] - freq[t-1]) / dt
     dfdt_raw[1:] = (frequency_hz[1:] - frequency_hz[:-1]) / dt
@@ -1079,7 +1042,7 @@ def save_numpy_outputs(doppler_audio, sample_dir, spectrogram_type='cqt', config
     max_dfdt = np.max(np.abs(dfdt_raw)) + 1e-8
     dfdt = dfdt_raw / max_dfdt
 
-    # ── 4. rms.npy (T,) [Normalized 0..1] ────────────────────────────────────
+    #  4. rms.npy (T,) [Normalized 0..1] 
     rms_raw = librosa.feature.rms(
                   y=doppler_audio,
                   frame_length=HOP_LENGTH * 2,
@@ -1095,7 +1058,7 @@ def save_numpy_outputs(doppler_audio, sample_dir, spectrogram_type='cqt', config
     rms = rms_raw / (np.max(rms_raw) + 1e-8)
     rms = rms.astype(np.float32)
 
-    # ── 5. spec_topk.npy (T, 3, 2) [Freq Normalized 0..1] ────────────────────
+    #  5. spec_topk.npy (T, 3, 2) [Freq Normalized 0..1] 
     K = 3
     spec_topk = np.zeros((T, K, 2), dtype=np.float32)
     for t in range(T):
@@ -1106,18 +1069,18 @@ def save_numpy_outputs(doppler_audio, sample_dir, spectrogram_type='cqt', config
             spec_topk[t, k, 0] = freq_bins[bin_idx] / (SR / 2.0)
             spec_topk[t, k, 1] = frame[bin_idx]
 
-    # ── 6. time.npy (T,) tied to real clip duration ─────────────────────────
+    #  6. time.npy (T,) tied to real clip duration 
     clip_duration_s = len(doppler_audio) / float(SR)
     time_arr = np.linspace(0.0, clip_duration_s, T, endpoint=False, dtype=np.float32)
 
-    # ── Consistency Check ────────────────────────────────────────────────────
+    #  Consistency Check 
     assert len(frequency) == T, f"Frequency length {len(frequency)} mismatch with T={T}"
     assert len(dfdt) == T, f"dfdt length {len(dfdt)} mismatch with T={T}"
     assert len(rms) == T, f"RMS length {len(rms)} mismatch with T={T}"
 
     kinematics = None
 
-    # ── Save .npy files ──────────────────────────────────────────────────────
+    #  Save .npy files 
     common_dir = os.path.join(sample_dir, 'Common')
     os.makedirs(common_dir, exist_ok=True)
     
@@ -1141,7 +1104,7 @@ def save_numpy_outputs(doppler_audio, sample_dir, spectrogram_type='cqt', config
         ])
         np.save(os.path.join(common_dir, 'kinematics.npy'), kinematics)
 
-    # ── Save to Essential folder if provided ─────────────────────────────────
+    #  Save to Essential folder if provided 
     if essential_dir:
         os.makedirs(essential_dir, exist_ok=True)
         np.save(os.path.join(essential_dir, spec_filename), spec)
@@ -1190,7 +1153,7 @@ def _save_numpy_visualization(doppler_audio, spec, frequency, dfdt, rms,
         ax.yaxis.label.set_color('black')
         ax.title.set_color('#222222')
 
-    # ── 1. spectrogram.png  (High contrast, magma cmap, truncated Y) ───────────
+    #  1. spectrogram.png  (High contrast, magma cmap, truncated Y) 
     try:
         fig, ax = plt.subplots(figsize=(12, 4.8), facecolor='white')
         n_fft = 4096
@@ -1222,7 +1185,7 @@ def _save_numpy_visualization(doppler_audio, spec, frequency, dfdt, rms,
     if not generate_diagnostics:
         return
 
-    # ── 2. frequency.png ──────────────────────────────────────────────────────
+    #  2. frequency.png 
     try:
         fig, ax = plt.subplots(figsize=(10, 3), facecolor='white')
         _white_ax(ax)
@@ -1237,7 +1200,7 @@ def _save_numpy_visualization(doppler_audio, spec, frequency, dfdt, rms,
     except Exception as e:
         print(f'[warn] frequency.png failed: {e}')
 
-    # ── 3. dfdt.png ───────────────────────────────────────────────────────────
+    #  3. dfdt.png 
     try:
         fig, ax = plt.subplots(figsize=(10, 3), facecolor='white')
         _white_ax(ax)
@@ -1253,7 +1216,7 @@ def _save_numpy_visualization(doppler_audio, spec, frequency, dfdt, rms,
     except Exception as e:
         print(f'[warn] dfdt.png failed: {e}')
 
-    # ── 4. rms.png ────────────────────────────────────────────────────────────
+    #  4. rms.png 
     try:
         fig, ax = plt.subplots(figsize=(10, 3), facecolor='white')
         _white_ax(ax)
@@ -1268,7 +1231,7 @@ def _save_numpy_visualization(doppler_audio, spec, frequency, dfdt, rms,
     except Exception as e:
         print(f'[warn] rms.png failed: {e}')
 
-    # ── 5. spec_topk.png ───────────────────────────────────────────────────────
+    #  5. spec_topk.png 
     try:
         fig, ax = plt.subplots(figsize=(10, 3), facecolor='white')
         _white_ax(ax)
@@ -1368,7 +1331,7 @@ def generate_single_clip(vehicle_name, path_type, params, output_dir, batch_id, 
         noise_freq_hz = float(atm_cfg.get('air_noise_frequency_hz', 1200.0))
         doppler_audio = _apply_subtle_air_noise(doppler_audio, SR, noise_strength, noise_freq_hz)
 
-    # ── Create per-sample folder and sub-folders ─────────────────────────────
+    #  Create per-sample folder and sub-folders 
     sample_dir = os.path.join(output_dir, f'sample_{index:07d}')
     common_dir = os.path.join(sample_dir, 'Common')
     essential_dir = os.path.join(sample_dir, 'Essential')
@@ -1376,7 +1339,7 @@ def generate_single_clip(vehicle_name, path_type, params, output_dir, batch_id, 
     os.makedirs(common_dir, exist_ok=True)
     os.makedirs(essential_dir, exist_ok=True)
 
-    # ── Audio ─────────────────────────────────────────────────────────────────
+    #  Audio 
     output_format = config.get('output', {}).get('format', 'wav')
     
     # Create a clean base name
@@ -1403,7 +1366,7 @@ def generate_single_clip(vehicle_name, path_type, params, output_dir, batch_id, 
     if output_format == 'mp3':
         filename = filename.replace('.mp3', '.wav')
 
-    # ── Path plot ─────────────────────────────────────────────────────────────
+    #  Path plot 
     # save_path_plot already handled dir creation
     include_samples = config.get('batch', {}).get('include_sample_folders', True)
     generate_spec = config.get('output', {}).get('generate_spectrogram', False)
@@ -1412,7 +1375,7 @@ def generate_single_clip(vehicle_name, path_type, params, output_dir, batch_id, 
         save_path_plot(path_type, params, common_dir, base_name)
         save_path_plot(path_type, params, essential_dir, base_name)
     
-    # ── Numpy feature arrays + visualization (saves to Common/ and Essential/)
+    #  Numpy feature arrays + visualization (saves to Common/ and Essential/)
     spectrogram_type = config.get('output', {}).get('spectrogram_type', 'cqt')
     freq_limit = config.get('output', {}).get('freq_limit', 1250)
     
@@ -1431,7 +1394,7 @@ def generate_single_clip(vehicle_name, path_type, params, output_dir, batch_id, 
             'frequency': np.zeros(100) # Placeholder
         }
 
-    # ── Benchmark Labels & B6 Mask ──────────────────────────────────────────
+    #  Benchmark Labels & B6 Mask 
     # Calculate ground-truth labels
     speed_mps = params.get('speed', 0.0)
     
@@ -1466,7 +1429,7 @@ def generate_single_clip(vehicle_name, path_type, params, output_dir, batch_id, 
             if float(np.std(features['frequency'])) < 1e-4:
                 raise ValueError("Flat frequency evolution for accelerated clip; regenerate sample.")
 
-        # ── Save Benchmark-specific Datasets (B1-B5) ─────────────────────────────
+        #  Save Benchmark-specific Datasets (B1-B5) 
         save_benchmark_datasets(sample_dir, features, labels, params, config)
 
         # B6 Motion State Segmentation Mask
@@ -1498,22 +1461,32 @@ def generate_single_clip(vehicle_name, path_type, params, output_dir, batch_id, 
 
 # audio mixing
 
-def mix_audio_clips(clips_with_delays):
-    """Mix multiple audio arrays with staggered start times"""
+def mix_audio_clips(clips_with_delays, target_duration_s=None):
+    """
+    Mix multiple audio arrays with staggered start times.
+    If target_duration_s is provided, the output will be exactly that length.
+    """
     if not clips_with_delays:
         return np.array([])
 
-    max_end_sample = 0
-    for audio, delay_s in clips_with_delays:
-        delay_samples = int(delay_s * SR)
-        end_sample = delay_samples + len(audio)
-        if end_sample > max_end_sample:
-            max_end_sample = end_sample
+    if target_duration_s is not None:
+        max_end_sample = int(target_duration_s * SR)
+    else:
+        max_end_sample = 0
+        for audio, delay_s in clips_with_delays:
+            delay_samples = int(delay_s * SR)
+            end_sample = delay_samples + len(audio)
+            if end_sample > max_end_sample:
+                max_end_sample = end_sample
 
     mixed = np.zeros(max_end_sample)
     for audio, delay_s in clips_with_delays:
         delay_samples = int(delay_s * SR)
-        mixed[delay_samples : delay_samples + len(audio)] += audio
+        if delay_samples < max_end_sample:
+            # Only mix the part that fits within max_end_sample
+            available_space = max_end_sample - delay_samples
+            to_mix = audio[:available_space]
+            mixed[delay_samples : delay_samples + len(to_mix)] += to_mix
 
     # peak normalization
     max_val = np.max(np.abs(mixed))
@@ -1577,6 +1550,12 @@ def generate_statistics(clips_metadata, config):
     format_stats("Speed Statistics", speeds, "m/s")
     stats.append("")
 
+    # Acceleration statistics
+    accelerations = [clip['parameters']['acceleration'] for clip in clips_metadata if clip.get('parameters') and 'acceleration' in clip['parameters']]
+    if any(a != 0.0 for a in accelerations):
+        format_stats("Acceleration Statistics", accelerations, "m/s^2")
+        stats.append("")
+
     # Distance statistics (handles multi-object offset as fallback)
     distances = []
     for clip in clips_metadata:
@@ -1596,15 +1575,35 @@ def generate_statistics(clips_metadata, config):
     format_stats("Duration Statistics", durations, "s")
     stats.append("")
 
-    # Per-clip speed listing
-    stats.append("Per-Clip Speeds:")
-    stats.append("-" * 40)
+    # Per-clip listing
+    stats.append("Per-Clip Listing:")
+    stats.append("-" * 60)
     for idx, clip in enumerate(clips_metadata, start=1):
         params = clip.get('parameters', {})
         speed = params.get('speed', 'N/A')
+        accel = params.get('acceleration', 0.0)
         vehicle = clip.get('vehicle', 'unknown')
+        
         if isinstance(speed, (int, float)):
-            stats.append(f"  Clip {idx:4d}: {speed:6.1f} m/s  ({vehicle})")
+            if vehicle == 'multi':
+                num = clip.get('num_sources', 1)
+                line = f"  Clip {idx:4d}: {speed:6.1f} m/s (avg) | {num} sources (multi)"
+                stats.append(line)
+                # List individual vehicle speeds
+                for v in clip.get('vehicles', []):
+                    v_name = v.get('vehicle_name', 'unknown')
+                    v_speed = v.get('speed', 0.0)
+                    v_accel = v.get('acceleration', 0.0)
+                    v_line = f"    - {v_name:15s}: {v_speed:6.1f} m/s"
+                    if abs(v_accel) > 1e-6:
+                        v_line += f" | Accel: {v_accel:5.1f} m/s^2"
+                    stats.append(v_line)
+            else:
+                line = f"  Clip {idx:4d}: {speed:6.1f} m/s"
+                if abs(accel) > 1e-6:
+                    line += f" | Accel: {accel:5.1f} m/s^2"
+                line += f"  ({vehicle})"
+                stats.append(line)
         else:
             stats.append(f"  Clip {idx:4d}: {speed}  ({vehicle})")
     stats.append("")
@@ -1725,8 +1724,19 @@ def generate_multi_object_clip(vehicles_configs, output_dir, batch_name, index, 
         # For plotting, we pass the ORIGINAL world-coordinate params
         scenes_data.append((path_type, v_params_input, v_name))
 
+    # Align delays so the first vehicle always starts at t=0
+    if clips_with_delays:
+        min_delay = min(d for _, d in clips_with_delays)
+        aligned_clips = []
+        for i, (arr, d) in enumerate(clips_with_delays):
+            aligned_delay = max(0.0, d - min_delay)
+            aligned_clips.append((arr, aligned_delay))
+            # Optional: update v_cfg if needed
+            vehicles_configs[i]['delay'] = aligned_delay
+        clips_with_delays = aligned_clips
+
     # Mix audio
-    mixed_audio = mix_audio_clips(clips_with_delays)
+    mixed_audio = mix_audio_clips(clips_with_delays, target_duration_s=duration)
     atm_cfg = config.get('atmosphere', {}) if isinstance(config, dict) else {}
     if bool(atm_cfg.get('add_air_noise', False)):
         noise_strength = float(atm_cfg.get('air_noise_strength', 8.0))
@@ -1795,21 +1805,23 @@ def generate_multi_object_clip(vehicles_configs, output_dir, batch_name, index, 
     save_benchmark_datasets(sample_dir, features, labels, {}, config)
 
     # B8-B10: Multi-source benchmark folders
+    per_vehicle_meta = []
+    for i, v_cfg in enumerate(vehicles_configs):
+        per_vehicle_meta.append({
+            'vehicle_name': v_cfg.get('vehicle_name', f'vehicle_{i}'),
+            'speed': float(v_cfg.get('speed', 25.0)),
+            'acceleration': float(v_cfg.get('acceleration', 0.0)),
+            'offset': float(v_cfg.get('offset', 5.0)),
+            'direction': int(v_cfg.get('direction', 1)),
+            'delay': float(v_cfg.get('delay', 0.0)),
+            'path_type': v_cfg.get('path_type', 'bezier'),
+            'is_crossing': bool(v_cfg.get('is_crossing', False)),
+            'audio_file': individual_files[i] if i < len(individual_files) else None,
+        })
+
     bench_cfg = config.get('benchmarks', {})
     if bench_cfg.get('enabled', False):
         selected = bench_cfg.get('selected', [])
-        per_vehicle_meta = []
-        for i, v_cfg in enumerate(vehicles_configs):
-            per_vehicle_meta.append({
-                'vehicle_name': v_cfg.get('vehicle_name', f'vehicle_{i}'),
-                'speed': float(v_cfg.get('speed', 25.0)),
-                'offset': float(v_cfg.get('offset', 5.0)),
-                'direction': int(v_cfg.get('direction', 1)),
-                'delay': float(v_cfg.get('delay', 0.0)),
-                'path_type': v_cfg.get('path_type', 'bezier'),
-                'is_crossing': bool(v_cfg.get('is_crossing', False)),
-                'audio_file': individual_files[i] if i < len(individual_files) else None,
-            })
 
         if 'B8' in selected:
             b8_dir = os.path.join(sample_dir, 'B8_MultiObject')
@@ -1862,6 +1874,7 @@ def generate_multi_object_clip(vehicles_configs, output_dir, batch_name, index, 
         'vehicle': 'multi',
         'path_type': 'busy_road',
         'parameters': vehicles_configs[0],
+        'vehicles': per_vehicle_meta, # Detailed list for statistics
         'labels': labels,
         'path_plot': f"{base_name}.png",
         'sample_dir': sample_id,

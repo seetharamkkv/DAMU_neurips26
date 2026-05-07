@@ -7,7 +7,7 @@ A Flask-based system for generating realistic Doppler-shifted vehicle audio clip
 ## Features
 
 ### Core Capabilities
-- **Realistic Doppler Shift**: Simulation using acoustic wave physics with sample-level resampling at SR = 44,100 Hz.
+- **Realistic Doppler Shift**: Simulation based on acoustic wave propagation physics with continuous time-domain Doppler modulation for realistic vehicle pass-by audio generation.
 - **Multiple Vehicle Trajectories**:
   - **Straight Line**: Standard pass-by with configurable closest point of approach (CPA).
   - **Parabolic**: Curved path simulation.
@@ -18,6 +18,7 @@ A Flask-based system for generating realistic Doppler-shifted vehicle audio clip
 - **Automated Visualizations**: Generates path plots and spectrograms for every audio clip generated.
 
 ### UI Functionality
+![alt text](UI.png)
 - **Multi-Mode Web Interface**:
   - **Batch Generation**: Large scale dataset creation with randomized or user-defined parameters.
   - **Batch Overlap**: Complex scene generation for multi-target tracking research.
@@ -119,17 +120,44 @@ Instant simulator for testing specific parameters.
 - Play and download results immediately.
 
 ### 5. Benchmark Suite (B1-B10)
-DopplerSim introduces a suite of ten foundational tasks designed to evaluate whether models understand motion as a physical process:
-- **B1: Speed Estimation**: Predict continuous velocity (mps) or discrete speed bins.
-- **B2: Direction-of-Travel**: Classify relative motion (approaching, receding, lateral).
-- **B3: Distance-of-Closest-Approach**: Estimate the minimum source-sensor distance (m) over a clip.
-- **B4: Trajectory Shape**: Classify the trajectory family (straight, curved, circular, etc.).
-- **B5: Time-to-Event**: Predict time remaining until closest approach, scene exit, or crossing event.
-- **B6: Motion State Segmentation**: Perform framewise labeling of motion states (approaching, nearest point, receding, etc.).
-- **B7: Acceleration / Deceleration**: Estimate acceleration magnitude or classify motion state (accelerating, decelerating, constant).
-- **B8: Multi-Object Disentanglement**: Resolve multiple concurrent sources and estimate their individual attributes.
-- **B9: Crossing and Interaction**: Classify scene-level interactions (crossing, overtaking, masking, convoy).
-- **B10: Source Identity**: Identify source class or identity (e.g., vehicle model) invariant to motion condition.
+DopplerSim introduces a comprehensive suite of ten foundational tasks designed to evaluate whether models understand motion as a physical process:
+
+- **B1: Speed Estimation**: Predict continuous velocity ($v_i$) or discrete speed bins ($b_i$). Evaluates whether models can distinguish speed-related acoustic structure from nuisance variations.
+  - $MAE_{speed} = \frac{1}{N} \sum_{i=1}^{N} |\hat{v}_i - v_i|$
+  - $RMSE_{speed} = \sqrt{\frac{1}{N} \sum_{i=1}^{N} (\hat{v}_i - v_i)^2}$
+  - $Acc_{speed-bin} = \frac{1}{N} \sum_{i=1}^{N} \mathbf{1}[\hat{b}_i = b(v_i)]$
+
+- **B2: Direction-of-Travel**: Classify relative motion ($y^{dir}_i \in \{\text{approaching}, \text{receding}, \text{lateral}\}$). Probes whether models use asymmetric time-frequency structure over time.
+  - $Acc_{dir} = \frac{1}{N} \sum_{i=1}^{N} \mathbf{1}[\hat{y}^{dir}_i = y^{dir}_i]$
+
+- **B3: Distance-of-Closest-Approach**: Estimate the minimum source-sensor distance ($d^{CPA}_i$) over a clip. Tests physically meaningful geometric inference from time-varying audio.
+  - $d^{CPA}_i = \min_{t \in [0, T_i]} \|\mathbf{p}_i(t) - \mathbf{o}\|$
+  - $RMSE_{CPA} = \sqrt{\frac{1}{N} \sum_{i=1}^{N} (\hat{d}^{CPA}_i - d^{CPA}_i)^2}$
+
+- **B4: Trajectory Shape**: Classify the trajectory family ($y^{traj}_i \in \{\text{straight}, \text{parabola}, \text{bezier}\}$). Asks the model to identify the global structure of movement.
+  - $Acc_{traj} = \frac{1}{N} \sum_{i=1}^{N} \mathbf{1}[\hat{y}^{traj}_i = y^{traj}_i]$
+  - $L_{traj} = - \frac{1}{N} \sum_{i=1}^{N} \sum_{k=1}^{K} \mathbf{1}[y^{traj}_i = k] \log p_{ik}$
+
+- **B5: Time-to-Event**: Predict time remaining until a key event like closest approach ($\tau_i(t) = \max(0, t^{CPA}_i - t)$). Tests predictive temporal forecasting from partial observations.
+  - $RMSE_{\tau} = \sqrt{\frac{1}{N} \sum_{i=1}^{N} (\hat{\tau}_i - \tau_i)^2}$
+
+- **B6: Motion State Segmentation**: Perform framewise sequence labeling of motion states ($y^{seg}_{i,n}$). Tests temporal precision and transition localization.
+  - $Acc_{frame} = \frac{\sum_{i=1}^{N} \sum_{n=1}^{T_i} \mathbf{1}[\hat{y}^{seg}_{i,n} = y^{seg}_{i,n}]}{\sum_{i=1}^{N} T_i}$
+  - $mIoU = \frac{1}{C} \sum_{c=1}^{C} \frac{TP_c}{TP_c + FP_c + FN_c}$
+
+- **B7: Acceleration / Deceleration**: Estimate acceleration magnitude ($a_i$) or classify motion state. Tests higher-order kinematic structure inference.
+  - $a_i = \frac{d v_i(t)}{dt}$
+  - $RMSE_a = \sqrt{\frac{1}{N} \sum_{i=1}^{N} (\hat{a}_i - a_i)^2}$
+
+- **B8: Multi-Object Disentanglement**: Resolve multiple concurrent sources and estimate their individual attributes ($\mathbf{z}_{i,m}$). Tests disentanglement of overlapping acoustic processes.
+  - Permutation invariant error: $E_{PI}^{(i)} = \min_{\pi \in S_{M_i}} \frac{1}{M_i} \sum_{m=1}^{M_i} d(\hat{\mathbf{z}}_{i,\pi(m)}, \mathbf{z}_{i,m})$
+
+- **B9: Crossing and Interaction**: Classify scene-level interactions ($y^{cross}_i$). Evaluates relational reasoning among moving objects.
+  - $y^{cross}_i = \mathbf{1}\left[\min_t \|\mathbf{p}_{i,1}(t) - \mathbf{p}_{i,2}(t)\| < \delta\right]$
+  - $Acc_{cross} = \frac{1}{N} \sum_{i=1}^{N} \mathbf{1}[\hat{y}^{cross}_i = y^{cross}_i]$
+
+- **B10: Source Identity**: Identify source class ($y^{id}_i$) invariant to motion condition. Tests if a model can disentangle intrinsic source characteristics from motion-induced distortion.
+  - $Acc_{id} = \frac{1}{N} \sum_{i=1}^{N} \mathbf{1}[\hat{y}^{id}_i = y^{id}_i]$
 
 **Usage**: Use the **Benchmark Mode** in the Batch Generation tab or run:
 ```bash
@@ -160,11 +188,11 @@ Additional dataset details:
 
 The DopplerSim engine follows a signal-flow oriented architecture that transforms stationary source recordings into physically consistent pass-by audio.
 
-1. **Waveform Preparation**: Monophonic source recordings are resampled to the engine rate (22,050 Hz), peak-normalized, and extended with overlap crossfades if the requested duration exceeds the library length.
-2. **Motion Computation**: The active trajectory model (Straight, Parabola, Bezier, or Map) determines the source position $\mathbf{p}(t)$, tangent velocity $\mathbf{v}(t)$, and radial velocity $v_r(t)$ at every output sample.
-3. **Driving Curve Generation**: The engine evaluates the instantaneous frequency ratio $\rho(t)$ and a non-negative gain $g(t)$. The gain is built from softened geometric spreading and a convective level term.
+1. **Waveform Preparation**: Short monophonic vehicle recordings are resampled to the engine rate (22,050 Hz), peak-normalized, and extended with overlap crossfades if the requested duration exceeds the library length.
+2. **Motion Computation**: The active trajectory model (Straight, Parabola, Bezier, or Map polyline) determines the source position $\mathbf{p}(t)$, tangent velocity $\mathbf{v}(t)$, range $r(t)$, and radial velocity $v_r(t)$ at every output sample.
+3. **Driving Curve Generation**: The engine evaluates the instantaneous frequency ratio $\rho(t)$ and a non-negative gain $g(t)$. The gain is built from softened geometric spreading (inverse range), a convective amplitude factor, listener compression, and end fades.
 4. **Retarded-Time Alignment**: For accelerated paths, ratio and gain sequences are re-interpolated onto an approximate arrival-time grid to align kinematic changes with the sound's travel time to the observer.
-5. **Audio Synthesis**: The source audio is processed through a variable-rate resampler (time-domain warp) using cubic interpolation, then multiplied by the gain sequence.
+5. **Audio Synthesis**: The source audio is processed through a variable-rate time-domain warp driven by the frequency-ratio curve using cubic interpolation, then multiplied sample-wise by the gain sequence. The resulting waveform is shifted by an initial propagation delay corresponding to the starting source range.
 
 ---
 
@@ -176,32 +204,45 @@ DopplerSim utilizes a physically-grounded synthesis engine to model the acoustic
 The speed of sound $c$ is calculated based on ambient temperature $T$ (°C) and relative humidity $RH$ (%):
 - **Dry Air Base**: $c_{dry}(T) = 331.3 \sqrt{1 + \frac{T}{273.15}}$
 - **Humidity Correction**: $c(T, RH) = c_{dry}(T) + 0.6 \frac{RH}{100}$
+This centers both the Doppler ratio and the convective amplitude factor.
 
 ### 2. Kinematic Path Modeling
 Sources follow a planar curve $\mathbf{p}(t)$ with velocity $\mathbf{v}(t)$ tangent to the path.
 - **Position Interpolation**: $\mathbf{p}(t) = (1 - \lambda(t)) \mathbf{q}_j + \lambda(t) \mathbf{q}_{j+1}$
 - **Tangential Speed with Acceleration**: $s(\Delta t) = v_0 \Delta t + \frac{1}{2} a (\Delta t)^2$
-- **Radial Velocity**: $v_r(t) = \frac{\mathbf{v}(t) \cdot (\mathbf{p}(t) - \mathbf{o})}{\|\mathbf{p}(t) - \mathbf{o}\|}$  
+- **Radial Velocity**: $v_r(t) = \mathbf{v}(t) \cdot \frac{(\mathbf{p}(t) - \mathbf{o})}{\|\mathbf{p}(t) - \mathbf{o}\|}$  
   *(where $\mathbf{o}$ is the observer position)*
 
 ### 3. Acoustic Wave Modeling
-The received waveform $y(t)$ is generated by warping the source signal $s(t)$ and applying gain $g(t)$:
+The received waveform $y[n]$ is generated by warping the resampled source signal $\tilde{x}[n]$ and applying gain $g[n]$:
 
 #### Doppler Warping (Frequency Ratio)
 The emitted-to-received frequency ratio $\rho(t)$ is governed by the standard kinematic Doppler expression:
 $$\rho(t) = \frac{f'(t)}{f_0} = \frac{c}{c + v_r(t)}$$
+*(Note: Formulated as $\frac{c}{c - v_r(t)}$ in contexts with an opposite radial velocity sign convention.)*
 
 #### Gain and Attenuation
-The raw gain $g_{raw}(t)$ combines geometric spreading and convective effects:
+The raw gain $g_{raw}(t)$ combines geometric spreading and convective effects. Amplitude is modulated as a function of distance:
 - **Geometric Spreading**: $A_{sp}(t) = \frac{1}{\sqrt{\|\mathbf{p}(t) - \mathbf{o}\|^2 + R_{nf}^2}}$  
-  *(with near-field radius $R_{nf} = 6m$)*
+  *(with near-field radius $R_{nf} = 6m$ stabilizing near-field behavior)*
 - **Convective Factor**: $A_{conv}(t) = \left(\frac{c}{c + v_r(t)}\right)^{1.1}$
 - **Total Gain**: $g_{raw}(t) = (G_0 A_{sp}(t) A_{conv}(t))^\gamma$  
   *(Default constants: $G_0 = 10$, $\gamma = 0.7$)*
 
+#### Multi-Object Scene Composition
+To model scenes with multiple moving sources, the synthesis framework combines independent trajectories into a single composite waveform:
+$$x(t) = \sum_{i=1}^{N} A_i(t) \cdot s'_i(t)$$
+where $s'_i(t)$ denotes the Doppler-transformed signal of source $i$ and $A_i(t)$ represents its amplitude envelope.
+
+#### Motion Field Decomposition
+To efficiently reconstruct complex acoustic motion fields (e.g., using Physics-Informed Neural Networks), the continuous space-time domain $\Omega$ can be partitioned into localized subdomains $\Omega_k$:
+$$\Omega = \bigcup_k \Omega_k$$
+Each subdomain models a region with more homogeneous physical behavior, facilitating scalable learning and disentanglement.
+
 ### 4. Propagation & Timing
 - **Retarded-Time Alignment**: When tangential acceleration is non-zero, emission ($t_{emit}$) and observation ($t_{obs}$) times are approximately related to align kinematic changes with sound travel time:
   $$t_{obs} \approx t_{emit} + \frac{r(t_{emit}) - r_{cpa}}{c}$$
+  where $r(t_{emit})$ is the source-to-microphone distance at the emission moment, and $r_{cpa}$ is the closest-approach distance.
 - **Discrete Output**: The final resampled waveform is computed using cubic interpolation:
   $$y[n] = g[n] \tilde{x}[n]$$
 

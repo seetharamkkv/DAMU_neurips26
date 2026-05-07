@@ -34,7 +34,7 @@ venv/
 *.xlsx
 *.tmp
 
-additional/test_results/
+test_results/
 ref_docs/
 temp/
 *.pdf

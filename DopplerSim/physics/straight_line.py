@@ -18,7 +18,6 @@ def calculate_straight_line_accelerated_doppler(speed_v0_mps, accel_mps2, min_di
     Straight-line pass-by with constant acceleration (B7).
     
     Parameters
-    ----------
     speed_v0_mps : float
         Initial speed at t=0 (m/s).
     accel_mps2 : float

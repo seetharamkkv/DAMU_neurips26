@@ -284,6 +284,22 @@
       margin-top: 20px;
     }
 
+    #customPathMode {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .whiteboard-wrap .single-section-title {
+      margin-bottom: 8px;
+    }
+
+    #customPathCanvas {
+      background-color: #f6f8fa;
+      cursor: crosshair;
+      touch-action: none;
+    }
+
     .single-container {
       display: grid;
       grid-template-columns: 320px 600px 230px;
@@ -582,6 +598,7 @@
         <button id="modeSpectrogram" class="mode-btn">Spectrograms</button>
         <button id="modeCompare" class="mode-btn">Compare Audio</button>
         <button id="modeSingle" class="mode-btn">Single Clip</button>
+        <button id="modeCustomPath" class="mode-btn">Custom Whiteboard Path</button>
         <button id="modeMap" class="mode-btn">Outline Converter</button>
         <button id="modeIntersection" class="mode-btn">Intersection</button>
         <button id="modeMixed" class="mode-btn">Real-Simulated Mixed</button>
@@ -589,6 +606,124 @@
         <button id="modeAutoCompare" class="mode-btn">Automated Spectrogram Comparison</button>
       </div>
     </header>
+
+  <!-- CUSTOM PATH (draw trajectory + same vehicle / Doppler / air-noise controls as Single Clip) -->
+  <div id="customPathMode" style="display:none;">
+    <div class="single-container">
+      <div class="left-section">
+        <form id="custom-path-form" action="/simulate" method="post">
+          <input type="hidden" name="path" value="custom">
+          <div class="acceleration-section">
+            <h4>Motion along drawn path</h4>
+            <p class="method-info" style="margin-bottom: 12px;">
+              The vehicle moves at <strong>constant speed</strong> along your stroke (same physics as map trajectories).
+              Output clip length is <strong>path length ÷ speed</strong> so the sound spans exactly one full pass of your drawing.
+              For manual duration or acceleration profiles, use <strong>Single Clip</strong>.
+            </p>
+            <input type="hidden" name="audio_duration" id="cp_audio_duration_hidden" value="">
+            <div class="param-group">
+              <label class="param-label">Clip duration (derived)</label>
+              <div id="cp_duration_display" class="path-display" style="font-size: 14px;">
+                —
+              </div>
+              <div class="method-info" style="margin-top: 6px;">
+                <strong>T = L / v</strong> where <em>L</em> is polyline length (m) and <em>v</em> is speed (m/s). Server uses the same formula (clamped to 0.5–300 s).
+              </div>
+            </div>
+            <div class="param-group">
+              <label class="param-label" for="cp_speed">Speed along path (m/s):</label>
+              <input name="speed" type="number" id="cp_speed" step="0.1" value="20" min="0.1"
+                oninput="cpSyncDerivedDuration(); cpUpdatePathInfo(); cpRedrawWhiteboard();">
+            </div>
+          </div>
+          <div id="cp-path-info"
+            style="margin-top: 12px; font-weight: bold; color: #58a6ff; padding: 10px; background-color: #0d1117; border-radius: 4px; border: 1px solid #30363d;">
+          </div>
+          <div style="margin-top: 20px;">
+            <input type="submit" class="btn" id="cp-submit-btn" value="Simulate Doppler Audio">
+          </div>
+        </form>
+      </div>
+
+      <div class="center-section whiteboard-wrap">
+        <h4 class="single-section-title">Draw path (whiteboard)</h4>
+        <p class="param-label" style="margin-bottom: 8px;">
+          Click and drag. Observer at center (red). Axes in meters; Y up. Use <strong>Clear</strong> to start over.
+        </p>
+        <canvas id="customPathCanvas" width="800" height="500"></canvas>
+        <div style="margin-top: 10px; display: flex; gap: 10px; flex-wrap: wrap; align-items: center;">
+          <button type="button" class="browse-btn" id="cp_clear_drawing">Clear drawing</button>
+          <button type="button" class="browse-btn" onclick="void downloadPathGraphPng(true)">Download path summary (PNG)</button>
+          <span class="param-label" id="cp_stroke_hint" style="margin: 0;">No path yet — draw a stroke with at least two points.</span>
+        </div>
+        <p class="param-label" id="cp_scale_legend" style="margin-top: 10px; font-size: 12px; color: #8b949e;"></p>
+      </div>
+
+      <div class="right-section cp-right-section">
+        <div class="method-section">
+          <h4>Car Type</h4>
+          <div class="param-group">
+            <label class="param-label" for="cp_sound_source">Sound Type:</label>
+            <select id="cp_sound_source" onchange="loadCustomPathVehicles()">
+              <option value="all">All Sounds</option>
+              <option value="vehicle" selected>Car sounds</option>
+              <option value="drone">Drone sounds</option>
+            </select>
+          </div>
+          <div class="param-group">
+            <label class="param-label" for="cp_vehicle_type">Select Car:</label>
+            <select name="vehicle_type" id="cp_vehicle_type" form="custom-path-form">
+              <option value="car">Loading…</option>
+            </select>
+          </div>
+          <div class="method-info">
+            Same library as Single Clip.
+          </div>
+        </div>
+
+        <div class="method-section">
+          <h4>Doppler Processing Method</h4>
+          <div class="param-group">
+            <label class="param-label" for="cp_shift_method">Audio Method:</label>
+            <select name="shift_method" id="cp_shift_method" form="custom-path-form">
+              <option value="timestretch">Variable Resampling (True Doppler)</option>
+              <option value="resample">Spectral Shifting (Precise Control)</option>
+              <option value="advanced">Phase Modulation (Smoothest Sweeps)</option>
+            </select>
+          </div>
+          <div class="method-info">
+            Same options as Single Clip (server uses resampling pipeline).
+          </div>
+        </div>
+
+        <div class="method-section">
+          <h4>Environmental Air Noise</h4>
+          <div class="param-group">
+            <label class="checkbox-label">
+              <input type="checkbox" id="cp_add_air_noise" name="add_air_noise" form="custom-path-form"
+                onchange="toggleCpAirNoiseControls()">
+              Add subtle ambient air noise
+            </label>
+          </div>
+          <div class="param-group">
+            <label class="param-label" for="cp_air_noise_strength">Air Noise Strength:</label>
+            <input type="range" id="cp_air_noise_strength" name="air_noise_strength" min="0" max="100" value="8"
+              step="1" form="custom-path-form" oninput="updateCpAirNoiseStrengthLabel()" disabled>
+            <div style="margin-top: 6px; color: #8b949e;">
+              <span id="cp_air_noise_strength_value">8%</span>
+            </div>
+          </div>
+          <div class="param-group">
+            <label class="param-label" for="cp_air_noise_frequency_hz">Air Noise Frequency (Hz):</label>
+            <input type="number" id="cp_air_noise_frequency_hz" name="air_noise_frequency_hz" min="80" max="5000"
+              step="10" value="1200" form="custom-path-form" disabled>
+          </div>
+        </div>
+
+        <div id="cp-status-message" class="status-message status-loading" style="display:none;"></div>
+      </div>
+    </div>
+  </div>
 
     <!-- REAL-SIMULATED MIXED MODE -->
     <div id="mixedMode" class="hidden">
@@ -2273,6 +2408,451 @@
       } catch (error) {
         console.error('Failed to load single vehicles:', error);
       }
+    }
+
+    // --- Custom Path (drawn trajectory) ---
+    let customPathWorldPoints = [];
+    let cpIsDrawing = false;
+    let cpIsPlaying = false;
+    let cpCurrentAudio = null;
+    let cpCurrentAudioBlob = null;
+    let cpAnimationId = null;
+    let cpAnimationStartTime = 0;
+
+    async function loadCustomPathVehicles() {
+      try {
+        const source = document.getElementById('cp_sound_source')?.value || 'all';
+        const response = await fetch(`/api/list_vehicles?source=${source}`);
+        const data = await response.json();
+        const vehicleSelect = document.getElementById('cp_vehicle_type');
+        if (!vehicleSelect) return;
+        vehicleSelect.innerHTML = '';
+        if (!data.vehicles || data.vehicles.length === 0) {
+          const opt = document.createElement('option');
+          opt.value = '';
+          opt.textContent = 'No sounds found';
+          vehicleSelect.appendChild(opt);
+          return;
+        }
+        data.vehicles.forEach(vehicle => {
+          const opt = document.createElement('option');
+          opt.value = vehicle.name;
+          const sourceIcon = vehicle.source === 'drone' ? '🚁' : '🚗';
+          opt.textContent = `${sourceIcon} ${vehicle.name} (${vehicle.duration}s)`;
+          vehicleSelect.appendChild(opt);
+        });
+      } catch (error) {
+        console.error('Failed to load custom path vehicles:', error);
+      }
+    }
+
+    function cpPolylineLength(pts) {
+      if (!pts || pts.length < 2) return 0;
+      let L = 0;
+      for (let i = 1; i < pts.length; i++) L += Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]);
+      return L;
+    }
+
+    function cpPointAtArcLength(pts, s) {
+      if (!pts || pts.length === 0) return [0, 0];
+      if (pts.length === 1 || s <= 0) return [pts[0][0], pts[0][1]];
+      let remaining = s;
+      for (let i = 1; i < pts.length; i++) {
+        const dx = pts[i][0] - pts[i - 1][0];
+        const dy = pts[i][1] - pts[i - 1][1];
+        const seg = Math.hypot(dx, dy);
+        if (seg < 1e-9) continue;
+        if (remaining <= seg) {
+          const t = remaining / seg;
+          return [pts[i - 1][0] + t * dx, pts[i - 1][1] + t * dy];
+        }
+        remaining -= seg;
+      }
+      return [pts[pts.length - 1][0], pts[pts.length - 1][1]];
+    }
+
+    function cpCanvasToWorld(clientX, clientY, canvas) {
+      const rect = canvas.getBoundingClientRect();
+      const sx = canvas.width / rect.width;
+      const sy = canvas.height / rect.height;
+      const cx = (clientX - rect.left) * sx;
+      const cy = (clientY - rect.top) * sy;
+      const centerX = canvas.width / 2;
+      const centerY = canvas.height / 2;
+      const scale = 2;
+      return [(cx - centerX) / scale, (centerY - cy) / scale];
+    }
+
+    function cpMaybeAppendPoint(wx, wy) {
+      const minM = 0.35;
+      if (customPathWorldPoints.length === 0) return customPathWorldPoints.push([wx, wy]);
+      const last = customPathWorldPoints[customPathWorldPoints.length - 1];
+      if (Math.hypot(wx - last[0], wy - last[1]) >= minM) customPathWorldPoints.push([wx, wy]);
+    }
+
+    function cpGetDerivedDurationSec() {
+      const L = cpPolylineLength(customPathWorldPoints);
+      const v = parseFloat(document.getElementById('cp_speed')?.value);
+      if (!(L > 0) || !Number.isFinite(v) || v <= 0) return NaN;
+      return L / v;
+    }
+
+    function cpSyncDerivedDuration() {
+      const hidden = document.getElementById('cp_audio_duration_hidden');
+      const display = document.getElementById('cp_duration_display');
+      const T = cpGetDerivedDurationSec();
+      if (hidden) hidden.value = Number.isFinite(T) ? String(Math.min(300, Math.max(0.5, T)).toFixed(4)) : '';
+      if (display) display.textContent = Number.isFinite(T) ? `${T.toFixed(2)} s (= path length ÷ speed)` : '— (need path + positive speed)';
+    }
+
+    function cpRedrawWhiteboard(animationProgress = null) {
+      const canvas = document.getElementById('customPathCanvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      const w = canvas.width;
+      const h = canvas.height;
+      const centerX = w / 2;
+      const centerY = h / 2;
+      const scale = 2;
+
+      ctx.fillStyle = '#f6f8fa';
+      ctx.fillRect(0, 0, w, h);
+      ctx.strokeStyle = '#d0d7de';
+      ctx.lineWidth = 1;
+      for (let i = -200; i <= 200; i += 20) {
+        if (i === 0) continue;
+        const vx = centerX + i * scale;
+        const hy = centerY - i * scale;
+        if (vx >= 0 && vx <= w) { ctx.beginPath(); ctx.moveTo(vx, 0); ctx.lineTo(vx, h); ctx.stroke(); }
+        if (hy >= 0 && hy <= h) { ctx.beginPath(); ctx.moveTo(0, hy); ctx.lineTo(w, hy); ctx.stroke(); }
+      }
+      ctx.strokeStyle = '#8c959f';
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(0, centerY); ctx.lineTo(w, centerY);
+      ctx.moveTo(centerX, 0); ctx.lineTo(centerX, h);
+      ctx.stroke();
+
+      ctx.fillStyle = '#57606a';
+      ctx.font = '10px sans-serif';
+      ctx.textAlign = 'center';
+      for (let i = -180; i <= 180; i += 60) {
+        if (i === 0) continue;
+        const x = centerX + i * scale;
+        if (x >= 12 && x <= w - 12) ctx.fillText(i.toString() + ' m', x, centerY + 14);
+      }
+      ctx.textAlign = 'right';
+      for (let i = -180; i <= 180; i += 60) {
+        if (i === 0) continue;
+        const y = centerY - i * scale;
+        if (y >= 15 && y <= h - 5) ctx.fillText(i.toString() + ' m', centerX - 6, y + 3);
+      }
+      ctx.textAlign = 'left';
+      ctx.fillText('0', centerX + 4, centerY + 12);
+
+      ctx.fillStyle = '#cf222e';
+      ctx.beginPath();
+      ctx.arc(centerX, centerY, 6, 0, 2 * Math.PI);
+      ctx.fill();
+      ctx.fillStyle = '#24292f';
+      ctx.font = '12px sans-serif';
+      ctx.textAlign = 'left';
+      ctx.fillText('Observer', centerX + 10, centerY + 4);
+
+      if (customPathWorldPoints.length >= 1) {
+        ctx.strokeStyle = '#0969da';
+        ctx.lineWidth = 3;
+        ctx.beginPath();
+        for (let i = 0; i < customPathWorldPoints.length; i++) {
+          const p = customPathWorldPoints[i];
+          const px = centerX + p[0] * scale;
+          const py = centerY - p[1] * scale;
+          if (i === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py);
+        }
+        ctx.stroke();
+        const s0 = customPathWorldPoints[0];
+        const s1 = customPathWorldPoints[customPathWorldPoints.length - 1];
+        ctx.fillStyle = '#1a7f37';
+        ctx.beginPath();
+        ctx.arc(centerX + s0[0] * scale, centerY - s0[1] * scale, 5, 0, 2 * Math.PI);
+        ctx.fill();
+        ctx.fillStyle = '#cf222e';
+        ctx.beginPath();
+        ctx.arc(centerX + s1[0] * scale, centerY - s1[1] * scale, 5, 0, 2 * Math.PI);
+        ctx.fill();
+      }
+
+      if (animationProgress !== null && customPathWorldPoints.length >= 2) {
+        const dur = cpGetDerivedDurationSec();
+        const spd = parseFloat(document.getElementById('cp_speed')?.value) || 20;
+        const L = cpPolylineLength(customPathWorldPoints);
+        const durUse = Number.isFinite(dur) && dur > 0 ? dur : (L > 0 && spd > 0 ? L / spd : 1);
+        const s = Math.min(spd * (animationProgress * durUse), L);
+        const pos = cpPointAtArcLength(customPathWorldPoints, s);
+        ctx.fillStyle = '#8250df';
+        ctx.beginPath();
+        ctx.arc(centerX + pos[0] * scale, centerY - pos[1] * scale, 8, 0, 2 * Math.PI);
+        ctx.fill();
+      }
+
+      const hint = document.getElementById('cp_stroke_hint');
+      if (hint) {
+        const L = cpPolylineLength(customPathWorldPoints);
+        hint.textContent = customPathWorldPoints.length < 2
+          ? 'No path yet — draw a stroke with at least two points.'
+          : `${customPathWorldPoints.length} points · path length ${L.toFixed(1)} m · grid 20 m · labels every 60 m`;
+      }
+
+      const legend = document.getElementById('cp_scale_legend');
+      if (legend) {
+        legend.textContent = 'Scale: 2 canvas pixels = 1 m horizontally and vertically (same as Single Clip). Minor grid lines every 20 m.';
+      }
+    }
+
+    function cpUpdatePathInfo() {
+      const el = document.getElementById('cp-path-info');
+      if (!el) return;
+      cpSyncDerivedDuration();
+      const L = cpPolylineLength(customPathWorldPoints);
+      const v = parseFloat(document.getElementById('cp_speed')?.value);
+      const T = cpGetDerivedDurationSec();
+      const vOk = Number.isFinite(v) && v > 0;
+      if (customPathWorldPoints.length < 2) {
+        el.innerHTML = 'Draw a path with at least two sample points. Duration will be <strong>L / v</strong>.';
+        return;
+      }
+      if (!vOk) {
+        el.innerHTML = `Path length <em>L</em> = <strong>${L.toFixed(1)} m</strong>. Enter a positive speed to compute <em>T = L / v</em>.`;
+        return;
+      }
+      if (!Number.isFinite(T)) {
+        el.innerHTML = `Path length <em>L</em> = <strong>${L.toFixed(1)} m</strong>`;
+        return;
+      }
+      const distAtClipSpeed = v * T;
+      let boundsNote = '';
+      if (T > 300) {
+        boundsNote = '<br><span style="color:#f0883e">Traverse time &gt; 300 s — raise speed or shorten path before simulating.</span>';
+      } else if (T < 0.5) {
+        boundsNote = '<br><span style="color:#f0883e">Traverse time &lt; 0.5 s — lengthen path or reduce speed.</span>';
+      }
+      el.innerHTML =
+        `Path length <em>L</em> = <strong>${L.toFixed(1)} m</strong> · Speed <em>v</em> = <strong>${v.toFixed(2)} m/s</strong><br>` +
+        `Clip duration <em>T</em> = <em>L</em>/<em>v</em> = <strong>${T.toFixed(2)} s</strong> · Distance in that interval = <em>v</em>×<em>T</em> = <strong>${distAtClipSpeed.toFixed(1)} m</strong> ` +
+        `(numerically equals <em>L</em>; motion completes the stroke when the clip ends)` +
+        boundsNote;
+    }
+
+    function cpShowStatus(msg, cls) {
+      const s = document.getElementById('cp-status-message');
+      if (!s) return;
+      s.textContent = msg;
+      s.className = 'status-message ' + (cls || '');
+      s.style.display = 'block';
+    }
+
+    function cpHideStatus() {
+      const s = document.getElementById('cp-status-message');
+      if (s) s.style.display = 'none';
+    }
+
+    function cpStopPlayback() {
+      cpIsPlaying = false;
+      if (cpCurrentAudio) {
+        cpCurrentAudio.pause();
+        cpCurrentAudio.currentTime = 0;
+      }
+      if (cpAnimationId) {
+        cancelAnimationFrame(cpAnimationId);
+        cpAnimationId = null;
+      }
+      if (mediaRecorder && mediaRecorder.state !== 'inactive') {
+        stopVideoRecording();
+      }
+      cpRedrawWhiteboard();
+      const btn = document.getElementById('cp-submit-btn');
+      if (btn) {
+        btn.disabled = false;
+        btn.value = 'Simulate Doppler Audio';
+      }
+    }
+
+    function toggleCpAirNoiseControls() {
+      const on = document.getElementById('cp_add_air_noise')?.checked;
+      ['cp_air_noise_strength', 'cp_air_noise_frequency_hz'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.disabled = !on;
+      });
+    }
+
+    function updateCpAirNoiseStrengthLabel() {
+      const v = document.getElementById('cp_air_noise_strength')?.value || '0';
+      const lbl = document.getElementById('cp_air_noise_strength_value');
+      if (lbl) lbl.textContent = v + '%';
+    }
+
+    function cpAnimateAlong(durationSec) {
+      cpAnimationStartTime = Date.now();
+      function frame() {
+        const elapsed = (Date.now() - cpAnimationStartTime) / 1000;
+        const p = Math.min(elapsed / durationSec, 1);
+        cpRedrawWhiteboard(p);
+        if (p < 1 && cpIsPlaying) {
+          cpAnimationId = requestAnimationFrame(frame);
+        } else {
+          cpAnimationId = null;
+          if (cpIsPlaying) {
+            cpRedrawWhiteboard();
+            cpShowStatus('Simulation completed!', 'status-playing');
+            setTimeout(() => cpHideStatus(), 2000);
+          }
+        }
+      }
+      frame();
+    }
+
+    async function handleCustomPathFormSubmit(event) {
+      event.preventDefault();
+      window._lastSimIsCustom = false;
+      stopPlayback();
+      if (cpIsPlaying) {
+        cpStopPlayback();
+        return;
+      }
+
+      if (customPathWorldPoints.length < 2) {
+        cpShowStatus('Draw a path with at least two points.', 'status-error');
+        setTimeout(cpHideStatus, 3000);
+        return;
+      }
+
+      cpSyncDerivedDuration();
+      const vPre = parseFloat(document.getElementById('cp_speed')?.value);
+      if (!Number.isFinite(vPre) || vPre <= 0) {
+        cpShowStatus('Enter a positive speed along the path.', 'status-error');
+        setTimeout(() => cpHideStatus(), 4000);
+        return;
+      }
+      const Tpre = cpGetDerivedDurationSec();
+      if (!Number.isFinite(Tpre)) {
+        cpShowStatus('Could not compute duration (path length and speed required).', 'status-error');
+        setTimeout(() => cpHideStatus(), 4000);
+        return;
+      }
+      if (Tpre > 300 || Tpre < 0.5) {
+        cpShowStatus(
+          `Traverse time L/v is ${Tpre.toFixed(2)} s; must be between 0.5 s and 300 s. Adjust speed or path.`,
+          'status-error'
+        );
+        setTimeout(() => cpHideStatus(), 6000);
+        return;
+      }
+
+      const submitButton = document.getElementById('cp-submit-btn');
+      submitButton.disabled = true;
+      submitButton.value = 'Generating Audio...';
+      cpShowStatus('Generating Doppler audio simulation...', 'status-loading');
+
+      try {
+        const formData = new FormData(event.target);
+        formData.append('custom_path_points', JSON.stringify(customPathWorldPoints));
+        const response = await fetch('/simulate', { method: 'POST', body: formData });
+        const contentType = response.headers.get('content-type');
+        if (!response.ok) {
+          if (contentType && contentType.includes('application/json')) {
+            const errorData = await response.json();
+            throw new Error(errorData.error || `HTTP ${response.status}`);
+          }
+          throw new Error(`HTTP ${response.status}`);
+        }
+
+        window._lastSimIsCustom = true;
+        const audioBlob = await response.blob();
+        currentAudioBlob = audioBlob;
+        cpCurrentAudioBlob = audioBlob;
+        if (cpCurrentAudio) cpCurrentAudio.pause();
+        cpCurrentAudio = new Audio(URL.createObjectURL(audioBlob));
+        cpCurrentAudio.addEventListener('loadeddata', () => {
+          cpIsPlaying = true;
+          cpCurrentAudio.play();
+          const audioDuration = cpCurrentAudio.duration || 3;
+          cpAnimateAlong(audioDuration);
+          submitButton.disabled = false;
+          submitButton.value = 'Stop Playback';
+          cpShowStatus('Playing Doppler simulation...', 'status-playing');
+          showAudioControls();
+          if (exportFormatWantsVideo()) {
+            startVideoRecording();
+          }
+        });
+        cpCurrentAudio.addEventListener('ended', async () => {
+          if (mediaRecorder && mediaRecorder.state !== 'inactive') {
+            await stopVideoRecording();
+          }
+          cpStopPlayback();
+          cpHideStatus();
+        });
+        cpCurrentAudio.addEventListener('error', () => {
+          cpShowStatus('Audio playback error', 'status-error');
+          cpStopPlayback();
+        });
+      } catch (error) {
+        console.error(error);
+        cpShowStatus(`Error: ${error.message}`, 'status-error');
+        submitButton.disabled = false;
+        submitButton.value = 'Simulate Doppler Audio';
+        setTimeout(() => cpHideStatus(), 5000);
+      }
+    }
+
+    function cpPointerDown(e) {
+      const canvas = e.currentTarget;
+      e.preventDefault();
+      try { canvas.setPointerCapture(e.pointerId); } catch (_) {}
+      cpIsDrawing = true;
+      customPathWorldPoints = [];
+      const [wx, wy] = cpCanvasToWorld(e.clientX, e.clientY, canvas);
+      customPathWorldPoints.push([wx, wy]);
+      cpRedrawWhiteboard();
+      cpUpdatePathInfo();
+    }
+
+    function cpPointerMove(e) {
+      if (!cpIsDrawing) return;
+      const canvas = e.currentTarget;
+      const [wx, wy] = cpCanvasToWorld(e.clientX, e.clientY, canvas);
+      if (isNaN(wx) || isNaN(wy)) return;
+      cpMaybeAppendPoint(wx, wy);
+      cpRedrawWhiteboard();
+      cpUpdatePathInfo();
+    }
+
+    function cpPointerUp(e) {
+      if (!cpIsDrawing) return;
+      cpIsDrawing = false;
+      try { e.currentTarget.releasePointerCapture(e.pointerId); } catch (_) {}
+      cpRedrawWhiteboard();
+      cpUpdatePathInfo();
+    }
+
+    function initCustomPathUI() {
+      const form = document.getElementById('custom-path-form');
+      if (form) form.addEventListener('submit', handleCustomPathFormSubmit);
+      const canvas = document.getElementById('customPathCanvas');
+      if (canvas) {
+        canvas.addEventListener('pointerdown', cpPointerDown);
+        canvas.addEventListener('pointermove', cpPointerMove);
+        canvas.addEventListener('pointerup', cpPointerUp);
+        canvas.addEventListener('pointercancel', cpPointerUp);
+      }
+      document.getElementById('cp_clear_drawing')?.addEventListener('click', () => {
+        customPathWorldPoints = [];
+        cpRedrawWhiteboard();
+        cpUpdatePathInfo();
+      });
+      loadCustomPathVehicles();
+      cpRedrawWhiteboard();
+      cpUpdatePathInfo();
     }
 
     async function loadOverlapVehicles() {
@@ -4280,6 +4860,9 @@
         }
       }
 
+      const isCustom = !!window._lastSimIsCustom;
+      const downloadGraphBtn = isCustom ? '<button onclick="downloadPathGraphPng()" class="download-button" style="background-color: #24292f !important;">Download Trajectory PNG</button>' : '';
+
       controlsDiv.innerHTML = `
         <div style="margin-bottom: 10px;">
           <label for="filename-input">Filename: </label>
@@ -4291,9 +4874,17 @@
         </div>
         <button onclick="downloadAudio()" class="download-button">Download</button>
         <button onclick="downloadAudio(true)" class="download-button" style="background-color: #9E9E9E !important;">Download (Default Name)</button>
+        ${downloadGraphBtn}
         <button onclick="replayAudio()">Replay</button>
       `;
       controlsDiv.style.display = 'block';
+      if (isCustom) {
+        const cpRight = document.querySelector('#customPathMode .right-section');
+        if (cpRight && !cpRight.contains(controlsDiv)) cpRight.appendChild(controlsDiv);
+      } else {
+        const sRight = document.querySelector('#singleMode .right-section');
+        if (sRight && !sRight.contains(controlsDiv)) sRight.appendChild(controlsDiv);
+      }
     }
 
     async function downloadAudio(useDefault = false) {
@@ -4343,7 +4934,27 @@
       URL.revokeObjectURL(url);
     }
 
+    async function downloadPathGraphPng() {
+      if (!window._lastSimIsCustom || customPathWorldPoints.length < 2) return;
+      const v = parseFloat(document.getElementById('cp_speed')?.value) || 20;
+      const url = `/api/path_plot_png?path=custom&speed=${v}&custom_path_points=${encodeURIComponent(JSON.stringify(customPathWorldPoints))}`;
+      const resp = await fetch(url);
+      if (!resp.ok) return alert("Failed to generate path graph");
+      const blob = await resp.blob();
+      downloadBlob(blob, "doppler_path_trajectory.png");
+    }
+
     function replayAudio() {
+      if (window._lastSimIsCustom) {
+        if (cpCurrentAudio && !cpIsPlaying) {
+          cpIsPlaying = true;
+          cpCurrentAudio.currentTime = 0;
+          cpCurrentAudio.play();
+          cpAnimateAlong(cpCurrentAudio.duration || 3);
+          showStatusMessage("Replaying Custom Doppler simulation...", "status-playing");
+        }
+        return;
+      }
       if (currentAudio && !isPlaying) {
         isPlaying = true;
         currentAudio.currentTime = 0;
@@ -4462,6 +5073,7 @@
       const btnSpectrogram = document.getElementById('modeSpectrogram');
       const btnCompare = document.getElementById('modeCompare');
       const btnSingle = document.getElementById('modeSingle');
+      const btnCustomPath = document.getElementById('modeCustomPath');
       const btnMap = document.getElementById('modeMap');
       const btnIntersection = document.getElementById('modeIntersection');
       const btnMixed = document.getElementById('modeMixed');
@@ -4473,20 +5085,21 @@
       const spectrogramMode = document.getElementById('spectrogramMode');
       const compareMode = document.getElementById('compareMode');
       const singleMode = document.getElementById('singleMode');
+      const customPathMode = document.getElementById('customPathMode');
       const mapMode = document.getElementById('mapMode');
       const intersectionMode = document.getElementById('intersectionMode');
       const mixedMode = document.getElementById('mixedMode');
       const vs13Mode = document.getElementById('vs13Mode');
       const autoCompareMode = document.getElementById('autoCompareMode');
 
-      if (!btnBatch || !btnOverlap || !btnSpectrogram || !btnCompare || !btnSingle || !btnMap || !btnIntersection || !btnMixed || !btnVS13 || !btnAutoCompare ||
-        !batchMode || !overlapMode || !spectrogramMode || !compareMode || !singleMode || !mapMode || !intersectionMode || !mixedMode || !vs13Mode || !autoCompareMode) return;
+      if (!btnBatch || !btnOverlap || !btnSpectrogram || !btnCompare || !btnSingle || !btnCustomPath || !btnMap || !btnIntersection || !btnMixed || !btnVS13 || !btnAutoCompare ||
+        !batchMode || !overlapMode || !spectrogramMode || !compareMode || !singleMode || !customPathMode || !mapMode || !intersectionMode || !mixedMode || !vs13Mode || !autoCompareMode) return;
 
       function switchTo(activeBtn, showMode) {
-        [btnBatch, btnOverlap, btnSpectrogram, btnCompare, btnSingle, btnMap, btnIntersection, btnMixed, btnVS13, btnAutoCompare].forEach(b => b.classList.remove('active'));
+        [btnBatch, btnOverlap, btnSpectrogram, btnCompare, btnSingle, btnCustomPath, btnMap, btnIntersection, btnMixed, btnVS13, btnAutoCompare].forEach(b => b.classList.remove('active'));
         activeBtn.classList.add('active');
 
-        [batchMode, overlapMode, spectrogramMode, compareMode, singleMode, mapMode, intersectionMode, mixedMode, vs13Mode, autoCompareMode].forEach(m => {
+        [batchMode, overlapMode, spectrogramMode, compareMode, singleMode, customPathMode, mapMode, intersectionMode, mixedMode, vs13Mode, autoCompareMode].forEach(m => {
           m.classList.add('hidden');
           setTimeout(() => {
             if (m === showMode) {
@@ -4506,6 +5119,11 @@
       btnSingle.addEventListener('click', () => {
         switchTo(btnSingle, singleMode);
         setTimeout(resizeCanvas, 350);
+      });
+      btnCustomPath.addEventListener('click', () => {
+        switchTo(btnCustomPath, customPathMode);
+        // Force redraw on switch so scale bars etc show up
+        setTimeout(cpRedrawWhiteboard, 350);
       });
       btnMap.addEventListener('click', () => {
         switchTo(btnMap, mapMode);
@@ -5721,6 +6339,7 @@
       loadSpecVehicles();
       loadSingleVehicles();
       initSingleClipUI();
+      initCustomPathUI();
       initModeToggle();
       toggleDistribution();
       toggleBatchAirNoiseControls();

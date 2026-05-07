@@ -344,13 +344,13 @@ def finalize_auto_compare():
                 f.write(f"  - {k:33}: {speed_avg[k]['mean']:.4f}\n")
             f.write("\n")
 
-    # 4. distribution_stats.txt (mean ± std + histogram data)
+    # 4. distribution_stats.txt (mean +/- std + histogram data)
     with open(os.path.join(averages_dir, 'distribution_stats.txt'), 'w', encoding='utf-8') as f:
-        f.write("SCORE DISTRIBUTIONS (Mean ± Std)\n")
+        f.write("SCORE DISTRIBUTIONS (Mean +/- Std)\n")
         f.write("--------------------------------------------------\n")
         for k in metrics_keys:
             s = overall_stats[k]
-            f.write(f"{k:35}: {s['mean']:.2f} ± {s['std']:.2f} (Range: {s['min']:.2f} - {s['max']:.2f})\n")
+            f.write(f"{k:35}: {s['mean']:.2f} +/- {s['std']:.2f} (Range: {s['min']:.2f} - {s['max']:.2f})\n")
         
         f.write("\nMATCH SCORE HISTOGRAM DATA (Bins: 0-10, 10-20, ..., 90-100)\n")
         f.write("--------------------------------------------------\n")

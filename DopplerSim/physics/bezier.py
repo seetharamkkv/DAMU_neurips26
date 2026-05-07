@@ -1,5 +1,3 @@
-# bezier.py
-
 import numpy as np
 from audio.audio_utils import SR, apply_distance_fade
 
@@ -101,7 +99,6 @@ def calculate_bezier_doppler(speed_mps,
     around the origin.
 
     Parameters
-    ----------
     speed_mps : float
         Desired average speed along the Bezier curve (m/s).
     x0..x3, y0..y3 : float
@@ -110,7 +107,6 @@ def calculate_bezier_doppler(speed_mps,
         Total duration (seconds).
 
     Returns
-    -------
     freq_ratios : np.ndarray
         Length N (N = SR * duration_s), instantaneous Doppler frequency ratio f'/f0.
     amplitudes : np.ndarray
