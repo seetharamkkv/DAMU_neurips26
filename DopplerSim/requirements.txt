@@ -1,0 +1,16 @@
+Flask
+Flask-CORS
+soundfile
+librosa
+gunicorn
+numpy
+scipy
+matplotlib
+opencv-python
+
+# Additional dependencies that librosa needs
+audioread
+numba
+scikit-learn
+joblib
+decorator
