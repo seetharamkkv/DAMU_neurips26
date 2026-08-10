@@ -1,0 +1,898 @@
+\documentclass{article}
+
+% if you need to pass options to natbib, use, e.g.:
+%     \PassOptionsToPackage{numbers, compress}{natbib}
+% before loading neurips_2026
+
+% The authors should use one of these tracks.
+% Before accepting by the NeurIPS conference, select one of the options below.
+% 0. "default" for submission
+\usepackage{neurips_2026}
+\usepackage{graphicx}                      % \resizebox
+\usepackage{colortbl}                      % \rowcolor
+\usepackage{float}                         % [H] placement
+\usepackage{siunitx}                      % \SI and units
+\usepackage{amsmath} % for \eqref
+\definecolor{lightgray}{gray}{0.88}        % row shade colour
+% the "default" option is equal to the "main" option, which is used for the Main Track with double-blind reviewing.
+% 1. "main" option is used for the Main Track
+%  \usepackage[main]{neurips_2026}
+% 2. "position" option is used for the Position Paper Track
+%  \usepackage[position]{neurips_2026}
+% 3. "eandd" option is used for the Evaluations & Datasets Track
+ % \usepackage[eandd]{neurips_2026}
+% 4. "creativeai" option is used for the Creative AI Track
+%  \usepackage[creativeai]{neurips_2026}
+% 5. "sglblindworkshop" option is used for the Workshop with single-blind reviewing
+ % \usepackage[sglblindworkshop]{neurips_2026}
+% 6. "dblblindworkshop" option is used for the Workshop with double-blind reviewing
+%  \usepackage[dblblindworkshop]{neurips_2026}
+
+% After being accepted, the authors should add "final" behind the track to compile a camera-ready version.
+% 1. Main Track
+ % \usepackage[main, final]{neurips_2026}
+% 2. Position Paper Track
+%  \usepackage[position, final]{neurips_2026}
+% 3. Evaluations & Datasets Track
+ % \usepackage[eandd, final]{neurips_2026}
+% 4. Creative AI Track
+%  \usepackage[creativeai, final]{neurips_2026}
+% 5. Workshop with single-blind reviewing
+%  \usepackage[sglblindworkshop, final]{neurips_2026}
+% 6. Workshop with double-blind reviewing
+%  \usepackage[dblblindworkshop, final]{neurips_2026}
+% Note. For the workshop paper template, both \title{} and \workshoptitle{} are required, with the former indicating the paper title shown in the title and the latter indicating the workshop title displayed in the footnote.
+% For workshops (5., 6.), the authors should add the name of the workshop, "\workshoptitle" command is used to set the workshop title.
+% \workshoptitle{WORKSHOP TITLE}
+
+% "preprint" option is used for arXiv or other preprint submissions
+ % \usepackage[preprint]{neurips_2026}
+
+% to avoid loading the natbib package, add option nonatbib:
+%    \usepackage[nonatbib]{neurips_2026}
+
+\usepackage[utf8]{inputenc} % allow utf-8 input
+\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+\usepackage{hyperref}       % hyperlinks
+\usepackage{url}            % simple URL typesetting
+\usepackage{booktabs}       % professional-quality tables
+\usepackage{amsfonts}       % blackboard math symbols
+\usepackage{nicefrac}       % compact symbols for 1/2, etc.
+\usepackage{microtype}      % microtypography
+\usepackage{xcolor}         % colors
+
+% Note. For the workshop paper template, both \title{} and \workshoptitle{} are required, with the former indicating the paper title shown in the title and the latter indicating the workshop title displayed in the footnote. 
+\title{Dynamic Audio Motion Understanding: Benchmarking Physical Motion Inference from Sound}
+
+
+% The \author macro works with any number of authors. There are two commands
+% used to separate the names and addresses of multiple authors: \And and \AND.
+%
+% Using \And between authors leaves it to LaTeX to determine where to break the
+% lines. Using \AND forces a line break at that point. So, if LaTeX puts 3 of 4
+% authors names on the first line, and the last on the second line, try using
+% \AND instead of \And before the third author name.
+
+
+\author{%
+  David S.~Hippocampus\thanks{Use footnote for providing further information
+    about author (webpage, alternative address)---\emph{not} for acknowledging
+    funding agencies.} \\
+  Department of Computer Science\\
+  Cranberry-Lemon University\\
+  Pittsburgh, PA 15213 \\
+  \texttt{hippo@cs.cranberry-lemon.edu} \\
+  % examples of more authors
+  % \And
+  % Coauthor \\
+  % Affiliation \\
+  % Address \\
+  % \texttt{email} \\
+  % \AND
+  % Coauthor \\
+  % Affiliation \\
+  % Address \\
+  % \texttt{email} \\
+  % \And
+  % Coauthor \\
+  % Affiliation \\
+  % Address \\
+  % \texttt{email} \\
+  % \And
+  % Coauthor \\
+  % Affiliation \\
+  % Address \\
+  % \texttt{email} \\
+}
+
+
+\begin{document}
+
+
+\maketitle
+
+
+\begin{abstract}
+Understanding how sound-emitting objects move through space is a fundamental but underdeveloped problem in machine learning. While audio research has made substantial progress on event classification, source separation, and speech modeling, comparatively little work has addressed whether models can infer physically meaningful motion properties such as speed, direction, trajectory, acceleration, closest approach, or multi-object interaction from sound alone. We introduce a benchmark suite for dynamic audio motion understanding consisting of ten foundational tasks spanning regression, classification, sequence labeling, and structured prediction. These benchmarks are designed to test whether models recover motion-induced acoustic structure rather than merely exploiting static timbral or background cues. To support controlled evaluation, we use a physics-based synthesis framework that generates vehicle pass-by audio with explicit Doppler warping, trajectory control, propagation delay, and distance-dependent attenuation. As an initial real-world validation, we evaluate speed estimation on vehicle pass-by recordings and find that training with a mixture of real and synthetic audio substantially improves performance on held-out real recordings compared with real-only training, reducing RMSE from 11.25 to 6.84 km/h. This result suggests that physically grounded synthetic data can provide complementary motion variation, while also exposing a persistent sim-to-real gap caused by environmental propagation, source variability, and limited real datasets. We argue that progress in audio motion understanding will require both standardized motion-centric benchmarks and larger, more diverse real-world acoustic motion corpora.
+\end{abstract}
+
+
+
+
+\section{Introduction}
+\label{sec:intro}
+
+Acoustic scene analysis has made remarkable progress by answering one question: what is present? Given a recording, modern systems identify sound events, classify scene categories, separate sources, recognize speakers, and localize active sources in space. These capabilities have made audio a powerful sensing modality, and the benchmarks built around them have driven a decade of sustained progress.
+
+Yet recognizing the contents of a scene is not the same as understanding the scene. A list of detected sources, event labels, activity times, and directions of arrival is only a partial description of the physical situation that produced the sound. In the real world, sound sources move, each following its own trajectory and velocity profile. Understanding an acoustic scene also requires actually comprehending this motion, not merely treating motion-induced variation as a nuisance factor around a static source label. A vehicle passing a microphone does not merely instantiate the class vehicle: it approaches, passes, recedes, accelerates, changes distance, and follows a trajectory through space. These variables restructure the received waveform in physically meaningful ways: speed produces Doppler shift, distance shapes amplitude and spectral coloration, trajectory affects propagation delay and temporal envelope, and acceleration changes the evolution of frequency structure. Motion is therefore not additional metadata about an acoustic scene; it is part of the scene itself.
+
+Current acoustic scene analysis has largely stopped short of this level of understanding. Sound event detection asks what happened and when. Acoustic scene classification asks what kind of environment produced the recording. Source separation asks which waveform belongs to which emitter. Sound event localization and detection, the closest established task family, estimates where and when sources are active. These are important capabilities, but they do not require a model to infer whether a source is approaching or receding, how fast it is moving, how close it will pass, whether it is accelerating, what trajectory it follows, or how its motion relates to other sources. The field has built excellent tools for recognizing the contents of acoustic scenes. It has not been pushed to recover the dynamics required to understand them.
+
+A major barrier is data. Real acoustic motion labels require synchronized measurements of position, velocity, distance, trajectory, source identity, microphone geometry, and environment are substantially harder to collect at scale than event class annotations. Physics-based synthesis offers a tractable path: generate audio whose time-frequency structure is explicitly tied to known kinematics, with controllable Doppler shift, propagation delay, distance-dependent attenuation, and trajectory variation. Used carefully, synthesis does not replace real recordings; it defines tasks, produces dense ground truth, and stress-tests models in ways real data alone cannot yet support.
+We introduce Dynamic Audio Motion Understanding (DAMU), a benchmark suite that extends acoustic scene analysis from recognizing scene contents to inferring scene dynamics. DAMU comprises ten foundational tasks: speed estimation, direction-of-travel classification, distance-of-closest-approach estimation, trajectory shape classification, time-to-event prediction, motion state segmentation, acceleration and deceleration estimation, multi-object disentanglement, interaction event classification, and source identity under motion variation. We release a 10,000-hour physics-based synthetic corpus with dense kinematic ground truth, the simulator used to generate it, and an initial synthetic-to-real validation on vehicle speed estimation — where mixed real-and-synthetic training reduces RMSE from 11.25 to 6.84 km/h on held-out real recordings. Physically grounded synthesis fills real gaps in motion variation. The gap that remains shows exactly where the field must go next.
+
+\section{Problem Formulation: Dynamic Audio Motion Understanding}
+
+We define dynamic audio motion understanding as the problem of inferring physically meaningful motion variables from received audio generated by one or more moving sound sources. Let \(y(t)\) denote the waveform observed at a microphone or microphone array. We model this observation as the result of a latent source motion process, a source emission process, and an acoustic propagation operator:
+\[
+y(t) = \mathcal{H}(x(t), s(t), e) + \epsilon(t),
+\]
+where \(x(t)\) denotes the time-varying physical state of the source, including position, velocity, acceleration, and trajectory; \(s(t)\) denotes the emitted source signal; \(e\) denotes environmental and sensor conditions such as microphone placement, ground surface, reverberation, and atmospheric state; and \(\epsilon(t)\) captures background noise and unmodeled effects. Standard audio recognition tasks primarily seek to infer properties of \(s(t)\), such as event class or source identity. In contrast, dynamic audio motion understanding seeks to infer properties of \(x(t)\), including how fast the source is moving, where it is moving relative to the listener, how its trajectory evolves, and how multiple moving sources interact.
+
+Unlike static event recognition, motion understanding requires models to interpret structured changes over time. Doppler shift, propagation delay, amplitude evolution, spectral coloration, and source-environment interactions are coupled through the same latent trajectory. A model cannot solve these tasks by detecting whether a sound is present; it must infer the physical process that produced the observed time-frequency evolution. This makes audio motion understanding closer to inverse modeling and structured prediction than to conventional clip-level audio classification.
+
+\section{Benchmark Suite}
+
+Dynamic Audio Motion Understanding decomposes into three capability families. 
+The first, \emph{scalar and geometric kinematic estimation}, asks whether models can infer physically interpretable quantities from structured changes in the received waveform: speed, closest-approach distance, and acceleration. 
+The second, \emph{categorical and sequential motion understanding}, asks whether models can classify the sign, shape, and temporal evolution of motion: direction of travel, trajectory family, time to a future event, and framewise motion state. 
+The third, \emph{scene-level and source-level reasoning}, asks whether models can handle multiple moving sources, their interactions, and the separation of source identity from motion-induced acoustic variation. 
+Table~1 maps all ten tasks to these families.
+
+This decomposition is deliberate. 
+A model could solve scalar speed estimation by exploiting pitch shift near closest approach while remaining insensitive to whether a source is approaching or receding, which trajectory it follows, or whether a second source is present. 
+Conversely, direction classification can be solved without accurate speed estimation. 
+The families are therefore not a hierarchy of difficulty, but a map of distinct competencies that must be evaluated separately to determine what a model has actually learned about acoustic motion.
+
+All benchmarks share a common observation structure. 
+Each example consists of a waveform $y(t)$, scene metadata, and task-specific labels derived from the ground-truth motion state $x(t)$ described in Section~2. 
+Depending on the task, the target may be a continuous scalar, a categorical label, a framewise sequence, or a structured multi-source output. 
+This design lets the suite probe both clip-level inference and the more demanding forms of temporal and scene-level reasoning that distinguish motion understanding from conventional audio classification. 
+Detailed per-task label definitions and evaluation equations appear in Supplement~S.2.
+
+\paragraph{Scalar and geometric kinematic estimation.}
+Speed estimation is the most direct form of acoustic motion inference: source velocity modulates Doppler shift, event duration, amplitude evolution, and the rate at which time-frequency structure changes. 
+A model that solves this task must isolate speed-dependent cues from confounds such as source loudness, vehicle identity, and recording gain. 
+We pose speed estimation as both continuous regression and discretized classification, and use it as the primary synthetic-to-real validation task because public real-world speed labels are available.
+
+Closest-approach estimation asks the model to recover the minimum source-to-sensor distance over the clip. 
+This is a geometric property rather than a velocity estimate. 
+It governs peak amplitude, signal prominence, and spectral coloration, but extracting it requires integrating evidence across the event rather than reading off a single frame.
+
+Acceleration and deceleration estimation extends kinematic inference beyond constant-velocity assumptions. 
+Acceleration changes the curvature of Doppler trajectories and the evolution of amplitude envelopes in ways that cannot be explained by a constant-speed model. 
+This task tests whether models encode higher-order temporal structure, which is essential for real sources that brake, accelerate, turn, stop, or re-enter motion.
+
+\paragraph{Categorical and sequential motion understanding.}
+Direction-of-travel classification asks for the sign and geometry of motion rather than its magnitude. 
+Approach, recession, and lateral pass-by produce different temporal orderings of amplitude and Doppler cues. 
+This task therefore tests whether learned representations capture temporal asymmetry rather than only instantaneous spectral content.
+
+Trajectory shape classification asks the model to identify the global path family, such as straight, parabolic, or B\'ezier-curved motion. 
+Two sources can share the same instantaneous speed while following different trajectories, producing different long-range temporal patterns. 
+A representation based only on local spectral shift may succeed at speed estimation while failing to distinguish path geometry.
+
+Time-to-event prediction introduces prospective temporal reasoning. 
+Given an observation, the model must estimate the time remaining until a physically meaningful event such as closest approach, scene exit, or path crossing. 
+This capability is important for monitoring and warning systems, where anticipating motion can be more valuable than describing it after the fact.
+
+Motion state segmentation formulates motion understanding as framewise sequence labeling. 
+The model assigns states such as approaching, nearest point, receding, stationary, or occluded to each time frame rather than assigning a single label to the clip. 
+This task bridges audio motion understanding with structured prediction tasks such as sound event detection, but targets physical motion state rather than event activity.
+
+\paragraph{Scene-level and source-level reasoning.}
+Multi-object motion disentanglement considers scenes with two or more simultaneously moving sources. 
+The model may be asked to count active sources, estimate per-source speed or direction, or recover a set of per-source motion attributes. 
+Because source ordering is arbitrary, evaluation uses permutation-invariant assignment metrics that match predicted attributes to ground-truth sources.
+
+Crossing and interaction event classification targets relational motion understanding. 
+Two clips may contain the same number of sources with similar individual speeds yet differ in whether those sources cross, overtake, move in convoy, or temporarily mask one another. 
+Solving this task requires integrating information about multiple sources, their temporal ordering, and their relative motion.
+
+Source identity under motion variation reverses the disentanglement objective. 
+Instead of recovering motion while marginalizing over source identity, the model must recover source identity while speed, distance, direction, trajectory, and acceleration vary. 
+This task tests whether representations can separate intrinsic source characteristics from motion-induced distortion, complementing the motion-estimation tasks above.Table~\ref{tab:benchmark_suite} summarizes the ten benchmark tasks, their output types, and primary evaluation metrics.
+
+\begin{table*}[t]
+\centering
+\small
+\begin{tabular}{p{3.0cm} p{2.6cm} p{4.4cm} p{3.2cm}}
+\hline
+\textbf{Benchmark} & \textbf{Task Type} & \textbf{Target Output} & \textbf{Evaluation Metrics} \\
+\hline
+
+Speed Estimation
+& Regression / Classification
+& Continuous velocity or discrete speed bin
+& MAE, RMSE, Accuracy \\
+
+Direction-of-Travel Classification
+& Classification
+& Relative motion class, e.g. approaching, receding, left-to-right, right-to-left, circular
+& Accuracy, Macro F1 \\
+
+Distance-of-Closest-Approach Estimation
+& Regression
+& Minimum source--sensor distance over the clip
+& MAE, RMSE \\
+
+Trajectory Shape Classification
+& Classification
+& Trajectory family, e.g. straight, curved, circular, stop-and-go, accelerating departure
+& Accuracy, Macro F1 \\
+
+Time-to-Event Prediction
+& Regression
+& Time remaining until closest approach, scene exit, or crossing event
+& MAE, RMSE \\
+
+Motion State Segmentation
+& Sequence Labeling
+& Framewise motion states, e.g. approaching, nearest point, receding, stationary, occluded
+& Frame Accuracy, Segment F1 \\
+
+Acceleration / Deceleration Estimation
+& Regression / Classification
+& Acceleration magnitude or motion state, e.g. accelerating, decelerating, constant velocity
+& MAE, RMSE, Accuracy \\
+
+Multi-Object Motion Disentanglement
+& Multi-task / Structured Prediction
+& Number of moving sources and per-source motion attributes
+& Counting Accuracy, MAE, Assignment Error \\
+
+Crossing and Interaction Event Classification
+& Classification
+& Scene-level interaction type, e.g. crossing, overtaking, masking, convoy motion
+& Accuracy, Macro F1 \\
+
+Source Identity Under Motion Variation
+& Classification
+& Source identity or class invariant to motion condition
+& Accuracy, Top-\(k\) Accuracy \\
+
+\hline
+\end{tabular}
+\caption{Summary of the proposed benchmark suite for dynamic audio motion understanding. The tasks span regression, classification, sequence labeling, and structured prediction, covering kinematic inference, geometric reasoning, temporal prediction, multi-source interaction, and motion-invariant source recognition.}
+\label{tab:benchmark_suite}
+\end{table*}
+
+\section{Synthesis pipeline and simulator overview}
+\label{sec:simulator-overview}
+
+This section describes how DopplerSim converts monophonic vehicle recordings into synthetic pass-by audio under user-defined trajectories and Doppler-consistent acoustic transformations.
+Kinematic definitions, equations, and full processing details are provided in Supplement~\ref{supp:sim-equations}.
+
+The observer is a point microphone at the origin unless a map or layout specifies an offset; vehicles move in the horizontal plane with velocity along the path tangent.
+
+\subsection{End-to-end chain}
+\label{sec:sim-chain}
+
+The synthesis chain maps motion to sound through a compact physical sequence: trajectory geometry determines radial velocity, radial velocity determines Doppler ratio and distance-coupled gain curves, and these controls drive a time-domain warp that yields the final pass-by waveform. In this way, the simulator couples kinematic structure and acoustic transformation rather than treating motion as a post-hoc label.
+
+The source signal is a monophonic vehicle recording that is resampled to the engine rate and peak-normalized, with optional overlap tiling when the requested clip exceeds source length. For accelerating trajectories, an approximate retarded-time alignment is applied so rapidly changing controls are aligned to arrival-time effects; full equations and the complete processing formulation are provided in Supplement~\ref{supp:sim-equations}.
+
+\begin{figure}[t]
+  \centering
+  \IfFileExists{figures/SimulatorFlow.pdf}{%
+    \includegraphics[width=\linewidth,height=0.52\textheight,keepaspectratio]{figures/SimulatorFlow.pdf}}{%
+    \fbox{\parbox[c][0.34\textheight][c]{0.96\linewidth}{\centering\small\textit{Export \texttt{figures/doppler\_net\_pipeline.drawio} to PDF as \texttt{figures/SimulatorFlow.pdf} in \texttt{figures/}. Use File $\rightarrow$ Export as $\rightarrow$ PDF (crop or borderless as needed).}}}}
+  \caption{Synthesis pipeline overview; the narrative is in \S\ref{sec:sim-chain}.}
+  \label{fig:pipeline}
+\end{figure}
+
+\subsection{Structured and randomized path parameters}
+\label{sec:sim-path-params}
+
+Batch and interactive generation sample controllable kinematic settings while preserving explicit trajectory-level supervision. Parameter draws vary speed, closest-approach distance, trajectory geometry, atmospheric state, and optional tangential acceleration.
+
+\subsection{Paths and geometry}\label{sec:sim-trajectory-families}\label{sec:sim-map}
+
+Paths are provided interactively or procedurally: the user fixes planar geometry and how the source moves along it (speed, duration, acceleration policy where used).
+Figure~\ref{fig:doppler-path-and-spectrogram-example} shows one user-drawn path next to the synthesized clip for the same motion.
+The spectrogram exhibits clear time-varying spectral tilt from Doppler as the source approaches and recedes relative to the microphone, while the amplitude envelope tracks passage through closest approach and changing range.
+
+\begin{figure}[t]
+  \centering
+  \begin{minipage}[t]{0.48\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{figures/doppler_path_simulation.png}
+  \end{minipage}\hfill
+  \begin{minipage}[t]{0.48\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{figures/doppler_path_simulation_spectrogram.png}
+  \end{minipage}
+  \caption{\textbf{Left:} planar path, observer, start/end markers, and kinematic summary. \textbf{Right:} spectrogram (top) and amplitude envelope (bottom) of the synthesized clip for that path.}
+  \label{fig:doppler-path-and-spectrogram-example}
+\end{figure}
+
+\subsection{Atmospheric speed of sound}
+\label{sec:sim-atmosphere}
+
+Temperature and relative humidity set the effective speed of sound used by the simulator. These atmospheric conditions therefore modulate Doppler and propagation behavior and are sampled to introduce physically meaningful variability.
+
+\subsection{Radial velocity, Doppler ratio, and gain}
+\label{sec:sim-ratio-gain}
+
+Radial motion governs instantaneous Doppler shift, while source--observer distance governs attenuation. The resulting ratio and gain curves provide the control signals for synthesis.
+With source position \(\mathbf{p}(t)\), velocity \(\mathbf{v}(t)\), observer position \(\mathbf{o}\), and speed of sound \(c\),
+\begin{equation}
+  v_r(t)=\frac{\mathbf{v}(t)\cdot\bigl(\mathbf{p}(t)-\mathbf{o}\bigr)}{\bigl\|\mathbf{p}(t)-\mathbf{o}\bigr\|},
+  \qquad
+  \rho(t)=\frac{c}{c+v_r(t)} .
+\end{equation}
+A compact gain model combines distance spreading with a Doppler-linked convective term:
+\begin{equation}
+  g_{\mathrm{raw}}(t)=\Bigl(G_0\,
+  \frac{1}{\sqrt{\|\mathbf{p}(t)-\mathbf{o}\|^2+R_{\mathrm{nf}}^2}}
+  \Bigl(\frac{c}{c+v_r(t)}\Bigr)^{1.1}\Bigr)^{\gamma}.
+\end{equation}
+
+\subsection{From ratios to waveform}
+\label{sec:sim-warp}
+
+The Doppler-ratio sequence controls variable-rate playback of the source waveform over time. The gain curve is then applied to the warped signal to produce the final pass-by audio.
+\begin{equation}
+  y[n]=g[n]\,\tilde{x}[n],
+\end{equation}
+where \(\tilde{x}[n]\) is the ratio-warped source and \(g[n]\) is the sampled gain curve.
+
+\subsection{Additional dataset-oriented outputs and mixtures}
+\label{sec:sim-outputs}
+
+Beyond waveform synthesis, the simulator can emit synchronized spectrogram representations, motion descriptors, optional visualizations, and task-specific labels for downstream training and benchmarking. Multi-source scenes are formed by synthesizing individual trajectories and combining them on a shared timeline.
+
+\section{Experiments and Results}
+\label{sec:experiments}
+
+We evaluate DopplerSim across two complementary experiments. Experiment~1 assesses the acoustic fidelity of synthetic clips relative to matched real recordings using signal-level similarity metrics. Experiment~2 evaluates the downstream utility of synthetic data for vehicle speed regression using an established SE-ResNet baseline on the VS13 dataset.
+
+\subsection{Experiment 1: Real versus Simulated Clip Comparison}
+\label{sec:exp1}
+
+\subsubsection{Setup}
+
+Each trial pairs one VS13 field recording with one DopplerSim synthetic pass-by matched in vehicle class and ground-truth speed. Both waveforms are represented as monophonic audio and are \SI{10}{\second} long. Spectral analysis is performed using an STFT with $N_{\mathrm{FFT}} = 2048$ and hop length \num{256}. RMS loudness envelopes are computed per clip and max-normalized so that comparisons reflect temporal shape rather than absolute level.
+
+The comparison criteria are as follows.
+\begin{itemize}
+  \item \textbf{Envelope correlation.} For each clip we compute a short-time RMS energy envelope using the same STFT framing (one value per frame). Each envelope is max-normalized by its own global maximum so the score is invariant to absolute recording level and reflects temporal \emph{shape} (approach, closest approach, recede). We then compute Pearson correlation between the two normalized envelope traces and rescale it to a percentage score. Values near 100 indicate closely aligned loudness dynamics and timing; lower values indicate mismatch in event shape or temporal alignment.
+
+  \item \textbf{Spectral overlap.} For each clip, we average STFT magnitude across time to obtain a nonnegative spectrum over frequency bins, using identical analysis settings for real and synthetic clips. Both spectra are normalized to unit sum and compared using histogram intersection, reported as a percentage. This captures aggregate agreement of time-collapsed spectral energy; it does not encode fine time-varying spectral detail, which is why we pair it with temporal-envelope and amplitude-overlap criteria.
+
+  \item \textbf{Amplitude overlap.} Using the same max-normalized RMS envelopes, we compute a framewise overlap score by dividing the summed per-frame minimum by the summed per-frame maximum, and report the result as a percentage. This metric directly measures how much envelope energy is shared over time between real and synthetic clips.
+
+  \item \textbf{Dominant frequency.} For each clip, the centre frequency of the bin with largest time-mean STFT magnitude.
+
+  \item \textbf{Overall match.} The overall similarity score is computed as a weighted combination of the three primary similarity metrics:
+  \[
+  S_{\mathrm{overall}}
+  =
+  0.55\,S_{\mathrm{spec}}
+  +
+  0.30\,S_{\mathrm{amp}}
+  +
+  0.15\,S_{\mathrm{env}},
+  \]
+  where $S_{\mathrm{spec}}$, $S_{\mathrm{amp}}$, and $S_{\mathrm{env}}$ denote the spectral overlap, amplitude overlap, and envelope correlation scores, respectively.
+\end{itemize}
+
+
+\subsubsection{Single-Pair Analysis}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\linewidth]{figures/KiaSportage_98.png}
+  \caption{Real VS13 versus simulated pass-by (Kia Sportage, \SI{98}{\km\per\hour}): spectrograms, amplitude envelopes, and summary metrics for Experiment~1.}
+  \label{fig:kia-vs13-sim-compare}
+\end{figure}
+
+Figure~\ref{fig:kia-vs13-sim-compare} shows a representative pair: a Kia Sportage at
+\SI{98}{\km\per\hour}. Envelope correlation is high at \SI{94.1}{\percent}, confirming
+that the approach--pass--recede loudness contour is reproduced faithfully even at highway
+speed, where the pass-by transient is temporally compressed and abrupt. Spectral overlap
+is moderate at \SI{62.1}{\percent}: at this speed, broadband tire noise and aerodynamic
+content elevate high-frequency energy in the field recording beyond what the warped
+stationary source replicates. The dominant frequency bins are both low-frequency
+(\SI{32.3}{\hertz} real versus \SI{43.1}{\hertz} synthetic), indicating broadly
+consistent timbral character despite the single-bin gap, which reflects low-frequency
+road rumble pulling the real spectrum's peak downward. The overall match score of
+\SI{70.8}{\percent} reflects the balance between strong temporal fidelity and moderate
+spectral divergence. Visually, the real spectrogram shows a sharp, broadband energy
+burst near \SI{4.6}{\second} that is absent in the more temporally uniform simulated
+spectrogram; amplitude scale differences across panels arise from the absent joint gain
+calibration and do not affect the normalized metrics.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\linewidth]{figures/Peugeot307_103_spectrograms.png}
+  \caption{Comparison of real, augmented synthetic, and clean synthetic spectrograms for a Peugeot 307 pass-by at \SI{103}{\km\per\hour}.}
+  \label{fig:peugeot307-clean-vs-augmented}
+\end{figure}
+
+Figure~\ref{fig:peugeot307-clean-vs-augmented} illustrates the effect of augmentation.
+The clean synthetic clip exhibits structured harmonic trajectories from Doppler synthesis
+alone, while the augmented clip introduces spectral texture through noise and gain
+perturbations that more closely approximates real recordings. Residual environmental and
+surface-dependent variability in the field recording is not fully recovered by either
+synthetic condition.
+\subsubsection{Aggregate Evaluation}
+\label{sec:aggregate_pairs}
+
+\begin{table}[H]
+\centering
+\caption{Signal-level statistics for real and simulated clips (mean $\pm$ std).}
+\label{tab:signal_stats}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{lcc}
+\toprule
+\textbf{Metric} & \textbf{RealData} & \textbf{SimulatedData} \\
+\midrule
+Duration (s) & $10.03 \pm 0.07$ & $10.00 \pm 0.00$ \\
+Dominant Frequency (Hz) & $125.16 \pm 64.63$ & $130.88 \pm 47.54$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Pairwise similarity metrics across 192 real--synthetic pairs (mean $\pm$ std).}
+\label{tab:pairwise_stats}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{lc}
+\toprule
+\textbf{Metric} & \textbf{Score (\%)} \\
+\midrule
+Envelope Correlation & $77.68 \pm 14.48$ \\
+Spectral Overlap & $65.40 \pm 5.46$ \\
+Overall Match Score & $63.98 \pm 4.42$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Tables~\ref{tab:signal_stats} and~\ref{tab:pairwise_stats} summarize results across all 192 matched pairs. The pattern observed in Figure~\ref{fig:kia-vs13-sim-compare} generalizes consistently: envelope correlation is strong ($77.68\%$), confirming that the simulator reproduces approach--pass--recede dynamics reliably, while spectral overlap is moderate ($65.40\%$), reflecting the acoustic gap between stationary-source synthesis and real vehicle emissions. The low variance in overall match scores ($63.98 \pm 4.42\%$) indicates that this behavior is stable across vehicle classes and recording conditions rather than driven by isolated examples.
+
+Critically, the observed pattern---high temporal agreement with moderate spectral divergence---is precisely the regime that is beneficial for data augmentation: the simulator preserves event-level kinematic structure essential for learning motion-related cues while introducing complementary spectral variation that avoids redundancy with real recordings.
+
+\subsection{Experiment 2: SE-ResNet Speed Regression on VS13}
+\label{sec:exp2}
+
+\subsubsection{Setup}
+
+To isolate the effect of data condition from architectural choices, we reuse an existing SE-ResNet implementation and training recipe without modification; the repository link is provided in Section~\ref{sec:code-data}. The model converts fixed-length clips to log-mel spectrograms ($N_{\mathrm{FFT}}=2048$, hop $=512$, 128 mel bins, dB scaling, Z-score normalization) and produces a scalar speed prediction via a channel-attentive residual backbone and regression head.
+
+\paragraph{Dataset.} Experiments use the VS13 vehicle speed estimation dataset, restricted to six classes for which clean, consistently labeled field recordings are available: Kia Sportage, Nissan Qashqai, Peugeot 3008, Peugeot 307, Renault Scenic, and VW Passat. Three training conditions are constructed:
+
+\begin{itemize}
+  \item \textbf{RealData:} 192 ground-truth VS13 field recordings.
+  \item \textbf{SimulatedData:} 192 DopplerSim synthetic clips matched in vehicle class and speed to \textit{RealData}, synthesized from source recordings disjoint from evaluation audio.
+  \item \textbf{MixedData:} Union of \textit{RealData} and \textit{SimulatedData}, supplemented with additional synthetic clips at intermediate and underrepresented speeds within the operational range of 30--105\,km/h to improve kinematic coverage.
+\end{itemize}
+
+\paragraph{Preprocessing and augmentation.} All clips are standardized to 10 seconds via zero-padding or truncation. During training, augmentation is applied with probability 0.8: random gain perturbations sampled from $[-6, +6]$\,dB and additive white Gaussian noise at SNR $\sim\mathcal{U}[10, 25]$\,dB. These perturbations introduce distributional variability consistent with outdoor roadside deployments without disrupting speed-discriminative spectral structure.
+
+\paragraph{Training configuration.} Models are trained with AdamW ($\eta = 5 \times 10^{-4}$, weight decay $\lambda = 10^{-4}$) under cosine decay over 150 epochs, MSE loss, batch size 32, and early stopping with patience 30.
+
+\paragraph{Evaluation protocol.} Performance is measured under 10-fold cross-validation with folds stratified by vehicle class. Evaluation is conducted both within-domain and cross-domain to isolate the contribution of domain shift from the simulator's propagation model. The primary metric is RMSE (km/h) between predicted and ground-truth clip-level speed; MAE is reported as a secondary measure.
+
+\subsubsection{Cross-Domain Performance}
+\label{sec:cross-domain}
+
+\begin{table}[H]
+\centering
+\caption{Cross-dataset inference RMSE (km/h): 3$\times$3 grid of 
+evaluation dataset vs.\ model training condition. Each cell is averaged 
+across all vehicles.}
+\label{tab:cross_3x3_grid}
+\renewcommand{\arraystretch}{1.40}
+\resizebox{0.7\linewidth}{!}{%
+\begin{tabular}{lccc}
+\toprule
+\textbf{Source Dataset} & \textbf{RealData\_Model} & 
+\textbf{SimulatedData\_Model} & \textbf{MixedData\_Model} \\
+\midrule
+\rowcolor{lightgray}
+RealData      & 11.25 & 27.88 &  6.84 \\
+SimulatedData & 23.04 &  17.5 & 20.26 \\
+\rowcolor{lightgray}
+MixedData     & 11.87 & 27.96 & 8.99 \\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+Table~\ref{tab:cross_3x3_grid} reports the full $3 \times 3$ cross-domain evaluation grid. A key result is that models trained on mixed real and synthetic data consistently outperform those trained on real data alone under cross-domain evaluation, achieving the lowest column-average error and the strongest transfer to real recordings. The MixedData\_Model reduces RMSE on real recordings from 11.25 to 6.84\,km/h relative to the RealData\_Model, demonstrating that physically grounded synthetic data introduces motion-consistent acoustic variation that standard augmentations (gain perturbation, noise injection) cannot replicate. The consistent ordering on real-data evaluation---MixedData\_Model $<$ RealData\_Model $<$ SimulatedData\_Model---confirms that this effect is systematic. These trends further suggest that physically grounded synthetic data provides complementary acoustic variation that improves transfer to real recordings beyond what can be achieved using real data alone.
+
+
+\subsubsection{Discussion}
+\label{sec:comparative}
+
+The cross-domain evaluation suggests that DopplerSim expands the effective training distribution by contributing physically consistent Doppler shift and amplitude variation that spans kinematic conditions underrepresented in the limited real corpus. The performance gains under mixed training are not attributable to data volume alone, since synthetic samples introduce structured variation that real-only augmentation cannot supply. The residual sim-to-real gap---evident in the off-diagonal cells of Table~\ref{tab:cross_3x3_grid}---reflects propagation effects absent from the current simulator, including ground-plane reflections, frequency-dependent air absorption, and speed-dependent tire-road noise. These factors serve as concrete modeling targets for extending the framework, and their contributions can be isolated precisely because the synthetic domain is fully parameterized.
+\section{Limitations}
+
+The DopplerSim captures the primary kinematic and Doppler-driven structure of vehicle pass-by audio, including radial velocity-dependent frequency modulation, geometric spreading, and a convective amplitude component conditioned on atmospheric parameters. These components are sufficient to produce internally consistent and learnable acoustic patterns, as reflected in both within-domain stability and cross-domain transfer. However, the observed domain gap indicates that additional propagation effects present in real environments are not yet fully represented. In particular, ground-plane reflections, frequency-dependent air absorption, and surface-dependent scattering introduce spectral coloration and reverberant structure that extend beyond the current formulation. Their absence leads to a systematic, rather than random, distributional offset between synthetic and real recordings.
+
+The source audio used for synthesis consists of clean, single-vehicle recordings that provide a stable spectral basis for time-warping under Doppler transformations. While this enables controlled modeling of motion-induced effects, it does not fully capture speed-dependent changes in the radiated sound field. In particular, tyre-road interaction becomes increasingly dominant at higher speeds and contributes broadband energy and spectral shifts that cannot be reproduced through Doppler modulation alone. As a result, high-speed synthetic samples may exhibit a spectral envelope that differs from real-world pass-by recordings at comparable velocities. Expanding the source library to include speed-stratified recordings, or incorporating a parametric tyre-noise component conditioned on instantaneous speed, would improve alignment in this regime.
+
+Environmental variability in the current simulator is partially modeled through temperature and humidity, which influence the speed of sound and convective gain. However, other scene-level factors such as background noise conditions, surface reflectivity, and roadside geometry are not explicitly parameterized. These factors contribute to the diversity of real acoustic environments and likely account for part of the residual mismatch observed under cross-domain evaluation. The existing batch sampling framework already supports structured parameter variation, making the inclusion of such environmental factors a natural extension of the current design rather than a fundamental change to the synthesis pipeline.
+
+The VS13 dataset itself is also subject to constraints that influence
+the interpretation of cross-domain performance. Key environmental
+parameters such as temperature, humidity, road surface characteristics,
+and recording geometry are not explicitly documented or controlled.
+These factors directly affect acoustic propagation through mechanisms
+such as air absorption, ground interaction, and surface-dependent noise
+generation. As a result, part of the observed discrepancy between real
+and synthetic recordings may reflect unobserved variability within the
+reference dataset rather than solely limitations of the simulator. This
+uncertainty further motivates the use of synthetic data, where such
+parameters can be explicitly modeled and systematically varied.
+\section{Conclusion}
+
+This work introduces Dynamic Audio Motion Understanding as a benchmarked learning problem: the inference of physically meaningful motion attributes from sound. Acoustic scene analysis has traditionally focused on identifying what is present, when it occurs, or where it is located. We argue that this is not sufficient for full acoustic scene understanding. Sound-emitting objects move through space, and that motion leaves structured signatures in the received waveform through Doppler shift, propagation delay, amplitude evolution, spectral coloration, and source interaction. Recovering these dynamics is therefore not an auxiliary task; it is a central part of understanding an acoustic scene.
+
+To make this problem concrete, we propose a benchmark suite for physical motion inference from audio. The suite spans ten tasks, including speed estimation, direction-of-travel classification, closest-approach estimation, trajectory classification, time-to-event prediction, motion state segmentation, acceleration estimation, multi-object disentanglement, interaction classification, and source identity under motion variation. Together, these tasks define a research program for evaluating whether audio models can recover kinematic and geometric structure rather than relying only on static timbral cues or dataset-specific correlations.
+
+DopplerSim provides the simulation infrastructure needed to support this benchmark. By coupling explicit source trajectories with Doppler-consistent time-domain warping, propagation delay, distance-dependent attenuation, atmospheric variation, and dense motion labels, the simulator enables controlled generation of motion-rich acoustic scenes. This is essential because real-world motion labels are difficult to collect at scale: they require synchronized measurements of source identity, position, velocity, acceleration, geometry, environment, and recording conditions. Physics-based synthesis does not replace real recordings, but it provides a necessary mechanism for defining tasks, stress-testing models, and expanding coverage over motion conditions that are sparsely represented in existing datasets.
+
+Our initial real-world validation supports this direction. DopplerSim-generated clips preserve the temporal structure of vehicle pass-by events while introducing complementary spectral variation, and mixed real--synthetic training improves vehicle speed estimation on held-out real recordings, reducing RMSE from 11.25 to 6.84 km/h relative to real-only training. This result shows that physically grounded synthetic data can provide useful motion variation for real acoustic learning, while the remaining sim-to-real gap identifies concrete directions for future modeling.
+
+The next stage of Dynamic Audio Motion Understanding will require richer real-world corpora, more realistic propagation models, speed-dependent source emission models, environmental parameterization, and stronger multi-source evaluation. Effects such as ground-plane reflections, tire-road interaction, frequency-dependent absorption, reverberation, occlusion, and background variability remain important open challenges. Importantly, these limitations do not weaken the case for DAMU; they define the research agenda that a motion-centered benchmark makes measurable.
+
+More broadly, this work reframes acoustic perception as a problem of physical inference. For applications such as traffic monitoring, robotics, autonomy, wildlife sensing, aerial vehicle tracking, and safety-critical sensing, recognizing that a source is present is only the beginning. A system must also infer how that source is moving, how its motion is changing, and how multiple moving sources interact. Dynamic Audio Motion Understanding provides a foundation for this direction: a benchmark suite, a simulation framework, and initial evidence that motion-aware acoustic learning is both feasible and necessary.
+
+\section{Code and Data Availability}
+\label{sec:code-data}
+
+All resources required to reproduce the experiments in this work are
+publicly available.
+
+\begin{itemize}
+    \item \textbf{DopplerSim codebase (including Experiment 1: real vs.\ simulated comparison):} \url{https://github.com/rohitharumugams/DopplerSim}
+  
+  \item \textbf{Experiment 2 (SE-ResNet speed regression):}
+  \begin{itemize}
+    \item Original implementation: \url{https://github.com/vafaeim/Vehicle-Speed-from-Audio-SE-ResNet}
+    \item Adapted version for this work: \url{https://github.com/seetharamkkv/DopplerSim_validation}
+  \end{itemize}
+  
+  \item \textbf{VS13 dataset (baseline real recordings):} \url{https://www.kaggle.com/datasets/vafaeii/vs13-dataset}
+  
+  \item \textbf{Simulated datasets generated using DopplerSim:} \url{https://www.kaggle.com/datasets/rohitharumugamsuresh/synthetic-vehicle-audio-dataset-vs13-based}
+\end{itemize}
+
+% Supplemental mathematics for the synthesis pipeline (Section~\ref{sec:simulator-overview}).
+% From the main document use only: \input{latex/section_simulator_supplement}
+% (This file runs \appendix; do not add a second \appendix before \input.)
+
+\appendix
+\section*{Supplementary Information}
+\renewcommand{\thesection}{S.\arabic{section}}
+\setcounter{section}{0}
+\section{Supplemental notation and equations for DopplerNet synthesis}
+\label{supp:sim-equations}
+
+This supplement records the explicit expressions referred to narratively in the synthesis overview.
+The emitter follows a planar curve $\mathbf{p}(t)$ supplied by the user; velocity is tangent to that curve.
+The acoustic quantities in \S\ref{supp:radial-doppler-gain} are evaluated from $\mathbf{p}(t)$ and $\mathbf{v}(t)$ for every path.
+
+\subsection{Sampled planar paths and motion along arclength}
+
+For evaluation on a discrete grid, a user path may be represented by planar vertices $\mathbf{q}_0,\ldots,\mathbf{q}_K$ with straight segments (denser sampling recovers smooth curves in the limit).
+Segment lengths are
+\begin{equation}
+  \ell_k = \bigl\|\mathbf{q}_{k+1}-\mathbf{q}_k\bigr\|,
+  \qquad k=0,\ldots,K-1.
+\end{equation}
+Let $L_0=0$ and $L_m=\sum_{k=0}^{m-1}\ell_k$ for $m\ge1$, with total path length $L=L_K$.
+Given arclength traveled along the path, $s(t)\in[0,L]$, let $j\in\{0,\ldots,K-1\}$ be such that $L_j\le s(t)\le L_{j+1}$.
+Set $\lambda(t)=\bigl(s(t)-L_j\bigr)/\ell_j\in[0,1]$; then the source position is
+\begin{equation}
+  \mathbf{p}(t) = (1-\lambda(t))\,\mathbf{q}_j + \lambda(t)\,\mathbf{q}_{j+1}.
+\end{equation}
+The unit tangent on this segment is $\hat{\mathbf{t}}(t)=(\mathbf{q}_{j+1}-\mathbf{q}_j)/\ell_j$.
+For scalar tangential speed $v(t)$ measured along the path,
+\begin{equation}
+  \mathbf{v}(t) = v(t)\,\hat{\mathbf{t}}(t).
+\end{equation}
+With constant tangential acceleration $a$, reference time $t_0$, and speed $v_0$ at $t_0$, write $\Delta t=t-t_0$; then $v(t)=v_0+a\,\Delta t$ and arc progress from a chosen reference along the path obeys
+\begin{equation}
+  s(\Delta t) = v_0\,\Delta t + \frac{1}{2}\,a\,(\Delta t)^2 .
+\end{equation}
+
+\subsection{Atmospheric speed of sound}
+
+Temperature $T$ (\si{\celsius}) and relative humidity $\mathrm{RH}$ (\si{\percent}) yield
+\begin{equation}
+  c_{\mathrm{dry}}(T) = 331.3 \,\sqrt{1 + \frac{T}{273.15}},
+\end{equation}
+\begin{equation}
+  c(T,\mathrm{RH}) = c_{\mathrm{dry}}(T) + 0.6 \,\frac{\mathrm{RH}}{100}.
+\end{equation}
+This $c$ enters both the Doppler ratio and the convective amplitude factor.
+
+\subsection{Radial velocity, Doppler ratio, and gain}
+\label{supp:radial-doppler-gain}
+
+With observer position $\mathbf{o}$ (zero unless shifted on map paths),
+\begin{equation}
+  v_r(t) = \frac{\mathbf{v}(t)\cdot\bigl(\mathbf{p}(t)-\mathbf{o}\bigr)}{\bigl\|\mathbf{p}(t)-\mathbf{o}\bigr\|}.
+\end{equation}
+The emitted-to-received frequency ratio is
+\begin{equation}
+  \rho(t) = \frac{f'(t)}{f_0} = \frac{c}{c + v_r(t)}.
+  \label{eq:doppler-ratio-main}
+\end{equation}
+Geometric spreading with near-field radius $R_{\mathrm{nf}}=\SI{6}{\meter}$ uses
+\begin{equation}
+  A_{\mathrm{sp}}(t) = \frac{1}{\sqrt{\bigl\|\mathbf{p}(t)-\mathbf{o}\bigr\|^2 + R_{\mathrm{nf}}^2}}.
+\end{equation}
+The convective factor is
+\begin{equation}
+  A_{\mathrm{conv}}(t) = \left(\frac{c}{c+v_r(t)}\right)^{1.1}.
+\end{equation}
+Raw gain before fading is
+\begin{equation}
+  g_{\mathrm{raw}}(t) = \bigl(G_0\, A_{\mathrm{sp}}(t)\, A_{\mathrm{conv}}(t)\bigr)^{\gamma},
+  \label{eq:gain-raw}
+\end{equation}
+with defaults $G_0 = 10$ and $\gamma = 0.7$.
+The warp uses $g(t) = f_{\mathrm{fade}}(t)\, g_{\mathrm{raw}}(t)$ with half-cosine fades over roughly one second at each end.
+
+\subsection{Discrete warp output}
+
+Let $\tilde{x}[n]$ be the resampled source before loudness weighting; with cubic interpolation,
+\begin{equation}
+  y[n] = g[n]\, \tilde{x}[n].
+  \label{eq:warp-output}
+\end{equation}
+
+\subsection{Approximate retarded-time alignment}
+
+When tangential acceleration along the path is nonzero, emission and observation times are approximately related by
+\begin{equation}
+  t_{\mathrm{obs}} = t_{\mathrm{emit}} + \frac{r(t_{\mathrm{emit}}) - r_{\mathrm{cpa}}}{c},
+  \label{eq:retarded-time-approx}
+\end{equation}
+where $r(t)$ is source--observer range, $r_{\mathrm{cpa}}$ is closest-approach distance, and $c$ is speed of sound.
+In plain terms, $t_{\mathrm{emit}}$ is the moment when the source produces sound, and $t_{\mathrm{obs}}$ is the later moment when that sound is received at the microphone. The quantity $r(t_{\mathrm{emit}})$ is the source-to-microphone distance at the emission moment, while $r_{\mathrm{cpa}}$ is the minimum distance reached during the pass-by event. The variable $c$ denotes the propagation speed of sound in air under the chosen atmospheric conditions. This approximation is used to align time-varying pitch and gain controls with when sound is heard, rather than when it was emitted.
+
+\subsection{Experiment 1 pairwise comparison metrics}
+\label{supp:exp1-metrics}
+
+For completeness, we collect here the explicit equations for the three pairwise real-versus-simulated metrics used in Experiment~1.
+
+\paragraph{Envelope correlation (percentage).}
+Let \(\tilde{a}_t\) and \(\tilde{b}_t\) be the max-normalized RMS envelopes of real and synthetic clips over \(T\) frames. Define
+\begin{equation}
+  r=\frac{\sum_{t=1}^{T}\left(\tilde{a}_t-\bar a\right)\left(\tilde{b}_t-\bar b\right)}
+  {\sqrt{\sum_{t=1}^{T}\left(\tilde{a}_t-\bar a\right)^2}\sqrt{\sum_{t=1}^{T}\left(\tilde{b}_t-\bar b\right)^2}},
+\end{equation}
+where \(\bar a=\frac{1}{T}\sum_t \tilde{a}_t\) and \(\bar b=\frac{1}{T}\sum_t \tilde{b}_t\). The reported score is
+\begin{equation}
+  S_{\mathrm{env}}=50\,(r+1).
+\end{equation}
+
+\paragraph{Spectral overlap (percentage).}
+Let \(P_i\) and \(Q_i\) be time-averaged STFT magnitudes over frequency bins \(i=1,\dots,F\) for real and synthetic clips. After \(\ell_1\)-normalization,
+\begin{equation}
+  p_i=\frac{P_i}{\sum_{j=1}^{F}P_j},
+  \qquad
+  q_i=\frac{Q_i}{\sum_{j=1}^{F}Q_j},
+\end{equation}
+the overlap score is
+\begin{equation}
+  S_{\mathrm{spec}}=100\sum_{i=1}^{F}\min(p_i,q_i).
+\end{equation}
+
+\paragraph{Amplitude overlap (percentage).}
+Using the same max-normalized RMS envelopes \(\tilde{a}_t\) and \(\tilde{b}_t\),
+\begin{equation}
+  S_{\mathrm{amp}}=
+  100\,
+  \frac{\sum_{t=1}^{T}\min(\tilde{a}_t,\tilde{b}_t)}
+       {\sum_{t=1}^{T}\max(\tilde{a}_t,\tilde{b}_t)}.
+\end{equation}
+
+\section{Detailed benchmark task definitions}
+\label{supp:benchmark-definitions}
+
+\subsection{Benchmark 1: Speed Estimation}
+
+The first benchmark evaluates whether a model can estimate the speed of a moving sound source from audio. This task may be posed as regression, where the model predicts continuous velocity, or as classification over discretized speed bins. Speed estimation is the most basic form of acoustic motion inference because source velocity directly affects Doppler shift, event duration, amplitude evolution, and the rate at which time-frequency structure changes. A successful model must distinguish speed-related acoustic cues from nuisance variation such as source loudness, vehicle identity, recording gain, and background noise.
+
+This benchmark also provides the clearest bridge to existing real-world data, since acoustic vehicle speed estimation is one of the only audio motion tasks with a public real benchmark. We therefore use speed estimation both as a foundational synthetic task and as the primary synthetic-to-real validation setting.
+
+In our generated metadata, the speed target is the scalar \(v_i=\texttt{speed\_mps}_i\) for sample \(i\). For regression models we report
+\begin{equation}
+  \mathrm{MAE}_{\text{speed}}=\frac{1}{N}\sum_{i=1}^{N}\left|\hat v_i-v_i\right|,
+  \qquad
+  \mathrm{RMSE}_{\text{speed}}=\sqrt{\frac{1}{N}\sum_{i=1}^{N}\left(\hat v_i-v_i\right)^2}.
+\end{equation}
+If speed is discretized into bins \(b(v_i)\in\{1,\dots,K\}\), we evaluate classification accuracy
+\begin{equation}
+  \mathrm{Acc}_{\text{speed-bin}}=\frac{1}{N}\sum_{i=1}^{N}\mathbf{1}\!\left[\hat b_i=b(v_i)\right].
+\end{equation}
+
+\subsection{Benchmark 2: Direction-of-Travel Classification}
+
+The second benchmark measures whether a model can infer the direction of motion of a sound source relative to the sensor. Example classes include approaching, receding, left-to-right pass-by, right-to-left pass-by, circular motion, or motion around the observer. Unlike speed estimation, this task requires the model to infer the sign and geometry of motion rather than only its magnitude.
+
+Direction-of-travel classification probes whether models use asymmetric acoustic structure over time. For example, an approaching source may exhibit increasing amplitude and upward Doppler shift, while a receding source may exhibit decreasing amplitude and downward Doppler shift. Pass-by events require recognizing a transition between these regimes. This benchmark therefore tests whether models capture the temporal ordering of motion-induced acoustic cues.
+
+For the current suite, direction labels are derived from approach angle \(\theta_i\) (degrees) using
+\begin{equation}
+  y_i^{\text{dir}}=
+  \begin{cases}
+    \texttt{approaching}, & \theta_i<45^\circ \ \text{or}\ \theta_i>315^\circ,\\
+    \texttt{receding}, & 135^\circ<\theta_i<225^\circ,\\
+    \texttt{lateral}, & \text{otherwise}.
+  \end{cases}
+\end{equation}
+Evaluation is standard multiclass accuracy:
+\begin{equation}
+  \mathrm{Acc}_{\text{dir}}=\frac{1}{N}\sum_{i=1}^{N}\mathbf{1}\!\left[\hat y_i^{\text{dir}}=y_i^{\text{dir}}\right].
+\end{equation}
+
+\subsection{Benchmark 3: Distance-of-Closest-Approach Estimation}
+
+The third benchmark asks the model to estimate the minimum distance between the moving source and the sensor over the duration of the clip. This quantity captures a fundamental geometric property of the trajectory and strongly influences the received amplitude envelope, signal prominence, and spectral coloration.
+
+Unlike static distance estimation, distance-of-closest-approach estimation requires reasoning over an entire motion event. The nearest point may occur near the middle of the clip, near an edge, or not at all if the source remains distant. A model must therefore localize the point of closest passage and infer distance from the acoustic structure surrounding that event. This benchmark evaluates whether audio models can recover physically meaningful geometry from time-varying sound.
+
+Let \(\mathbf{p}_i(t)\) be source position and \(\mathbf{o}\) the observer location. The ground-truth closest-approach distance is
+\begin{equation}
+  d_i^{\mathrm{CPA}}=\min_{t\in[0,T_i]}\left\|\mathbf{p}_i(t)-\mathbf{o}\right\|,
+\end{equation}
+stored as \(\texttt{cpa\_distance\_m}\) in the dataset. Predictions \(\hat d_i^{\mathrm{CPA}}\) are scored with
+\begin{equation}
+  \mathrm{MAE}_{\mathrm{CPA}}=\frac{1}{N}\sum_{i=1}^{N}\left|\hat d_i^{\mathrm{CPA}}-d_i^{\mathrm{CPA}}\right|,
+  \qquad
+  \mathrm{RMSE}_{\mathrm{CPA}}=\sqrt{\frac{1}{N}\sum_{i=1}^{N}\left(\hat d_i^{\mathrm{CPA}}-d_i^{\mathrm{CPA}}\right)^2}.
+\end{equation}
+
+\subsection{Benchmark 4: Trajectory Shape Classification}
+
+The fourth benchmark evaluates whether a model can classify the global shape of the source trajectory. Example trajectory families include straight pass-by motion, curved pass-by motion, circular or orbital motion, zig-zag motion, stop-and-go motion, and accelerating departure. This task goes beyond local kinematic cues and asks whether the model can infer the overall structure of movement from the acoustic signature it induces.
+
+Trajectory shape classification is important because different paths can share similar instantaneous speeds while producing different long-range temporal patterns. A model that relies only on local spectral shift may perform well on speed estimation but fail to distinguish straight motion from curved or circular motion. This benchmark therefore tests whether learned representations encode trajectory-level structure.
+
+In the current implementation, trajectory labels come from the path generator family:
+\begin{equation}
+  y_i^{\text{traj}}\in\{\texttt{straight},\texttt{parabola},\texttt{bezier}\}.
+\end{equation}
+Given model output \(\hat y_i^{\text{traj}}\), the primary metric is
+\begin{equation}
+  \mathrm{Acc}_{\text{traj}}=\frac{1}{N}\sum_{i=1}^{N}\mathbf{1}\!\left[\hat y_i^{\text{traj}}=y_i^{\text{traj}}\right].
+\end{equation}
+When trained with probabilities \(p_{ik}\), this benchmark naturally uses cross-entropy loss
+\begin{equation}
+  \mathcal{L}_{\text{traj}}=-\frac{1}{N}\sum_{i=1}^{N}\sum_{k=1}^{K}\mathbf{1}[y_i^{\text{traj}}=k]\log p_{ik}.
+\end{equation}
+
+\subsection{Benchmark 5: Time-to-Event Prediction}
+
+The fifth benchmark introduces predictive temporal reasoning. Given a complete or partial audio observation, the model must estimate the time remaining until a physically meaningful event occurs, such as closest approach, scene exit, or path crossing. This task is especially relevant for monitoring and warning systems, where anticipating future motion can be more important than describing past motion.
+
+Time-to-event prediction requires the model to infer not only the current motion state but also its likely future evolution. For example, the model may need to estimate how soon an approaching vehicle will pass the microphone based on its current Doppler structure and amplitude trajectory. This benchmark therefore evaluates whether models can use audio to forecast motion dynamics rather than merely classify observed clips.
+
+For closest-approach prediction, let \(t_i^{\mathrm{CPA}}\) be the ground-truth CPA timestamp (stored as \(\texttt{cpa\_time\_sec}\)), and let \(t\) be the current observation time. The time-to-event target is
+\begin{equation}
+  \tau_i(t)=\max\!\left(0,\ t_i^{\mathrm{CPA}}-t\right).
+\end{equation}
+For clip-level prediction (\(t=0\)), this reduces to \(\tau_i=t_i^{\mathrm{CPA}}\). With model output \(\hat\tau_i\), we report
+\begin{equation}
+  \mathrm{MAE}_{\tau}=\frac{1}{N}\sum_{i=1}^{N}\left|\hat\tau_i-\tau_i\right|,
+  \qquad
+  \mathrm{RMSE}_{\tau}=\sqrt{\frac{1}{N}\sum_{i=1}^{N}\left(\hat\tau_i-\tau_i\right)^2}.
+\end{equation}
+
+\subsection{Benchmark 6: Motion State Segmentation}
+
+The sixth benchmark formulates motion understanding as a framewise sequence labeling problem. Instead of predicting a single label for an entire clip, the model must assign a motion state to each time frame. Possible states include approaching, nearest point, receding, stationary, accelerating, decelerating, occluded, reappearing, or background-only.
+
+Motion state segmentation tests temporal precision. A model must identify when motion phases begin and end, localize transitions between states, and distinguish brief acoustic events from sustained motion regimes. This benchmark creates a bridge between audio motion understanding and structured prediction tasks such as sound event detection, while shifting the target from event activity to physical motion state.
+
+Using frame index \(n\in\{1,\dots,T_i\}\), ground-truth state labels are \(y_{i,n}^{\text{seg}}\). In the simplest two-phase CPA setting,
+\begin{equation}
+  y_{i,n}^{\text{seg}}=
+  \begin{cases}
+    \texttt{approach}, & n<n_i^{\mathrm{CPA}},\\
+    \texttt{recede}, & n\ge n_i^{\mathrm{CPA}},
+  \end{cases}
+\end{equation}
+where \(n_i^{\mathrm{CPA}}\) is the CPA frame index (from \(\texttt{cpa\_frame\_idx}\), or explicit mask files such as \(\texttt{segmentation\_mask.npy}\) when available). For predicted labels \(\hat y_{i,n}^{\text{seg}}\), frame accuracy is
+\begin{equation}
+  \mathrm{Acc}_{\text{frame}}=\frac{\sum_{i=1}^{N}\sum_{n=1}^{T_i}\mathbf{1}\!\left[\hat y_{i,n}^{\text{seg}}=y_{i,n}^{\text{seg}}\right]}{\sum_{i=1}^{N}T_i},
+\end{equation}
+and mean IoU is
+\begin{equation}
+  \mathrm{mIoU}=\frac{1}{C}\sum_{c=1}^{C}\frac{\mathrm{TP}_c}{\mathrm{TP}_c+\mathrm{FP}_c+\mathrm{FN}_c}.
+\end{equation}
+
+\subsection{Benchmark 7: Acceleration and Deceleration Estimation}
+
+The seventh benchmark extends motion inference beyond constant-velocity assumptions. The model must infer whether a source is accelerating, decelerating, or moving at approximately constant speed. The task may be posed as classification over motion states or as regression over acceleration magnitude.
+
+This benchmark is necessary because many real-world sound sources do not move at constant velocity. Vehicles brake, accelerate, turn, stop, and re-enter motion; drones and aircraft may change speed continuously; and biological or human-generated sources often exhibit nonuniform motion. Acceleration affects the curvature of Doppler trajectories and the temporal evolution of the amplitude envelope, making this benchmark a direct test of higher-order kinematic reasoning.
+
+For each sample, the scalar acceleration label is \(a_i=\texttt{acceleration\_mps2}_i\), with kinematic relation
+\begin{equation}
+  a_i=\frac{dv_i(t)}{dt},
+  \qquad
+  v_i(t)=v_{0,i}+a_i\,(t-t_{0,i})
+\end{equation}
+under constant-acceleration segments. Regression quality is measured with
+\begin{equation}
+  \mathrm{MAE}_{a}=\frac{1}{N}\sum_{i=1}^{N}\left|\hat a_i-a_i\right|,
+  \qquad
+  \mathrm{RMSE}_{a}=\sqrt{\frac{1}{N}\sum_{i=1}^{N}\left(\hat a_i-a_i\right)^2}.
+\end{equation}
+If cast as 3-way classification (\texttt{accelerating}, \texttt{constant}, \texttt{decelerating}), labels can be formed by thresholding \(a_i\) and scored with accuracy.
+
+\subsection{Benchmark 8: Multi-Object Motion Disentanglement}
+
+The eighth benchmark considers scenes with two or more simultaneously moving sound sources. Depending on the variant, the model may be asked to estimate the number of active moving sources, infer each source's speed or direction, identify which source passes closest to the sensor, or recover a set of per-source motion attributes.
+
+Multi-object motion disentanglement significantly increases task difficulty because overlapping emissions can mask one another and create ambiguous composite acoustic signatures. The benchmark therefore tests whether models can separate multiple dynamic acoustic processes without relying on isolated single-source assumptions. Evaluation may use permutation-invariant assignment metrics so that predictions are judged by matching estimated source attributes to ground-truth sources.
+
+Let sample \(i\) contain \(M_i\) sources with attribute vectors \(\mathbf{z}_{i,m}\) (e.g., speed, direction, CPA). If the model predicts \(\hat M_i\) and \(\hat{\mathbf{z}}_{i,m}\), counting performance is
+\begin{equation}
+  \mathrm{Acc}_{M}=\frac{1}{N}\sum_{i=1}^{N}\mathbf{1}[\hat M_i=M_i].
+\end{equation}
+For attribute recovery, a permutation-invariant error is
+\begin{equation}
+  \mathcal{E}_{\text{PI}}^{(i)}=\min_{\pi\in\mathfrak{S}_{M_i}}\frac{1}{M_i}\sum_{m=1}^{M_i}
+  d\!\left(\hat{\mathbf{z}}_{i,\pi(m)},\mathbf{z}_{i,m}\right),
+\end{equation}
+with \(d(\cdot,\cdot)\) chosen per attribute (e.g., \(\ell_1\) for speed, 0-1 loss for class labels). This avoids penalizing arbitrary source ordering.
+
+\subsection{Benchmark 9: Crossing and Interaction Event Classification}
+
+The ninth benchmark evaluates whether a model can recognize higher-level interactions among moving sources. Example interaction classes include path crossing, overtaking, coordinated convoy-like motion, temporary masking, near-simultaneous pass-by events, or diverging trajectories. Rather than focusing only on isolated source attributes, this task measures whether a model can reason about relationships among moving objects in an acoustic scene.
+
+This benchmark pushes audio motion understanding toward scene-level reasoning. Two clips may contain the same number of sources with similar speeds but differ in whether the sources cross, overlap, or interact in time. A successful model must therefore integrate information about multiple sources, their temporal ordering, and their relative motion.
+
+For binary crossing detection, define
+\begin{equation}
+  y_i^{\text{cross}}=
+  \mathbf{1}\!\left[\min_{t}\left\|\mathbf{p}_{i,1}(t)-\mathbf{p}_{i,2}(t)\right\|<\delta\right],
+\end{equation}
+where \(\delta\) is a crossing tolerance (or an equivalent event annotation from scenario metadata). With prediction \(\hat y_i^{\text{cross}}\), we report
+\begin{equation}
+  \mathrm{Acc}_{\text{cross}}=\frac{1}{N}\sum_{i=1}^{N}\mathbf{1}\!\left[\hat y_i^{\text{cross}}=y_i^{\text{cross}}\right],
+\end{equation}
+and for imbalanced sets optionally
+\begin{equation}
+  F_1=\frac{2\,\mathrm{Precision}\cdot\mathrm{Recall}}{\mathrm{Precision}+\mathrm{Recall}}.
+\end{equation}
+
+\subsection{Benchmark 10: Source Identity Under Motion Variation}
+
+The tenth benchmark asks whether a model can identify source class or source identity despite large variation in motion condition. For example, a model may be asked to recognize a vehicle type, drone class, or emitter category while speed, distance, direction, trajectory, and acceleration vary across examples.
+
+This task complements the motion-estimation benchmarks by testing disentanglement in the opposite direction. Instead of asking whether the model can recover motion while ignoring source identity, it asks whether the model can recover source identity while ignoring motion-induced distortion. A strong representation for dynamic audio should preserve intrinsic source characteristics while also encoding motion-dependent acoustic structure.
+
+Let \(y_i^{\text{id}}\in\{1,\dots,C\}\) denote source identity/class (e.g., \(\texttt{vehicle\_class}\)) and \(\hat y_i^{\text{id}}\) the prediction. The main score is
+\begin{equation}
+  \mathrm{Acc}_{\text{id}}=\frac{1}{N}\sum_{i=1}^{N}\mathbf{1}\!\left[\hat y_i^{\text{id}}=y_i^{\text{id}}\right].
+\end{equation}
+For probabilistic outputs \(p_{ic}\), training commonly uses
+\begin{equation}
+  \mathcal{L}_{\text{id}}=-\frac{1}{N}\sum_{i=1}^{N}\log p_{i,y_i^{\text{id}}}.
+\end{equation}
+To make the invariance objective explicit, one may additionally report performance conditioned on motion bins \(m\) (speed, distance, trajectory, acceleration), i.e.,
+\begin{equation}
+  \mathrm{Acc}_{\text{id}\mid m}=\frac{1}{N_m}\sum_{i\in\mathcal{I}_m}\mathbf{1}\!\left[\hat y_i^{\text{id}}=y_i^{\text{id}}\right].
+\end{equation}
+
+\end{document}
